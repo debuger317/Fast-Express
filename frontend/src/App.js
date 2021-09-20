@@ -8,6 +8,7 @@ const App = () => {
   return (
     <div className="App">
       <Navbar/>
+      <OurMission/>
       <Support/>
       <Review/>
     </div>
