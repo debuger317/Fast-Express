@@ -43,7 +43,7 @@ const Footer = () => {
                                         <a className="text-white hover:text-red-300" href=" #">Second Link</a>
                                     </li>
                                     <li>
-                                        <a className="text-white hover:text-red-300" href=" #">Third Link</a>
+                                        <a className="text-white hover:text-red-300" href=" #">Third link</a>
                                     </li>
                                     <li>
                                         <a className="text-white hover:text-red-300" href=" #">Fourth Link</a>
