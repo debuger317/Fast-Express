@@ -37,10 +37,10 @@ const Footer = () => {
                                 <h2 className="title-font font-bold text-white tracking-widest text-md mb-3">CATEGORIES</h2>
                                 <nav className="list-none mb-10">
                                     <li>
-                                        <a className="text-white hover:text-red-300" href=" #">First Link</a>
+                                        <a className="text-white hover:text-red-300" href=" #">First link</a>
                                     </li>
                                     <li>
-                                        <a className="text-white hover:text-red-300" href=" #">Second Link</a>
+                                        <a className="text-white hover:text-red-300" href=" #">Second link</a>
                                     </li>
                                     <li>
                                         <a className="text-white hover:text-red-300" href=" #">Third link</a>
