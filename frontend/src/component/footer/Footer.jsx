@@ -10,67 +10,64 @@ import { FaInstagramSquare } from "react-icons/fa";
 
 const Footer = () => {
     return (
-        <section>
-            <div className="mb-16">
-                <footer className="text-gray-600 body-font bg-red-50">
-                    <div className="container py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
-                        <div className="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
-                            <a className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900" href=" #">
-                                <svg xmlns="http://www.w3.org/2000/svg" className="w-10 h-10 text-white p-2 bg-red-700 rounded-full" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                                </svg>
-                                <span className="ml-3 text-xl text-dark">FAST EXPRESS</span>
-                            </a>
-                            <div className="flex text-4xl py-9 text-red-500">
-                                <a href="https://facebook.com"><FaFacebookSquare/></a>
-                                <a href="https://linkedin.com"><FaLinkedin/></a>
-                                <a href="https://twitter.com"><FaTwitterSquare/></a>
-                                <a href="https://instagram.com"><FaInstagramSquare/></a>
-                            </div>
-                        </div>
-                        <div className="flex-grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left">
-                            <div className="lg:w-1/3 md:w-1/2 w-full px-4">
-                                <h2 className="title-font font-medium text-dark tracking-normal flex text-md mb-3">EMAIL ADDRESS <RiArrowDownSFill className="text-red-600"/></h2>
-                                <div className="flex">
-                                    <GoMail className="text-red-600" /> <span className="pl-2 text-sm">Email:</span>
-                                </div>
-                                <p className="text-sm text-red-400 hover:text-gray-400 cursor-pointer">courier@fastexpress.com</p>
-                            </div>
-                            <div className="lg:w-1/3 md:w-1/2 w-full px-4">
-                                <h2 className="title-font font-medium text-dark tracking-normal text-md mb-3 flex">MENU <RiArrowDownSFill className="text-red-600"/></h2>
-                                <nav className="list-none mb-10">
-                                    <li>
-                                        <a className="text-gray-400 text-sm hover:text-red-300" href=" #">Home</a>
-                                    </li>
-                                    <li>
-                                        <a className="text-gray-400 text-sm hover:text-red-400" href=" #">Our News and Updates</a>
-                                    </li>
-                                    <li>
-                                        <a className="text-gray-400 text-sm hover:text-red-400" href=" #">Contact</a>
-                                    </li>
-                                    <li>
-                                        <a className="text-gray-400 text-sm hover:text-red-400" href=" #">Sign Up</a>
-                                    </li>
-                                    <li>
-                                        <a className="text-gray-400 text-sm hover:text-red-400" href=" #">Terms And Conditions</a>
-                                    </li>
-                                </nav>
-                            </div>
-                            <div className="lg:w-1/3 md:w-1/2 w-full pl-4 ml-auto">
-                                <h2 className="title-font font-medium text-dark tracking-normal text-md mb-3 flex">ADDRESS <RiArrowDownSFill className="text-red-600"/></h2>
-                                <div className="flex">
-                                    <MdLocationOn className="text-red-600" /> <span className="pl-2 text-sm">Location:</span>
-                                </div>
-                                <p className="text-sm text-gray-400">7 Temasek Boulevard, #12-07 Suntec Tower 1 Singapore 038987</p>
-                            </div>
-                        </div>
+        <footer className="text-gray-600 body-font bg-red-50">
+            <div className="container py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
+                <div className="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
+                    <a className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900" href=" #">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="w-10 h-10 text-white p-2 bg-red-700 rounded-full" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                        </svg>
+                        <span className="ml-3 text-xl text-dark">FAST EXPRESS</span>
+                    </a>
+                    <div className="flex text-4xl py-9 text-red-500">
+                        <a href="https://facebook.com"><FaFacebookSquare /></a>
+                        <a href="https://linkedin.com"><FaLinkedin /></a>
+                        <a href="https://twitter.com"><FaTwitterSquare /></a>
+                        <a href="https://instagram.com"><FaInstagramSquare /></a>
                     </div>
-                </footer>
-                <div className="text-gray-600 body-font bg-red-50 text-center py-2">
-                    <p className="text-gray-400 text-sm hover:text-red-400"> {new Date().getFullYear()} All copyright reserve: Debug Entity</p>
+                </div>
+                <div className="flex-grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left">
+                    <div className="lg:w-1/3 md:w-1/2 w-full px-4">
+                        <h2 className="title-font font-medium text-dark tracking-normal flex text-md mb-3">EMAIL ADDRESS <RiArrowDownSFill className="text-red-600" /></h2>
+                        <div className="flex">
+                            <GoMail className="text-red-600" /> <span className="pl-2 text-sm">Email:</span>
+                        </div>
+                        <p className="text-sm text-red-400 hover:text-gray-400 cursor-pointer">courier@fastexpress.com</p>
+                    </div>
+                    <div className="lg:w-1/3 md:w-1/2 w-full px-4">
+                        <h2 className="title-font font-medium text-dark tracking-normal text-md mb-3 flex">MENU <RiArrowDownSFill className="text-red-600" /></h2>
+                        <nav className="list-none mb-10">
+                            <li>
+                                <a className="text-gray-400 text-sm hover:text-red-300" href=" #">Home</a>
+                            </li>
+                            <li>
+                                <a className="text-gray-400 text-sm hover:text-red-400" href=" #">Our News and Updates</a>
+                            </li>
+                            <li>
+                                <a className="text-gray-400 text-sm hover:text-red-400" href=" #">Contact</a>
+                            </li>
+                            <li>
+                                <a className="text-gray-400 text-sm hover:text-red-400" href=" #">Sign Up</a>
+                            </li>
+                            <li>
+                                <a className="text-gray-400 text-sm hover:text-red-400" href=" #">Terms And Conditions</a>
+                            </li>
+                        </nav>
+                    </div>
+                    <div className="lg:w-1/3 md:w-1/2 w-full pl-4 ml-auto">
+                        <h2 className="title-font font-medium text-dark tracking-normal text-md mb-3 flex">ADDRESS <RiArrowDownSFill className="text-red-600" /></h2>
+                        <div className="flex">
+                            <MdLocationOn className="text-red-600" /> <span className="pl-2 text-sm">Location:</span>
+                        </div>
+                        <p className="text-sm text-gray-400">7 Temasek Boulevard, #12-07 Suntec Tower 1 Singapore 038987</p>
+                    </div>
                 </div>
             </div>
-        </section>
+            <div className="text-gray-600 body-font bg-red-50 text-center py-2">
+                <p className="text-gray-400 text-sm hover:text-red-400"> {new Date().getFullYear()} All copyright reserve: Debug Entity</p>
+            </div>
+        </footer>
+
     )
 }
 
