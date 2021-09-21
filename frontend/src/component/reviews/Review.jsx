@@ -1,13 +1,10 @@
 import React from 'react';
+// import "swiper/swiper.min.css";
+
 // import { Swiper, SwiperSlide } from 'swiper/react';
-
-import "swiper/swiper.min.css";
-import "swiper/components/pagination/pagination.min.css"
-import "swiper/components/navigation/navigation.min.css"
-
 // import SwiperCore, {
-//     Autoplay, Pagination
-// } from 'swiper/core';
+//     Autoplay,Pagination
+//   } from 'swiper/core';
 
 const Review = () => {
     // SwiperCore.use([Pagination, Autoplay]);
