@@ -1,14 +1,14 @@
 import React from 'react';
-
+import {Link} from "react-router-dom";
 const Navbar = () => {
     return (
-                <nav className="bg-white dark:bg-gray-800  shadow ">
+                <nav className="bg-white dark:bg-gray-800 shadow">
                     <div className="max-w-7xl mx-auto px-8">
                         <div className="flex items-center justify-between h-16">
                             <div className="w-full justify-between flex items-center">
-                                <a className="flex-shrink-0" href="/">
-                                    <img className="h-8 w-8" src="/icons/rocket.svg" alt="Workflow" />
-                                </a>
+                                <Link className="flex-shrink-0" to="/">
+                                    <h2 className="text-xl font-bold">Fast Express</h2>
+                                </Link>
                                 <div className="hidden md:block">
                                     <div className="ml-10 flex items-baseline space-x-4">
                                         <a className="text-gray-300  hover:text-gray-800 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium" href="/#">
