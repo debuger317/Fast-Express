@@ -1,5 +1,5 @@
 import React from 'react';
-import { BsBell } from 'react-icons/fa';
+import { BsBell } from 'react-icons/bs';
 const OurMission = () => {
     return (
         <section class="text-gray-600 body-font">
