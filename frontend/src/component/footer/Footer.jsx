@@ -2,8 +2,7 @@ import React from 'react';
 
 const Footer = () => {
     return (
-        <section>
-            <div className="mb-16">
+
                 <footer className="text-gray-600 body-font bg-gray-200">
                     <div className="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
                         <div className="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
@@ -70,8 +69,6 @@ const Footer = () => {
                         </div>
                     </div>
                 </footer>
-            </div>
-        </section>
     )
 }
 
