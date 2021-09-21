@@ -1,12 +1,11 @@
-import React from 'react';
-import Navbar from './component/header/sub-component/nav-bar/Navbar';
+import React, { Fragment } from 'react';
+import Routing from './router/Routing';
 
 const App = () => {
   return (
-    <div className="App">
-      <Navbar/>
-    </div>
+    <Fragment>
+      <Routing />
+    </Fragment>
   )
 }
-
 export default App;
