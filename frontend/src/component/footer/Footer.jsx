@@ -6,8 +6,10 @@ import { FaFacebookSquare } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { FaTwitterSquare } from "react-icons/fa";
 import { FaInstagramSquare } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 import Logo from '../../assets/images/Fast-Express.PNG';
-import { Link } from "react-router-dom";
+
+
 
 const Footer = () => {
     return (
@@ -15,7 +17,7 @@ const Footer = () => {
             <div className="container py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
                 <div className="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
                     <a className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900" href=" #">
-                        <Link className="flex-shrink-0" to="/">
+                    <Link className="flex items-center md:justify-start justify-center" to="/">
                             <img src={Logo} alt="" srcset="" />
                         </Link>
                     </a>
