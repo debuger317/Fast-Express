@@ -6,6 +6,7 @@ import Support from '../component/support/Support';
 import Review from '../component/reviews/Review';
 import FAQ from '../component/faq/FAQ';
 import PromoSell from '../component/promo-sell/PromoSell';
+import FeatureBrand from '../component/feature-brand/FeatureBrand';
 
 const Home = () => {
     return (
@@ -13,9 +14,10 @@ const Home = () => {
             <Header />
             <OurMission />
             <Support />
-            <FAQ/>
-            <PromoSell/>
+            <FAQ />
+            <PromoSell />
             <Review />
+            <FeatureBrand/>
             <Footer/>
         </Fragment>
     )
