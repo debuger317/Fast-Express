@@ -111,6 +111,7 @@ export const NavItem = [
     {
         id: 6,
         name: 'About',
+        rm: 'mr-0',
         path: '/'
     },
 ]

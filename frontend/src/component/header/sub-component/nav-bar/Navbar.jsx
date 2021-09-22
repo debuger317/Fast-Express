@@ -1,25 +1,25 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import { NavItem } from '../../../../utiltes/LocalDatabase';
+import Logo from '../../../../../src/assets/images/Fast-Express.PNG';
 const subitem = (NavItem.map(a => a.subitem));
-
 const classItem = (NavItem.map(a => a.subitem));
 
 const Navbar = () => {
     return (
-        <nav className="bg-white dark:bg-gray-800 shadow">
+        <nav className="bg-white dark:bg-gray-800 shadow py-3">
             <div className="max-w-7xl mx-auto px-4">
                 <div className="flex items-center justify-between h-16">
                     <div className="w-full justify-between flex items-center">
                         <Link className="flex-shrink-0" to="/">
-                            <h2 className="text-xl font-bold">Fast Express</h2>
+                            <img src={Logo} alt="" srcset="" />
                         </Link>
                         <div className="hidden md:block">
                             <div className="ml-10 flex items-center space-x-4">
 
                                 <div className={`display-inline ${classItem.className ? 'group ' : ''}`}>
                                     {NavItem.map(link =>
-                                        <Link className={`text-gray-800 uppercase hover:text-gray-500 dark:hover:text-white pl-3 py-2 text-sm font-medium ${link.className ? 'relative ' : ''}`} to={link.path}>
+                                        <Link className={`${link.rm} text-gray-800 uppercase hover:text-gray-500 dark:hover:text-white mx-5 py-2 text-sm font-medium ${link.className ? 'relative ' : ''}`} to={link.path}>
                                             {link.name}
                                         </Link>
                                     )}
