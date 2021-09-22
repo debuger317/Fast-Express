@@ -32,6 +32,24 @@ export const NavItem = [
     {
         id: 1,
         name: 'Home',
+        className:'relative',
+        subitem:[
+            {
+                id: 1,
+                name: 'Home Delivery',
+                path: '/'
+            },
+            {
+                id: 2,
+                name: 'Home custom order',
+                path: '/'
+            },
+            {
+                id: 3,
+                name: 'Get more',
+                path: '/'
+            }
+        ],
         path: '/'
     },
     {
@@ -42,11 +60,30 @@ export const NavItem = [
     {
         id: 3,
         name: 'Contact',
+        className:'relative',
+        subitem:[
+            {
+                id: 1,
+                name: 'Home Delivery',
+                path: '/'
+            },
+            {
+                id: 2,
+                name: 'Accept custom order',
+                path: '/'
+            },
+            {
+                id: 3,
+                name: 'Get more',
+                path: '/'
+            }
+        ],
         path: '/'
     },
     {
         id: 4,
         name: 'Service',
+        className:'relative',
         subitem:[
             {
                 id: 1,
@@ -74,6 +111,7 @@ export const NavItem = [
     {
         id: 6,
         name: 'About',
+        rm: 'mr-0',
         path: '/'
     },
 ]
