@@ -9,7 +9,7 @@ import SwiperCore, {
 } from 'swiper/core';
 
 const Review = () => {
-    SwiperCore.use([Pagination, Autoplay]);
+    SwiperCore.use([Pagination, Autoplay]);121212
     return (
         <section>
             <div class="mt-5">
