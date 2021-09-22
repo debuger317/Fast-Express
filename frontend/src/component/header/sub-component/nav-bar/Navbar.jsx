@@ -1,6 +1,9 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import { NavItem } from '../../../../utiltes/LocalDatabase';
+const subitem = (NavItem.map(a => a.subitem));
+
+const classItem = (NavItem.map(a => a.subitem));
 
 const Navbar = () => {
     return (
@@ -13,10 +16,21 @@ const Navbar = () => {
                         </Link>
                         <div className="hidden md:block">
                             <div className="ml-10 flex items-center space-x-4">
-                                {NavItem.map(link =>
-                                    <Link className="text-gray-800 uppercase hover:text-gray-500 dark:hover:text-white pl-3 py-2 text-sm font-medium" to={link.path}>
-                                        {link.name}
-                                    </Link>)}
+
+                                <div className={`display-inline ${classItem.className ? 'group ' : ''}`}>
+                                    {NavItem.map(link =>
+                                        <Link className={`text-gray-800 uppercase hover:text-gray-500 dark:hover:text-white pl-3 py-2 text-sm font-medium ${link.className ? 'relative ' : ''}`} to={link.path}>
+                                            {link.name}
+                                        </Link>
+                                    )}
+                                    <ul
+                                        className="bg-white border rounded-sm transform scale-0 group-hover:scale-100 absolute transition duration-150 ease-in-out origin-top min-w-32"
+                                    >
+                                        {subitem[0, 2, 3].map(link => <><Link className="block text-gray-800 uppercase hover:text-gray-500 dark:hover:text-white pl-3 py-2 text-sm font-medium" to={link.path}>
+                                            {link.name}
+                                        </Link></>)}
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>

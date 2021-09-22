@@ -1,47 +1,23 @@
 import React from 'react';
+import { FaqData } from '../../utiltes/LocalDatabase';
+import FCard from './FCard';
 
 const FAQ = () => {
-   var myRadios = document.getElementsByName('tabs2');
-   var setCheck;
-   var x = 0;
-   for (x = 0; x < myRadios.length; x++) {
-      myRadios[x].onclick = function () {
-         if (setCheck != this) {
-            setCheck = this;
-         } else {
-            this.checked = false;
-            setCheck = null;
-         }
-      };
-   }
+
    return (
       <section>
-<div className="w-1/1 md:w-3/5 mx-auto p-8">
-         <p>Open <strong>one</strong></p>
-         <div className="shadow-md">
-            <div className="tab w-full overflow-hidden border-t">
-               <input className="absolute opacity-0" id="tab-single-one" type="radio" name="tabs2"/>
-               <label className="block p-5 leading-normal cursor-pointer" for="tab-single-one">Label One</label>
-               <div className="tab-content overflow-hidden border-l-2 bg-gray-100 border-indigo-500 leading-normal">
-                  <p className="p-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, architecto, explicabo perferendis nostrum, maxime impedit atque odit sunt pariatur illo obcaecati soluta molestias iure facere dolorum adipisci eum? Saepe, itaque.</p>
-               </div>
+         <div className="w-4/5 md:w-4/5 mx-auto p-8">
+            <div>
+               <h2 className="text-3xl">Who We Are</h2>
+               <h6 className="text-xl">Know more about us and our cause
+               </h6>
             </div>
-            <div className="tab w-full overflow-hidden border-t">
-               <input className="absolute opacity-0" id="tab-single-two" type="radio" name="tabs2"/>
-               <label className="block p-5 leading-normal cursor-pointer" for="tab-single-two">Label Two</label>
-               <div className="tab-content overflow-hidden border-l-2 bg-gray-100 border-indigo-500 leading-normal">
-                  <p className="p-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, architecto, explicabo perferendis nostrum, maxime impedit atque odit sunt pariatur illo obcaecati soluta molestias iure facere dolorum adipisci eum? Saepe, itaque.</p>
-               </div>
-            </div>
-            <div className="tab w-full overflow-hidden border-t">
-               <input className="absolute opacity-0" id="tab-single-three" type="radio" name="tabs2"/>
-               <label className="block p-5 leading-normal cursor-pointer" for="tab-single-three">Label Three</label>
-               <div className="tab-content overflow-hidden border-l-2 bg-gray-100 border-indigo-500 leading-normal">
-                  <p className="p-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, architecto, explicabo perferendis nostrum, maxime impedit atque odit sunt pariatur illo obcaecati soluta molestias iure facere dolorum adipisci eum? Saepe, itaque.</p>
-               </div>
+            <div className="my-5">
+               {
+                  FaqData.map(item => <FCard key={item.id} item={item} />)
+               }
             </div>
          </div>
-      </div>
       </section>
    )
 }
