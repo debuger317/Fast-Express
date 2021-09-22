@@ -18,7 +18,7 @@ const Review = () => {
                     Client Review
                 </p>
                 <p class="text-center mb-12 text-xl font-normal text-gray-500 dark:text-gray-200">
-                    Meat the best Client in the World
+                    Meet our best Client in the World
                 </p>
                 <Swiper
                     spaceBetween={30}
@@ -32,7 +32,7 @@ const Review = () => {
                     }} className="mySwiper">
                     <SwiperSlide>
                         <div class="w-full flex flex-col md:flex-row gap-4 mb-8 md:mb-0 flex-between items-center p-8">
-                            <div class="testimonial-card bg-white dark:bg-gray-800 w-72 shadow-lg mx-auto rounded-xl p-4">
+                            <div class="testimonial-card cursor-pointer bg-white dark:bg-gray-800 w-72 shadow-lg mx-auto rounded-xl p-4">
                                 <p class="text-gray-600 dark:text-white">
                                     <span class="font-bold text-indigo-500 text-lg">
                                         “
@@ -57,7 +57,7 @@ const Review = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div class="testimonial-card bg-white dark:bg-gray-800 w-72 shadow-lg mx-auto rounded-xl p-4">
+                            <div class="testimonial-card cursor-pointer bg-white dark:bg-gray-800 w-72 shadow-lg mx-auto rounded-xl p-4">
                                 <p class="text-gray-600 dark:text-white">
                                     <span class="font-bold text-indigo-500 text-lg">
                                         “
@@ -82,7 +82,7 @@ const Review = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div class="testimonial-card bg-white dark:bg-gray-800 w-72 shadow-lg mx-auto rounded-xl p-4">
+                            <div class="testimonial-card cursor-pointer bg-white dark:bg-gray-800 w-72 shadow-lg mx-auto rounded-xl p-4">
                                 <p class="text-gray-600 dark:text-white">
                                     <span class="font-bold text-indigo-500 text-lg">
                                         “
@@ -111,7 +111,7 @@ const Review = () => {
                     </SwiperSlide>
                     <SwiperSlide>
                         <div class="w-full flex flex-col md:flex-row gap-4 mb-8 md:mb-0 flex-between items-center p-8">
-                            <div class="testimonial-card bg-white dark:bg-gray-800 w-72 shadow-lg mx-auto rounded-xl p-4">
+                            <div class="testimonial-card cursor-pointer bg-white dark:bg-gray-800 w-72 shadow-lg mx-auto rounded-xl p-4">
                                 <p class="text-gray-600 dark:text-white">
                                     <span class="font-bold text-indigo-500 text-lg">
                                         “
@@ -136,7 +136,7 @@ const Review = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div class="testimonial-card bg-white dark:bg-gray-800 w-72 shadow-lg mx-auto rounded-xl p-4">
+                            <div class="testimonial-card cursor-pointer bg-white dark:bg-gray-800 w-72 shadow-lg mx-auto rounded-xl p-4">
                                 <p class="text-gray-600 dark:text-white">
                                     <span class="font-bold text-indigo-500 text-lg">
                                         “
@@ -161,7 +161,7 @@ const Review = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div class="testimonial-card bg-white dark:bg-gray-800 w-72 shadow-lg mx-auto rounded-xl p-4">
+                            <div class="testimonial-card cursor-pointer bg-white dark:bg-gray-800 w-72 shadow-lg mx-auto rounded-xl p-4">
                                 <p class="text-gray-600 dark:text-white">
                                     <span class="font-bold text-indigo-500 text-lg">
                                         “
