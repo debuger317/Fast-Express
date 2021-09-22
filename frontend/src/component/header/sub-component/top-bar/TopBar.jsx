@@ -16,10 +16,10 @@ const TopBar = () => {
           {/* </svg> */}
           {/* <span className="ml-3 text-xl">Tailblocks</span> */}
         <nav className="md:ml-auto flex flex-wrap items-center text-base justify-center text-white">
-          <a className="mr-5 hover:text-gray-900"><FiFacebook/></a>
-          <a className="mr-5 hover:text-gray-900"><FiTwitter/></a>
-          <a className="mr-5 hover:text-gray-900"><FiMail/></a>
-          <a className="mr-5 hover:text-gray-900"><IoLogoLinkedin/></a>
+          <a className="mr-5 hover:text-gray-300 transform scale-150"><FiFacebook/></a>
+          <a className="mr-5 hover:text-gray-300"><FiTwitter/></a>
+          <a className="mr-5 hover:text-gray-300"><FiMail/></a>
+          <a className="mr-5 hover:text-gray-300"><IoLogoLinkedin/></a>
         </nav>
         
       </div>
