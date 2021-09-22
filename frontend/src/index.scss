@@ -3,6 +3,8 @@
 @tailwind utilities;
 
 @import "../src/scss/faq";
+@import "../src/scss/review";
+@import "../src/scss/variable";
 
 li > ul {
     transform: translatex(100%) scale(0);
