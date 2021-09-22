@@ -1,0 +1,9 @@
+.testimonial-card{
+    transition-duration: 0.3s;
+}
+.testimonial-card:hover{
+    background-color: rgb(99,102,241);
+}
+.testimonial-card:hover p, span {
+    color: #fff;
+}

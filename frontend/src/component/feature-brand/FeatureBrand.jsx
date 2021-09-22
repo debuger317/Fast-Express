@@ -8,7 +8,7 @@ import SwiperCore, {
 } from 'swiper/core';
 
 // install Swiper modules
-SwiperCore.use([Pagination, Navigation,Autoplay]);
+SwiperCore.use([Pagination, Navigation, Autoplay]);
 
 const FeatureBrand = () => {
   return (
@@ -16,9 +16,15 @@ const FeatureBrand = () => {
     <section>
       <div className="container mx-auto items-center justify-center py-12">
         <p className="text-center text-4xl pb-12 text-gray-600 dark:text-white font-medium ">FEATURE AND MENTIONED ON</p>
-        <Swiper slidesPerView={3} spaceBetween={30} slidesPerGroup={3} loop={true} loopFillGroupWithBlank={true} pagination={{
-          "clickable": true
-        }} navigation={true} className="mySwiper justify-items-center">
+        <Swiper
+          slidesPerView={3}
+          spaceBetween={30}
+          slidesPerGroup={3}
+          loop={true}
+          loopFillGroupWithBlank={true}
+          pagination={{
+            "clickable": true
+          }} navigation={true} className="mySwiper justify-items-center">
           <SwiperSlide>
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_BPkPBRCOGxs_ZRnEALwGAE1ODfcCDIp_Eg&usqp=CAU" alt="currier" />
           </SwiperSlide>
