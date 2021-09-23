@@ -3,19 +3,20 @@ import supportTeam from '../../assets/images/support-team.jpg';
 
 const Support = () => {
     return (
-        <section>
-            <div class=" bg-gray-300 max-w-screen-xl p-4 bg-white dark:bg-gray-800 mx-auto px-4 sm:px-6 lg:px-8 relative py-26 lg:mt-20">
+        <section class="support-section text-center">
+            <h1>Customer Support</h1>
+            <div class=" bg-gray-300 max-w-screen-xl p-4 bg-white dark:bg-gray-800 mx-auto px-4 sm:px-6 lg:px-8 relative py-26 lg:mt-10">
                 <div class="relative">
                     <div class="lg:grid lg:grid-flow-row-dense lg:grid-cols-2 lg:gap-8 lg:items-center">
                         <div class="lg:col-start-2 lg:max-w-2xl ml-auto">
                             <p class="text-base leading-6 text-indigo-500 font-semibold uppercase">
-                                uninterrupted Support
+                                Uninterrupted Support
                             </p>
                             <h4 class="mt-2 text-2xl leading-8 font-extrabold text-gray-900 dark:text-white sm:text-3xl sm:leading-9">
-                                Interactivity between team members is the key of the success.
+                                Interactivity Between Customer and Courier is the Key of the Success.
                             </h4>
                             <p class="mt-4 text-lg leading-6 text-gray-500 dark:text-gray-300">
-                            Our friendly, professional customer service agents are available by instant chat support  everyday, Monday to Sunday, 9am-9pm. Change your delivery, purchase more services, ask questions about your courier … ask away! We’re here to help.
+                            Our friendly, professional customer service agents are available by instant chat support  everyday, Monday to Sunday, 24/7. Change your delivery, purchase more services, ask questions about your courier … ask away! We’re here to help.
                             </p>
                             <ul class="mt-8 md:grid md:grid-cols-2 gap-6">
                                 <li class="mt-6 lg:mt-0">
