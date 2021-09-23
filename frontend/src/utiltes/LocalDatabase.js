@@ -115,3 +115,26 @@ export const NavItem = [
         path: '/'
     },
 ]
+
+
+// banner data items
+
+export const bannerData = [
+    {
+        id: 1,
+        img:'https://i.ibb.co/0fHwJtQ/Fast-express-banner-1.png'
+    },
+    {
+        id: 2,
+        img:'https://i.ibb.co/PDcGcx9/Fast-express-banner-2.png'
+    },
+    {
+        id: 3,
+        img:'https://i.ibb.co/SRTK6kn/Fast-express-banner-3.png'
+    },
+    {
+        id: 4,
+        img:'https://i.ibb.co/DzSzwDk/Fast-express-banner-4.png'
+    }
+]
+
