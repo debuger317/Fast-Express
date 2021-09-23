@@ -13,7 +13,7 @@ export const FaqData = [
     },
     {
         id:3,
-        levelName:'What makes Ixpress efficient?',
+        levelName:'What makes Fast Express efficient?',
         description:'Every courier company will have an account through which the company will integrate what services they provide like from where to where they deliver courier, how much they charge etc.'
     },
     {
