@@ -1,9 +1,15 @@
-.testimonial-card{
+.testimonial-card {
     transition-duration: 0.3s;
-}
-.testimonial-card:hover{
-    background-color: rgb(99,102,241);
-}
-.testimonial-card:hover p, span {
-    color: #fff;
+    &:hover {
+        background-color: rgb(99, 102, 241);
+        p, span {
+            color: #fff;
+        }
+    }
+    // .user{
+    //     .user-icon svg{
+    //         filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%);
+    //     }
+    // }
+   
 }

@@ -1,3 +1,5 @@
+import { FaUserTie, FaUserNurse } from 'react-icons/fa';
+
 export const FaqData = [
     {
         id:1,
@@ -26,7 +28,7 @@ export const FaqData = [
     }
     
 
-]
+];
 
 export const NavItem = [
     {
@@ -114,4 +116,56 @@ export const NavItem = [
         rm: 'mr-0',
         path: '/'
     },
+];
+
+export const ReviewItem = [
+    {
+        id:1,
+        name:'AM Fahim',
+        photo:<FaUserTie/>,
+        profession: 'Web Developer',
+        desc:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, odio corporis. Consectetur inventore consequatur atque voluptatem ipsa nam, architecto saepe earum dolorem quae possimus tempore alias sed.'
+        
+    },
+    {
+        id:2,
+        name:'AM Fahim',
+        photo:<FaUserNurse/>,
+        profession: 'Web Developer',
+        desc:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, odio corporis. Consectetur inventore consequatur atque voluptatem ipsa nam, architecto saepe earum dolorem quae possimus tempore alias sed.'
+        
+    },
+    {
+        id:3,
+        name:'AM Fahim',
+        photo:<FaUserTie/>,
+        profession: 'Web Developer',
+        desc:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, odio corporis. Consectetur inventore consequatur atque voluptatem ipsa nam, architecto saepe earum dolorem quae possimus tempore alias sed.'
+        
+    },
+    {
+        id:4,
+        name:'AM Fahim',
+        photo:<FaUserNurse/>,
+        profession: 'Web Developer',
+        desc:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, odio corporis. Consectetur inventore consequatur atque voluptatem ipsa nam, architecto saepe earum dolorem quae possimus tempore alias sed.'
+        
+    },
+    {
+        id:5,
+        name:'AM Fahim',
+        photo:<FaUserTie/>,
+        profession: 'Web Developer',
+        desc:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, odio corporis. Consectetur inventore consequatur atque voluptatem ipsa nam, architecto saepe earum dolorem quae possimus tempore alias sed.'
+        
+    },
+    {
+        id:6,
+        name:'AM Fahim',
+        photo:<FaUserNurse/>,
+        profession: 'Web Developer',
+        desc:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, odio corporis. Consectetur inventore consequatur atque voluptatem ipsa nam, architecto saepe earum dolorem quae possimus tempore alias sed.'
+        
+    }
+    
 ]
