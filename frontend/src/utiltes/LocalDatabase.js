@@ -191,3 +191,10 @@ export const bannerData = [
     }
 ]
 
+export const supportData = [
+    {
+        id: 1,
+        img: 'https://i.ibb.co/frJgXfj/Online-Support.jpg',
+    }
+]
+

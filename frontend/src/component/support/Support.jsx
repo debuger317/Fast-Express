@@ -1,22 +1,23 @@
 import React from 'react';
 import supportTeam from '../../assets/images/support-team.jpg';
+import { supportData } from '../../utiltes/LocalDatabase';
 
 const Support = () => {
     return (
         <section class="support-section text-center">
             <h1>Customer Support</h1>
-            <div class=" bg-gray-300 max-w-screen-xl p-4 bg-white dark:bg-gray-800 mx-auto px-4 sm:px-6 lg:px-8 relative py-26 lg:mt-10">
+            <div class="background-color text-white max-w-screen-xl p-4 py-10 bg-white dark:bg-gray-800 mx-auto px-4 sm:px-6 lg:px-8 relative py-26 lg:mt-10">
                 <div class="relative">
                     <div class="lg:grid lg:grid-flow-row-dense lg:grid-cols-2 lg:gap-8 lg:items-center">
                         <div class="lg:col-start-2 lg:max-w-2xl ml-auto">
                             <p class="text-base leading-6 text-indigo-500 font-semibold uppercase">
                                 Uninterrupted Support
                             </p>
-                            <h4 class="mt-2 text-2xl leading-8 font-extrabold text-gray-900 dark:text-white sm:text-3xl sm:leading-9">
+                            <h4 class="mt-2 text-2xl leading-8 font-extrabold text-white dark:text-white sm:text-3xl sm:leading-9">
                                 Interactivity Between Customer and Courier is the Key of the Success.
                             </h4>
-                            <p class="mt-4 text-lg leading-6 text-gray-500 dark:text-gray-300">
-                            Our friendly, professional customer service agents are available by instant chat support  everyday, Monday to Sunday, 24/7. Change your delivery, purchase more services, ask questions about your courier … ask away! We’re here to help.
+                            <p class="mt-4 text-lg leading-6 text-white dark:text-gray-300">
+                                Our friendly, professional customer service agents are available by instant chat support  everyday, Monday to Sunday, 24/7. Change your delivery, purchase more services, ask questions about your courier … ask away! We’re here to help.
                             </p>
                             <ul class="mt-8 md:grid md:grid-cols-2 gap-6">
                                 <li class="mt-6 lg:mt-0">
@@ -75,17 +76,12 @@ const Support = () => {
                         </div>
                         <div class="mt-10 lg:-mx-4 relative relative-20 lg:mt-0 lg:col-start-1">
                             <div class="relative space-y-4">
-                                <div class="flex items-end justify-center lg:justify-start space-x-4">
-                                    <img class="rounded-lg shadow-lg" src={supportTeam} alt="" />
-                                </div>
-                                {/* <div class="flex items-end justify-center lg:justify-start space-x-4">
-                                    <img class="rounded-lg shadow-lg w-32 md:w-56" width="200" src="/images/object/8.jpg" alt="1" />
-                                    <img class="rounded-lg shadow-lg w-40 md:w-64" width="260" src="/images/landscape/4.jpg" alt="2" />
-                                </div>
-                                <div class="flex items-start justify-center lg:justify-start space-x-4 ml-12">
-                                    <img class="rounded-lg shadow-lg w-24 md:w-40" width="170" src="/images/landscape/3.jpg" alt="3" />
-                                    <img class="rounded-lg shadow-lg w-32 md:w-56" width="200" src="/images/object/9.jpg" alt="4" />
-                                </div> */}
+                                {/* mapped data from supportData  */}
+                                {supportData.map(item =>
+                                    <div class="flex items-end justify-center lg:justify-start space-x-4">
+                                        <img class="rounded-lg shadow-lg" src={item.img} alt="supportImage" />
+                                    </div>
+                                )}
                             </div>
                         </div>
                     </div>
