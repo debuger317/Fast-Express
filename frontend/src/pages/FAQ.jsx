@@ -1,9 +1,9 @@
 import React from 'react';
 import { Fragment } from 'react';
-import FaqDetails from '../component/faq/FaqDetails';
+import FaqDetails from '../component/pages/faq/FaqDetails';
 
 
-const AllFaq = () => {
+const FAQ = () => {
     return (
         <Fragment>
             <FaqDetails />
@@ -11,4 +11,4 @@ const AllFaq = () => {
     );
 };
 
-export default AllFaq;
+export default FAQ;

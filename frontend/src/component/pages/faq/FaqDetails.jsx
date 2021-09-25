@@ -1,6 +1,6 @@
 import React from 'react';
 import { Fragment } from 'react';
-import FAQ from '.././common/faq/FAQ';
+import FAQ from '../../common/faq/FAQ';
 import DeliveryProcessFaq from './subcomponents/DeliveryProcessFaq';
 import ServicesFaq from './subcomponents/ServicesFaq';
 

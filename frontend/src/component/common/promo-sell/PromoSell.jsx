@@ -2,11 +2,10 @@ import React from 'react';
 
 const PromoSell = () => {
     return (
-        <section className="promoSale-section bg-gradient bg-indigo-500 dark:bg-gray-800 text-center">
+        <section className="bg-gradient bg-indigo-500 dark:bg-gray-800 text-center">
         
-            <div className="container mx-auto  py-8 md:py-16">
-                <div className="max-w-5xl  px-5 box-content">
-                    <div className="flex  flex-col md:flex-row -mx-5">
+            <div className="container mx-auto p-14">
+                    <div className="flex  items-center mx-14">
                         <div className="w-2/4 px-5 mb-5 md:mb-0 text-center md:text-left">
                          
                             <h2 className="font-bold font-heading  md:text-4xl text-white">
@@ -23,8 +22,8 @@ const PromoSell = () => {
                                 </button>
                             </div>
                         </div>
-                        <div className="w-2/4 mr-0  px-5">
-                            <div className="flex  text-white text-center">
+                        <div className="w-2/4">
+                            <div className="text-white flex justify-end">
                                 <div className="w-24 md:w-24 border border-light-300 bg-light-100 rounded-lg py-3 md:py-4 mx-2">
                                     <div className="text-2xl md:text-3xl font-semibold">
                                         <span>
@@ -82,7 +81,6 @@ const PromoSell = () => {
                         </div>
                     </div>
                 </div>
-            </div>
         </section>
 
 
