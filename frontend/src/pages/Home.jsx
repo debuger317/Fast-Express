@@ -1,12 +1,12 @@
 import React, { Fragment } from 'react';
-import Header from '../component/header/Header';
-import Footer from '../component/footer/Footer';
-import OurMission from '../component/our-mission/OurMission';
-import Support from '../component/support/Support';
-import Review from '../component/reviews/Review';
-import FAQ from '../component/faq/FAQ';
-import PromoSell from '../component/promo-sell/PromoSell';
-import FeatureBrand from '../component/feature-brand/FeatureBrand';
+import Header from '../component/common/header/Header';
+import Footer from '../component/common/footer/Footer';
+import OurMission from '../component/common/our-mission/OurMission';
+import Support from '../component/common/support/Support';
+import Review from '../component/common/reviews/Review';
+import FAQ from '../component/common/faq/FAQ';
+import PromoSell from '../component/common/promo-sell/PromoSell';
+import FeatureBrand from '../component/common/feature-brand/FeatureBrand';
 
 const Home = () => {
     return (

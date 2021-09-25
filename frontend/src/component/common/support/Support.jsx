@@ -1,6 +1,6 @@
 import React from 'react';
-import supportTeam from '../../assets/images/support-team.jpg';
-import { supportData } from '../../utiltes/LocalDatabase';
+import supportTeam from '../../../assets/images/support-team.jpg';
+import { supportData } from '../../../utiltes/LocalDatabase';
 
 const Support = () => {
     return (
