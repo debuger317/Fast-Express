@@ -57,7 +57,7 @@ export const NavItem = [
     {
         id: 2,
         name: 'Pricing',
-        path: '/'
+        path: '/pricing'
     },
     {
         id: 3,
@@ -80,7 +80,7 @@ export const NavItem = [
                 path: '/'
             }
         ],
-        path: '/'
+        path: '/contact'
     },
     {
         id: 4,
@@ -103,18 +103,18 @@ export const NavItem = [
                 path: '/'
             }
         ],
-        path: '/'
+        path: '/service'
     },
     {
         id: 5,
         name: 'Faq',
-        path: '/'
+        path: '/faq'
     },
     {
         id: 6,
         name: 'About',
         rm: 'mr-0',
-        path: '/'
+        path: '/about'
     },
 ];
 

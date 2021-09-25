@@ -3,7 +3,6 @@ import React from 'react';
 const PromoSell = () => {
     return (
         <section className="promoSale-section text-center">
-            <h1>Promotional Sale</h1>
             <div className="bg-gradient bg-indigo-500 dark:bg-gray-800 py-8 md:py-16">
                 <div className="max-w-5xl mx-auto px-5 box-content">
                     <div className="flex items-center flex-col md:flex-row -mx-5">
