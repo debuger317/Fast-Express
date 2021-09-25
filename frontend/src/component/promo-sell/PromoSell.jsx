@@ -7,18 +7,16 @@ const PromoSell = () => {
     <div className="max-w-5xl mx-auto px-5 box-content">
         <div className="flex items-center flex-col md:flex-row -mx-5">
             <div className="w-full px-5 mb-5 md:mb-0 text-center md:text-left">
-                <h6 className="uppercase font-semibold text-xs md:text-base text-indigo-800 dark:text-gray-100">
-                    Opening tickets
-                </h6>
-                <h3 className="font-bold font-heading text-2xl md:text-4xl text-white">
-                    Saturday 17
-                </h3>
+                <h1 className="font-bold font-heading text-2xl md:text-4xl text-white">
+                    70% Offer
+                </h1>
+
                 <h3 className="font-bold font-heading text-lg md:text-xl text-white leading-tight">
-                    @ 10:00 AM
+                Do n't Miss
                 </h3>
                 <div className="mt-4 w-full md:w-44">
                     <button type="button" className="py-2 px-4  bg-white hover:bg-gray-100 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-indigo-500 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
-                        Early bird
+                    Order Now
                     </button>
                 </div>
             </div>
