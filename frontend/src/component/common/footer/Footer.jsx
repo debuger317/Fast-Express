@@ -7,7 +7,7 @@ import { FaLinkedin } from "react-icons/fa";
 import { FaTwitterSquare } from "react-icons/fa";
 import { FaInstagramSquare } from "react-icons/fa";
 import { Link } from 'react-router-dom';
-import Logo from '../../assets/images/Fast-Express.PNG';
+import Logo from '../../../assets/images/Fast-Express.PNG';
 
 
 
