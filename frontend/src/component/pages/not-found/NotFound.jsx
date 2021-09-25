@@ -21,8 +21,8 @@ const NotFound = () => {
                     <p className="text-xl mt-4 text-gray-400">
                         Uh oh, we can't seem to find the page you're looking for. try going back to previous page or contact us for more information.</p>
                     <div className="lg:mt-0 lg:flex-shrink-0">
-                        <div className="mt-12 inline-flex rounded-xl shadow">
-                            <Link to="/" className="py-4 px-6  bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
+                        <div className="mt-12 inline-flex">
+                            <Link to="/" className="py-4 px-6  bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-full ">
                                 Back to home
                             </Link>
                         </div>
