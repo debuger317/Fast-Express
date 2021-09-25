@@ -5,6 +5,7 @@ import {
     Route
 } from "react-router-dom";
 import Spinner from '../component/spinner/Spinner';
+import About from '../pages/About';
 
 const Home = lazy(() => import('../pages/Home'));
 const NotMatch = lazy(() => import('../pages/NotMatch'));
@@ -12,11 +13,14 @@ const NotMatch = lazy(() => import('../pages/NotMatch'));
 
 const Routing = () => {
     return (
-        <Suspense fallback={<Spinner/>}>
+        <Suspense fallback={<Spinner />}>
             <Router>
                 <Switch>
-                    <Route path="/">
+                    <Route exact path="/">
                         <Home />
+                    </Route>
+                    <Route path="/about">
+                        <About/>
                     </Route>
                     <Route path="*">
                         <NotMatch />

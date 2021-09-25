@@ -17,15 +17,15 @@ const Footer = () => {
             <div className="container py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
                 <div className="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
                     <a className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900" href=" #">
-                    <Link className="flex items-center md:justify-start justify-center" to="/">
+                        <Link className="flex items-center md:justify-start justify-center" to="/">
                             <img src={Logo} alt="" srcset="" />
                         </Link>
                     </a>
                     <div className="flex text-4xl py-9 text-red-500">
                         <a href="https://facebook.com"><FaFacebookSquare /></a>
-                        <a href="https://linkedin.com"><FaLinkedin /></a>
-                        <a href="https://twitter.com"><FaTwitterSquare /></a>
-                        <a href="https://instagram.com"><FaInstagramSquare /></a>
+                        <a className="pl-2" href="https://linkedin.com"><FaLinkedin /></a>
+                        <a className="pl-2" href="https://twitter.com"><FaTwitterSquare /></a>
+                        <a className="pl-2" href="https://instagram.com"><FaInstagramSquare /></a>
                     </div>
                 </div>
                 <div className="flex-grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left">
