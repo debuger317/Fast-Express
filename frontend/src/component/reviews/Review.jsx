@@ -36,7 +36,7 @@ const Review = () => {
                                             <ImQuotesRight />
                                         </span>
                                     </p>
-                                    <div className="flex items-center mt-4">
+                                    <div className="flex items-center mt-4 xl:w-1/4 md:w-1/2 p-4">
                                         <a href="#" className="block relative">
                                             <div className="flex items-center border border-gray-900 group-hover:border-white group-hover:text-white rounded-full text-4xl p-2">
                                                 {item.photo}

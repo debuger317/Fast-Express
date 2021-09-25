@@ -1,13 +1,14 @@
 import React from 'react';
-import { FaBell, FaTruck, FaMapMarkerAlt } from 'react-icons/fa';
-import { FcProcess } from 'react-icons/fc';
+import { FaBell, FaTruck, FaMapMarkerAlt, FaGgCircle } from 'react-icons/fa';
 const OurMission = () => {
   return (
-    <section className="text-gray-600 body-font">
-      <div className="container px-5 py-24 mx-auto">
-        <div className="flex flex-wrap -m-4">
+    <section className="text-gray-600 body-font px-5 py-24">
+      <h2 className="font-bold text-center text-2xl uppercase p-3 bg-gray-100 items-center">Our Mission</h2>
+      <div className="container  mx-auto">
+      
+        <div className="flex flex-wrap -m-4 mt-5">
           <div className="xl:w-1/4 md:w-1/2 p-4">
-            <div className="bg-gray-100 p-6 group hover:bg-red-500 hover:text-white">
+            <div className="ourmission-card bg-gray-100 p-6 group hover:bg-red-500 hover:text-white">
               <div className="mt-5 mb-5"><FaTruck className="mx-auto group-hover:bg-white transition delay-150 duration-700 ease-in-out group-hover:text-red-600 text-7xl p-4 text-white  bg-red-500 rounded-full" /></div>
               {/* <h3 className="tracking-widest text-xs font-medium title-font text-center py-5">SUBTITLE</h3> */}
               <h2 className="text-lg font-medium title-font mb-4 text-center">24/7 Local Courier Service in Singapore</h2>
@@ -15,7 +16,7 @@ const OurMission = () => {
             </div>
           </div>
           <div className="xl:w-1/4 md:w-1/2 p-4">
-            <div className="bg-gray-100 p-6 group hover:bg-red-500 hover:text-white">
+            <div className="ourmission-card bg-gray-100 p-6 group hover:bg-red-500 hover:text-white">
               <div className="mt-5 mb-5"><FaBell className="mx-auto group-hover:bg-white transition delay-150 duration-300 ease-in-out group-hover:text-red-600 text-7xl p-4 text-white  bg-red-500 rounded-full" /></div>
               {/* <h3 className="tracking-widest text-xs font-medium title-font text-center py-5">SUBTITLE</h3> */}
               <h2 className="text-lg font-medium title-font mb-4 text-center">Text and Email Delivery Notifications</h2>
@@ -23,7 +24,7 @@ const OurMission = () => {
             </div>
           </div>
           <div className="xl:w-1/4 md:w-1/2 p-4">
-            <div className="bg-gray-100 p-6 group hover:bg-red-500 hover:text-white">
+            <div className="ourmission-card bg-gray-100 p-6 group hover:bg-red-500 hover:text-white">
               <div className="mt-5 mb-5"><FaMapMarkerAlt className="mx-auto group-hover:bg-white transition delay-150 duration-300 ease-in-out group-hover:text-red-600 text-7xl p-4 text-white  bg-red-500 rounded-full" /></div>
               {/* <h3 className="tracking-widest text-xs font-medium title-font text-center py-5">SUBTITLE</h3> */}
               <h2 className="text-lg font-medium title-font mb-4 text-center">Online Tracking</h2>
@@ -32,7 +33,7 @@ const OurMission = () => {
           </div>
           <div className="xl:w-1/4 md:w-1/2 p-4">
             <div className="bg-gray-100 p-6 group hover:bg-red-500 hover:text-white">
-              <div className="mt-5 mb-5"><FcProcess className="mx-auto group-hover:bg-white transition delay-150 duration-300 ease-in-out group-hover:text-red-600 text-7xl p-4 text-white  bg-red-500 rounded-full" /></div>
+              <div className="mt-5 mb-5"><FaGgCircle className="mx-auto group-hover:bg-white transition delay-150 duration-300 ease-in-out group-hover:text-red-600 text-7xl p-4 text-white  bg-red-500 rounded-full" /></div>
               {/* <h3 className="tracking-widest text-xs font-medium title-font text-center py-5">SUBTITLE</h3> */}
               <h2 className="text-lg font-medium title-font mb-4 text-center">No Wasted Paper</h2>
               <p className="text-center">Fast Xpress Logistics uses a paperless receipt, contract, and documentation system. We back up our records in the Cloud and supply your documentation by email, saving money, paper, and the time it takes to file paper records. No more paper cuts and inky fingers documenting your local courier service!</p>
