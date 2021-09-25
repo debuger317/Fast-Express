@@ -8,7 +8,7 @@ import Spinner from '../component/common/spinner/Spinner';
 
 const Home = lazy(() => import('../pages/Home'));
 const Services = lazy(() => import('../pages/Services'));
-const NotMatch = lazy(() => import('../pages/NotMatch'));
+const NotFound = lazy(() => import('../pages/NotFound'));
 
 
 const Routing = () => {
@@ -23,7 +23,7 @@ const Routing = () => {
                         <Services />
                     </Route>
                     <Route path="*">
-                        <NotMatch />
+                        <NotFound />
                     </Route>
                 </Switch>
             </Router>
