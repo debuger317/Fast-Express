@@ -80,7 +80,7 @@ export const NavItem = [
                 path: '/'
             }
         ],
-        path: '/'
+        path: '/contact'
     },
     {
         id: 4,
