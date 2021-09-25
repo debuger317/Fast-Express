@@ -169,7 +169,87 @@ export const ReviewItem = [
     }
     
 ]
+// Delivery Process Faq
+export const DeliveryProcessData  = [
+    {
+        id:1,
+        levelName:'HOW DO I PLACE AN ORDER?',
+        description:'You can place your order at our booking form.'
+    },
+    {
+        id:2,
+        levelName:'HOW DO I KNOW THE PRICE OF MY DELIVERY?',
+        description:'When you fill up the booking form you will see a summary of the total price of your order. Or you can calculate the price before booking your order.'
+    },
+    {
+        id:3,
+        levelName:'What if there are no drivers who accept my order?',
+        description:'You can retry with the same amount of the order or add a tip to increase your chances to match with a driver.'
+    },
+    {
+        id:4,
+        levelName:'How does Ixpress mantain this application and what is our cause?',
+        description:'A tracking link will appear in the form where you can track your order. This link will also be sent to you via email.'
+    },
+    {
+        id:5,
+        levelName:'My order is assigned to a driver. How do i track my order?',
+        description:'If you need to make changes of your delivery order such as pick up timing etc. Just use your mobile phone and click on the tracking link given to you via email and sms. The contact number of the driver can be seen from the tracking page.'
+    },
+    {
+        id:6,
+        levelName:'I need to make some changes / contact the driver on my delivery. How do i do this?',
+        description:'The service level you choose will reflect the pick up and delivery timing. It does not mean that you choose item is ready for pick up at 11am the driver will arrive at 11am sharp at your location. For example if you choose same day by 5pm the pick up will be between the available pick up time and 3pm and the item will be delivered by 5pm. Please see the pick up and delivery timings in this FAQ section below.'
 
+    },
+    {
+        id:7,
+        levelName:'My driver has not arrived yet?',
+        description:'If you booked an order and the timer ends. You are suppose to see a tracking link or retry / tip button. If you do not see any of these it means the web browser you are using is not compatible. Please try again with a different browser.'
+    },
+    {
+        id:8,
+        levelName:'I tried booking but there was no tracking link provided',
+        description:'If you are able to track your order it means your order is confirmed.'
+    },
+    {
+        id:9,
+        levelName:'What does Ixpress have to offer? Why should you choose us?',
+        description:'Go back to the tracking page once delivery is completed and you will be able to comment and rate on his performance. All comments and reviews will be taken seriously.'
+    }
+
+];
+
+// SERVICE FAQ DATA
+export const ServiceFaqData = [
+    {
+        id:1,
+        levelName:'What do we do?',
+        description:'Every courier company will have an account through which the company will integrate what services they provide like from where to where they deliver courier, how much they charge etc.'
+    },
+    {
+        id:2,
+        levelName:'Who are our drivers and riders?',
+        description:'Every courier company will have an account through which the company will integrate what services they provide like from where to where they deliver courier, how much they charge etc.'
+    },
+    {
+        id:3,
+        levelName:'What makes Fast Express efficient?',
+        description:'Every courier company will have an account through which the company will integrate what services they provide like from where to where they deliver courier, how much they charge etc.'
+    },
+    {
+        id:4,
+        levelName:'How does Ixpress mantain this application and what is our cause?',
+        description:'Every courier company will have an account through which the company will integrate what services they provide like from where to where they deliver courier, how much they charge etc.'
+    },
+    {
+        id:5,
+        levelName:'What does Ixpress have to offer? Why should you choose us?',
+        description:'Every courier company will have an account through which the company will integrate what services they provide like from where to where they deliver courier, how much they charge etc.'
+    }
+    
+
+];
 // banner data items
 
 export const bannerData = [
