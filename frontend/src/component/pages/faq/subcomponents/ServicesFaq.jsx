@@ -1,5 +1,5 @@
 import React from 'react';
-import { ServiceFaqData } from '../../../utiltes/LocalDatabase';
+import { ServiceFaqData } from '../../../../utiltes/LocalDatabase';
 import FaqServiceCard from './FaqServiceCard';
 
 const ServicesFaq = () => {

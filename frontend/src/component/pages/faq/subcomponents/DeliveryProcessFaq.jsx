@@ -1,5 +1,5 @@
 import React from 'react';
-import { DeliveryProcessData } from '../../../utiltes/LocalDatabase';
+import { DeliveryProcessData } from '../../../../utiltes/LocalDatabase';
 import FaqDeliveryProcessCard from './FaqDeliveryProcessCard';
 
 const DeliveryProcessFaq = () => {

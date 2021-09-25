@@ -1,8 +1,9 @@
 import React from 'react';
-import Footer from '../component/footer/Footer';
-import Navbar from '../component/header/sub-component/nav-bar/Navbar';
-import TopBar from '../component/header/sub-component/top-bar/TopBar';
+
 import { FcOnlineSupport } from "react-icons/fc";
+import Footer from '../component/common/footer/Footer';
+import Navbar from '../component/common/header/sub-component/nav-bar/Navbar';
+import TopBar from '../component/common/header/sub-component/top-bar/TopBar';
 
 const Contact = () => {
     const handleSubmit = () => {
