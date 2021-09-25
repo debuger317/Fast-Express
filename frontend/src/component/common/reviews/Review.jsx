@@ -6,7 +6,7 @@ import "swiper/components/navigation/navigation.min.css";
 import SwiperCore, {
     Autoplay, Pagination
 } from 'swiper/core';
-import { ReviewItem } from '../../utiltes/LocalDatabase';
+import { ReviewItem } from '../../../utiltes/LocalDatabase';
 import { ImQuotesLeft, ImQuotesRight } from "react-icons/im";
 
 const Review = () => {

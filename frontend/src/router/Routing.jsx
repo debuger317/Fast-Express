@@ -4,9 +4,10 @@ import {
     Switch,
     Route
 } from "react-router-dom";
-import Spinner from '../component/spinner/Spinner';
+import Spinner from '../component/common/spinner/Spinner';
 
 const Home = lazy(() => import('../pages/Home'));
+const Services = lazy(() => import('../pages/Services'));
 const NotMatch = lazy(() => import('../pages/NotMatch'));
 
 
@@ -15,8 +16,11 @@ const Routing = () => {
         <Suspense fallback={<Spinner/>}>
             <Router>
                 <Switch>
-                    <Route path="/">
+                    <Route exact path="/">
                         <Home />
+                    </Route>
+                    <Route exact path="/service">
+                        <Services />
                     </Route>
                     <Route path="*">
                         <NotMatch />

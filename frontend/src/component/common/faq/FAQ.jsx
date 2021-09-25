@@ -1,7 +1,6 @@
 import React from 'react';
-import { FaqData } from '../../utiltes/LocalDatabase';
+import { FaqData } from '../../../utiltes/LocalDatabase';
 import FCard from './FCard';
-
 const FAQ = () => {
 
    return (
