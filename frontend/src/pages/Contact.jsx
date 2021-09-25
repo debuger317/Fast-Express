@@ -1,8 +1,8 @@
 import React from 'react';
-import Footer from '../component/footer/Footer';
-import Navbar from '../component/header/sub-component/nav-bar/Navbar';
-import TopBar from '../component/header/sub-component/top-bar/TopBar';
 import { FcOnlineSupport } from "react-icons/fc";
+import Footer from '../component/common/footer/Footer';
+import Navbar from '../component/common/header/sub-component/nav-bar/Navbar';
+import TopBar from '../component/common/header/sub-component/top-bar/TopBar';
 
 const Contact = () => {
     const handleSubmit = () => {
@@ -11,8 +11,8 @@ const Contact = () => {
 
     return (
         <div>
-            <TopBar />
-            <Navbar />
+            <TopBar/>
+            <Navbar/>
             <div class="background-color text-white max-w-screen-xl p-4 py-10 bg-white dark:bg-gray-800 mx-auto px-4 sm:px-6 lg:px-8 relative py-26 lg:mt-10">
                 <div class="relative">
                     <div class="lg:grid lg:grid-flow-row-dense lg:grid-cols-2 lg:gap-8 lg:items-center">
@@ -70,7 +70,7 @@ const Contact = () => {
                     </div>
                 </div>
             </div>
-            <Footer />
+            <Footer/>
         </div>
     );
 };
