@@ -1,6 +1,6 @@
 import React from 'react';
-import supportTeam from '../../assets/images/support-team.jpg';
-import { supportData } from '../../utiltes/LocalDatabase';
+import supportTeam from '../../../assets/images/support-team.jpg';
+import { supportData } from '../../../utiltes/LocalDatabase';
 
 const Support = () => {
     return (
@@ -13,10 +13,10 @@ const Support = () => {
                             <p class="text-base leading-6 text-indigo-500 font-semibold uppercase">
                                 Uninterrupted Support
                             </p>
-                            <h4 class="mt-2 text-2xl leading-8 font-extrabold text-white dark:text-white sm:text-3xl sm:leading-9">
+                            <h4 class="mt-2 text-2xl leading-8 font-extrabold text-black dark:text-white sm:text-3xl sm:leading-9">
                                 Interactivity Between Customer and Courier is the Key of the Success.
                             </h4>
-                            <p class="mt-4 text-lg leading-6 text-white dark:text-gray-300">
+                            <p class="mt-4 text-lg leading-6 text-black dark:text-gray-300">
                                 Our friendly, professional customer service agents are available by instant chat support  everyday, Monday to Sunday, 24/7. Change your delivery, purchase more services, ask questions about your courier … ask away! We’re here to help.
                             </p>
                             <ul class="mt-8 md:grid md:grid-cols-2 gap-6">

@@ -5,7 +5,7 @@ import "swiper/swiper.min.css";
 import "swiper/components/pagination/pagination.min.css";
 import "swiper/components/navigation/navigation.min.css";
 import { Link } from 'react-router-dom';
-import { bannerData } from '../../utiltes/LocalDatabase';
+import { bannerData } from '../../../utiltes/LocalDatabase';
 
 const Banner = () => {
     SwiperCore.use([Pagination, Autoplay]);
