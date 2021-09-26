@@ -2,10 +2,11 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import { NavItem } from '../../../../../utiltes/LocalDatabase';
 import Logo from '../../../../../../src/assets/images/Fast-Express.PNG';
-const subitem = (NavItem.map(a => a.subitem));
-const classItem = (NavItem.map(a => a.subitem));
+import { RiUser3Line } from 'react-icons/ri';
 
 const Navbar = () => {
+    const subitem = (NavItem.map(a => a.subitem));
+    const classItem = (NavItem.map(a => a.subitem));
     return (
         <nav className="bg-white dark:bg-gray-800 shadow py-3">
             <div className="max-w-7xl mx-auto px-4">
@@ -31,8 +32,16 @@ const Navbar = () => {
                                         </Link></>)}
                                     </ul>
                                 </div>
+                                <Link to="/auth" className="flex flex-col items-center ml-5 cursor-pointer">
+                                    <button type="button" class="py-1 px-4 flex justify-center items-center  bg-red-600 hover:bg-red-700 focus:ring-red-500 focus:ring-offset-red-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
+                                    <RiUser3Line className="text-2xl p-1 border rounded-full my-1 mr-1" />
+                                    Login
+                                    </button>
+
+                                </Link>
                             </div>
                         </div>
+
                     </div>
                     <div className="block">
                         <div className="ml-4 flex items-center md:ml-6">
