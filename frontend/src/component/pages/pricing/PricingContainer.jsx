@@ -1,12 +1,7 @@
-import React from 'react';
-import Footer from '../common/footer/Footer';
-import Navbar from '../common/header/sub-component/nav-bar/Navbar';
-import TopBar from '../common/header/sub-component/top-bar/TopBar';
+import React,{useState} from 'react';
 import { FaTruckMoving, FaRoad } from 'react-icons/fa';
-import { useState } from 'react';
 
-
-const PricingPage1 = () => {
+const PricingContainer = () => {
     const [getValue, setValue] = useState({
         kg: 0,
         time: 0,
@@ -31,8 +26,6 @@ const PricingPage1 = () => {
     }
     return (
         <>
-            <TopBar />
-            <Navbar />
             <section className="h-screen mt-32">
                 <div className="space-y-6 bg-white border border-gray-200 container max-w-2xl mx-auto shadow-2xl md:w-3/4">
                     <FaTruckMoving className="text-9xl text-red-500 mx-auto" />
@@ -148,10 +141,9 @@ const PricingPage1 = () => {
 
                 </div>
             </section>
-            <Footer />
         </>
 
     );
 };
 
-export default PricingPage1;
+export default PricingContainer;

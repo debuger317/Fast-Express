@@ -5,10 +5,9 @@ import {
     Route
 } from "react-router-dom";
 import Spinner from '../component/common/spinner/Spinner';
-import Pricing from '../component/pricing-page/Pricing';
 
 const Home = lazy(() => import('../pages/Home'));
-// const Pricing = lazy(() => import('../pages/Pricing'));
+const Pricing = lazy(() => import('../pages/Pricing'));
 const Contacts = lazy(() => import('../pages/Contacts'));
 const Services = lazy(() => import('../pages/Services'));
 const Faq = lazy(() => import('../pages/FAQ'));
@@ -27,14 +26,17 @@ const Routing = () => {
                     <Route path="/contact">
                         <Contacts />
                     </Route>
-                    <Route exact path="/pricing">
+                    <Route  path="/pricing">
                         <Pricing />
                     </Route>
-                    <Route exact path="/service">
+                    <Route  path="/service">
                         <Services />
                     </Route>
                     <Route path="/faq">
                         <Faq></Faq>
+                    </Route>
+                    <Route path="/about">
+                        <About></About>
                     </Route>
                     <Route path="*">
                         <NotFound />

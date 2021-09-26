@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import Footer from '../component/common/footer/Footer';
+import Navbar from '../component/common/header/sub-component/nav-bar/Navbar';
+import TopBar from '../component/common/header/sub-component/top-bar/TopBar';
+import PricingContainer from '../component/pages/pricing/PricingContainer';
 
 const Pricing = () => {
     return (
-        <div>
-            
-        </div>
+        <Fragment>
+          <TopBar/>
+          <Navbar/>
+          <PricingContainer/>
+          <Footer/>  
+        </Fragment>
     )
 }
 
