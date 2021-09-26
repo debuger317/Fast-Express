@@ -8,7 +8,7 @@ import Spinner from '../component/common/spinner/Spinner';
 
 const Home = lazy(() => import('../pages/Home'));
 // const Pricing = lazy(() => import('../pages/Pricing'));
-const Contact = lazy(() => import('../pages/Contact'));
+const Contacts = lazy(() => import('../pages/Contacts'));
 const Services = lazy(() => import('../pages/Services'));
 const Faq = lazy(() => import('../pages/FAQ'));
 // const About = lazy(() => import('../pages/About'));
@@ -24,7 +24,7 @@ const Routing = () => {
                         <Home />
                     </Route>
                     <Route path="/contact">
-                        <Contact />
+                        <Contacts />
                     </Route>
                     <Route  path="/service">
                         <Services />
