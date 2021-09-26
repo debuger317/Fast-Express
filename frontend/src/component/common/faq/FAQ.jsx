@@ -5,11 +5,11 @@ const FAQ = () => {
 
    return (
       <section>
-         <div className="w-4/5 md:w-4/5 mx-auto p-8">
-            <div class="text-center">
-               <h2 className="text-3xl">WHO WE ARE</h2>
-               <h6 className="text-xl">Know more about us and our cause
-               </h6>
+         <div className="container mx-auto p-10">
+            <div class="faq-title my-10">
+               <h2 className="font-base font-heading font-poppins md:font-poppins text-2xl md:text-4xl text-gray-500">WHO WE ARE</h2>
+               <p className="text-base font-poppins md:font-poppins">Know more about us and our cause Lorem ipsum dolor sit amet consectetur adipisicing elit. <br/>Commodi maxime animi ratione provident eaque doloremque, repellat, distinctio quae doloribus at, modi repellendus.
+               </p>
             </div>
             <div className="my-5">
                {

@@ -1,13 +1,11 @@
 import React from 'react';
-
+import Spinnerlogo from '../../../assets/images/fast-express-spinner.gif';
 const Spinner = () => {
     return (
-        <div className="container mx-auto">
-            <span className="flex">
-                <span className="animate-ping absolute inline-flex h-full w-full bg-purple-400 opacity-75"></span>
-                <span className="relative inline-flex  h-full w-full">
-                </span>
-            </span>
+        <div style={{background:'#f1ffee'}} className="pt-20 h-screen">
+            <div className="flex items-center content-center justify-center">
+            <img src={Spinnerlogo} alt="" srcset="" />
+            </div>
         </div>
     )
 }
