@@ -5,11 +5,13 @@ import {
     Route
 } from "react-router-dom";
 import Spinner from '../component/common/spinner/Spinner';
-import AllFaq from '../pages/AllFaq';
-import Contact from '../pages/Contact';
 
 const Home = lazy(() => import('../pages/Home'));
+// const Pricing = lazy(() => import('../pages/Pricing'));
+const Contacts = lazy(() => import('../pages/Contacts'));
 const Services = lazy(() => import('../pages/Services'));
+const Faq = lazy(() => import('../pages/FAQ'));
+// const About = lazy(() => import('../pages/About'));
 const NotFound = lazy(() => import('../pages/NotFound'));
 
 
@@ -18,17 +20,17 @@ const Routing = () => {
         <Suspense fallback={<Spinner />}>
             <Router>
                 <Switch>
-                    <Route path="/contact">
-                        <Contact />
+                    <Route exact path="/">
+                        <Home />
                     </Route>
-                    <Route  path="/faq">
-                       <AllFaq />
+                    <Route path="/contact">
+                        <Contacts />
                     </Route>
                     <Route  path="/service">
                         <Services />
                     </Route>
-                    <Route exact path="/">
-                        <Home />
+                    <Route path="/faq">
+                        <Faq></Faq>
                     </Route>
                     <Route path="*">
                         <NotFound />

@@ -10,7 +10,7 @@ const FCard = ({ item }) => {
     }
 
     return (
-        <div className="w-full border overflow-hidden my-5 bg-gray-100 hover:bg-gray-200">
+        <div className="border overflow-hidden my-5 bg-gray-100 hover:bg-gray-200">
             <div onClick={()=>toggleText()} className="flex items-center justify-between cursor-pointer">
                 <label className="block font-bold font-heading font-poppins md:font-poppins text-xl text-gray-500 p-5 leading-normal cursor-pointer" for="tab-single-one">{levelName}</label>
                 {show ?

@@ -21,10 +21,11 @@ const FeatureBrand = () => {
           spaceBetween={30}
           slidesPerGroup={3}
           loop={true}
+          autoplay={true}
           loopFillGroupWithBlank={true}
           pagination={{
             "clickable": true
-          }} navigation={true} className="mySwiper justify-items-center">
+          }} navigation={false} className="mySwiper justify-items-center">
           <SwiperSlide>
             <img className="mx-auto" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_BPkPBRCOGxs_ZRnEALwGAE1ODfcCDIp_Eg&usqp=CAU" alt="currier" />
           </SwiperSlide>
