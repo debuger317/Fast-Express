@@ -26,8 +26,8 @@ const PricingContainer = () => {
     }
     return (
         <>
-            <section className="h-screen mt-32">
-                <div className="space-y-6 bg-white border border-gray-200 container max-w-2xl mx-auto shadow-2xl md:w-3/4">
+            <section className="container m-16">
+                <div className="bg-white border py-16 border-gray-200 max-w-2xl mx-auto shadow-2xl md:w-3/4">
                     <FaTruckMoving className="text-9xl text-red-500 mx-auto" />
                     {/* <FaRoad className="text-2xl origin-center transform rotate-90 text-red-500 mx-auto" /> */}
                     <form onSubmit={handleSubmit} className="">
@@ -79,7 +79,7 @@ const PricingContainer = () => {
                         </div>
                     </form>
 
-                    <table class="table p-4 bg-white shadow border-0 rounded-lg mx-auto">
+                    <table class="table mb-6 p-4 bg-white shadow border-0 rounded-lg mx-auto">
                         <thead className="text-red-500">
                             <tr >
                                 <th class="border-b-2 p-4 dark:border-dark-5 whitespace-nowrap font-normal ">
@@ -138,7 +138,6 @@ const PricingContainer = () => {
                             </tr>
                         </tbody>
                     </table>
-
                 </div>
             </section>
         </>
