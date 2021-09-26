@@ -1,92 +1,51 @@
 import React from 'react';
-import supportTeam from '../../../assets/images/support-team.jpg';
-import { supportData } from '../../../utiltes/LocalDatabase';
+import { Link } from "react-router-dom";
+import { FaRocketchat, FaPrayingHands, FaHandHoldingHeart } from 'react-icons/fa';
+import { BiSupport, BiMap, BiPurchaseTag } from 'react-icons/bi';
+import { BsChatDots, BsArrowRight } from 'react-icons/bs';
 
 const Support = () => {
     return (
-        <section class="support-section text-center">
-            <h1>Customer Support</h1>
-            <div class="background-color text-white max-w-screen-xl p-4 py-10 bg-white dark:bg-gray-800 mx-auto px-4 sm:px-6 lg:px-8 relative py-26 lg:mt-10">
-                <div class="relative">
-                    <div class="lg:grid lg:grid-flow-row-dense lg:grid-cols-2 lg:gap-8 lg:items-center">
-                        <div class="lg:col-start-2 lg:max-w-2xl ml-auto">
-                            <p class="text-base leading-6 text-indigo-500 font-semibold uppercase">
-                                Uninterrupted Support
-                            </p>
-                            <h4 class="mt-2 text-2xl leading-8 font-extrabold text-white dark:text-white sm:text-3xl sm:leading-9">
-                                Interactivity Between Customer and Courier is the Key of the Success.
-                            </h4>
-                            <p class="mt-4 text-lg leading-6 text-white dark:text-gray-300">
-                                Our friendly, professional customer service agents are available by instant chat support  everyday, Monday to Sunday, 24/7. Change your delivery, purchase more services, ask questions about your courier … ask away! We’re here to help.
-                            </p>
-                            <ul class="mt-8 md:grid md:grid-cols-2 gap-6">
-                                <li class="mt-6 lg:mt-0">
-                                    <div class="flex">
-                                        <span class="flex-shrink-0 flex items-center justify-center h-6 w-6 rounded-full bg-green-100 text-green-800 dark:text-green-500 drark:bg-transparent">
-                                            <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd">
-                                                </path>
-                                            </svg>
-                                        </span>
-                                        <span class="ml-4 text-base leading-6 font-medium text-gray-500 dark:text-gray-200">
-                                            Chat Support
-                                        </span>
-                                    </div>
-                                </li>
-                                <li class="mt-6 lg:mt-0">
-                                    <div class="flex">
-                                        <span class="flex-shrink-0 flex items-center justify-center h-6 w-6 rounded-full bg-green-100 text-green-800 dark:text-green-500 drark:bg-transparent">
-                                            <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd">
-                                                </path>
-                                            </svg>
-                                        </span>
-                                        <span class="ml-4 text-base leading-6 font-medium text-gray-500 dark:text-gray-200">
-                                            Parcel tracker
-                                        </span>
-                                    </div>
-                                </li>
-                                <li class="mt-6 lg:mt-0">
-                                    <div class="flex">
-                                        <span class="flex-shrink-0 flex items-center justify-center h-6 w-6 rounded-full bg-green-100 text-green-800 dark:text-green-500 drark:bg-transparent">
-                                            <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd">
-                                                </path>
-                                            </svg>
-                                        </span>
-                                        <span class="ml-4 text-base leading-6 font-medium text-gray-500 dark:text-gray-200">
-                                            24/7 support
-                                        </span>
-                                    </div>
-                                </li>
-                                <li class="mt-6 lg:mt-0">
-                                    <div class="flex">
-                                        <span class="flex-shrink-0 flex items-center justify-center h-6 w-6 rounded-full bg-green-100 text-green-800 dark:text-green-500 drark:bg-transparent">
-                                            <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd">
-                                                </path>
-                                            </svg>
-                                        </span>
-                                        <span class="ml-4 text-base leading-6 font-medium text-gray-500 dark:text-gray-200">
-                                            Individual & Business Services
-                                        </span>
-                                    </div>
-                                </li>
-                            </ul>
+        <section className="container mx-auto lg:px-8 px-4 sm:px-6 ">
+            <div className="flex items-center bg-white dark:bg-gray-800">
+                <div className="text-start w-6/12 py-12 lg:py-16  z-20">
+                    <h2 className="flex items-center font-poppins medium text-2xl text-red-400"><FaRocketchat className="mr-5" />How We Work</h2>
+                    <h2 className="text-4xl my-5 text-gray-400 font-semibold">We Communicate To Get Your Business to The Next Level
+                    </h2>
+                    <p>Our friendly, professional customer service agents are available by instant chat support everyday, Monday to Sunday, 24/7. Change your delivery, purchase more services, ask questions about your courier … ask away! We’re here to help.
+                    </p>
+                    <div className="grid grid-cols-2 gap-4 my-10">
+                        <div className="flex items-center"><BsChatDots className="text-red-400 text-2xl mr-5" /> Chat Support</div>
+                        <div className="flex items-center"><BiMap className="text-red-400 text-2xl mr-5" />Parcel Tracker</div>
+                        <div className="flex items-center"><BiSupport className="text-red-400 text-2xl mr-5" />24/7 Onlne Support</div>
+                        <div className="flex items-center"><FaPrayingHands className="text-red-400 text-2xl mr-5" />Individual and Business Services</div>
+                    </div>
+                    <div className="grid grid-cols-2 gap-4 my-10 border-t py-10">
+                        <div className="flex items-center">
+                            <FaHandHoldingHeart className="text-red-400 text-5xl" />
+                            <div className="ml-5">
+                                <h1 className="font-bold font-9xl">1+ Years</h1>
+                                <p className="text-base text-gray-600">Years of Experience</p>
+                            </div>
                         </div>
-                        <div class="mt-10 lg:-mx-4 relative relative-20 lg:mt-0 lg:col-start-1">
-                            <div class="relative space-y-4">
-                                {/* mapped data from supportData  */}
-                                {supportData.map(item =>
-                                    <div class="flex items-end justify-center lg:justify-start space-x-4">
-                                        <img class="rounded-lg shadow-lg" src={item.img} alt="supportImage" />
-                                    </div>
-                                )}
+                        <div className="flex items-center">
+                            <BiPurchaseTag className="text-red-400 text-5xl" />
+                            <div className="ml-5">
+                                <h1 className="font-bold font-5xl">100+ Day</h1>
+                                <p className="text-base text-gray-600">Order Per Day</p>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div className="w-6/12 relative">
+                    <img src="https://i.ibb.co/StVpSc0/fast-express-support.jpg" className="ml-auto pl-14" />
+                    <div className="absolute bg-white p-10 bottom-0 right-0 m-10">
+                        <p className="text-xl">If You Need Help, Get A Consultation</p>
+                        <Link className="flex items-center" to="/contact">Get Started<BsArrowRight className="ml-1 font-2xl text-red-400"/></Link>
+                    </div>
+                </div>
             </div>
+
         </section>
     )
 }
