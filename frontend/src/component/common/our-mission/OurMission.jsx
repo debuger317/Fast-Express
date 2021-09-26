@@ -4,8 +4,7 @@ const OurMission = () => {
   return (
     <section className="text-gray-600 body-font px-5 py-24">
       <h2 className="font-bold text-center text-2xl uppercase p-3 bg-gray-100 items-center">Our Mission</h2>
-      <div className="container  mx-auto">
-      
+      <div className="container  mx-auto">      
         <div className="flex flex-wrap -m-4 mt-5">
           <div className="xl:w-1/4 md:w-1/2 p-4">
             <div className="ourmission-card bg-gray-100 p-6 group hover:bg-red-500 hover:text-white">

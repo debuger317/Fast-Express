@@ -5,6 +5,7 @@ import {
     Route
 } from "react-router-dom";
 import Spinner from '../component/common/spinner/Spinner';
+import Pricing from '../component/pricing-page/Pricing';
 
 const Home = lazy(() => import('../pages/Home'));
 const Services = lazy(() => import('../pages/Services'));
@@ -18,6 +19,9 @@ const Routing = () => {
                 <Switch>
                     <Route exact path="/">
                         <Home />
+                    </Route>
+                    <Route exact path="/pricing">
+                        <Pricing />
                     </Route>
                     <Route exact path="/service">
                         <Services />
