@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react';
-import Footer from '../component/common/footer/Footer';
-import Navbar from '../component/common/header/sub-component/nav-bar/Navbar';
-import TopBar from '../component/common/header/sub-component/top-bar/TopBar';
-import Contact from '../component/pages/contact/Contact';
+import Footer from '../components/footer/Footer';
+import Navbar from '../components/header/sub-component/nav-bar/Navbar';
+import TopBar from '../components/header/sub-component/top-bar/TopBar';
+import Contact from '../components/contact/Contact';
 
 const Contacts = () => {
     return (

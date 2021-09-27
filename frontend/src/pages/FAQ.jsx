@@ -1,9 +1,9 @@
 import React from 'react';
 import { Fragment } from 'react';
-import TopBar from '../component/common/header/sub-component/top-bar/TopBar';
-import NavBar from '../component/common/header/sub-component/nav-bar/Navbar';
-import FaqDetails from '../component/pages/faq/FaqDetails';
-import Footer from '../component/common/footer/Footer';
+import TopBar from '../components/header/sub-component/top-bar/TopBar';
+import NavBar from '../components/header/sub-component/nav-bar/Navbar';
+import FaqDetails from '../components/faq/FaqDetails';
+import Footer from '../components/footer/Footer';
 const FAQ = () => {
     return (
         <Fragment>
