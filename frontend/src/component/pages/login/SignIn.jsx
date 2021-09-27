@@ -1,12 +1,12 @@
 import React from 'react';
 import loginImg from '../../../assets/images/loginImg.svg'
-
+ 
 const SignIn = () => {
   return (
-    <div>
+    <div className="container mx-auto my-10">
       <div className="flex flex-wrap w-full mx-auto">
         <div className="flex flex-col w-full md:w-1/2 py-8">
-          <div class="flex flex-col container mx-auto w-full max-w-md px-4 py-8 bg-white rounded-lg shadow dark:bg-gray-800 sm:px-6 md:px-8 lg:px-10">
+          <div class="flex flex-col container w-full max-w-md  py-8 bg-white rounded-lg shadow dark:bg-gray-800 sm:px-6 md:px-8">
             <div class="self-center mb-6 text-xl font-light text-gray-600 sm:text-2xl dark:text-white">
               Login To Your Account
             </div>
@@ -72,15 +72,16 @@ const SignIn = () => {
               </a>
             </div>
           </div>
-
+ 
         </div>
         <div className="w-1/2 shadow-2xl">
-          <img className="hidden h-screen md:block" src={loginImg} alt="Login img" />
+          <img className="hidden md:block" src={loginImg} alt="Login img" />
         </div>
       </div>
-
+ 
     </div>
   );
 };
-
+ 
 export default SignIn;
+

@@ -39,7 +39,7 @@ const Routing = () => {
                     <Route path="/about">
                         <About></About>
                     </Route>
-                    <Route path="/auth">
+                    <Route path="/login">
                         <Login/>
                     </Route>
                     <Route path="*">
