@@ -4,21 +4,20 @@ import { RiUser3Line, RiNotification3Line, RiMessageLine, RiSearch2Line } from '
 import { Link } from 'react-router-dom';
 const TopBar = () => {
 
-    const [show, setShow] = useState(false)
-    const [show1, setShow1] = useState(false)
-    const [show2, setShow2] = useState(false)
+    const [show, setShow] = useState({
+        show1: false,
+        show2: false,
+        show3: false,
+    })
     const toggleText = () => {
-        setShow(!show)
+        if(show.show1 || show.show2 || show.show3){
+        setShow({...show,show1:false,show2:false,show3:false})
+        }
     }
-    const toggleText1 = () => {
-        setShow1(!show1)
-    }
-    const toggleText2 = () => {
-        setShow2(!show2)
-    }
+
     
     return (
-        <nav class="bg-white dark:bg-gray-800 border-b border-gray-100">
+        <nav onClick={()=>toggleText()} class="bg-white dark:bg-gray-800 border-b border-gray-100">
             <div class="max-w-7xl mx-auto px-8">
                 <div class="flex items-center justify-between h-16">
                     <div class=" flex items-center">
@@ -33,10 +32,10 @@ const TopBar = () => {
                         <div class="flex items-center md:ml-6">
                             <div class="relative">
                                 <div class="relative inline-block">
-                                    <div  onClick={() => toggleText()} class="cursor-pointer">
+                                    <div  onClick={() => setShow({...show,show1:!show.show1})} class="cursor-pointer">
                                         <span><RiNotification3Line className="text-3xl ml-5 border rounded-full p-1 shadow text-gray-500" /></span>
                                     </div>
-                                    <div class={`${show ? 'block' : 'hidden'} z-10 origin-top-right absolute right-10 mt-2 w-56 rounded-md shadow-lg bg-white dark:bg-gray-800 ring-1 ring-black ring-opacity-5`}>
+                                    <div class={`${show.show1 ? 'block' : 'hidden'} z-10 origin-top-right absolute right-10 mt-2 w-56 rounded-md shadow-lg bg-white dark:bg-gray-800 ring-1 ring-black ring-opacity-5`}>
 
                                         <div class="shadow-lg rounded-xl w-full md:w-80 p-4 bg-white dark:bg-gray-800 relative overflow-hidden">
                                             <div class="w-full flex items-center justify-between mb-8">
@@ -139,10 +138,10 @@ const TopBar = () => {
                         <div class="ml-4 flex items-center">
                             <div class="relative">
                                 <div class="relative inline-block">
-                                    <div onClick={() => toggleText1()} class="cursor-pointer">
+                                    <div onClick={() => setShow({...show,show2:!show.show2})} class="cursor-pointer">
                                         <span><RiMessageLine className="text-3xl ml-5 border rounded-full p-1 shadow text-gray-500" /></span>
                                     </div>
-                                    <div class={`${show1 ? 'block' : 'hidden'} z-10	origin-top-right absolute right-10 mt-2 w-56 rounded-md shadow-lg bg-white dark:bg-gray-800 ring-1 ring-black ring-opacity-5`}>
+                                    <div class={`${show.show2 ? 'block' : 'hidden'} z-10	origin-top-right absolute right-10 mt-2 w-56 rounded-md shadow-lg bg-white dark:bg-gray-800 ring-1 ring-black ring-opacity-5`}>
 
                                         <div class="shadow-lg rounded-2xl w-64 p-4 bg-white flex justify-between items-center">
                                             <div class="w-2/6">
@@ -172,10 +171,10 @@ const TopBar = () => {
                         <div class="ml-4 flex items-center">
                             <div class="relative">
                                 <div class="relative inline-block">
-                                    <div onClick={() => toggleText2()} class="cursor-pointer">
+                                    <div onClick={() => setShow({...show,show3:!show.show3})} class="cursor-pointer">
                                         <RiUser3Line class="text-xl bg-dark-500 text-3xl ml-5 border rounded-full p-1 shadow text-gray-500" />
                                     </div>
-                                    <div class={`${show2 ? 'block' : 'hidden'} z-10	origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white dark:bg-gray-800 ring-1 ring-black ring-opacity-5`}>
+                                    <div class={`${show.show3 ? 'block' : 'hidden'} z-10	origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white dark:bg-gray-800 ring-1 ring-black ring-opacity-5`}>
                                         <div class="py-1 " role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
                                             <Link to="/" class="block block px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-100 dark:hover:text-white dark:hover:bg-gray-600" role="menuitem">
                                                 <span class="flex flex-col">
