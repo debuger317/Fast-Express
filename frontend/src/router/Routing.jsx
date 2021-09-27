@@ -13,6 +13,7 @@ const Services = lazy(() => import('../pages/Services'));
 const Faq = lazy(() => import('../pages/FAQ'));
 const About = lazy(() => import('../pages/About'));
 const NotFound = lazy(() => import('../pages/NotFound'));
+const Login = lazy(() => import('../pages/Login'));
 
 
 const Routing = () => {
@@ -38,12 +39,16 @@ const Routing = () => {
                     <Route path="/about">
                         <About></About>
                     </Route>
+                    <Route path="/login">
+                        <Login/>
+                    </Route>
                     <Route path="*">
                         <NotFound />
                     </Route>
                 </Switch>
             </Router>
         </Suspense>
+
     )
 }
 
