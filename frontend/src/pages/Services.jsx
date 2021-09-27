@@ -1,10 +1,10 @@
 import React, { Fragment } from 'react';
-import Footer from '../component/common/footer/Footer';
-import Navbar from '../component/common/header/sub-component/nav-bar/Navbar';
-import TopBar from '../component/common/header/sub-component/top-bar/TopBar';
-import PageTitle from '../component/common/page-title/PageTitle';
-import CategoryList from '../component/pages/service/CategoryList';
-import SearchBar from '../component/pages/service/SearchBar';
+import Footer from '../components/footer/Footer';
+import Navbar from '../components/header/sub-component/nav-bar/Navbar';
+import TopBar from '../components/header/sub-component/top-bar/TopBar';
+import PageTitle from '../components/page-title/PageTitle';
+import CategoryList from '../components/service/CategoryList';
+import SearchBar from '../components/service/SearchBar';
 
 const Services = () => {
     return (

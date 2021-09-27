@@ -1,10 +1,10 @@
 import React, { Fragment } from 'react';
-import AboutBanner from '../component/pages/about/AboutBanner';
-import Footer from '../component/common/footer/Footer';
-import Navbar from '../component/common/header/sub-component/nav-bar/Navbar';
-import TopBar from '../component/common/header/sub-component/top-bar/TopBar';
-import AboutContainer from '../component/pages/about/AboutContainer';
-import ClientCounter from '../component/pages/about/ClientCounter';
+import AboutBanner from '../components/about/AboutBanner';
+import Footer from '../components/footer/Footer';
+import Navbar from '../components/header/sub-component/nav-bar/Navbar';
+import TopBar from '../components/header/sub-component/top-bar/TopBar';
+import AboutContainer from '../components/about/AboutContainer';
+import ClientCounter from '../components/about/ClientCounter';
 
 const About = () => {
   return (

@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
-import Navbar from '../component/common/header/sub-component/nav-bar/Navbar';
-import TopBar from '../component/common/header/sub-component/top-bar/TopBar';
-import SignIn from '../component/pages/login/SignIn';
+import Navbar from '../components/header/sub-component/nav-bar/Navbar';
+import TopBar from '../components/header/sub-component/top-bar/TopBar';
+import SignIn from '../components/login/SignIn';
 
 const Login = () => {
   return (
