@@ -3,7 +3,7 @@ import React from 'react';
 const CompanyList = () => {
     return (
         <div>
-         c   
+            <h2>Company List</h2>
         </div>
     );
 };

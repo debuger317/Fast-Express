@@ -6,7 +6,7 @@ import {
     Route
 } from "react-router-dom";
 const Home = lazy(() => import('./wrapper/Home'));
-const CompanyList = lazy(() => import('./wrapper/CompanyList'));
+const CompanyList = lazy(() => import('./wrapper/companyList/CompanyList'));
 const OrderList = lazy(() => import('./wrapper/OrderList'));
 const UserList = lazy(() => import('./wrapper/UserList'));
 
@@ -15,11 +15,11 @@ const Routes = () => {
         <Suspense fallback={<Spinner />}>
             <Router>
                 <Switch>
-                    <Route path="/dashboard">
+                    <Route exact path="/dashboard">
                         <Home />
                     </Route>
 
-                    <Route exact path="/companylist">
+                    <Route path="/dashboard/companylist">
                         <CompanyList />
                     </Route>
 
