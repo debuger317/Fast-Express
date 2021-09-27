@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import DailyActivity from '../components/DailyActivity';
+import TottalSell from '../components/TottalSell';
 
 const Home = () => {
     return (
-        <div>
-            
-        </div>
+        <Fragment>
+            <TottalSell/>
+            <DailyActivity/>
+        </Fragment>
     );
 };
 
