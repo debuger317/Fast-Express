@@ -8,6 +8,7 @@ import FAQ from '../component/common/faq/FAQ';
 import PromoSell from '../component/common/promo-sell/PromoSell';
 import FeatureBrand from '../component/common/feature-brand/FeatureBrand';
 
+
 const Home = () => {
     return (
         <Fragment>
