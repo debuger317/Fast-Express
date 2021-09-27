@@ -7,12 +7,13 @@ import {
 import Spinner from '../component/common/spinner/Spinner';
 
 const Home = lazy(() => import('../pages/Home'));
-// const Pricing = lazy(() => import('../pages/Pricing'));
-const Contact = lazy(() => import('../pages/Contact'));
+const Pricing = lazy(() => import('../pages/Pricing'));
+const Contacts = lazy(() => import('../pages/Contacts'));
 const Services = lazy(() => import('../pages/Services'));
 const Faq = lazy(() => import('../pages/FAQ'));
 const About = lazy(() => import('../pages/About'));
 const NotFound = lazy(() => import('../pages/NotFound'));
+const Login = lazy(() => import('../pages/Login'));
 
 
 const Routing = () => {
@@ -24,7 +25,10 @@ const Routing = () => {
                         <Home />
                     </Route>
                     <Route path="/contact">
-                        <Contact />
+                        <Contacts />
+                    </Route>
+                    <Route  path="/pricing">
+                        <Pricing />
                     </Route>
                     <Route  path="/service">
                         <Services />
@@ -33,7 +37,10 @@ const Routing = () => {
                         <Faq></Faq>
                     </Route>
                     <Route path="/about">
-                        <About/>
+                        <About></About>
+                    </Route>
+                    <Route path="/login">
+                        <Login/>
                     </Route>
                     <Route path="*">
                         <NotFound />
