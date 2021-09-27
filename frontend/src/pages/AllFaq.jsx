@@ -12,7 +12,7 @@ const AllFaq = () => {
         <Fragment>
             <TopBar  />
             <Navbar />
-            <PageTitle title="FAQ"/>
+            <PageTitle title="Faq" pageName="Ask And Quession"/>
             <FaqDetails />
             <Footer />
         </Fragment>
