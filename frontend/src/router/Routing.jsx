@@ -4,11 +4,15 @@ import {
     Switch,
     Route
 } from "react-router-dom";
-import Spinner from '../component/spinner/Spinner';
-import About from '../pages/About';
+import Spinner from '../component/common/spinner/Spinner';
 
 const Home = lazy(() => import('../pages/Home'));
-const NotMatch = lazy(() => import('../pages/NotMatch'));
+// const Pricing = lazy(() => import('../pages/Pricing'));
+const Contact = lazy(() => import('../pages/Contact'));
+const Services = lazy(() => import('../pages/Services'));
+const Faq = lazy(() => import('../pages/FAQ'));
+const About = lazy(() => import('../pages/About'));
+const NotFound = lazy(() => import('../pages/NotFound'));
 
 
 const Routing = () => {
@@ -19,11 +23,20 @@ const Routing = () => {
                     <Route exact path="/">
                         <Home />
                     </Route>
+                    <Route path="/contact">
+                        <Contact />
+                    </Route>
+                    <Route  path="/service">
+                        <Services />
+                    </Route>
+                    <Route path="/faq">
+                        <Faq></Faq>
+                    </Route>
                     <Route path="/about">
                         <About/>
                     </Route>
                     <Route path="*">
-                        <NotMatch />
+                        <NotFound />
                     </Route>
                 </Switch>
             </Router>
