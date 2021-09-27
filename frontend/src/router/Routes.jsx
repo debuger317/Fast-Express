@@ -5,6 +5,7 @@ import {
     Switch,
     Route
 } from "react-router-dom";
+import UserList from '../components/dashboard/wrapper/UserList';
 
 const Home = lazy(() => import('../pages/Home'));
 const Pricing = lazy(() => import('../pages/Pricing'));
@@ -44,6 +45,9 @@ const Routes = () => {
                     </Route>
                     <Route path="/dashboard">
                         <Dashboard />
+                    </Route>
+                    <Route path="/userlist">
+                        <UserList />
                     </Route>
                     <Route path="*">
                         <NotFound />
