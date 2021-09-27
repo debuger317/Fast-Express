@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
-import Footer from '../component/common/footer/Footer';
-import Navbar from '../component/common/header/sub-component/nav-bar/Navbar';
-import Error from '../component/pages/not-found/NotFound';
+import Footer from '../components/footer/Footer';
+import Navbar from '../components/header/sub-component/nav-bar/Navbar';
+import Error from '../components/not-found/NotFound';
 const NotFound = () => {
     return (
         <Fragment>

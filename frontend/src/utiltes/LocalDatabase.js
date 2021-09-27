@@ -278,3 +278,55 @@ export const supportData = [
     }
 ]
 
+
+export const users = [
+    {
+      id: 1,
+      name: "Mr. Kuddus",
+      address: "shahrasti",
+      from: "Shahrasti",
+      to: "Chandpur",
+      status: "ofline"
+    },
+    {
+      id: 2,
+      name: "Mr. Kuddus",
+      address: "shahrasti",
+      from: "Shahrasti",
+      to: "Chandpur",
+      status: "active"
+    },
+    {
+      id: 3,
+      name: "Mr. Kuddus",
+      address: "shahrasti",
+      from: "Shahrasti",
+      to: "Chandpur",
+      status: "active"
+    },
+    {
+      id: 4,
+      name: "Mr. Kuddus",
+      address: "shahrasti",
+      from: "Shahrasti",
+      to: "Chandpur",
+      status: "active"
+  
+    },
+    {
+      id: 5,
+      name: "Mr. Kuddus",
+      address: "shahrasti",
+      from: "Shahrasti",
+      to: "Chandpur",
+      status: "active"
+    },
+    {
+      id: 6,
+      name: "Mr. Kuddus",
+      address: "shahrasti",
+      from: "Shahrasti",
+      to: "Chandpur",
+      status: "active"
+    }
+  ]

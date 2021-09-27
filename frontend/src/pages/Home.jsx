@@ -1,13 +1,11 @@
 import React, { Fragment } from 'react';
-import Header from '../component/common/header/Header';
-import Footer from '../component/common/footer/Footer';
-import OurMission from '../component/common/our-mission/OurMission';
-import Support from '../component/common/support/Support';
-import Review from '../component/common/reviews/Review';
-import FAQ from '../component/common/faq/FAQ';
-import PromoSell from '../component/common/promo-sell/PromoSell';
-import FeatureBrand from '../component/common/feature-brand/FeatureBrand';
-
+import Header from '../components/header/Header';
+import Footer from '../components/footer/Footer';
+import OurMission from '../components/our-mission/OurMission';
+import Support from '../components/support/Support';
+import Review from '../components/reviews/Review';
+import PromoSell from '../components/promo-sell/PromoSell';
+import FeatureBrand from '../components/feature-brand/FeatureBrand';
 
 const Home = () => {
     return (
@@ -15,7 +13,6 @@ const Home = () => {
             <Header />
             <OurMission />
             <Support />
-            <FAQ />
             <PromoSell />
             <Review />
             <FeatureBrand/>

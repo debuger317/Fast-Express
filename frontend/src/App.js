@@ -1,10 +1,10 @@
 import React, { Fragment } from 'react';
-import Routing from './router/Routing';
+import Routes from './router/Routes';
 
 const App = () => {
   return (
     <Fragment>
-      <Routing />
+      <Routes />
     </Fragment>
   )
 }
