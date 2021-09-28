@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const CompanySchema = new mongoose.Schema({
+const CourierListSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
@@ -13,8 +13,7 @@ const CompanySchema = new mongoose.Schema({
     },
     companylogo: {
         type: String,
-        default: "",
-        unique: true,
+        required: false,
     },
     address: {
         type: String,
@@ -34,4 +33,4 @@ const CompanySchema = new mongoose.Schema({
 
 }, { timestamps: true });
 
-module.exports = mongoose.model('company', CompanySchema);
+module.exports = mongoose.model('CourierList', CourierListSchema);
