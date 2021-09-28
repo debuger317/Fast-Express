@@ -1,11 +1,11 @@
 import React from 'react';
 
-const UserList = () => {
+const ManageCompany = () => {
     return (
         <div>
-            serlist 
+            
         </div>
     );
 };
 
-export default UserList;
+export default ManageCompany;

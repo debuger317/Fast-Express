@@ -1,11 +1,11 @@
 import React from 'react';
 
-const UserList = () => {
+const Payment = () => {
     return (
         <div>
-            serlist 
+            
         </div>
     );
 };
 
-export default UserList;
+export default Payment;

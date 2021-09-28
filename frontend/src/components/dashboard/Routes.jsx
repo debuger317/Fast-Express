@@ -6,7 +6,8 @@ import {
     Route
 } from "react-router-dom";
 const Home = lazy(() => import('./wrapper/Home'));
-const CompanyList = lazy(() => import('./wrapper/companyList/CompanyList'));
+const CompanyList = lazy(() => import('./wrapper/CompanyList'));
+const PandingCompany = lazy(() => import('./wrapper/manageCompany/PandingCompany'));
 const OrderList = lazy(() => import('./wrapper/OrderList'));
 const UserList = lazy(() => import('./wrapper/UserList'));
 
@@ -19,8 +20,12 @@ const Routes = () => {
                         <Home />
                     </Route>
 
-                    <Route path="/dashboard/companylist">
+                    <Route path="/companylist">
                         <CompanyList />
+                    </Route>
+
+                    <Route path="/pending-company">
+                        <PandingCompany />
                     </Route>
 
                     <Route path="/orderlist">
