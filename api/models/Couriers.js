@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const CourierListSchema = new mongoose.Schema({
+const CourierSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
@@ -33,4 +33,4 @@ const CourierListSchema = new mongoose.Schema({
 
 }, { timestamps: true });
 
-module.exports = mongoose.model('CourierList', CourierListSchema);
+module.exports = mongoose.model('couriers', CourierSchema);

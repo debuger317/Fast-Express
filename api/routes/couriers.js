@@ -1,9 +1,9 @@
 const router = require("express").Router();
-const CourierList = require("../models/CourierList");
+const couriers = require("../models/Couriers");
 
 router.post("/addcourier", async (req, res) => {
     try {
-        const newCourier = new CourierList({
+        const newCourier = new couriers({
             name: req.body.name,
             email: req.body.email,
             companylogo: req.body.companylogo,
@@ -22,7 +22,7 @@ router.post("/addcourier", async (req, res) => {
 
 router.get('/all', async (req, res) => {
     try {
-        const allcourier = await CourierList.find()
+        const allcourier = await couriers.find()
         res.status(200).json(allcourier)
 
     }
@@ -35,7 +35,7 @@ router.get('/all', async (req, res) => {
 router.put('/:id', async (req, res) => {
     if (req.body.courierId === req.params.id) {
         try {
-            const updatedcourier = await CourierList.findByIdAndUpdate(req.params.id, {
+            const updatedcourier = await couriers.findByIdAndUpdate(req.params.id, {
                 $set: req.body
             })
             res.status(200).json(updatedcourier)

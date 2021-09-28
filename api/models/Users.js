@@ -16,10 +16,10 @@ const UserSchema = new mongoose.Schema({
         required: true,
         unique: true,
     },
-    userphoto: {
+    photo: {
         type: String,
         default: "",
-        unique: true,
+        unique: false,
     },
     label: {
         type: String,
@@ -29,4 +29,4 @@ const UserSchema = new mongoose.Schema({
 
 }, { timestamps: true });
 
-module.exports = mongoose.model('User', UserSchema);
+module.exports = mongoose.model('users', UserSchema);
