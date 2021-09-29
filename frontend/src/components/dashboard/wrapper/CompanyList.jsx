@@ -2,14 +2,15 @@ import React from 'react';
 
 const CompanyList = () => {
     return (
-        <div class="container mx-auto px-4 sm:px-8 max-w-3xl">
+        <section className="container w-5/6 mx-auto px-4 sm:px-8 max-w-3xl">
+
             <div class="py-8">
-                <div class="flex flex-row mb-1 sm:mb-0 justify-between w-full">
+                <div class="flex flex-row mb-1 sm:mb-0 justify-between">
                     <h2 class="text-2xl leading-tight">
-                        Users
+                        Company
                     </h2>
                     <div class="text-end">
-                        <form class="flex flex-col md:flex-row w-3/4 md:w-full max-w-sm md:space-x-3 space-y-3 md:space-y-0 justify-center">
+                        <form class="flex flex-col md:flex-row   max-w-sm md:space-x-3 space-y-3 md:space-y-0 justify-center">
                             <div class=" relative ">
                                 <input type="text" id="&quot;form-subscribe-Filter" class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="name" />
                             </div>
@@ -234,7 +235,7 @@ const CompanyList = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
     );
 };

@@ -26,8 +26,8 @@ const Routes = () => {
                     <Route exact path="/">
                         <Home />
                     </Route>
-                    <Route path="/contact">
-                        <Contacts />
+                    <Route path="/pricing">
+                        <Pricing />
                     </Route>
                     <Route path="/pricing">
                         <Pricing />
