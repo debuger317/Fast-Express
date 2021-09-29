@@ -5,6 +5,7 @@ import {
     Switch,
     Route
 } from "react-router-dom";
+import Private from '../components/auth/PrivateRoute';
 
 const Home = lazy(() => import('../pages/Home'));
 const Pricing = lazy(() => import('../pages/Pricing'));
@@ -53,9 +54,9 @@ const Routes = () => {
                     <Route path="/my-account">
                         <MyAccount />
                     </Route>
-                    <Route path="/dashboard">
+                    <Private path="/dashboard">
                         <Dashboard />
-                    </Route>
+                    </Private>
                     <Route path="*">
                         <NotFound />
                     </Route>

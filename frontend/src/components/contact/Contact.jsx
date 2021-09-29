@@ -1,20 +1,25 @@
 import React from 'react';
-// import emailjs from 'emailjs-com';
+import emailjs from 'emailjs-com';
 import { BiSupport } from "react-icons/bi";
 import { ImWhatsapp } from "react-icons/im";
 
 const Contact = () => {
-   
-    // const sendEmail = (e) => {
-    //   e.preventDefault();
+
+
+    const sendEmail = (e) => {
+      e.preventDefault();
   
-    //   emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', 'YOUR_USER_ID')
-    //     .then((result) => {
-    //         console.log(result.text);
-    //     }, (error) => {
-    //         console.log(error.text);
-    //     });
-    // }
+      emailjs.sendForm('service_j00wuop',
+       'template_r2fco2l', 
+       e.target,
+      'user_vGBIhRVN48uioPJ1QxFLa')
+        .then((result) => {
+            alert('success!')
+        }, (error) => {
+            console.log(error.text);
+        });
+        e.target.reset()    
+    }
     return (
         <section class=''>
             <div class="container background-color text-white max-w-screen-xl p-4 py-10 bg-white dark:bg-gray-800 mx-auto px-4 sm:px-6 lg:px-8 relative py-26 lg:mt-10">
@@ -43,7 +48,7 @@ const Contact = () => {
                         </div>
                         <div class="mt-10 lg:-mx-4 relative relative-20 lg:mt-0 lg:col-start-1">
                             <div class="mx-14 relative space-y-4">
-                                <form class="mt-10 lg:-mx-4 relative relative-20 lg:mt-0 lg:col-start-1">
+                                <form onSubmit={sendEmail} class="mt-10 lg:-mx-4 relative relative-20 lg:mt-0 lg:col-start-1">
                                     <div class="div-fix w-full max-w-2xl px-5 py-10 m-auto mt-10 bg-white rounded-lg shadow dark:bg-gray-800">
                                         <div class=" font-bold mb-6 text-3xl font-light text-center text-gray-800 dark:text-white">
                                             Contact us !
@@ -51,17 +56,17 @@ const Contact = () => {
                                         <div class="grid max-w-xl grid-cols-2 gap-4 m-auto">
                                             <div class="col-span-2 lg:col-span-1">
                                                 <div class=" relative ">
-                                                    <input type="text" id="contact-form-name" class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="Name" />
+                                                    <input type="text" name="name" id="contact-form-name" class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="Your name" />
                                                 </div>
                                             </div>
                                             <div class="col-span-2 lg:col-span-1">
                                                 <div class=" relative ">
-                                                    <input type="text" id="contact-form-email" class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="email" />
+                                                    <input type="text" name="user_email" id="contact-form-email" class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="Your email" />
                                                 </div>
                                             </div>
                                             <div class="col-span-2">
                                                 <label class="text-gray-700" for="name">
-                                                    <textarea class="flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" id="comment" placeholder="Enter your comment" name="comment" rows="5" cols="40">
+                                                    <textarea class="flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" id="comment" placeholder="Enter your comment" name="message" rows="5" cols="40">
                                                     </textarea>
                                                 </label>
                                             </div>
