@@ -1,17 +1,25 @@
 import React from 'react';
+import { FaSearchLocation } from 'react-icons/fa';
+import { IoLocationOutline } from 'react-icons/io5';
 
 const SearchBar = () => {
     return (
-        <section className="bg-red-500 py-10">
+        <section className="bg-white-100 py-10 mt-10 shadow-md">
             <div className="container mx-auto">
-                <form className="flex md:flex-row justify-center">
-                    <div className="relative">
-                        <input type="text" className="w-96 rounded-r-none rounded-full border-transparent appearance-none border border-gray-300 py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="Email" />
+                <div className="flex justify-center">
+                    <div className="w-1/6 flex items-center">
+                        <div className="icon">
+                            <IoLocationOutline />
+                        </div>
+                        <h2 className="text-center">All Bangladesh</h2>
                     </div>
-                    <button className="rounded-l-none flex-shrink-0 px-4 py-2 text-base font-semibold text-white bg-green-500 rounded-full shadow-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-purple-200" type="submit">
-                        Go
-                    </button>
-                </form>
+                    <div class="w-1/2 flex relative">
+                        <input type="text" id="email-with-icon" class=" rounded-l-lg flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent" name="email" placeholder="what are you looking for..." />
+                        <span class="cursor-pointer rounded-r-md inline-flex  items-center px-3 border-t bg-white border-r border-b  border-gray-300 text-gray-500 shadow-sm text-sm">
+                            <FaSearchLocation />
+                        </span>
+                    </div>
+                </div>
             </div>
         </section>
     )

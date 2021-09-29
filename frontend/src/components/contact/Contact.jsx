@@ -1,20 +1,20 @@
 import React from 'react';
-import emailjs from 'emailjs-com';
+// import emailjs from 'emailjs-com';
 import { BiSupport } from "react-icons/bi";
 import { ImWhatsapp } from "react-icons/im";
 
 const Contact = () => {
    
-    const sendEmail = (e) => {
-      e.preventDefault();
+    // const sendEmail = (e) => {
+    //   e.preventDefault();
   
-      emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', 'YOUR_USER_ID')
-        .then((result) => {
-            console.log(result.text);
-        }, (error) => {
-            console.log(error.text);
-        });
-    }
+    //   emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', 'YOUR_USER_ID')
+    //     .then((result) => {
+    //         console.log(result.text);
+    //     }, (error) => {
+    //         console.log(error.text);
+    //     });
+    // }
     return (
         <section class=''>
             <div class="container background-color text-white max-w-screen-xl p-4 py-10 bg-white dark:bg-gray-800 mx-auto px-4 sm:px-6 lg:px-8 relative py-26 lg:mt-10">
