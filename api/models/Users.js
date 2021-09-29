@@ -24,7 +24,7 @@ const UserSchema = new mongoose.Schema({
     label: {
         type: String,
         required: true,
-        unique: true,
+        unique: false,
     },
 
 }, { timestamps: true });
