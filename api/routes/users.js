@@ -13,7 +13,10 @@ router.post('/register', async (req, res) => {
         const user = await newUser.save();
         res.status(200).send(user);
     }
-    catch (err) { res.status(500).json(err) }
+    catch (err) {
+        console.log(err)
+        res.status(500).json({ message: err.message });
+    }
 })
 
 router.get('/all', async (req, res) => {

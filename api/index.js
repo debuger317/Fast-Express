@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
+const port = process.env.PORT || 5500;
 const couriers = require("./routes/couriers");
 const users = require("./routes/users");
 
@@ -24,8 +25,8 @@ app.get('/', (req, res) => {
     res.send('Fast Express API')
 })
 
-app.listen("4200", () => {
-
-    console.log("backend is running");
-})
+app.listen(port, () => {
+    console.log(`${port}`, 'server connected')
+  })
+  
 

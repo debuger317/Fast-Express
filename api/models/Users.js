@@ -19,7 +19,7 @@ const UserSchema = new mongoose.Schema({
     photo: {
         type: String,
         default: "",
-        unique: false,
+        unique: true,
     },
     label: {
         type: String,
