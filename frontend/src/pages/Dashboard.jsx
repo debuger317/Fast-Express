@@ -23,16 +23,16 @@ const Dashboard = () => {
                         <Route exact path="/dashboard">
                             <Home />
                         </Route>
-                        <Route path="/userlist">
+                        <Route path="/dashboard/userlist">
                             <UserList />
                         </Route>
-                        <Route path="/companylist">
+                        <Route path="/dashboard/companylist">
                             <CompanyList />
                         </Route>
-                        <Route path="/orderlist">
+                        <Route path="/dashboard/orderlist">
                             <OrderList />
                         </Route>
-                        <Route path="/my-account">
+                        <Route path="/dashboard/my-account">
                             <Account />
                         </Route>
                     </Switch>

@@ -19,12 +19,12 @@ const UserSchema = new mongoose.Schema({
     photo: {
         type: String,
         default: "",
-        unique: true,
+        required: false,
     },
     label: {
         type: String,
         required: true,
-        unique: true,
+        unique: false,
     },
 
 }, { timestamps: true });

@@ -20,6 +20,11 @@ const CourierSchema = new mongoose.Schema({
         required: true,
         unique: true,
     },
+    division: {
+        type: String,
+        required: true,
+        unique: false,
+    },
     startpoint: {
         type: String,
         required: true,
