@@ -14,6 +14,7 @@ const Services = lazy(() => import('../pages/Services'));
 const ServiceCategoryDetails = lazy(() => import('../pages/CategoryDetails'));
 const Faq = lazy(() => import('../pages/FAQ'));
 const About = lazy(() => import('../pages/About'));
+const SignUp = lazy(() => import('../pages/SignUp'));
 const Login = lazy(() => import('../pages/Login'));
 const Dashboard = lazy(() => import('../pages/Dashboard'));
 const NotFound = lazy(() => import('../pages/NotFound'));
@@ -47,6 +48,9 @@ const Routes = () => {
                     </Route>
                     <Route path="/about">
                         <About></About>
+                    </Route>
+                    <Route path="/signup">
+                        <SignUp />
                     </Route>
                     <Route path="/login">
                         <Login />

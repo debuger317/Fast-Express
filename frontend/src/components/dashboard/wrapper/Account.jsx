@@ -1,6 +1,9 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 
 const Account = () => {
+    const user = useSelector((state) => state.auth.userdetails)
+    const { displayName, email, photoURL } = user;
     return (
 
         <section class="bg-gray-100 bg-opacity-50 py-10">
@@ -8,11 +11,11 @@ const Account = () => {
                 <div class="p-4 bg-gray-100  rounded-lg bg-opacity-5">
                     <div class="max-w-sm mx-auto md:w-full md:mx-0">
                         <div class="flex items-center space-x-4">
-                            <a href="#" class="block relative">
-                                <img alt="profil" src="/images/person/1.jpg" class="mx-auto object-cover rounded-full h-16 w-16 " />
-                            </a>
+                        <div class="block relative">
+                                <img alt="profil" src={photoURL} class="mx-auto object-cover rounded-full h-16 w-16 " />
+                                </div>
                             <h1 class="text-gray-600">
-                                Charlie
+                                {displayName}
                             </h1>
                         </div>
                     </div>
@@ -24,7 +27,7 @@ const Account = () => {
                         </h2>
                         <div class="max-w-sm mx-auto md:w-2/3">
                             <div class=" relative ">
-                                <input type="text" id="user-info-email" class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="Email" />
+                                <input type="text" value={email} id="user-info-email" class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="Email" />
                             </div>
                         </div>
                     </div>
@@ -36,7 +39,7 @@ const Account = () => {
                         <div class="max-w-sm mx-auto space-y-5 md:w-2/3">
                             <div>
                                 <div class=" relative ">
-                                    <input type="text" id="user-info-name" class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="Name" />
+                                    <input type="text" value={displayName} id="user-info-name" class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="Name" />
                                 </div>
                             </div>
                             <div>
