@@ -51,7 +51,7 @@ const Contact = () => {
                                 <form onSubmit={sendEmail} class="mt-10 lg:-mx-4 relative relative-20 lg:mt-0 lg:col-start-1">
                                     <div class="div-fix w-full max-w-2xl px-5 py-10 m-auto mt-10 bg-white rounded-lg shadow dark:bg-gray-800">
                                         <div class=" font-bold mb-6 text-3xl font-light text-center text-gray-800 dark:text-white">
-                                            Contact us !
+                                            Contact with us !
                                         </div>
                                         <div class="grid max-w-xl grid-cols-2 gap-4 m-auto">
                                             <div class="col-span-2 lg:col-span-1">
