@@ -5,7 +5,6 @@ import { ImWhatsapp } from "react-icons/im";
 
 const Contact = () => {
 
-
     const sendEmail = (e) => {
       e.preventDefault();
   
@@ -19,25 +18,26 @@ const Contact = () => {
             console.log(error.text);
         });
         e.target.reset()    
-    }
+    };
+
     return (
         <section class=''>
-            <div class="container background-color text-white max-w-screen-xl p-4 py-10 bg-white dark:bg-gray-800 mx-auto px-4 sm:px-6 lg:px-8 relative py-26 lg:mt-10">
+            <div class="container background-color text-white max-w-screen-xl p-4 py-5 bg-white dark:bg-gray-800 mx-auto px-4 sm:px-6 lg:px-8 relative py-26 lg:mt-5">
                 <div class="relative">
                     <div class="lg:grid lg:grid-flow-row-dense lg:grid-cols-2 lg:gap-8 lg:items-center">
                         <div class="lg:col-start-2 lg:max-w-2xl ml-auto">
-                            <div class="div-fix w-full max-w-2xl px-5 py-10 m-auto mt-10 bg-white rounded-lg shadow dark:bg-gray-800">
+                            <div class="div-fix w-full max-w-2xl px-5 py-5 m-auto mt-10 bg-white rounded-lg shadow dark:bg-gray-800">
                                 <div class="">
-                                    <div class="px-6 py-4 text-center">
+                                    <div class="px-4 py-2 text-center">
                                         <div className='p-4'><BiSupport className='m-auto text-red-400 text-7xl' /></div>
                                         <div class="font-bold text-xl mb-2 text-black">Chat</div>
                                         <p class="text-gray-700 text-base px-14">
                                             Chat with us to book or ask about your delivery order status and other inquiries.
                                         </p>
                                     </div>
-                                    <div class="px-6 pt-4 pb-2">
+                                    <div class="px-4 pt-4 pb-2">
                                         <button type="button" class="m-auto block py-2 px-2  bg-red-400 hover:bg-red-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
-                                            <ImWhatsapp className='inline mx-3 text-3xl bg-green-400' />WhatsApp
+                                            <ImWhatsapp className='inline mx-3 text-3xl' />WhatsApp
                                         </button>
                                         <button type="button" class="m-auto block my-5 py-2 px-2  bg-red-400 hover:bg-red-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
                                             ONLINE CHAT SUPPORT

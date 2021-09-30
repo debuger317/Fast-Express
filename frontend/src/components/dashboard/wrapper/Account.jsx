@@ -2,8 +2,9 @@ import React from 'react';
 
 const Account = () => {
     return (
-
         <section class="bg-gray-100 bg-opacity-50 py-10">
+            <h2 className="font-bold text-center text-4xl uppercase p-3 items-center">my account
+            </h2>
             <form class="container max-w-2xl mx-auto shadow-md md:w-3/4">
                 <div class="p-4 bg-gray-100  rounded-lg bg-opacity-5">
                     <div class="max-w-sm mx-auto md:w-full md:mx-0">
@@ -65,13 +66,12 @@ const Account = () => {
                     <hr />
                     <div class="w-full px-4 pb-4 ml-auto text-gray-500 md:w-1/3">
                         <button type="submit" class="py-2 px-4  bg-blue-600 hover:bg-blue-700 focus:ring-blue-500 focus:ring-offset-blue-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
-                            Save
+                            Save Changes
                         </button>
                     </div>
                 </div>
             </form>
         </section>
-
     );
 };
 
