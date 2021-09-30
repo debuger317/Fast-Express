@@ -1,6 +1,6 @@
 import React from 'react';
 
-const PandingCompany = () => {
+const PendingCompany = () => {
     return (
         <div class="container mx-auto px-4 sm:px-8 max-w-3xl">
             <div class="py-8">
@@ -238,4 +238,4 @@ const PandingCompany = () => {
     );
 };
 
-export default PandingCompany;
+export default PendingCompany;

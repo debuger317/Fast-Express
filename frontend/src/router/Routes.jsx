@@ -17,7 +17,6 @@ const SignUp = lazy(() => import('../pages/SignUp'));
 const Login = lazy(() => import('../pages/Login'));
 const Dashboard = lazy(() => import('../pages/Dashboard'));
 const NotFound = lazy(() => import('../pages/NotFound'));
-const MyAccount = lazy(() => import('../components/dashboard/wrapper/settings/MyAccount'));
 
 const Routes = () => {
     return (
@@ -53,9 +52,6 @@ const Routes = () => {
                     </Route>
                     <Route path="/login">
                         <Login />
-                    </Route>
-                    <Route path="/my-account">
-                        <MyAccount />
                     </Route>
                     <Private path="/dashboard">
                         <Dashboard />

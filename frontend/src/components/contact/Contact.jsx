@@ -34,25 +34,25 @@ const Contact = () => {
                                     your message was successfully sent.
                                 </p>
                             </div>
-                            <span onClick={()=>setShow(false)}class="text-xl cursor-pointer"><ImCancelCircle /></span>
+                            <span onClick={() => setShow(false)} class="text-xl cursor-pointer"><ImCancelCircle /></span>
                         </div>
                     </div>
                 }
                 <div class="relative">
                     <div class="lg:grid lg:grid-flow-row-dense lg:grid-cols-2 lg:gap-8 lg:items-center">
                         <div class="lg:col-start-2 lg:max-w-2xl ml-auto">
-                            <div class="div-fix w-full max-w-2xl px-5 py-10 m-auto mt-10 bg-white rounded-lg shadow dark:bg-gray-800">
+                            <div class="div-fix w-full max-w-2xl px-5 py-5 m-auto mt-10 bg-white rounded-lg shadow dark:bg-gray-800">
                                 <div class="">
-                                    <div class="px-6 py-4 text-center">
+                                    <div class="px-4 py-2 text-center">
                                         <div className='p-4'><BiSupport className='m-auto text-red-400 text-7xl' /></div>
                                         <div class="font-bold text-xl mb-2 text-black">Chat</div>
                                         <p class="text-gray-700 text-base px-14">
                                             Chat with us to book or ask about your delivery order status and other inquiries.
                                         </p>
                                     </div>
-                                    <div class="px-6 pt-4 pb-2">
+                                    <div class="px-4 pt-4 pb-2">
                                         <button type="button" class="m-auto block py-2 px-2  bg-red-400 hover:bg-red-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
-                                            <ImWhatsapp className='inline mx-3 text-3xl bg-green-400' />WhatsApp
+                                            <ImWhatsapp className='inline mx-3 text-3xl' />WhatsApp
                                         </button>
                                         <button type="button" class="m-auto block my-5 py-2 px-2  bg-red-400 hover:bg-red-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
                                             ONLINE CHAT SUPPORT
@@ -66,7 +66,7 @@ const Contact = () => {
                                 <form onSubmit={sendEmail} class="mt-10 lg:-mx-4 relative relative-20 lg:mt-0 lg:col-start-1">
                                     <div class="div-fix w-full max-w-2xl px-5 py-10 m-auto mt-10 bg-white rounded-lg shadow dark:bg-gray-800">
                                         <div class=" font-bold mb-6 text-3xl font-light text-center text-gray-800 dark:text-white">
-                                            Contact us !
+                                            Contact with us !
                                         </div>
                                         <div class="grid max-w-xl grid-cols-2 gap-4 m-auto">
                                             <div class="col-span-2 lg:col-span-1">
