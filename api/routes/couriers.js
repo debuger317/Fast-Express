@@ -4,7 +4,7 @@ const couriers = require("../models/Couriers");
 router.post("/addcourier", async (req, res) => {
     try {
         const newCourier = new couriers({
-            courierName: req.body.courierName,
+            name: req.body.name,
             email: req.body.email,
             password: req.body.password,
             courierLogo: req.body.courierLogo,
@@ -12,8 +12,8 @@ router.post("/addcourier", async (req, res) => {
             phone: req.body.phone,
             location: req.body.location,
             division: req.body.division,
-            startPoint: req.body.startpoint,
-            endPoint: req.body.endpoint
+            startpoint: req.body.startpoint,
+            endpoint: req.body.endpoint
         });
         const courier = await newCourier.save();
         res.status(200).json(courier);

@@ -1,10 +1,11 @@
 const mongoose = require('mongoose');
 
 const CourierSchema = new mongoose.Schema({
-    courierName: {
+    name: {
         type: String,
         required: true,
         unique: true,
+        index: {unique: true}
     },
     email: {
         type: String,
@@ -38,14 +39,14 @@ const CourierSchema = new mongoose.Schema({
         type: String,
         required: false,
     },
-    startPoint: {
+    startpoint: {
         type: String,
-        required: true,
+        required: false,
         unique: false,
     },
-    endPoint: {
+    endpoint: {
         type: String,
-        required: true,
+        required: false,
         unique: false,
     },
 
