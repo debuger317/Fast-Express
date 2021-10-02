@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Account = () => {
+const AccountSetting = () => {
     return (
         <section class="bg-gray-100 bg-opacity-50 py-10">
             <h2 className="font-bold text-center text-4xl uppercase p-3 items-center">my account
@@ -75,4 +75,4 @@ const Account = () => {
     );
 };
 
-export default Account;
+export default AccountSetting;
