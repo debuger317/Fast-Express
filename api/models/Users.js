@@ -21,6 +21,14 @@ const UserSchema = new mongoose.Schema({
         default: "",
         required: false,
     },
+    address: {
+        city: {
+
+        },
+        currentlocation: {
+
+        }
+    },
     label: {
         type: String,
         required: true,
