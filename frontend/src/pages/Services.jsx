@@ -3,8 +3,8 @@ import Footer from '../components/footer/Footer';
 import Navbar from '../components/header/sub-component/nav-bar/Navbar';
 import TopBar from '../components/header/sub-component/top-bar/TopBar';
 import PageTitle from '../components/page-title/PageTitle';
-import CategoryList from '../components/service/CategoryList';
-import SearchBar from '../components/service/SearchBar';
+import CategoryList from '../components/service/sub-components/CategoryList';
+import SearchBar from '../components/service/sub-components/SearchBar';
 
 const Services = () => {
     return (

@@ -24,9 +24,9 @@ const Routes = () => {
                         <CompanyList />
                     </Route>
 
-                    {/* <Route path="/pending-company">
+                    <Route path="/pending-company">
                         <PendingCompany />
-                    </Route> */}
+                    </Route>
 
                     <Route path="/orderlist">
                         <OrderList />
