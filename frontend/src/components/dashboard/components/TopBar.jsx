@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { RiUser3Line, RiNotification3Line, RiMessageLine, RiSearch2Line } from 'react-icons/ri';
-import { logOutAction } from '../../../redux/action/action';
 
+import { Link } from 'react-router-dom';
 const TopBar = () => {
-    const dispatch = useDispatch();
+
     const [show, setShow] = useState({
         show1: false,
         show2: false,
@@ -192,13 +190,13 @@ const TopBar = () => {
                                                     </span>
                                                 </span>
                                             </Link>
-                                            <div onClick={() => dispatch(logOutAction())} class="block block cursor-pointer px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-100 dark:hover:text-white dark:hover:bg-gray-600" role="menuitem">
+                                            <Link to="/" class="block block px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-100 dark:hover:text-white dark:hover:bg-gray-600" role="menuitem">
                                                 <span class="flex flex-col">
                                                     <span>
                                                         Logout
                                                     </span>
                                                 </span>
-                                            </div>
+                                            </Link>
                                         </div>
                                     </div>
                                 </div>

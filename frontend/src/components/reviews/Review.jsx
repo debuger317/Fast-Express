@@ -20,37 +20,9 @@ const Review = () => {
                 <p className="text-center text-xl font-normal text-gray-500 dark:text-gray-200">
                     Meet our Best Client in the World
                 </p>
-                <Swiper
-                    breakpoints={{
-                        320: {
-                            slidesPerView: 1,
-                            spaceBetween: 20
-                        },
-
-                        480: {
-                            slidesPerView: 1,
-                            spaceBetween: 20
-                        },
-
-                        640: {
-                            slidesPerView: 2,
-                            spaceBetween: 20
-                        },
-
-                        768: {
-                            slidesPerView: 2,
-                            spaceBetween: 30
-                        },
-                        1024: {
-                            slidesPerView: 3,
-                            spaceBetween: 30
-                        }
-
-                    }}
-                    autoplay={true}
-                    pagination={{
-                        "clickable": true
-                    }} className="mySwiper">
+                <Swiper slidesPerView={`${3}`} spaceBetween={30} pagination={{
+                    "clickable": true
+                }} className="mySwiper">
                     {
                         ReviewItem.map(item =>
                             <SwiperSlide>
