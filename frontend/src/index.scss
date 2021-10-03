@@ -2,9 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-@import "../src/scss/faq";
-@import "../src/scss/review";
-@import "../src/scss/variable";
+@import "./assets/scss/faq";
+@import "./assets/scss//support";
+@import "./assets/scss/review";
+@import "./assets/scss/variable";
+@import "./assets/scss/promoSale";
+@import "./assets/scss/ourMission";
+@import "./assets/scss/contact";
+
 
 li > ul {
     transform: translatex(100%) scale(0);
