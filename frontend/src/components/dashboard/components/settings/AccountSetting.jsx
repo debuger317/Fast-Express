@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-const Account = () => {
+const AccountSetting = () => {
     const user = useSelector((state) => state.auth.userdetails)
     const { displayName, email, photoURL } = user;
     return (
@@ -78,4 +78,4 @@ const Account = () => {
     );
 };
 
-export default Account;
+export default AccountSetting;

@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const CourierSchema = new mongoose.Schema({
-    name: {
+    courierName: {
         type: String,
         required: true,
         unique: true,
@@ -11,7 +11,12 @@ const CourierSchema = new mongoose.Schema({
         required: true,
         unique: true,
     },
-    companylogo: {
+    password: {
+        type: String,
+        required: true,
+        unique: true,
+    },
+    courierLogo: {
         type: String,
         required: false,
     },
@@ -20,17 +25,25 @@ const CourierSchema = new mongoose.Schema({
         required: true,
         unique: true,
     },
+    phone: {
+        type: String,
+        required: true,
+        unique: true,
+    },
+    location: {
+        type: String,
+        required: true
+    },
     division: {
         type: String,
-        required: true,
-        unique: false,
+        required: false,
     },
-    startpoint: {
+    startPoint: {
         type: String,
         required: true,
         unique: false,
     },
-    endpoint: {
+    endPoint: {
         type: String,
         required: true,
         unique: false,

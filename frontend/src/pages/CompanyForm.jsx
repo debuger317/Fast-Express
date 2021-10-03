@@ -1,13 +1,18 @@
-import React from 'react';
-
+import React, { Fragment } from 'react';
+import AddCompanyForm from '../components/add-company-form/AddCompanyForm';
+import Footer from '../components/footer/Footer';
+import Navbar from '../components/header/sub-component/nav-bar/Navbar';
+import TopBar from '../components/header/sub-component/top-bar/TopBar';
 const CompanyForm = () => {
   return (
-<section className="container border-blue-500 md:border-green-500">
-  <h1>  hello world</h1>
-  <div className="w-full ">
-  
-  </div>
-  </section>
+
+    <Fragment>
+      <TopBar/>
+      <Navbar />
+      {/* add company form */}
+      <AddCompanyForm/>
+      <Footer/>
+    </Fragment>
   );
 };
 
