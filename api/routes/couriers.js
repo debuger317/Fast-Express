@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const couriers_Controller = require("../controllers/courier_controller")
+const couriers_Controller = require("../controllers/couriers")
 
 router.post("/addcourier", couriers_Controller.addcourier_C)
 
