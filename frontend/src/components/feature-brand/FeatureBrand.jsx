@@ -17,9 +17,32 @@ const FeatureBrand = () => {
       <div className="container mx-auto py-12">
         <p className="text-center text-4xl pb-12 text-gray-600 dark:text-white font-medium ">FEATURE AND MENTIONED ON</p>
         <Swiper
-          slidesPerView={3}
-          spaceBetween={30}
-          slidesPerGroup={3}
+         breakpoints={{
+          320: {
+              slidesPerView: 1,
+              spaceBetween: 20
+          },
+
+          480: {
+              slidesPerView: 1,
+              spaceBetween: 20
+          },
+
+          640: {
+              slidesPerView: 2,
+              spaceBetween: 20
+          },
+
+          768: {
+              slidesPerView: 2,
+              spaceBetween: 30
+          },
+          1024: {
+              slidesPerView: 3,
+              spaceBetween: 30
+          }
+
+      }}
           loop={true}
           autoplay={true}
           loopFillGroupWithBlank={true}

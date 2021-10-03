@@ -4,7 +4,7 @@ const AddCompanyForm = () => {
     return (
 
         <section className="Company__form py-10 bg-gray-50">
-            <form className="container w-5/6 mx-auto">
+            <form className="container xl:w-5/6 lg:w-4/6 md:3/6 sm:1/2 mx-auto">
                 <div className="px-20 py-10">
                     <div className="flex justify-between items-center my-5">
                         <div>
@@ -47,6 +47,27 @@ const AddCompanyForm = () => {
                             </label>
                         </div>
                     </div>
+                    {/* company address and password field */}
+                    <div class="items-center w-full p-4 space-y-4 text-gray-500 md:inline-flex md:space-y-0">
+                        <div class="text-md uppercase max-w-md mx-auto w-3/5">
+                            <label class="font-medium text-gray-700" for="pickupto">
+                                Company address
+                                <div class=" relative ">
+                                    <input type="text" class=" border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent" placeholder="Your company address" required />
+                                </div>
+                            </label>
+                        </div>
+                        <div class="text-md uppercase max-w-md mx-auto w-3/5">
+                            <label class="font-medium text-gray-700" for="pickupto">
+                                Company password
+                                <div class="relative">
+                                    <input type="password" class=" border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent" placeholder="Your Company password" required />
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    {/* company website name and weight */}
                     <div class="items-center w-full p-4 space-y-4 text-gray-500 md:inline-flex md:space-y-0">
                         <div class="text-md uppercase max-w-md mx-auto w-3/5">
                             <label class="font-medium text-gray-700" for="pickupto">

@@ -57,55 +57,55 @@ const FilterBar = () => {
 
                 <div>
                     <label class="flex items-center space-x-3 mb-3">
-                        <input type="checkbox" name="checked-demo" class="form-tick appearance-none bg-white bg-check h-6 w-6 border border-gray-300 rounded-md checked:bg-blue-500 checked:border-transparent focus:outline-none" />
+                        <input type="checkbox" name="checked-demo" class=" bg-white bg-check h-6 w-6 border border-gray-300 rounded-md checked:bg-blue-500 checked:border-transparent focus:outline-none" />
                         <span class="text-gray-700 dark:text-white font-normal">
                             Blue
                         </span>
                     </label>
                     <label class="flex items-center space-x-3 mb-3">
-                        <input type="checkbox" name="checked-demo" class="form-tick appearance-none bg-white bg-check h-6 w-6 border border-gray-300 rounded-md checked:bg-pink-500 checked:border-transparent focus:outline-none" />
+                        <input type="checkbox" name="checked-demo" class=" bg-white bg-check h-6 w-6 border border-gray-300 rounded-md checked:bg-pink-500 checked:border-transparent focus:outline-none" />
                         <span class="text-gray-700 dark:text-white font-normal">
                             Pink
                         </span>
                     </label>
                     <label class="flex items-center space-x-3 mb-3">
-                        <input type="checkbox" name="checked-demo" class="form-tick appearance-none bg-white bg-check h-6 w-6 border border-gray-300 rounded-md checked:bg-green-500 checked:border-transparent focus:outline-none" />
+                        <input type="checkbox" name="checked-demo" class=" bg-white bg-check h-6 w-6 border border-gray-300 rounded-md checked:bg-green-500 checked:border-transparent focus:outline-none" />
                         <span class="text-gray-700 dark:text-white font-normal">
                             Green
                         </span>
                     </label>
                     <label class="flex items-center space-x-3 mb-3">
-                        <input type="checkbox" name="checked-demo" class="form-tick appearance-none bg-white bg-check h-6 w-6 border border-gray-300 rounded-md checked:bg-yellow-500 checked:border-transparent focus:outline-none" />
+                        <input type="checkbox" name="checked-demo" class=" bg-white bg-check h-6 w-6 border border-gray-300 rounded-md checked:bg-yellow-500 checked:border-transparent focus:outline-none" />
                         <span class="text-gray-700 dark:text-white font-normal">
                             Orange
                         </span>
                     </label>
                     <label class="flex items-center space-x-3 mb-3">
-                        <input type="checkbox" name="checked-demo" class="form-tick appearance-none bg-white bg-check h-6 w-6 border border-gray-300 rounded-md checked:bg-purple-500 checked:border-transparent focus:outline-none" />
+                        <input type="checkbox" name="checked-demo" class=" bg-white bg-check h-6 w-6 border border-gray-300 rounded-md checked:bg-purple-500 checked:border-transparent focus:outline-none" />
                         <span class="text-gray-700 dark:text-white font-normal">
                             Purple
                         </span>
                     </label>
                     <label class="flex items-center space-x-3 mb-3">
-                        <input type="checkbox" name="checked-demo" class="form-tick appearance-none bg-white bg-check h-6 w-6 border border-gray-300 rounded-md checked:bg-black checked:border-transparent focus:outline-none" />
+                        <input type="checkbox" name="checked-demo" class=" bg-white bg-check h-6 w-6 border border-gray-300 rounded-md checked:bg-black checked:border-transparent focus:outline-none" />
                         <span class="text-gray-700 dark:text-white font-normal">
                             Black
                         </span>
                     </label>
                     <label class="flex items-center space-x-3 mb-3">
-                        <input type="checkbox" name="checked-demo" class="form-tick appearance-none bg-white bg-check h-6 w-6 border border-gray-300 rounded-md checked:bg-indigo-500 checked:border-transparent focus:outline-none" />
+                        <input type="checkbox" name="checked-demo" class=" bg-white bg-check h-6 w-6 border border-gray-300 rounded-md checked:bg-indigo-500 checked:border-transparent focus:outline-none" />
                         <span class="text-gray-700 dark:text-white font-normal">
                             Indigo
                         </span>
                     </label>
                     <label class="flex items-center space-x-3 mb-3">
-                        <input type="checkbox" name="checked-demo" class="form-tick appearance-none bg-white bg-check h-6 w-6 border border-gray-300 rounded-md checked:bg-red-500 checked:border-transparent focus:outline-none" />
+                        <input type="checkbox" name="checked-demo" class=" bg-white bg-check h-6 w-6 border border-gray-300 rounded-md checked:bg-red-500 checked:border-transparent focus:outline-none" />
                         <span class="text-gray-700 dark:text-white font-normal">
                             Red
                         </span>
                     </label>
                     <label class="flex items-center space-x-3 mb-3">
-                        <input type="checkbox" name="checked-demo" class="form-tick appearance-none bg-white bg-check h-6 w-6 border border-gray-300 rounded-md checked:bg-gray-500 checked:border-transparent focus:outline-none" />
+                        <input type="checkbox" name="checked-demo" class=" bg-white bg-check h-6 w-6 border border-gray-300 rounded-md checked:bg-gray-500 checked:border-transparent focus:outline-none" />
                         <span class="text-gray-700 dark:text-white font-normal">
                             Gray
                         </span>
