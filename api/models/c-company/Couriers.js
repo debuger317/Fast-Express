@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const UserSchema = new mongoose.Schema({
+const CourierSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
@@ -11,25 +11,26 @@ const UserSchema = new mongoose.Schema({
         required: true,
         unique: true,
     },
-    password: {
+    companylogo: {
+        type: String,
+        required: false,
+    },
+    address: {
         type: String,
         required: true,
         unique: true,
     },
-    photo: {
+    division: {
         type: String,
-        default: "",
-        required: false,
+        required: true,
+        unique: false,
     },
-    address: {
-        city: {
-
-        },
-        currentlocation: {
-
-        }
+    startpoint: {
+        type: String,
+        required: true,
+        unique: false,
     },
-    label: {
+    endpoint: {
         type: String,
         required: true,
         unique: false,
@@ -37,4 +38,4 @@ const UserSchema = new mongoose.Schema({
 
 }, { timestamps: true });
 
-module.exports = mongoose.model('users', UserSchema);
+module.exports = mongoose.model('couriers', CourierSchema);

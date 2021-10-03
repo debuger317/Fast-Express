@@ -1,43 +1,28 @@
-import React, { useState } from 'react';
+import React from 'react';
 import emailjs from 'emailjs-com';
 import { BiSupport } from "react-icons/bi";
-import { ImWhatsapp, ImCancelCircle } from "react-icons/im";
+import { ImWhatsapp } from "react-icons/im";
 
 const Contact = () => {
-    const [show, setShow] = useState(false);
 
     const sendEmail = (e) => {
-        e.preventDefault();
+      e.preventDefault();
+  
+      emailjs.sendForm('service_j00wuop',
+       'template_r2fco2l', 
+       e.target,
+      'user_vGBIhRVN48uioPJ1QxFLa')
+        .then((result) => {
+            alert('success!')
+        }, (error) => {
+            console.log(error.text);
+        });
+        e.target.reset()    
+    };
 
-        emailjs.sendForm('service_j00wuop',
-            'template_r2fco2l',
-            e.target,
-            'user_vGBIhRVN48uioPJ1QxFLa')
-            .then((result) => {
-                setShow(result)
-            }, (error) => {
-                console.log(error.text);
-            });
-        e.target.reset()
-    }
     return (
-        <section>
-            <div class="container text-white max-w-screen-xl p-4 py-10 bg-white dark:bg-gray-800 mx-auto px-4 sm:px-6 lg:px-8 relative py-26 lg:mt-10">
-                {show &&
-                    <div class="bg-green-200 border-green-600 text-green-600 border-l-4 p-4" role="alert">
-                        <div className="flex items-center justify-between">
-                            <div>
-                                <p class="font-bold">
-                                    Success!
-                                </p>
-                                <p>
-                                    your message was successfully sent.
-                                </p>
-                            </div>
-                            <span onClick={() => setShow(false)} class="text-xl cursor-pointer"><ImCancelCircle /></span>
-                        </div>
-                    </div>
-                }
+        <section class=''>
+            <div class="container background-color text-white max-w-screen-xl p-4 py-5 bg-white dark:bg-gray-800 mx-auto px-4 sm:px-6 lg:px-8 relative py-26 lg:mt-5">
                 <div class="relative">
                     <div class="lg:grid lg:grid-flow-row-dense lg:grid-cols-2 lg:gap-8 lg:items-center">
                         <div class="lg:col-start-2 lg:max-w-2xl ml-auto">
@@ -62,7 +47,7 @@ const Contact = () => {
                             </div>
                         </div>
                         <div class="mt-10 lg:-mx-4 relative relative-20 lg:mt-0 lg:col-start-1">
-                            <div class="mx-10  relative space-y-4">
+                            <div class="mx-14 relative space-y-4">
                                 <form onSubmit={sendEmail} class="mt-10 lg:-mx-4 relative relative-20 lg:mt-0 lg:col-start-1">
                                     <div class="div-fix w-full max-w-2xl px-5 py-10 m-auto mt-10 bg-white rounded-lg shadow dark:bg-gray-800">
                                         <div class=" font-bold mb-6 text-3xl font-light text-center text-gray-800 dark:text-white">
@@ -71,17 +56,17 @@ const Contact = () => {
                                         <div class="grid max-w-xl grid-cols-2 gap-4 m-auto">
                                             <div class="col-span-2 lg:col-span-1">
                                                 <div class=" relative ">
-                                                    <input type="text" name="name" id="contact-form-name" class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="Your name" required />
+                                                    <input type="text" name="name" id="contact-form-name" class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="Your name" />
                                                 </div>
                                             </div>
                                             <div class="col-span-2 lg:col-span-1">
                                                 <div class=" relative ">
-                                                    <input type="text" name="user_email" id="contact-form-email" class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="Your email" required />
+                                                    <input type="text" name="user_email" id="contact-form-email" class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="Your email" />
                                                 </div>
                                             </div>
                                             <div class="col-span-2">
                                                 <label class="text-gray-700" for="name">
-                                                    <textarea class="flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" id="comment" placeholder="Enter your comment" name="message" rows="5" cols="40" required>
+                                                    <textarea class="flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" id="comment" placeholder="Enter your comment" name="message" rows="5" cols="40">
                                                     </textarea>
                                                 </label>
                                             </div>
@@ -98,7 +83,7 @@ const Contact = () => {
                     </div>
                 </div>
             </div>
-        </section >
+        </section>
     );
 };
 
