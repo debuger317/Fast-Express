@@ -37,7 +37,7 @@ const Routes = () => {
                     <Route path="/contact">
                         <Contacts />
                     </Route>
-                    <Route path="/companyform">
+                    <Route exact path="/new-company/register-form">
                         <CompanyForm />
                     </Route>
                     <Route exact path="/service/category">
