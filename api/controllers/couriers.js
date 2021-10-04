@@ -1,4 +1,4 @@
-const couriers = require("../models/Couriers");
+const couriers = require("../models/c-company/Couriers");
 
 const addcourier_C = async (req, res) => {
     try {
