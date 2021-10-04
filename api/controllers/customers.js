@@ -1,4 +1,4 @@
-const customers = require('../models/customers');
+const customers = require('../models/customer/AllCustomer');
 
 const customer_add_c = async (req, res) => {
 
@@ -18,6 +18,8 @@ const customer_add_c = async (req, res) => {
         res.status(500).json({ message: err.message });
     }
 }
+
+//get all customers list from
 
 const getallcustomer_C = async (req, res) => {
     try {
