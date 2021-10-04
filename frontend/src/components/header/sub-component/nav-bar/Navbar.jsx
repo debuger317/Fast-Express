@@ -4,6 +4,7 @@ import { NavItem } from '../../../../utiltes/LocalDatabase';
 import Logo from '../../../../assets/images/Fast-Express.PNG';
 import { RiUser3Line } from 'react-icons/ri';
 import {logOutAction} from '../../../../redux/action/action';
+import { useDispatch, useSelector } from 'react-redux';
 
 const Navbar = () => {
     const [show, setShow] = useState(false);
