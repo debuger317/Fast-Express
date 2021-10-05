@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 const port = process.env.PORT || 5500;
 const couriers = require("./routes/couriers");
 const customers = require("./routes/customers");
-const admin = require("./routes/admin")
+const categories = require("./routes/categories");
 
 dotenv.config();
 app.use(express.json());
@@ -21,7 +21,7 @@ mongoose.connect(process.env.Mongoose_URL, {
 
 app.use("/api/couriers", couriers)
 app.use("/api/customers", customers)
-app.use("/api/admin", admin)
+app.use("/api/categories", categories)
 
 app.get('/', (req, res) => {
     res.send('Fast Express API')
