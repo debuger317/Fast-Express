@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 const port = process.env.PORT || 5500;
 const couriers = require("./routes/couriers");
 const users = require("./routes/users");
+const admin = require("./routes/admin")
 
 dotenv.config();
 app.use(cors());
@@ -22,6 +23,7 @@ mongoose.connect(process.env.Mongoose_URL, {
 
 app.use("/api/couriers", couriers)
 app.use("/api/users", users)
+app.use("/api/admin", admin)
 
 app.get('/', (req, res) => {
     res.send('Fast Express API')
