@@ -16,7 +16,7 @@ const FilteredItems = () => {
     return (
         <div>
             <TopFilterOption />
-            <div class="grid grid-cols-3 gap-4 my-10 mx-5">
+            <div class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4 my-10 mx-5">
 
                 {
                     !getCourier===[] && <h2>loading....</h2>
