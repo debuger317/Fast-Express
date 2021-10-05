@@ -35,6 +35,15 @@ const Routes = () => {
                     <Route path="/contact">
                         <Contacts />
                     </Route>
+                    <Route exact path="/new-company/register-form">
+                        <CompanyForm />
+                    </Route>
+                    <Route exact path="/service/category">
+                        <CategoryDetail />
+                    </Route>
+                    <Route exact path="/service/category/:_id">
+                        <SingleCourierDetail />
+                    </Route>
                     <Route path="/service">
                         <Services />
                     </Route>
