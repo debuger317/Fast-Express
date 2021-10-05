@@ -17,6 +17,9 @@ const About = lazy(() => import('../pages/About'));
 const Login = lazy(() => import('../pages/Login'));
 const Dashboard = lazy(() => import('../pages/Dashboard'));
 const NotFound = lazy(() => import('../pages/NotFound'));
+const SingleCourierDetail = lazy(() => import('../components/service/sub-components/SingleCourierDetail'));
+const CategoryDetails = lazy(() => import('../pages/CategoryDetails'));
+const CompanyForm = lazy(() => import('../pages/CompanyForm'));
 
 const Routes = () => {
     return (
@@ -34,6 +37,15 @@ const Routes = () => {
                     </Route>
                     <Route path="/contact">
                         <Contacts />
+                    </Route>
+                    <Route exact path="/new-company/register-form">
+                        <CompanyForm />
+                    </Route>
+                    <Route exact path="/service/category">
+                        <CategoryDetails />
+                    </Route>
+                    <Route exact path="/service/category/:_id">
+                        <SingleCourierDetail />
                     </Route>
                     <Route path="/service">
                         <Services />

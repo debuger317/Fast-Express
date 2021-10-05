@@ -1,150 +1,241 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from "axios";
+import { AiOutlineCloudUpload } from 'react-icons/ai';
+import { useForm } from 'react-hook-form';
 
 const AddCompanyForm = () => {
-    return (
+    const [courierLogo, setLogo] = useState('')
+    const [error, setError] = useState(false)
+    const ctegoryData = [
+        {
+            id: 1,
+            name: 'mobile'
+        },
+        {
+            id: 2,
+            name: 'laptop'
+        },
+        {
+            id: 3,
+            name: 'desktop'
+        },
+        {
+            id: 4,
+            name: 'Ipad'
+        },
+        {
+            id: 5,
+            name: 'tablet'
+        },
+        {
+            id: 6,
+            name: 'tablet'
+        },
+        {
+            id: 7,
+            name: 'tablet'
+        },
+        {
+            id: 8,
+            name: 'tablet'
+        },
+        {
+            id: 9,
+            name: 'tablet'
+        },
+        {
+            id: 10,
+            name: 'tablet'
+        },
+        {
+            id: 11,
+            name: 'tablet'
+        },
+    ]
+    const { handleSubmit, register } = useForm();
 
-        <section className="Company__form py-10 bg-gray-50">
-            <form className="container xl:w-5/6 lg:w-4/6 md:3/6 sm:1/2 mx-auto">
-                <div className="px-20 py-10">
-                    <div className="flex justify-between items-center my-5">
-                        <div>
-                            <h1 className="text-gray-500 uppercase text-md font-medium">Add company logo</h1>
+    const onSubmit = async (data) => {
+        const companyData = {
+            courierLogo: courierLogo,
+            name: data.name,
+            email: data.email,
+            password: data.password,
+            website: data.website,
+            weight: data.weight,
+            address: data.address,
+            description: data.description,
+            pickupFrom: data.pickupFrom,
+            pickupTo: data.pickupTo,
+            deliveryOption: data.deliveryOption,
+            phone: data.helpline,
+            serviceCategory: [
+                data.mobile,
+                data.laptop,
+                data.tablet
+            ]
+        }
+        console.log(companyData);
+        try {
+            const res = await axios({
+                method: 'post',
+                url: 'https://fastexpress.herokuapp.com/api/couriers/addcourier',
+                data: companyData
+            });
+            console.log(res);
+        } catch (err) {
+            setError(true);
+            console.log(err);
+        }
+
+    }
+
+    const handleImageUpload = (event) => {
+        event.preventDefault();
+        const imageData = new FormData();
+        imageData.set('key', '2cb6728a169bdab0acf628bc5d829c2b');
+        imageData.append('image', event.target.files[0]);
+
+        axios.post('https://api.imgbb.com/1/upload',
+            imageData)
+            .then((response) => {
+
+                setLogo(response.data.data.display_url);
+            })
+            .catch((error) => {
+
+            });
+
+    }
+
+    return (
+        <section class="text-gray-600 body-font">
+            <form onSubmit={handleSubmit(onSubmit)}
+            >
+                <div class="container px-5 py-24 mx-auto flex flex-wrap">
+
+                    <div class="p-4 lg:w-full md:w-full">
+                        <div class="my-5">
+                            <h1 className="font-medium text-gray-700 font-medium">Add company logo</h1>
                         </div>
-                        <div className="flex items-center">
-                            <h1 className="text-gray-600 mx-10">
-                                <button type="button" className="py-2 px-4 flex justify-center items-center  bg-red-600 hover:bg-red-700 focus:ring-red-500 focus:ring-offset-red-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
-                                    <svg width="20" height="20" fill="currentColor" className="mr-2" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M1344 1472q0-26-19-45t-45-19-45 19-19 45 19 45 45 19 45-19 19-45zm256 0q0-26-19-45t-45-19-45 19-19 45 19 45 45 19 45-19 19-45zm128-224v320q0 40-28 68t-68 28h-1472q-40 0-68-28t-28-68v-320q0-40 28-68t68-28h427q21 56 70.5 92t110.5 36h256q61 0 110.5-36t70.5-92h427q40 0 68 28t28 68zm-325-648q-17 40-59 40h-256v448q0 26-19 45t-45 19h-256q-26 0-45-19t-19-45v-448h-256q-42 0-59-40-17-39 14-69l448-448q18-19 45-19t45 19l448 448q31 30 14 69z">
-                                        </path>
-                                    </svg>
-                                    Upload
-                                </button>
-                            </h1>
+                        <div className="md:flex items-center">
                             <div className="block relative">
-                                <img alt="profil" src="https://www.tailwind-kit.com/images/person/1.jpg" className="mx-auto object-cover rounded-full h-16 w-16 " />
+                                {courierLogo ? <img alt="company_logo" src={courierLogo} className=" rounded h-36 w-36 " /> : <span>loading..</span>}
+                            </div>
+                            <div className="text-gray-600 mx-10">
+                                <label
+                                    class="w-32 p-1 flex items-center justify-center rounded-lg shadow tracking-wide border border-blue cursor-pointer bg-red-500 hover:bg-red-600 text-white ease-linear transition-all duration-150">
+                                    <AiOutlineCloudUpload class="text-4xl" />
+                                    <span class="ml-3 text-center text-base font-semibold">Upload</span>
+                                    <input onChange={handleImageUpload} type='file' class="hidden" />
+                                </label>
                             </div>
                         </div>
                     </div>
-                    <hr />
-                </div>
-                <div class="space-y-6">
-                    {/* start form */}
-                    <div class="items-center w-full p-4 space-y-4 text-gray-500 md:inline-flex md:space-y-0">
-                        <div class="text-md uppercase max-w-md mx-auto w-3/5">
-                            <label class="font-medium text-gray-700" for="pickupto">
+                    <div class="p-4 lg:w-1/2 md:w-full">
+                        <div>
+                            <label class="font-medium text-gray-700">
                                 Name of company
-                                <div class=" relative ">
-                                    <input type="text" class=" border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent" placeholder="Your company name" required />
+                                <div>
+                                    <input {...register("name")}
+                                        type="text" class="rounded  border-transparent flex-1 border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent" placeholder="Your company name" required />
                                 </div>
                             </label>
                         </div>
-                        <div class="text-md uppercase max-w-md mx-auto w-3/5">
-                            <label class="font-medium text-gray-700" for="pickupto">
+                    </div>
+                    <div class="p-4 lg:w-1/2 md:w-full">
+                        <div>
+                            <label class="font-medium text-gray-700">
                                 Company Email
-                                <div class=" relative ">
-                                    <input type="email" class=" border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent" placeholder="Your Company Email" required />
+                                <div>
+                                    <input {...register("email")}
+                                        type="email" class="rounded w-full  border-transparent border border-gray-300  py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent" placeholder="Your company email" required />
                                 </div>
                             </label>
                         </div>
                     </div>
-                    {/* company address and password field */}
-                    <div class="items-center w-full p-4 space-y-4 text-gray-500 md:inline-flex md:space-y-0">
-                        <div class="text-md uppercase max-w-md mx-auto w-3/5">
-                            <label class="font-medium text-gray-700" for="pickupto">
+                    <div class="p-4 lg:w-1/2 md:w-full">
+                        <div>
+                            <label class="font-medium text-gray-700">
+                                Password
+                                <div>
+                                    <input {...register("password")}
+                                        type="text" class="rounded  border-transparent flex-1 border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent" placeholder="Your company password" required />
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="p-4 lg:w-1/2 md:w-full">
+                        <div>
+                            <label class="font-medium text-gray-700">
                                 Company address
-                                <div class=" relative ">
-                                    <input type="text" class=" border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent" placeholder="Your company address" required />
-                                </div>
-                            </label>
-                        </div>
-                        <div class="text-md uppercase max-w-md mx-auto w-3/5">
-                            <label class="font-medium text-gray-700" for="pickupto">
-                                Company password
-                                <div class="relative">
-                                    <input type="password" class=" border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent" placeholder="Your Company password" required />
+                                <div>
+                                    <input {...register("address")}
+                                        type="text" class="rounded  border-transparent flex-1 border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent" placeholder="Your company name" required />
                                 </div>
                             </label>
                         </div>
                     </div>
-
-                    {/* company website name and weight */}
-                    <div class="items-center w-full p-4 space-y-4 text-gray-500 md:inline-flex md:space-y-0">
-                        <div class="text-md uppercase max-w-md mx-auto w-3/5">
-                            <label class="font-medium text-gray-700" for="pickupto">
-                                Your company website
-                                <div class=" relative ">
-                                    <input type="text" class=" border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent" placeholder="Your company website" required />
-                                </div>
-                            </label>
-                        </div>
-                        <div class="text-md uppercase max-w-md mx-auto w-3/5">
-                            <label class="font-medium text-gray-700" for="pickupfrom">
+                    <div class="p-4 lg:w-1/2 md:w-full">
+                        <div>
+                            <label class="font-medium text-gray-700">
                                 Accept whight (kg)
-                                <select id="animals" class="block w-full py-2 px-3 border border-gray-300 bg-white shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500" name="pickupfrom" required>
+                                <select {...register("weight")}
+                                    class="rounded block w-full py-2 px-3 border border-gray-300 bg-white shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500" required>
                                     <option value="">
                                         Select an option
                                     </option>
-                                    <option value="homedelivery">
+                                    <option value="5">
                                         5
                                     </option>
-                                    <option value="onlylocation">
+                                    <option value="10">
                                         10
                                     </option>
-                                    <option value="freedelivery">
+                                    <option value="15">
                                         15
                                     </option>
-                                    <option value="freedelivery">
+                                    <option value="25">
                                         25
                                     </option>
-                                    <option value="freedelivery">
+                                    <option value="30">
                                         30
                                     </option>
                                 </select>
                             </label>
-
                         </div>
                     </div>
-                    {/* about company */}
-                    <div class="w-3/5 ml-16 text-md uppercase">
-                        <div class="col-span-2">
-                            <label class=" font-mediumtext-gray-700" for="name">
-                                About your company
-                                <textarea class="flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 text-base focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent" id="comment" placeholder="About of your company" name="comment" rows="5" cols="40" required>
-                                </textarea>
-                            </label>
+                    {/*  */}
+                    <div class="p-4 lg:w-1/2 md:w-full">
+                        <label class="font-medium text-gray-700">
+                            Company website name
+                            <div class="flex">
+                                <span class="rounded-l inline-flex  items-center px-3 border-t bg-white border-l border-b  border-gray-300 text-gray-500 shadow-sm text-sm">
+                                    http://
+                                </span>
+                                <input {...register("website")}
+                                    type="text" class=" rounded-r flex-1 border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent" placeholder="www.google.com" />
+                            </div>
+                        </label>
+                    </div>
+                    {/*  */}
+                    <div class="p-4 lg:w-2/3 md:w-full block">
+                        <div>
+                            <div class="col-span-2">
+                                <label class=" font-mediumtext-gray-700">
+                                    About your company
+                                    <textarea {...register("description")}
+                                        class="rounded flex-1 border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 text-base focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent" placeholder="About of your company" rows="5" cols="40" required>
+                                    </textarea>
+                                </label>
+                            </div>
                         </div>
                     </div>
-                    {/* pickup from and pickup to */}
-                    <div class="items-center w-full p-4 space-y-4 text-gray-500 md:inline-flex md:space-y-0">
-                        <div class="text-md uppercase max-w-md mx-auto w-3/5">
-                            <label class="font-medium text-gray-700" for="pickupfrom">
+                    {/*  */}
+                    <div class="p-4 lg:w-1/2 md:w-full">
+                        <div>
+                            <label class="font-medium text-gray-700">
                                 Pickup from
-                                <select id="animals" class="block w-full py-2 px-3 border border-gray-300 bg-white shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500" name="pickupfrom" required>
-                                    <option value="">
-                                        Select an option
-                                    </option>
-                                    <option value="dhaka">
-                                        Dhaka
-                                    </option>
-                                    <option value="jessore">
-                                        Jessore
-                                    </option>
-                                    <option value="rajshahi">
-                                        Rajshahi
-                                    </option>
-                                    <option value="pabna">
-                                        Pabna
-                                    </option>
-                                    <option value="rangpur">
-                                        Rangpur
-                                    </option>
-                                </select>
-                            </label>
-                        </div>
-                        <div class="text-md uppercase max-w-md mx-auto w-3/5">
-                            <label class="font-medium text-gray-700" for="pickupto">
-                                Pickup to
-                                <select id="pickupto" class="block w-full py-2 px-3 border border-gray-300 bg-white shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500" name="pickupto" required>
+                                <select {...register("pickupFrom")}
+                                    class="rounded block w-full py-2 px-3 border border-gray-300 bg-white shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500" required>
                                     <option value="">
                                         Select an option
                                     </option>
@@ -167,13 +258,40 @@ const AddCompanyForm = () => {
                             </label>
                         </div>
                     </div>
-
-                    {/* delivery system and helpline */}
-                    <div class="items-center w-full p-4 space-y-4 text-gray-500 md:inline-flex md:space-y-0">
-                        <div class="text-md uppercase max-w-md mx-auto w-3/5">
-                            <label class="font-medium text-gray-700" for="pickupfrom">
+                    <div class="p-4 lg:w-1/2 md:w-full">
+                        <div>
+                            <label class="font-medium text-gray-700">
+                                Pickup to
+                                <select {...register("pickupTo")}
+                                    class="rounded block w-full py-2 px-3 border border-gray-300 bg-white shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500" required>
+                                    <option value="">
+                                        Select an option
+                                    </option>
+                                    <option value="dhaka">
+                                        Dhaka
+                                    </option>
+                                    <option value="jessore">
+                                        Jessore
+                                    </option>
+                                    <option value="rajshahi">
+                                        Rajshahi
+                                    </option>
+                                    <option value="pabna">
+                                        Pabna
+                                    </option>
+                                    <option value="rangpur">
+                                        Rangpur
+                                    </option>
+                                </select>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="p-4 lg:w-1/2 md:w-full">
+                        <div>
+                            <label class="font-medium text-gray-700">
                                 Delivery by
-                                <select id="animals" class="block w-full py-2 px-3 border border-gray-300 bg-white shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500" name="pickupfrom" required>
+                                <select {...register("deliveryOption")}
+                                    class="rounded block w-full py-2 px-3 border border-gray-300 bg-white shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500" required>
                                     <option value="">
                                         Select an option
                                     </option>
@@ -189,125 +307,48 @@ const AddCompanyForm = () => {
                                 </select>
                             </label>
                         </div>
-                        <div class="text-md uppercase max-w-md mx-auto w-3/5">
-                            <label class="font-medium text-gray-700" for="pickupto">
+                    </div>
+                    <div class="p-4 lg:w-1/2 md:w-full">
+                        <div>
+                            <label class="font-medium text-gray-700">
                                 Helpline number
-                                <div class=" relative ">
-                                    <input type="text" class=" border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent" placeholder="Your company helpline number" required />
+                                <div>
+                                    <input {...register("helpline")}
+                                        type="text" class="rounded border-transparent flex-1 border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent" placeholder="Your company helpline number" required />
                                 </div>
                             </label>
                         </div>
                     </div>
-                    {/* choose service category name */}
-                    <div className="">
-                        <div className="ml-16 my-5">
+                    <div class="p-4 lg:full md:w-full">
+                        <div className="my-5">
                             <h1 className="font-medium text-gray-500 uppercase text-md text">Choose your service category</h1>
                         </div>
-                        <div class="grid grid-cols-7 gap-5 mx-16">
-                            <label class="flex items-center space-x-3 mb-3">
-                                <input class="choose__category rounded-lg" type="checkbox" name="checked-demo" />
-                                <span class="text-gray-700 dark:text-white font-normal">
-                                    Mobile
-                                </span>
-                            </label>
-                            <label class="flex items-center space-x-3 mb-3">
-                                <input class="choose__category rounded-lg" type="checkbox" name="checked-demo" />
-                                <span class="text-gray-700 dark:text-white font-normal">
-                                    Mobile
-                                </span>
-                            </label>
-                            <label class="flex items-center space-x-3 mb-3">
-                                <input class="choose__category rounded-lg" type="checkbox" name="checked-demo" />
-                                <span class="text-gray-700 dark:text-white font-normal">
-                                    Mobile
-                                </span>
-                            </label>
-                            <label class="flex items-center space-x-3 mb-3">
-                                <input class="choose__category rounded-lg" type="checkbox" name="checked-demo" />
-                                <span class="text-gray-700 dark:text-white font-normal">
-                                    Mobile
-                                </span>
-                            </label>
-                            <label class="flex items-center space-x-3 mb-3">
-                                <input class="choose__category rounded-lg" type="checkbox" name="checked-demo" />
-                                <span class="text-gray-700 dark:text-white font-normal">
-                                    Mobile
-                                </span>
-                            </label>
-                            <label class="flex items-center space-x-3 mb-3">
-                                <input class="choose__category rounded-lg" type="checkbox" name="checked-demo" />
-                                <span class="text-gray-700 dark:text-white font-normal">
-                                    Mobile
-                                </span>
-                            </label>
-                            <label class="flex items-center space-x-3 mb-3">
-                                <input class="choose__category rounded-lg" type="checkbox" name="checked-demo" />
-                                <span class="text-gray-700 dark:text-white font-normal">
-                                    Mobile
-                                </span>
-                            </label>
-                            <label class="flex items-center space-x-3 mb-3">
-                                <input class="choose__category rounded-lg" type="checkbox" name="checked-demo" />
-                                <span class="text-gray-700 dark:text-white font-normal">
-                                    Mobile
-                                </span>
-                            </label>
-                            <label class="flex items-center space-x-3 mb-3">
-                                <input class="choose__category rounded-lg" type="checkbox" name="checked-demo" />
-                                <span class="text-gray-700 dark:text-white font-normal">
-                                    Mobile
-                                </span>
-                            </label>
-                            <label class="flex items-center space-x-3 mb-3">
-                                <input class="choose__category rounded-lg" type="checkbox" name="checked-demo" />
-                                <span class="text-gray-700 dark:text-white font-normal">
-                                    Mobile
-                                </span>
-                            </label>
-                            <label class="flex items-center space-x-3 mb-3">
-                                <input class="choose__category rounded-lg" type="checkbox" name="checked-demo" />
-                                <span class="text-gray-700 dark:text-white font-normal">
-                                    Mobile
-                                </span>
-                            </label>
-                            <label class="flex items-center space-x-3 mb-3">
-                                <input class="choose__category rounded-lg" type="checkbox" name="checked-demo" />
-                                <span class="text-gray-700 dark:text-white font-normal">
-                                    Mobile
-                                </span>
-                            </label>
-                            <label class="flex items-center space-x-3 mb-3">
-                                <input class="choose__category rounded-lg" type="checkbox" name="checked-demo" />
-                                <span class="text-gray-700 dark:text-white font-normal">
-                                    Mobile
-                                </span>
-                            </label>
-                            <label class="flex items-center space-x-3 mb-3">
-                                <input class="choose__category rounded-lg" type="checkbox" name="checked-demo" />
-                                <span class="text-gray-700 dark:text-white font-normal">
-                                    Mobile
-                                </span>
-                            </label>
-                            <label class="flex items-center space-x-3 mb-3">
-                                <input class="choose__category rounded-lg" type="checkbox" name="checked-demo" />
-                                <span class="text-gray-700 dark:text-white font-normal">
-                                    Mobile
-                                </span>
-                            </label>
+                        <div class="grid lg:grid-cols-7 md:grid-cols-5 sm:grid-cols-4 gap-5">
+                            {ctegoryData.map(d => (
+                                <label class="flex items-center space-x-3 mb-3">
+                                    <input {...register(`${d.name}`)}
+                                        class="w-6 h-6 rounded-lg" type="checkbox" value={d.name} />
+                                    <span class="text-gray-700 dark:text-white font-normal">
+                                        {d.name}
+                                    </span>
+                                </label>
+                            ))
+                            }
 
                         </div>
                     </div>
-                </div>
-                {/* request button */}
-                <div class="flex w-32 ml-auto mx-14">
-                    <div>
-                        <button type="submit" class="py-2 px-4 my-10 bg-red-600 hover:bg-red-700 focus:ring-red-500 focus:ring-offset-red-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
-                            Add request
-                        </button>
+                    <div class="p-4 lg:full md:w-full">
+                        <div class="flex w-32 ml-auto">
+                            <button onClick={() => handleSubmit()} type="submit" class="py-2 px-4 my-10 bg-red-600 hover:bg-red-700 focus:ring-red-500 focus:ring-offset-red-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
+                                Add request
+                            </button>
+                        </div>
                     </div>
+                    {/* container end */}
+
                 </div>
             </form>
-        </section >
+        </section>
 
     );
 };
