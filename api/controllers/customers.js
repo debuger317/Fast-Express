@@ -33,4 +33,3 @@ module.exports = {
     customer_add_c,
     getallcustomer_C
 }
-
