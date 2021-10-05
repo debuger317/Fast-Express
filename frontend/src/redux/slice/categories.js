@@ -1,16 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-export const authSlice = createSlice({
-    name: 'auth',
+export const CategoriesSlice = createSlice({
+    name: 'categories',
     initialState: {
-        userdetails: {
-
-        }
+        items :[]
         
     },
     reducers: {
-        googleAuth: (state, action) => {
-            state.userdetails = action.payload
+        setCategories: (state, action) => {
+            state.items = action.payload
 
         },
         logOut: (state, action) => {
