@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import TopFilterOption from '../TopFilterOption';
 import Pagination from './Pagination';
 
 const FilteredItems = () => {
-
+    const path = useLocation()
     const [getCourier, setCourier] = useState([])
-
+    console.log(path);
     useEffect(() => {
         fetch(`https://fastexpress.herokuapp.com/api/couriers/all`)
             .then(res => res.json())
             .then(data => setCourier(data))
-    }, [])
+    }, [path])
 
     return (
         <div>
@@ -19,11 +19,11 @@ const FilteredItems = () => {
             <div class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4 my-10 mx-5">
 
                 {
-                    !getCourier===[] && <h2>loading....</h2>
+                    !getCourier === [] && <h2>loading....</h2>
                 }
                 {
                     getCourier.map(item =>
-                        <Link to={`/service/category/${item._id}`} key={item._id} className="bg-white rounded shadow py-5 px-10">
+                        <Link to={`/service/category/${item.name}/${item._id}`} key={item._id} className="bg-white rounded shadow py-5 px-10">
                             <img src={item.courierLogo} alt="" srcset="" />
                             <h2>{item.name}</h2>
                         </Link>

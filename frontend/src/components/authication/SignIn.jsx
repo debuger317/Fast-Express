@@ -5,7 +5,7 @@ import { getAuth, signInWithPopup, signInWithRedirect, GoogleAuthProvider } from
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore';
 import firebaseConfig from '../../config/firebase';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { googleSignUpAction } from '../../redux/action/action';
 
 if (!firebase.apps.length) {
