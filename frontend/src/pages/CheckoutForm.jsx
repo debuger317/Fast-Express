@@ -8,11 +8,13 @@ const CheckoutForm = () => {
         <Fragment>
             <TopBar />
             <Navbar />
-            <section>
-                <div class="grid grid-rows-3 grid-flow-col gap-4">
-                    <div class="row-span-3 bg-red-500">1</div>
-                    <div class="col-span-2 bg-red-500">2</div>
-                    <div class="row-span-2 col-span-2 bg-red-500">3</div>
+            <section className="">
+                <div class="h-100  w-full grid grid-cols-2 grid-rows-2 grid-flow-col  gap-4">
+                    <div className="bg-red-500 ">1</div>
+                    <div className="bg-red-500 ">2</div>
+                    <div className="bg-red-500">3</div>
+                    <div className="bg-red-500">4</div>
+                    <div className="bg-red-500">5</div>
                 </div>
             </section>
             <Footer />
