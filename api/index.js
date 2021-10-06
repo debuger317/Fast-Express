@@ -8,6 +8,7 @@ const couriers = require("./routes/couriers");
 const customers = require("./routes/customers");
 const admin = require("./routes/admin")
 const categories = require("./routes/categories");
+const userauth = require("./routes/userauth")
 
 dotenv.config();
 app.use(cors());
@@ -26,6 +27,7 @@ app.use("/api/couriers", couriers)
 app.use("/api/customers", customers)
 app.use("/api/admin", admin)
 app.use("/api/categories", categories)
+app.use("/api/userauth", userauth)
 
 app.get('/', (req, res) => {
     res.send('Fast Express API')

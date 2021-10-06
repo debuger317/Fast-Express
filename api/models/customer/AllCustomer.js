@@ -31,7 +31,7 @@ const CustomerSchema = new mongoose.Schema({
     },
     label: {
         type: String,
-        required: true,
+        required: false,
         unique: false,
     },
 
