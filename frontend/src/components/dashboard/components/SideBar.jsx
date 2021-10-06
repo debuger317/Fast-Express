@@ -5,9 +5,10 @@ const SideBar = () => {
     return (
         <div class="lg:block  ml-4 relative">
             <div class="h-screen bg-white dark:bg-gray-700 border-r border-gray-100">
-                <div class="flex items-center justify-center">
+                <Link to='/home' class="flex items-center justify-center">
                     <img class="px-5 pr-10 pt-5" src={Logo} alt="" srcset="" />
-                </div>
+                </Link>
+
                 <nav class="mt-6">
                     <div>
                         <Link to="/dashboard" class="w-full font-thin uppercase text-blue-500 flex items-center p-4 my-2 transition-colors duration-200 justify-start bg-gradient-to-r from-white to-blue-100 border-r-4 border-blue-500 dark:from-gray-700 dark:to-gray-800 border-r-4 border-blue-500">
