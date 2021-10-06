@@ -6,52 +6,52 @@ import { useForm } from 'react-hook-form';
 const AddCompanyForm = () => {
     const [courierLogo, setLogo] = useState('')
     const [error, setError] = useState(false)
-    const ctegoryData = [
-        {
-            id: 1,
-            name: 'mobile'
-        },
-        {
-            id: 2,
-            name: 'laptop'
-        },
-        {
-            id: 3,
-            name: 'desktop'
-        },
-        {
-            id: 4,
-            name: 'Ipad'
-        },
-        {
-            id: 5,
-            name: 'tablet'
-        },
-        {
-            id: 6,
-            name: 'tablet'
-        },
-        {
-            id: 7,
-            name: 'tablet'
-        },
-        {
-            id: 8,
-            name: 'tablet'
-        },
-        {
-            id: 9,
-            name: 'tablet'
-        },
-        {
-            id: 10,
-            name: 'tablet'
-        },
-        {
-            id: 11,
-            name: 'tablet'
-        },
-    ]
+const ctegoryData =[
+    {
+        id:1,
+        name:'mobile'
+    },
+    {
+        id:2,
+        name:'laptop'
+    },
+    {
+        id:3,
+        name:'desktop'
+    },
+    {
+        id:4,
+        name:'Ipad'
+    },
+    {
+        id:5,
+        name:'tablet'
+    },
+    {
+        id:6,
+        name:'tablet'
+    },
+    {
+        id:7,
+        name:'tablet'
+    },
+    {
+        id:8,
+        name:'tablet'
+    },
+    {
+        id:9,
+        name:'tablet'
+    },
+    {
+        id:10,
+        name:'tablet'
+    },
+    {
+        id:11,
+        name:'tablet'
+    },
+]
     const { handleSubmit, register } = useForm();
 
     const onSubmit = async (data) => {
@@ -62,7 +62,7 @@ const AddCompanyForm = () => {
             password: data.password,
             website: data.website,
             weight: data.weight,
-            address: data.address,
+            address: data.address, 
             description: data.description,
             pickupFrom: data.pickupFrom,
             pickupTo: data.pickupTo,
@@ -110,10 +110,10 @@ const AddCompanyForm = () => {
 
     return (
         <section class="text-gray-600 body-font">
-            <form onSubmit={handleSubmit(onSubmit)}
-            >
-                <div class="container px-5 py-24 mx-auto flex flex-wrap">
-
+             <form onSubmit={handleSubmit(onSubmit)}
+                >
+            <div class="container px-5 py-24 mx-auto flex flex-wrap">
+               
                     <div class="p-4 lg:w-full md:w-full">
                         <div class="my-5">
                             <h1 className="font-medium text-gray-700 font-medium">Add company logo</h1>
@@ -328,7 +328,7 @@ const AddCompanyForm = () => {
                             {ctegoryData.map(d => (
                                 <label class="flex items-center space-x-3 mb-3">
                                     <input {...register(`${d.name}`)}
-                                        class="w-6 h-6 rounded-lg" type="checkbox" value={d.name} />
+                                        class="w-6 h-6 rounded-lg" type="checkbox" value={d.name}/>
                                     <span class="text-gray-700 dark:text-white font-normal">
                                         {d.name}
                                     </span>
@@ -347,7 +347,7 @@ const AddCompanyForm = () => {
                     </div>
                     {/* container end */}
 
-                </div>
+            </div>
             </form>
         </section>
 
