@@ -14,6 +14,7 @@ import AccountSetting from '../components/dashboard/components/settings/AccountS
 
 import AllUserList from '../components/dashboard/components/ManageUser/AllUserList';
 import Settings from '../components/dashboard/wrapper/Settings';
+import Reports from '../components/dashboard/wrapper/Reports';
 
 const Dashboard = () => {
     return (
@@ -37,6 +38,9 @@ const Dashboard = () => {
                         </Route>
                         <Route path="/dashboard/orderlist">
                             <OrderList />
+                        </Route>
+                        <Route path="/dashboard/account-report">
+                            <Reports />
                         </Route>
                         <Route path="/dashboard/account-setting">
                             <Settings />
