@@ -9,7 +9,6 @@ const SingleCourierDetail = () => {
     const { _id } = useParams();
     console.log(_id);
     const [Item, setItem] = useState({})
-    console.log(Item);
     useEffect(() => {
         fetch(`https://fastexpress.herokuapp.com/api/couriers/${_id}`)
             .then(response => response.json())

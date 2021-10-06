@@ -3,7 +3,8 @@ import { createSlice } from '@reduxjs/toolkit';
 export const CategoriesSlice = createSlice({
     name: 'categories',
     initialState: {
-        items :[]
+        items :[],
+
         
     },
     reducers: {
@@ -11,9 +12,5 @@ export const CategoriesSlice = createSlice({
             state.items = action.payload
 
         },
-        logOut: (state, action) => {
-            state.userdetails = {}
-
-        }
     },
 })

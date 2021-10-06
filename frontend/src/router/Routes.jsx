@@ -45,10 +45,11 @@ const Routes = () => {
                     <Route exact path="/service/category/:name">
                         <CategoryDetail />
                     </Route>
-                    <Route exact path="/service/category/:name/:_id">
+
+                    <Route exact path="/service/category/:filterPath/:_id">
                         <SingleCourierDetail />
                     </Route>
-                    <Route exact path="/service/category/:c_name/:_id/checkoutform">
+                    <Route exact path="/service/category/:filterPath/:_id/checkoutform">
                         <Parcel />
                     </Route>
                     <Route path="/service">
