@@ -16,7 +16,7 @@ const Navbar = () => {
     const subitem = (NavItem.map(a => a.subitem));
     const classItem = (NavItem.map(a => a.subitem));
     return (
-       <nav className="bg-white dark:bg-gray-800 shadow py-3">
+       <nav className="bg-white dark:bg-gray-800 shadow py-3 position-sticky">
             <div className="max-w-7xl mx-auto px-4">
                 <div className="flex items-center justify-between h-16">
                     <div className="w-full justify-between flex items-center">
