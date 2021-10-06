@@ -6,7 +6,7 @@ import Pagination from './Pagination';
 const FilteredItems = () => {
     const path = useLocation()
     const [getCourier, setCourier] = useState([])
-    console.log(path);
+    const filterPath = (path.pathname.slice(18));
     useEffect(() => {
         fetch(`https://fastexpress.herokuapp.com/api/couriers/all`)
             .then(res => res.json())
@@ -22,8 +22,8 @@ const FilteredItems = () => {
                     !getCourier === [] && <h2>loading....</h2>
                 }
                 {
-                    getCourier.map(item =>
-                        <Link to={`/service/category/${item.name}/${item._id}`} key={item._id} className="bg-white rounded shadow py-5 px-10">
+                    getCourier.filter(name => name.serviceCategory.includes(filterPath)).map(item =>
+                        <Link to={`/service/category/${item.serviceCategory}/${item._id}`} key={item._id} className="bg-white rounded shadow py-5 px-10">
                             <img src={item.courierLogo} alt="" srcset="" />
                             <h2>{item.name}</h2>
                         </Link>
