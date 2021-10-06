@@ -12,17 +12,17 @@ const CompanyListDetiles = (props) => {
                             <img alt="profil" src={courierLogo} class="mx-auto object-cover rounded-full h-10 w-10 " />
                         </a>
                     </div>
-                 
+
                 </div>
             </td>
             <td>
-            <div class="ml-4">
-                        <p class="text-gray-900 whitespace-no-wrap">
-                            {name}
-                        </p>
-                    </div>
+                <div class="ml-4">
+                    <p class="text-gray-900 whitespace-no-wrap">
+                        {name}
+                    </p>
+                </div>
             </td>
-         
+
             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                 <p class="text-gray-900 whitespace-no-wrap">
                     {email}
@@ -44,12 +44,13 @@ const CompanyListDetiles = (props) => {
             </td>
             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                 <p class="text-gray-900 whitespace-no-wrap">
-                    {createdAt}
+                    {new Date(createdAt).toDateString()}
+
                 </p>
             </td>
             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                 <p class="text-gray-900 whitespace-no-wrap">
-                    {updatedAt}
+                    {new Date(updatedAt).toDateString()}
                 </p>
             </td>
             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">

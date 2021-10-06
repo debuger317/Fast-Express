@@ -1,14 +1,15 @@
 import React from 'react';
 
-const CustomerListDetails = (props) => {
-    const { name, email, photo, address, updatedAt, createdAt } = props.list;
+const OrderManageTable = (props) => {
+    const { name, email, courierLogo, address, updatedAt, createdAt } = props.list;
     return (
+
         <tr>
             <td class="px-5  mr-6 py-5 border-b border-gray-200 bg-white text-sm">
                 <div class="flex items-center">
                     <div class="flex-shrink-0">
                         <a href="#" class="block relative">
-                            <img alt="profil" src={photo} class="mx-auto object-cover rounded-full h-10 w-10 " />
+                            <img alt="profil" src={courierLogo} class="mx-auto object-cover rounded-full h-10 w-10 " />
                         </a>
                     </div>
 
@@ -32,7 +33,7 @@ const CustomerListDetails = (props) => {
                     <span aria-hidden="true" class="absolute inset-0 bg-green-200 opacity-50 rounded-full">
                     </span>
                     <span class="py-4 block px-6 text-center">
-                        Address
+                        {address}
                     </span>
                 </span>
             </td>
@@ -44,6 +45,7 @@ const CustomerListDetails = (props) => {
             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                 <p class="text-gray-900 whitespace-no-wrap">
                     {new Date(createdAt).toDateString()}
+
                 </p>
             </td>
             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
@@ -53,12 +55,16 @@ const CustomerListDetails = (props) => {
             </td>
             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                 <p class="text-gray-900 whitespace-no-wrap">
+
                     Online
+
                 </p>
             </td>
             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                 <p class="text-gray-900 whitespace-no-wrap">
+
                     Delete
+
                 </p>
             </td>
         </tr>
@@ -66,4 +72,4 @@ const CustomerListDetails = (props) => {
     );
 };
 
-export default CustomerListDetails;
+export default OrderManageTable;
