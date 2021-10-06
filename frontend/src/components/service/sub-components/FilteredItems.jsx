@@ -11,7 +11,7 @@ const FilteredItems = () => {
         fetch(`https://fastexpress.herokuapp.com/api/couriers/all`)
             .then(res => res.json())
             .then(data => setCourier(data))
-    }, [path])
+    }, [filterPath])
 
     return (
         <div>
@@ -23,8 +23,8 @@ const FilteredItems = () => {
                 }
                 {
                     getCourier.filter(name => name.serviceCategory.includes(filterPath)).map(item =>
-                        <Link to={`/service/category/${item.serviceCategory}/${item._id}`} key={item._id} className="bg-white rounded shadow py-5 px-10">
-                            <img src={item.courierLogo} alt="" srcset="" />
+                        <Link to={`/service/category/${filterPath}/${item._id}`} key={item._id} className="bg-white rounded shadow py-5 px-10">
+                            <img src={item.courierLogo} alt="courier-logo" srcset="" />
                             <h2>{item.name}</h2>
                         </Link>
                     )
