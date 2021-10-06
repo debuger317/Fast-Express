@@ -7,11 +7,12 @@ import {
 import SideBar from '../components/dashboard/components/SideBar';
 import TopBar from '../components/dashboard/components/TopBar';
 import Home from '../components/dashboard/wrapper/Home';
-import UserList from '../components/dashboard/wrapper/UserList';
+// import UserList from '../components/dashboard/wrapper/UserList';
 import CompanyList from '../components/dashboard/components/manageCompany/CompanyList';
 import PendingCompany from '../components/dashboard/components/manageCompany/PendingCompany';
 import OrderList from '../components/dashboard/wrapper/OrderList';
 import AccountSetting from '../components/dashboard/components/settings/AccountSetting';
+import AllUserList from '../components/dashboard/components/ManageUser/AllUserList';
 
 const Dashboard = () => {
     return (
@@ -25,7 +26,7 @@ const Dashboard = () => {
                             <Home />
                         </Route>
                         <Route path="/dashboard/userlist">
-                            <UserList />
+                            <AllUserList />
                         </Route>
                         <Route path="/dashboard/companylist">
                             <CompanyList />

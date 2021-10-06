@@ -1,28 +1,27 @@
 import React from 'react';
 
-const CompanyListDetiles = (props) => {
-    const { name, email, courierLogo, address, updatedAt, createdAt } = props.list;
+const CustomerListDetails = (props) => {
+    const { name, email, photo, address, updatedAt, createdAt } = props.list;
     return (
-
         <tr>
             <td class="px-5  mr-6 py-5 border-b border-gray-200 bg-white text-sm">
                 <div class="flex items-center">
                     <div class="flex-shrink-0">
                         <a href="#" class="block relative">
-                            <img alt="profil" src={courierLogo} class="mx-auto object-cover rounded-full h-10 w-10 " />
+                            <img alt="profil" src={photo} class="mx-auto object-cover rounded-full h-10 w-10 " />
                         </a>
                     </div>
-                 
+
                 </div>
             </td>
             <td>
-            <div class="ml-4">
-                        <p class="text-gray-900 whitespace-no-wrap">
-                            {name}
-                        </p>
-                    </div>
+                <div class="ml-4">
+                    <p class="text-gray-900 whitespace-no-wrap">
+                        {name}
+                    </p>
+                </div>
             </td>
-         
+
             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                 <p class="text-gray-900 whitespace-no-wrap">
                     {email}
@@ -33,7 +32,7 @@ const CompanyListDetiles = (props) => {
                     <span aria-hidden="true" class="absolute inset-0 bg-green-200 opacity-50 rounded-full">
                     </span>
                     <span class="py-4 block px-6 text-center">
-                        {address}
+                        Address
                     </span>
                 </span>
             </td>
@@ -54,16 +53,12 @@ const CompanyListDetiles = (props) => {
             </td>
             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                 <p class="text-gray-900 whitespace-no-wrap">
-
                     Online
-
                 </p>
             </td>
             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                 <p class="text-gray-900 whitespace-no-wrap">
-
                     Delete
-
                 </p>
             </td>
         </tr>
@@ -71,4 +66,4 @@ const CompanyListDetiles = (props) => {
     );
 };
 
-export default CompanyListDetiles;
+export default CustomerListDetails;

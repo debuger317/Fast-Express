@@ -65,7 +65,9 @@ const CompanyList = () => {
                             <tbody>
 
                                 {
-                                    clist.map(list => <CompanyListDetiles list={list} key={list.name}></CompanyListDetiles>)
+
+                                    clist.map(list => <CompanyListDetiles list={list} key={list._id}></CompanyListDetiles>)
+
                                 }
                             </tbody>
                         </table>

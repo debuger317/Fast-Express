@@ -1,16 +1,25 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import CustomerListDetails from './CustomerListDetails';
 
 const AllUserList = () => {
-    return (
 
-        <div class="container mx-auto px-4 sm:px-8 max-w-3xl">
+    const [userList, setUserList] = useState([]);
+    
+    useEffect(() => {
+        fetch(`https://fastexpress.herokuapp.com/api/customers/all`)
+            .then(res => res.json())
+            .then(data => setUserList(data))
+    }, [])
+    return (
+        <section className="container w-5/6 mx-auto px-4 sm:px-8 max-w-6xl">
+
             <div class="py-8">
-                <div class="flex flex-row mb-1 sm:mb-0 justify-between w-full">
+                <div class="flex flex-row mb-1 sm:mb-0 justify-between">
                     <h2 class="text-2xl leading-tight">
-                        Users
+                        Company Managment
                     </h2>
                     <div class="text-end">
-                        <form class="flex flex-col md:flex-row w-3/4 md:w-full max-w-sm md:space-x-3 space-y-3 md:space-y-0 justify-center">
+                        <form class="flex flex-col md:flex-row   max-w-sm md:space-x-3 space-y-3 md:space-y-0 justify-center">
                             <div class=" relative ">
                                 <input type="text" id="&quot;form-subscribe-Filter" class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="name" />
                             </div>
@@ -25,23 +34,42 @@ const AllUserList = () => {
                         <table class="min-w-full leading-normal">
                             <thead>
                                 <tr>
-                                    <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal">
-                                        User
+                                    <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-c text-sm uppercase font-normal">
+                                        Logo
                                     </th>
-                                    <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal">
-                                        Role
+                                    <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-c text-sm uppercase font-normal">
+                                        Name
                                     </th>
-                                    <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal">
+                                    <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-c text-sm uppercase font-normal">
+                                        Email
+                                    </th>
+                                    <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-c text-sm uppercase font-normal">
+                                        Address
+                                    </th>
+                                    <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-c text-sm uppercase font-normal">
+                                        Merchant
+                                    </th>
+                                    <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-c text-sm uppercase font-normal">
                                         Created at
                                     </th>
-                                    <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal">
+                                    <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-c text-sm uppercase font-normal">
+                                        Updated at
+                                    </th>
+                                    <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-c text-sm uppercase font-normal">
                                         status
                                     </th>
-                                    <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal">
+                                    <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-c text-sm uppercase font-normal">
+                                        Remove
                                     </th>
                                 </tr>
                             </thead>
                             <tbody>
+
+
+                                {
+                                    userList.map(list => <CustomerListDetails list={list} key={list._id}></CustomerListDetails>)
+                                }
+
                                 <tr>
                                     <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                         <div class="flex items-center">
@@ -235,7 +263,9 @@ const AllUserList = () => {
                     </div>
                 </div>
             </div>
-        </div>
+
+        </section>
+
 
     );
 };
