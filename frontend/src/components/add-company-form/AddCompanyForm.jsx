@@ -81,7 +81,6 @@ const ctegoryData =[
                 url: 'https://fastexpress.herokuapp.com/api/couriers/addcourier',
                 data: companyData
             });
-            alert("item added");
             console.log(res);
         } catch (err) {
             setError(true);

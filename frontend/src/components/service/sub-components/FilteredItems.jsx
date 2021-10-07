@@ -34,7 +34,6 @@ const FilteredItems = () => {
                             <h2>{item.name}</h2>
                         </Link>
                     )
-
                 }
             </div>
             <Pagination />

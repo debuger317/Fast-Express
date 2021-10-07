@@ -22,7 +22,6 @@ const ScrollTop = () => {
             else {
                 setVisibility(false)
             }
-
         })
     })
 
