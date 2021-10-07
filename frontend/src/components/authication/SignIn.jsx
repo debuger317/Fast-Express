@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import loginImg from '../../assets/images/loginImg.svg';
 import { getAuth, signInWithPopup, signInWithRedirect, GoogleAuthProvider } from "firebase/auth";
@@ -15,7 +15,15 @@ if (!firebase.apps.length) {
 const SignIn = () => {
   const history = useHistory();
   const dispatch = useDispatch();
+  const emailRef = useRef();
+  // console.log(emailRef.current.value);
+  const passwordRef = useRef();
+  // const handleSubmit = (e) => {
+  //   e.preventDefault()
+  //   const logInData = {
 
+  //   }
+  // }
   const provider = new GoogleAuthProvider();
   const GoogleSigning = () => {
     const auth = getAuth();
@@ -27,9 +35,9 @@ const SignIn = () => {
         const { email } = result.user;
         const signInUser = { email };
         dispatch(googleSignUpAction(user));
-       if(signInUser){
-         history.push("/dashboard")
-       }
+        if (signInUser) {
+          history.push("/dashboard")
+        }
       }).catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
@@ -73,7 +81,7 @@ const SignIn = () => {
                         </path>
                       </svg>
                     </span>
-                    <input type="text" id="sign-in-email" className=" rounded-r-lg flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="Your email" />
+                    <input ref={emailRef} type="text" id="sign-in-email" className=" rounded-r-lg flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="Your email" />
                   </div>
                 </div>
                 <div className="flex flex-col mb-6">
@@ -84,7 +92,7 @@ const SignIn = () => {
                         </path>
                       </svg>
                     </span>
-                    <input type="password" id="sign-in-email" className=" rounded-r-lg flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="Your password" />
+                    <input ref={passwordRef} type="password" id="sign-in-email" className=" rounded-r-lg flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="Your password" />
                   </div>
                 </div>
                 <div className="flex items-center mb-6 -mt-4">
