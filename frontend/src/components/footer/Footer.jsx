@@ -8,6 +8,7 @@ import { FaTwitterSquare } from "react-icons/fa";
 import { FaInstagramSquare } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import Logo from '../../assets/images/Fast-Express.PNG';
+import ScrollTop from '../../helper/ScrollTop';
 
 const Footer = () => {
     return (
@@ -66,6 +67,7 @@ const Footer = () => {
             <div className="text-gray-600 body-font bg-red-50 text-center py-2">
                 <p className="text-gray-400 text-sm hover:text-red-400"> {new Date().getFullYear()} All copyright reserve: Debug Entity</p>
             </div>
+            <ScrollTop/>
         </footer>
 
     )

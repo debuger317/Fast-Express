@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import CompanyListDetiles from './CompanyListDetiles';
+import OrderManageTable from './OrderManageTable';
 
-const CompanyList = () => {
+
+const OrderManagement = () => {
     const [clist, setClist] = useState([]);
     console.log(clist);
     useEffect(() => {
@@ -15,7 +16,7 @@ const CompanyList = () => {
             <div class="py-8">
                 <div class="flex flex-row mb-1 sm:mb-0 justify-between">
                     <h2 class="text-2xl leading-tight">
-                        Company Managment
+                        Customers order management
                     </h2>
                     <div class="text-end">
                         <form class="flex flex-col md:flex-row   max-w-sm md:space-x-3 space-y-3 md:space-y-0 justify-center">
@@ -66,7 +67,7 @@ const CompanyList = () => {
 
                                 {
 
-                                    clist.map(list => <CompanyListDetiles list={list} key={list._id}></CompanyListDetiles>)
+                                    clist.map(list => <OrderManageTable list={list} key={list._id}></OrderManageTable>)
 
                                 }
                             </tbody>
@@ -107,4 +108,4 @@ const CompanyList = () => {
     );
 };
 
-export default CompanyList;
+export default OrderManagement;

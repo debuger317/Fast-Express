@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 export const CategoriesSlice = createSlice({
     name: 'categories',
     initialState: {
+
         items :[],
 
         
@@ -12,5 +13,11 @@ export const CategoriesSlice = createSlice({
             state.items = action.payload
 
         },
+
+        logOut: (state, action) => {
+            state.userdetails = {}
+
+        }
+
     },
 })

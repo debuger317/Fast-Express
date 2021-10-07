@@ -70,7 +70,7 @@ const Routes = () => {
                     <Route path="/login">
                         <Login />
                     </Route>
-                    <Private path="/dashboard">
+                    <Private exact path="/dashboard">
                         <Dashboard />
                     </Private>
                     <Route path="*">

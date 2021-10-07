@@ -1,6 +1,6 @@
 import React from 'react';
 
-const CompanyListDetiles = (props) => {
+const OrderManageTable = (props) => {
     const { name, email, courierLogo, address, updatedAt, createdAt } = props.list;
     return (
 
@@ -72,4 +72,4 @@ const CompanyListDetiles = (props) => {
     );
 };
 
-export default CompanyListDetiles;
+export default OrderManageTable;
