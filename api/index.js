@@ -7,6 +7,7 @@ const port = process.env.PORT || 5500;
 const couriers = require("./routes/couriers");
 const customers = require("./routes/customers");
 const categories = require("./routes/categories");
+const admin = require("./routes/admin")
 const userauth = require("./routes/userauth")
 
 dotenv.config();
@@ -25,6 +26,7 @@ mongoose.connect(process.env.Mongoose_URL, {
 app.use("/api/couriers", couriers)
 app.use("/api/customers", customers)
 app.use("/api/categories", categories)
+app.use("/api/admin", admin)
 app.use("/api/userauth", userauth)
 
 app.get('/', (req, res) => {
