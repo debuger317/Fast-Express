@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import "swiper/swiper.min.css";
 import "swiper/components/pagination/pagination.min.css";
@@ -6,49 +6,52 @@ import "swiper/components/navigation/navigation.min.css";
 import SwiperCore, {
   Autoplay, Pagination, Navigation
 } from 'swiper/core';
+import { useLocation } from 'react-router';
+import { Link } from 'react-router-dom';
 
 // install Swiper modules
 SwiperCore.use([Pagination, Navigation, Autoplay]);
 
 const FeatureBrand = () => {
-  return (
 
+  return (
     <section>
       <div className="container mx-auto py-12">
         <p className="text-center text-4xl pb-12 text-gray-600 dark:text-white font-medium ">FEATURE AND MENTIONED ON</p>
         <Swiper
-         breakpoints={{
-          320: {
+          breakpoints={{
+            320: {
               slidesPerView: 1,
               spaceBetween: 20
-          },
+            },
 
-          480: {
+            480: {
               slidesPerView: 1,
               spaceBetween: 20
-          },
+            },
 
-          640: {
+            640: {
               slidesPerView: 2,
               spaceBetween: 20
-          },
+            },
 
-          768: {
+            768: {
               slidesPerView: 2,
               spaceBetween: 30
-          },
-          1024: {
+            },
+            1024: {
               slidesPerView: 3,
               spaceBetween: 30
-          }
+            }
 
-      }}
+          }}
           loop={true}
           autoplay={true}
           loopFillGroupWithBlank={true}
           pagination={{
             "clickable": true
           }} navigation={false} className="mySwiper justify-items-center">
+
           <SwiperSlide>
             <img className="mx-auto" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_BPkPBRCOGxs_ZRnEALwGAE1ODfcCDIp_Eg&usqp=CAU" alt="currier company" />
           </SwiperSlide>

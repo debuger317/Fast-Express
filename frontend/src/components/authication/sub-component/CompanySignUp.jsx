@@ -6,7 +6,7 @@ const CompanySignUp = () => {
         <div className="w-1/2">
             <div class="flex flex-col max-w-lg px-4 py-8 bg-white rounded-lg shadow dark:bg-gray-800 sm:px-6 md:px-8 lg:px-10 mx-auto">
                 <div class="self-center mb-2 text-xl font-light text-gray-800 sm:text-2xl dark:text-white">
-                    Create a new company account
+                    Company Signup
                 </div>
                 <span class="justify-center text-sm text-center text-gray-500 flex-items-center dark:text-gray-400">
                     Already have an account ?
