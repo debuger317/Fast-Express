@@ -14,7 +14,6 @@ const Services = lazy(() => import('../pages/Services'));
 const CategoryDetail = lazy(() => import('../pages/ServiceDetails'));
 const SingleCourierDetail = lazy(() => import('../pages/SingleCourier'));
 const Parcel = lazy(() => import('../pages/CheckoutForm'));
-
 const Faq = lazy(() => import('../pages/FAQ'));
 const About = lazy(() => import('../pages/About'));
 const SignUp = lazy(() => import('../pages/SignUp'));
