@@ -17,10 +17,10 @@ const TotalViews = () => {
 
         <div class="flex items-center text-green-500 text-sm">
           
-            <span>
-                <h1 id="count">0</h1>
+            <span className="text-6xl">
+                <h1  id="count">0</h1>
             </span>
-            <span class="text-gray-400">
+            <span class="fond-bold text-gray-400">
                 <p>This page was viewed</p>
             </span>
         </div>
