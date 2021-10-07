@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import OrderManagement from '../components/manage-order/OrderManagement';
 
 const OrderList = () => {
     return (
-        <div>
-          o  
-        </div>
+        <Fragment>
+          <OrderManagement/>  
+        </Fragment>
     );
 };
 

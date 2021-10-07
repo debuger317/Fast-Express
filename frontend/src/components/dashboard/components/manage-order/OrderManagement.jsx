@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import CustomerListDetails from './CustomerListDetails';
+import OrderManageTable from './OrderManageTable';
 
-const AllUserList = () => {
 
-    const [userList, setUserList] = useState([]);
-    
+const OrderManagement = () => {
+    const [clist, setClist] = useState([]);
+    console.log(clist);
     useEffect(() => {
-        fetch(`https://fastexpress.herokuapp.com/api/customers/all`)
+        fetch(`https://fastexpress.herokuapp.com/api/couriers/all`)
             .then(res => res.json())
-            .then(data => setUserList(data))
+            .then(data => setClist(data))
     }, [])
     return (
         <section className="container w-5/6 mx-auto px-4 sm:px-8 max-w-6xl">
@@ -16,7 +16,7 @@ const AllUserList = () => {
             <div class="py-8">
                 <div class="flex flex-row mb-1 sm:mb-0 justify-between">
                     <h2 class="text-2xl leading-tight">
-                        Users Managment
+                        Customers order management
                     </h2>
                     <div class="text-end">
                         <form class="flex flex-col md:flex-row   max-w-sm md:space-x-3 space-y-3 md:space-y-0 justify-center">
@@ -66,9 +66,10 @@ const AllUserList = () => {
                             <tbody>
 
                                 {
-                                    userList.map(list => <CustomerListDetails list={list} key={list._id}></CustomerListDetails>)
-                                }
 
+                                    clist.map(list => <OrderManageTable list={list} key={list._id}></OrderManageTable>)
+
+                                }
                             </tbody>
                         </table>
                         <div class="px-5 bg-white py-5 flex flex-col xs:flex-row items-center xs:justify-between">
@@ -102,11 +103,9 @@ const AllUserList = () => {
                     </div>
                 </div>
             </div>
-
         </section>
-
 
     );
 };
 
-export default AllUserList;
+export default OrderManagement;
