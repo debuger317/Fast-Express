@@ -22,7 +22,6 @@ const CategoryList = () => {
             console.error(error);
         }
     }
-
     useEffect(() => {
         getCategories()
     }, [path])
