@@ -13,11 +13,10 @@ const TottalSell = () => {
                         </svg>
                     </span>
                     <p class="text-md text-black dark:text-white ml-2">
-                        Finance
+                        User Count
                     </p>
                 </div>
                 <div class="flex flex-col justify-start">
-                   
                     <TotalViews />
                 </div>
             </div>

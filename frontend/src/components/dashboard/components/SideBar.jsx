@@ -5,7 +5,7 @@ const SideBar = () => {
     return (
         <div class="lg:block  ml-4 relative">
             <div class="h-screen bg-white dark:bg-gray-700 border-r border-gray-100">
-                <Link to='/home' class="flex items-center justify-center">
+                <Link to="/" class="flex items-center justify-center">
                     <img class="px-5 pr-10 pt-5" src={Logo} alt="" srcset="" />
                 </Link>
 
