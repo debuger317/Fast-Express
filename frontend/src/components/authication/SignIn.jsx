@@ -1,4 +1,5 @@
-import React, { useRef } from 'react';
+import React, { useState } from 'react';
+import axios from 'axios';
 import { Link, useHistory } from 'react-router-dom';
 import loginImg from '../../assets/images/loginImg.svg';
 import { getAuth, signInWithPopup, signInWithRedirect, GoogleAuthProvider } from "firebase/auth";
@@ -6,24 +7,40 @@ import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore';
 import firebaseConfig from '../../config/firebase';
 import { useDispatch } from 'react-redux';
-import { googleSignUpAction } from '../../redux/action/action';
+import { customAuthAction, googleSignUpAction } from '../../redux/action/action';
+import { useForm } from 'react-hook-form';
 
 if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig);
 }
-
 const SignIn = () => {
   const history = useHistory();
   const dispatch = useDispatch();
-  const emailRef = useRef();
-  // console.log(emailRef.current.value);
-  const passwordRef = useRef();
-  // const handleSubmit = (e) => {
-  //   e.preventDefault()
-  //   const logInData = {
+  const [error, setError] = useState(false);
 
-  //   }
-  // }
+  const { handleSubmit, register } = useForm();
+  const onSubmit = async (data) => {
+    const userData = {
+      email: data.email,
+      password: data.password,
+    }
+    try {
+      const res = await axios({
+        method: 'post',
+        url: 'http://localhost:5500/api/auth/login',
+        data: userData
+      });
+      console.log(res);
+      dispatch(customAuthAction(res.data.others));
+      if (res) {
+        history.push("/dashboard")
+      }
+
+    } catch (err) {
+      setError(true);
+      console.log(err);
+    }
+  }
   const provider = new GoogleAuthProvider();
   const GoogleSigning = () => {
     const auth = getAuth();
@@ -72,7 +89,7 @@ const SignIn = () => {
               </button>
             </div>
             <div className="mt-8">
-              <form action="#" autoComplete="off">
+              <form onSubmit={handleSubmit(onSubmit)} autoComplete="off">
                 <div className="flex flex-col mb-2">
                   <div className="flex relative ">
                     <span className="rounded-l-md inline-flex  items-center px-3 border-t bg-white border-l border-b  border-gray-300 text-gray-500 shadow-sm text-sm">
@@ -81,7 +98,7 @@ const SignIn = () => {
                         </path>
                       </svg>
                     </span>
-                    <input ref={emailRef} type="text" id="sign-in-email" className=" rounded-r-lg flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="Your email" />
+                    <input {...register("email")} type="text" id="sign-in-email" className=" rounded-r-lg flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="Your email" />
                   </div>
                 </div>
                 <div className="flex flex-col mb-6">
@@ -92,7 +109,7 @@ const SignIn = () => {
                         </path>
                       </svg>
                     </span>
-                    <input ref={passwordRef} type="password" id="sign-in-email" className=" rounded-r-lg flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="Your password" />
+                    <input {...register("password")} type="password" id="sign-in-email" className=" rounded-r-lg flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="Your password" />
                   </div>
                 </div>
                 <div className="flex items-center mb-6 -mt-4">
@@ -103,12 +120,13 @@ const SignIn = () => {
                   </div>
                 </div>
                 <div class="flex w-full">
-                  <Link to="/dashboard" type="submit" class="py-2 px-4  bg-purple-600 hover:bg-purple-700 focus:ring-purple-500 focus:ring-offset-purple-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
+                  <button type="submit" class="py-2 px-4  bg-purple-600 hover:bg-purple-700 focus:ring-purple-500 focus:ring-offset-purple-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
                     Login
-                  </Link>
+                  </button>
                 </div>
               </form>
             </div>
+            {error && <span style={{ color: 'red', marginTop: '10px' }}>Something went wrong!</span>}
             <div className="flex items-center justify-center mt-6">
               <Link to="/signup" className="inline-flex items-center text-xs font-thin text-center text-gray-500 hover:text-gray-700 dark:text-gray-100 dark:hover:text-white">
                 <span className="ml-2">
