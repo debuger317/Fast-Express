@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const CourierSchema = new mongoose.Schema({
+const MerchantSchema = new mongoose.Schema({
     courierLogo: {
         type: String,
         required: true,
@@ -59,7 +59,7 @@ const CourierSchema = new mongoose.Schema({
         required: true,
         unique: false,
     },
-    
+
     deliveryOption: {
         type: String,
         required: true,
@@ -77,7 +77,32 @@ const CourierSchema = new mongoose.Schema({
         required: true,
         unique: false,
     },
+    status: {
+        type: String,
+        required: true,
+        unique: false,
+    },
+    role: {
+        type: String,
+        required: true,
+        unique: false,
+    },
+    cutomers: {
+        type: [],
+        required: false,
+        unique: true,
+    },
+    orders: {
+        type: [],
+        required: false,
+        unique: true,
+    },
+    report: {
+        type: [],
+        required: false,
+        unique: false,
+    }
 
 }, { timestamps: true });
 
-module.exports = mongoose.model('couriers', CourierSchema);
+module.exports = mongoose.model('merchants', MerchantSchema);

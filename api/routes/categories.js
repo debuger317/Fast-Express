@@ -1,5 +1,8 @@
+// admin see the all categories and manage add new categories on the admin dashboard
+// all categories list are visible on the frontend
+
 const router = require("express").Router();
-const category_Controller = require("../controllers/category")
+const category_Controller = require("../controllers/categories")
 
 router.post("/addcategory", category_Controller.addcategory_C)
 
