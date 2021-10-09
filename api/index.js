@@ -4,11 +4,12 @@ const dotenv = require("dotenv");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const port = process.env.PORT || 5500;
-const couriers = require("./routes/couriers");
 const categories = require("./routes/categories");
-const userauth = require("./routes/userauth")
-const admin = require("./routes/admin")
-
+const users = require("./routes/users")
+const orders = require("./routes/orders")
+const merchants = require("./routes/merchant")
+const auth = require("./routes/auth")
+const dashboard = require("./routes/dashboard")
 dotenv.config();
 app.use(cors());
 app.use(express.json());
@@ -22,10 +23,12 @@ mongoose.connect(process.env.Mongoose_URL, {
 
 //use all routes 
 
-app.use("/api/couriers", couriers)
 app.use("/api/categories", categories)
-app.use("/api/userauth", userauth)
-app.use("/api/admin", admin)
+app.use("/api/merchant", merchants)
+app.use("/api/auth", auth)
+app.use("/api/user", users)
+app.use("/api/order", orders)
+app.use("/api/dashboard", dashboard)
 
 app.get('/', (req, res) => {
     res.send('Fast Express API')
@@ -33,6 +36,6 @@ app.get('/', (req, res) => {
 
 app.listen(port, () => {
     console.log(`${port}`, 'server connected')
-  })
-  
+})
+
 

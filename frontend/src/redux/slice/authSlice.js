@@ -11,6 +11,10 @@ export const authSlice = createSlice({
         googleAuth: (state, action) => {
             state.userdetails = action.payload
         },
+        customAuth: (state, action) => {
+            state.userdetails = action.payload
+
+        },
         logOut: (state, action) => {
             state.userdetails = {}
 
