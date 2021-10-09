@@ -4,17 +4,19 @@ const CustomerSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
-        unique: true,
     },
     email: {
         type: String,
+        lowercase: true,
+        trim: true,
         required: true,
         unique: true,
     },
     password: {
         type: String,
+        minlength: 6,
+        maxlength: 16,
         required: true,
-        unique: true,
     },
     photo: {
         type: String,
@@ -23,10 +25,12 @@ const CustomerSchema = new mongoose.Schema({
     },
     address: {
         city: {
-
+            type: String,
+            required: true
         },
         currentlocation: {
-
+            type: String,
+            required: true
         }
     },
     label: {
