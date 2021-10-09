@@ -1,15 +1,16 @@
-const couriers = require("../models/c-company/Couriers");
+const merchants = require("../models/Merchants");
 
-const addcourier_C = async (req, res) => {
+const addmerchant_C = async (req, res) => {
     try {
-        const newCourier = new couriers({
-            courierLogo: req.body.courierLogo,
+        const newmerchant = new merchants({
+            logo: req.body.logo,
             name: req.body.name,
             email: req.body.email,
             password: req.body.password,
             website: req.body.website,
             weight: req.body.weight,
             address: req.body.address,
+            role: req.body.role,
             description: req.body.description,
             pickupFrom: req.body.pickupFrom,
             pickupTo: req.body.pickupTo,
@@ -17,8 +18,9 @@ const addcourier_C = async (req, res) => {
             phone: req.body.phone,
             serviceCategory: req.body.serviceCategory,
         });
-        const courier = await newCourier.save();
-        res.status(200).json(courier);
+        const merchant = await newmerchant.save();
+        res.status(200).json( merchant
+        );
     }
     catch (err) {
         console.log(err)
@@ -26,12 +28,12 @@ const addcourier_C = async (req, res) => {
     }
 }
 
-//get all courier list from
+//get all merchant list from
 
-const getallcourier_C = async (req, res, next) => {
+const getallmerchant_C = async (req, res, next) => {
     try {
-        const allcourier = await couriers.find()
-        res.status(200).json(allcourier)
+        const allmerchant = await merchants.find()
+        res.status(200).json(allmerchant)
 
     }
     catch (err) {
@@ -40,13 +42,13 @@ const getallcourier_C = async (req, res, next) => {
     }
 }
 
-//find a single courier item by courierId
+//find a single merchant item by merchantId
 
-const signlecourier_c = async (req, res, next) => {
-    let courierId = req.params.id;
+const signlemerchant_c = async (req, res, next) => {
+    let merchantId = req.params.id;
     try {
-        const courierItem = await couriers.findById(courierId);
-        res.status(200).json(courierItem)
+        const merchantItem = await merchants.findById(merchantId);
+        res.status(200).json(merchantItem)
     }
     catch (err) {
         console.log(err)
@@ -54,15 +56,15 @@ const signlecourier_c = async (req, res, next) => {
     }
 }
 
-//update any field from couriers
+//update any field from merchants
 
-const updatecourier_c = async (req, res, next) => {
-    if (req.body.courierId === req.params.id) {
+const updatemerchant_c = async (req, res, next) => {
+    if (req.body.merchantId === req.params.id) {
         try {
-            const updatedcourier = await couriers.findByIdAndUpdate(req.params.id, {
+            const updatedmerchant = await merchants.findByIdAndUpdate(req.params.id, {
                 $set: req.body
             })
-            res.status(200).json(updatedcourier)
+            res.status(200).json(updatedmerchant)
         }
         catch (err) { res.status(500).json(err) }
     }
@@ -73,8 +75,8 @@ const updatecourier_c = async (req, res, next) => {
 }
 
 module.exports = {
-    addcourier_C,
-    getallcourier_C,
-    signlecourier_c,
-    updatecourier_c
+    addmerchant_C,
+    getallmerchant_C,
+    signlemerchant_c,
+    updatemerchant_c
 }

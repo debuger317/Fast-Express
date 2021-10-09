@@ -1,28 +1,32 @@
 const mongoose = require('mongoose');
 
-const AdminSchema = new mongoose.Schema({
+const AuthSchema = new mongoose.Schema({
+
     name: {
-        type: String,
-        require: true,
-        unique: false
-    },
-    email: {
         type: String,
         required: true,
         unique: true,
-        trim: true
+    },
+    email: {
+        type: String,
+        lowercase: true,
+        trim: true,
+        required: true,
+        unique: true,
     },
     password: {
         type: String,
+        minlength: 6,
+        maxlength: 200,
         required: true,
         unique: false,
-        minlength: 6,
     },
-    label: {
+    role: {
         type: String,
         required: true,
         unique: false,
-    }
+    },
+
 }, { timestamps: true });
 
-module.exports = mongoose.model('admins', AdminSchema);
+module.exports = mongoose.model('auth', AuthSchema);
