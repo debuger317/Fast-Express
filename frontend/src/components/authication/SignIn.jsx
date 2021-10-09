@@ -13,6 +13,7 @@ import { useForm } from 'react-hook-form';
 if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig);
 }
+// email signIn
 const SignIn = () => {
   const history = useHistory();
   const dispatch = useDispatch();
@@ -41,6 +42,8 @@ const SignIn = () => {
       console.log(err);
     }
   }
+
+  //google singIn 
   const provider = new GoogleAuthProvider();
   const GoogleSigning = () => {
     const auth = getAuth();
