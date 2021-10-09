@@ -8,10 +8,9 @@ import { getCategoriesAction } from '../../../redux/action/categories';
 const CategoryList = () => {
     const categories = useSelector((state) => state.categories.items)
 
-    console.log(categories);
-
-    const path = useLocation();
-
+    const location = useLocation();
+    const Path = location.pathname.split('/')[1];
+    
     const dispatch = useDispatch();
 
     const getCategories = async () => {
@@ -24,7 +23,7 @@ const CategoryList = () => {
     }
     useEffect(() => {
         getCategories()
-    }, [path])
+    }, [Path])
 
     return (
         <div className="container mx-auto px-20 py-24">
