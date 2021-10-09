@@ -5,6 +5,9 @@ export const authSlice = createSlice({
     initialState: {
         userdetails: {
             
+        },
+        merchantdetails:{
+
         }
     },
     reducers: {
@@ -14,6 +17,9 @@ export const authSlice = createSlice({
         customAuth: (state, action) => {
             state.userdetails = action.payload
 
+        },
+        merchnatAuth: (state, action) => {
+            state.merchantdetails = action.payload
         },
         logOut: (state, action) => {
             state.userdetails = {}

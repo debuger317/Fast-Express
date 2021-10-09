@@ -13,8 +13,6 @@ const Navbar = () => {
     };
     const dispatch = useDispatch();
     const email = useSelector((state) => state.auth.userdetails.email)
-    const subitem = (NavItem.map(a => a.subitem));
-    const classItem = (NavItem.map(a => a.subitem));
     return (
        <nav className="bg-white dark:bg-gray-800 shadow py-3 position-sticky">
             <div className="max-w-7xl mx-auto px-4">
@@ -26,19 +24,12 @@ const Navbar = () => {
                         <div className="hidden lg:block">
                             <div className="ml-10 flex items-center space-x-4">
 
-                                <div className={`display-inline ${classItem.className ? 'group ' : ''}`}>
+                                <div className="display-inline">
                                     {NavItem.map(link =>
                                         <Link className={`${link.rm} text-gray-800 uppercase hover:text-gray-500 dark:hover:text-white mx-5 py-2 text-sm font-medium ${link.className ? 'relative ' : ''}`} to={link.path}>
                                             {link.name}
                                         </Link>
                                     )}
-                                    <ul
-                                        className="bg-white border rounded-sm transform scale-0 group-hover:scale-100 absolute transition duration-150 ease-in-out origin-top min-w-32"
-                                    >
-                                        {subitem[0, 2, 3].map(link => <><Link className="block text-gray-800 uppercase hover:text-gray-500 dark:hover:text-white pl-3 py-2 text-sm font-medium" to={link.path}>
-                                            {link.name}
-                                        </Link></>)}
-                                    </ul>
                                 </div>
                                 <div className="flex flex-col items-center ml-5 cursor-pointer">
                                     {

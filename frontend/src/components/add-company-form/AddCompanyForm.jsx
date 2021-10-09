@@ -1,87 +1,99 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import axios from "axios";
 import { AiOutlineCloudUpload } from 'react-icons/ai';
 import { useForm } from 'react-hook-form';
+import { useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 const AddCompanyForm = () => {
-    const [courierLogo, setLogo] = useState('')
-    const [error, setError] = useState(false)
-const ctegoryData =[
-    {
-        id:1,
-        name:'mobile'
-    },
-    {
-        id:2,
-        name:'laptop'
-    },
-    {
-        id:3,
-        name:'desktop'
-    },
-    {
-        id:4,
-        name:'Ipad'
-    },
-    {
-        id:5,
-        name:'tablet'
-    },
-    {
-        id:6,
-        name:'tablet'
-    },
-    {
-        id:7,
-        name:'tablet'
-    },
-    {
-        id:8,
-        name:'tablet'
-    },
-    {
-        id:9,
-        name:'tablet'
-    },
-    {
-        id:10,
-        name:'tablet'
-    },
-    {
-        id:11,
-        name:'tablet'
-    },
-]
+    const history = useHistory();
+    const [logo, setLogo] = useState('');
+    const merchantAuth = useSelector((state) => state.auth.merchantdetails);
+    const { name, email } = merchantAuth;
+    const [error, setError] = useState(false);
+    const [pending, setPending] = useState(false);
+
+    const ctegoryData = [
+        {
+            id: 1,
+            name: 'mobile'
+        },
+        {
+            id: 2,
+            name: 'laptop'
+        },
+        {
+            id: 3,
+            name: 'desktop'
+        },
+        {
+            id: 4,
+            name: 'Ipad'
+        },
+        {
+            id: 5,
+            name: 'tablet'
+        },
+        {
+            id: 6,
+            name: 'tablet'
+        },
+        {
+            id: 7,
+            name: 'tablet'
+        },
+        {
+            id: 8,
+            name: 'tablet'
+        },
+        {
+            id: 9,
+            name: 'tablet'
+        },
+        {
+            id: 10,
+            name: 'tablet'
+        },
+        {
+            id: 11,
+            name: 'tablet'
+        },
+    ]
     const { handleSubmit, register } = useForm();
 
     const onSubmit = async (data) => {
-        const companyData = {
-            courierLogo: courierLogo,
-            name: data.name,
-            email: data.email,
-            password: data.password,
+        const merchant = {
+            logo: logo,
+            name: name,
+            email: email,
             website: data.website,
             weight: data.weight,
-            address: data.address, 
+            address: data.address,
             description: data.description,
             pickupFrom: data.pickupFrom,
             pickupTo: data.pickupTo,
+            costperkg: data.payment,
             deliveryOption: data.deliveryOption,
+            status: "pending",
             phone: data.helpline,
             serviceCategory: [
                 data.mobile,
                 data.laptop,
-                data.tablet
+                data.tablet || "",
+                data.desktop,
+
             ]
         }
-        console.log(companyData);
+        console.log(merchant);
         try {
             const res = await axios({
                 method: 'post',
-                url: 'https://fastexpress.herokuapp.com/api/couriers/addcourier',
-                data: companyData
+                url: 'http://localhost:5500/api/merchant/addmerchant',
+                data: merchant
             });
-            console.log(res);
+            setPending(true)
+            res && history.push("/login")
+
         } catch (err) {
             setError(true);
             console.log(err);
@@ -109,17 +121,17 @@ const ctegoryData =[
 
     return (
         <section class="text-gray-600 body-font">
-             <form onSubmit={handleSubmit(onSubmit)}
-                >
-            <div class="container px-5 py-24 mx-auto flex flex-wrap">
-               
+            <form onSubmit={handleSubmit(onSubmit)}
+            >
+                <div class="container px-5 py-24 mx-auto flex flex-wrap">
+
                     <div class="p-4 lg:w-full md:w-full">
                         <div class="my-5">
                             <h1 className="font-medium text-gray-700 font-medium">Add company logo</h1>
                         </div>
                         <div className="md:flex items-center">
                             <div className="block relative">
-                                {courierLogo ? <img alt="company_logo" src={courierLogo} className=" rounded h-36 w-36 " /> : <span>loading..</span>}
+                                {logo ? <img alt="company_logo" src={logo} className=" rounded h-36 w-36 " /> : <span>loading..</span>}
                             </div>
                             <div className="text-gray-600 mx-10">
                                 <label
@@ -136,8 +148,8 @@ const ctegoryData =[
                             <label class="font-medium text-gray-700">
                                 Name of company
                                 <div>
-                                    <input {...register("name")}
-                                        type="text" class="rounded  border-transparent flex-1 border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent" placeholder="Your company name" required />
+                                    <input 
+                                        type="text" class="rounded  border-transparent flex-1 border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent" placeholder="Your company name" required value={name}/>
                                 </div>
                             </label>
                         </div>
@@ -147,20 +159,37 @@ const ctegoryData =[
                             <label class="font-medium text-gray-700">
                                 Company Email
                                 <div>
-                                    <input {...register("email")}
-                                        type="email" class="rounded w-full  border-transparent border border-gray-300  py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent" placeholder="Your company email" required />
+                                    <input 
+                                        type="email" class="rounded w-full  border-transparent border border-gray-300  py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent" placeholder="Your company email" required value={email}/>
                                 </div>
                             </label>
                         </div>
                     </div>
                     <div class="p-4 lg:w-1/2 md:w-full">
                         <div>
-                            <label class="font-medium text-gray-700">
-                                Password
-                                <div>
-                                    <input {...register("password")}
-                                        type="text" class="rounded  border-transparent flex-1 border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent" placeholder="Your company password" required />
-                                </div>
+                        <label class="font-medium text-gray-700">
+                               Payment per accept whight (kg)
+                                <select {...register("payment")}
+                                    class="rounded block w-full py-2 px-3 border border-gray-300 bg-white shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500" required>
+                                    <option value="">
+                                        Select an option
+                                    </option>
+                                    <option value="250">
+                                        5kg 250
+                                    </option>
+                                    <option value="300">
+                                        10kg 300
+                                    </option>
+                                    <option value="450">
+                                        15kg 450
+                                    </option>
+                                    <option value="700">
+                                        25kg 700
+                                    </option>
+                                    <option value="1000">
+                                        30kg 1000
+                                    </option>
+                                </select>
                             </label>
                         </div>
                     </div>
@@ -327,7 +356,7 @@ const ctegoryData =[
                             {ctegoryData.map(d => (
                                 <label class="flex items-center space-x-3 mb-3">
                                     <input {...register(`${d.name}`)}
-                                        class="w-6 h-6 rounded-lg" type="checkbox" value={d.name}/>
+                                        class="w-6 h-6 rounded-lg" type="checkbox" value={d.name} />
                                     <span class="text-gray-700 dark:text-white font-normal">
                                         {d.name}
                                     </span>
@@ -337,16 +366,17 @@ const ctegoryData =[
 
                         </div>
                     </div>
+                    {error && <span style={{ color: 'red', marginTop: '10px' }}>Something went wrong!</span>}
                     <div class="p-4 lg:full md:w-full">
                         <div class="flex w-32 ml-auto">
                             <button onClick={() => handleSubmit()} type="submit" class="py-2 px-4 my-10 bg-red-600 hover:bg-red-700 focus:ring-red-500 focus:ring-offset-red-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
-                                Add request
+                                {pending? "loading...": "Add request"}
                             </button>
                         </div>
                     </div>
                     {/* container end */}
 
-            </div>
+                </div>
             </form>
         </section>
 

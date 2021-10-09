@@ -8,7 +8,7 @@
 const router = require("express").Router();
 const merchant_control = require("../controllers/merchant")
 
-router.post("/addcourier", merchant_control.addmerchant_C)
+router.post("/addmerchant", merchant_control.addmerchant_C)
 
 router.get('/all', merchant_control.getallmerchant_C)
 

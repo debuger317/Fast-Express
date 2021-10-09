@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const MerchantSchema = new mongoose.Schema({
-    courierLogo: {
+    logo: {
         type: String,
         required: true,
     },
@@ -16,13 +16,6 @@ const MerchantSchema = new mongoose.Schema({
         trim: true,
         required: true,
         unique: true,
-    },
-    password: {
-        type: String,
-        minlength: 6,
-        maxlength: 16,
-        required: true,
-        unique: false,
     },
     website: {
         type: String,
@@ -59,6 +52,13 @@ const MerchantSchema = new mongoose.Schema({
         required: true,
         unique: false,
     },
+    costperkg: {
+        type: Number,
+        max: 3000,
+        min: 1,
+        required: true,
+        unique: false,
+    },
 
     deliveryOption: {
         type: String,
@@ -82,26 +82,6 @@ const MerchantSchema = new mongoose.Schema({
         required: true,
         unique: false,
     },
-    role: {
-        type: String,
-        required: true,
-        unique: false,
-    },
-    cutomers: {
-        type: [],
-        required: false,
-        unique: true,
-    },
-    orders: {
-        type: [],
-        required: false,
-        unique: true,
-    },
-    report: {
-        type: [],
-        required: false,
-        unique: false,
-    }
 
 }, { timestamps: true });
 
