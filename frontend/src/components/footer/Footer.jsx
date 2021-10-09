@@ -8,6 +8,7 @@ import { FaTwitterSquare } from "react-icons/fa";
 import { FaInstagramSquare } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import Logo from '../../assets/images/Fast-Express.PNG';
+import ScrollTop from '../../helper/ScrollTop';
 
 const Footer = () => {
     return (
@@ -27,14 +28,14 @@ const Footer = () => {
                     </div>
                 </div>
                 <div className="flex flex-wrap md:pl-20 -mb-10 md:mt-0 sm:mt-10 md:text-left">
-                    <div className="mx-auto mt-12 sm:mt-0 lg:w-1/3 md:w-1/2 sm:px-4">
+                    <div className=" mt-12 sm:mt-0 lg:w-1/3 md:w-1/2 sm:px-4 pl-4">
                         <h2 className="title-font font-medium text-dark tracking-normal flex text-md mb-3">EMAIL ADDRESS <RiArrowDownSFill className="text-red-600" /></h2>
                         <div className="flex">
                             <GoMail className="text-red-600" /> <span className="pl-2 text-sm">Email:</span>
                         </div>
                         <p className="text-sm text-red-400 hover:text-gray-400 cursor-pointer">courier@fastexpress.com</p>
                     </div>
-                    <div className="mx-auto  sm:mt-0 lg:w-1/3 md:w-1/2 sm:px-4">
+                    <div className="mx-auto  sm:mt-0 lg:w-1/3 md:w-1/2 sm:px-4 w-full pl-4">
                         <h2 className="title-font font-medium text-dark tracking-normal text-md mb-3 flex">MENU <RiArrowDownSFill className="text-red-600" /></h2>
                         <nav className="list-none mb-10">
                             <li>
@@ -55,8 +56,8 @@ const Footer = () => {
                         </nav>
                     </div>
                     <div className="mx-auto lg:w-1/3 md:w-1/2 w-full pl-4">
-                        <h2 className="flex justify-center title-font font-medium text-dark tracking-normal text-md mb-3 flex">ADDRESS <RiArrowDownSFill className="text-red-600" /></h2>
-                        <div className="flex justify-center">
+                        <h2 className="flex title-font font-medium text-dark tracking-normal text-md mb-3 flex">ADDRESS <RiArrowDownSFill className="text-red-600" /></h2>
+                        <div className="flex ">
                             <MdLocationOn className="text-red-600" /> <span className="pl-2 text-sm">Location:</span>
                         </div>
                         <p className="text-sm text-gray-400">7 Temasek Boulevard, #12-07 Suntec Tower 1 Singapore 038987</p>
@@ -66,6 +67,7 @@ const Footer = () => {
             <div className="text-gray-600 body-font bg-red-50 text-center py-2">
                 <p className="text-gray-400 text-sm hover:text-red-400"> {new Date().getFullYear()} All copyright reserve: Debug Entity</p>
             </div>
+            <ScrollTop/>
         </footer>
 
     )

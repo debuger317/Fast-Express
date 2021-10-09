@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import OrderManagement from '../components/manage-order/OrderManagement';
 
 const OrderList = () => {
+<<<<<<< HEAD
   return (
     <div class="container mx-auto px-8 mt-8 sm:px-8 ">
         <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
@@ -220,6 +222,13 @@ const OrderList = () => {
     </div>
 
   );
+=======
+    return (
+        <Fragment>
+          <OrderManagement/>  
+        </Fragment>
+    );
+>>>>>>> 2dcb5f58c42339d8a5a9c1c8fb2179d621f2faf7
 };
 
 export default OrderList;

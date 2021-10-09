@@ -6,14 +6,17 @@ import {
     Route
 } from "react-router-dom";
 import Private from '../components/auth/PrivateRoute';
-
+const ShippingForm =  lazy(() => import('../pages/ShippingForm'));
 const Home = lazy(() => import('../pages/Home'));
+const CompanyForm = lazy(() => import('../pages/CompanyForm'));
 const Pricing = lazy(() => import('../pages/Pricing'));
 const Contacts = lazy(() => import('../pages/Contacts'));
 const Services = lazy(() => import('../pages/Services'));
-const ServiceCategoryDetails = lazy(() => import('../pages/CategoryDetails'));
+const CategoryDetail = lazy(() => import('../pages/ServiceDetails'));
+const SingleCourierDetail = lazy(() => import('../pages/SingleCourier'));
 const Faq = lazy(() => import('../pages/FAQ'));
 const About = lazy(() => import('../pages/About'));
+const SignUp = lazy(() => import('../pages/SignUp'));
 const Login = lazy(() => import('../pages/Login'));
 const Dashboard = lazy(() => import('../pages/Dashboard'));
 const NotFound = lazy(() => import('../pages/NotFound'));
@@ -41,17 +44,26 @@ const Routes = () => {
                     <Route exact path="/new-company/register-form">
                         <CompanyForm />
                     </Route>
+<<<<<<< HEAD
                     <Route exact path="/service/category">
                         <CategoryDetails />
+=======
+                    <Route exact path="/service/category/:name">
+                        <CategoryDetail />
+>>>>>>> 2dcb5f58c42339d8a5a9c1c8fb2179d621f2faf7
                     </Route>
-                    <Route exact path="/service/category/:_id">
+
+                    <Route exact path="/service/category/:filterPath/:_id">
                         <SingleCourierDetail />
                     </Route>
+<<<<<<< HEAD
+=======
+                    <Route exact path="/customer-parcel-shipping-form">
+                        <ShippingForm />
+                    </Route>
+>>>>>>> 2dcb5f58c42339d8a5a9c1c8fb2179d621f2faf7
                     <Route path="/service">
                         <Services />
-                    </Route>
-                    <Route path="/service/category/mobileandaccessories">
-                        <ServiceCategoryDetails />
                     </Route>
                     <Route path="/faq">
                         <Faq></Faq>
@@ -59,10 +71,13 @@ const Routes = () => {
                     <Route path="/about">
                         <About></About>
                     </Route>
+                    <Route path="/signup">
+                        <SignUp />
+                    </Route>
                     <Route path="/login">
                         <Login />
                     </Route>
-                    <Private path="/dashboard">
+                    <Private exact path="/dashboard">
                         <Dashboard />
                     </Private>
                     <Route path="*">

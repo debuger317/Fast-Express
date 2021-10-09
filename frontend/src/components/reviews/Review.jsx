@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import "swiper/swiper.min.css";
 import "swiper/components/pagination/pagination.min.css";
 import "swiper/components/navigation/navigation.min.css";
+//swiper slider
 import SwiperCore, {
     Autoplay, Pagination
 } from 'swiper/core';
@@ -11,6 +12,7 @@ import { ImQuotesLeft, ImQuotesRight } from "react-icons/im";
 
 const Review = () => {
     SwiperCore.use([Pagination, Autoplay]);
+    
     return (
         <section>
             <div className="container mx-auto mt-16">
@@ -20,9 +22,37 @@ const Review = () => {
                 <p className="text-center text-xl font-normal text-gray-500 dark:text-gray-200">
                     Meet our Best Client in the World
                 </p>
-                <Swiper slidesPerView={`${3}`} spaceBetween={30} pagination={{
-                    "clickable": true
-                }} className="mySwiper">
+                <Swiper
+                    breakpoints={{
+                        320: {
+                            slidesPerView: 1,
+                            spaceBetween: 20
+                        },
+
+                        480: {
+                            slidesPerView: 1,
+                            spaceBetween: 20
+                        },
+
+                        640: {
+                            slidesPerView: 2,
+                            spaceBetween: 20
+                        },
+
+                        768: {
+                            slidesPerView: 2,
+                            spaceBetween: 30
+                        },
+                        1024: {
+                            slidesPerView: 3,
+                            spaceBetween: 30
+                        }
+
+                    }}
+                    autoplay={true}
+                    pagination={{
+                        "clickable": true
+                    }} className="mySwiper">
                     {
                         ReviewItem.map(item =>
                             <SwiperSlide>
@@ -53,8 +83,7 @@ const Review = () => {
                                         </div>
                                     </div>
                                 </div>
-                            </SwiperSlide>)
-                    }
+                            </SwiperSlide>)}
                 </Swiper>
             </div >
         </section >

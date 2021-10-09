@@ -7,10 +7,14 @@ import {
 import SideBar from '../components/dashboard/components/SideBar';
 import TopBar from '../components/dashboard/components/TopBar';
 import Home from '../components/dashboard/wrapper/Home';
-import UserList from '../components/dashboard/wrapper/UserList';
-import CompanyList from '../components/dashboard/wrapper/CompanyList';
+import CompanyList from '../components/dashboard/components/manageCompany/CompanyList';
+import PendingCompany from '../components/dashboard/components/manageCompany/PendingCompany';
 import OrderList from '../components/dashboard/wrapper/OrderList';
-import Account from '../components/dashboard/wrapper/Account';
+import AccountSetting from '../components/dashboard/components/settings/AccountSetting';
+
+import AllUserList from '../components/dashboard/components/ManageUser/AllUserList';
+import Settings from '../components/dashboard/wrapper/Settings';
+import Reports from '../components/dashboard/wrapper/Reports';
 
 const Dashboard = () => {
     return (
@@ -24,16 +28,25 @@ const Dashboard = () => {
                             <Home />
                         </Route>
                         <Route path="/dashboard/userlist">
-                            <UserList />
+                            <AllUserList />
                         </Route>
                         <Route path="/dashboard/companylist">
                             <CompanyList />
                         </Route>
+                        <Route path="/dashboard/pending-company">
+                            <PendingCompany />
+                        </Route>
                         <Route path="/dashboard/orderlist">
                             <OrderList />
                         </Route>
+                        <Route path="/dashboard/account-report">
+                            <Reports />
+                        </Route>
+                        <Route path="/dashboard/account-setting">
+                            <Settings />
+                        </Route>
                         <Route path="/dashboard/my-account">
-                            <Account />
+                            <AccountSetting />
                         </Route>
                     </Switch>
                 </div>

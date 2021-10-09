@@ -1,13 +1,24 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit';
 
 export const authSlice = createSlice({
     name: 'auth',
     initialState: {
-        userEmail: ''
+        userdetails: {
+            
+        }
     },
     reducers: {
         googleAuth: (state, action) => {
-            state.userEmail = action.payload.email
+            state.userdetails = action.payload
+
+        },
+        customAuth: (state, action) => {
+            state.userdetails = action.payload
+
+        },
+        logOut: (state, action) => {
+            state.userdetails = {}
+
         }
     },
 })
