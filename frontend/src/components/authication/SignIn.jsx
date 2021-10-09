@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import loginImg from '../../assets/images/loginImg.svg';
-import { getAuth, signInWithPopup, signInWithRedirect, GoogleAuthProvider } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore';
 import firebaseConfig from '../../config/firebase';
@@ -32,6 +32,7 @@ const SignIn = () => {
         const credential = GoogleAuthProvider.credentialFromResult(result);
         const token = credential.accessToken;
         const user = result.user;
+        // console.log(user)
         const { email } = result.user;
         const signInUser = { email };
         dispatch(googleSignUpAction(user));
