@@ -3,12 +3,16 @@ import axios from "axios";
 import { AiOutlineCloudUpload } from 'react-icons/ai';
 import { useForm } from 'react-hook-form';
 import { useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 const AddCompanyForm = () => {
-    const [courierLogo, setLogo] = useState('');
+    const history = useHistory();
+    const [logo, setLogo] = useState('');
     const merchantAuth = useSelector((state) => state.auth.merchantdetails);
-    const { name, email, password } = merchantAuth;
-    const [error, setError] = useState(false)
+    const { name, email } = merchantAuth;
+    const [error, setError] = useState(false);
+    const [pending, setPending] = useState(false);
+
     const ctegoryData = [
         {
             id: 1,
@@ -59,22 +63,25 @@ const AddCompanyForm = () => {
 
     const onSubmit = async (data) => {
         const merchant = {
-            courierLogo: courierLogo,
+            logo: logo,
             name: name,
             email: email,
-            password: password,
             website: data.website,
             weight: data.weight,
             address: data.address,
             description: data.description,
             pickupFrom: data.pickupFrom,
             pickupTo: data.pickupTo,
+            costperkg: data.payment,
             deliveryOption: data.deliveryOption,
+            status: "pending",
             phone: data.helpline,
             serviceCategory: [
                 data.mobile,
                 data.laptop,
-                data.tablet
+                data.tablet || "",
+                data.desktop,
+
             ]
         }
         console.log(merchant);
@@ -84,7 +91,9 @@ const AddCompanyForm = () => {
                 url: 'http://localhost:5500/api/merchant/addmerchant',
                 data: merchant
             });
-            console.log(res);
+            setPending(true)
+            res && history.push("/login")
+
         } catch (err) {
             setError(true);
             console.log(err);
@@ -122,7 +131,7 @@ const AddCompanyForm = () => {
                         </div>
                         <div className="md:flex items-center">
                             <div className="block relative">
-                                {courierLogo ? <img alt="company_logo" src={courierLogo} className=" rounded h-36 w-36 " /> : <span>loading..</span>}
+                                {logo ? <img alt="company_logo" src={logo} className=" rounded h-36 w-36 " /> : <span>loading..</span>}
                             </div>
                             <div className="text-gray-600 mx-10">
                                 <label
@@ -158,12 +167,29 @@ const AddCompanyForm = () => {
                     </div>
                     <div class="p-4 lg:w-1/2 md:w-full">
                         <div>
-                            <label class="font-medium text-gray-700">
-                                Password
-                                <div>
-                                    <input 
-                                        type="text" class="rounded  border-transparent flex-1 border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent" placeholder="Your company password" required value ={password}/>
-                                </div>
+                        <label class="font-medium text-gray-700">
+                               Payment per accept whight (kg)
+                                <select {...register("payment")}
+                                    class="rounded block w-full py-2 px-3 border border-gray-300 bg-white shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500" required>
+                                    <option value="">
+                                        Select an option
+                                    </option>
+                                    <option value="250">
+                                        5kg 250
+                                    </option>
+                                    <option value="300">
+                                        10kg 300
+                                    </option>
+                                    <option value="450">
+                                        15kg 450
+                                    </option>
+                                    <option value="700">
+                                        25kg 700
+                                    </option>
+                                    <option value="1000">
+                                        30kg 1000
+                                    </option>
+                                </select>
                             </label>
                         </div>
                     </div>
@@ -340,10 +366,11 @@ const AddCompanyForm = () => {
 
                         </div>
                     </div>
+                    {error && <span style={{ color: 'red', marginTop: '10px' }}>Something went wrong!</span>}
                     <div class="p-4 lg:full md:w-full">
                         <div class="flex w-32 ml-auto">
                             <button onClick={() => handleSubmit()} type="submit" class="py-2 px-4 my-10 bg-red-600 hover:bg-red-700 focus:ring-red-500 focus:ring-offset-red-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
-                                Add request
+                                {pending? "loading...": "Add request"}
                             </button>
                         </div>
                     </div>
