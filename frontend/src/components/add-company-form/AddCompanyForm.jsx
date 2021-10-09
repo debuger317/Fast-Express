@@ -1,68 +1,71 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import axios from "axios";
 import { AiOutlineCloudUpload } from 'react-icons/ai';
 import { useForm } from 'react-hook-form';
+import { useSelector } from 'react-redux';
 
 const AddCompanyForm = () => {
-    const [courierLogo, setLogo] = useState('')
+    const [courierLogo, setLogo] = useState('');
+    const merchantAuth = useSelector((state) => state.auth.merchantdetails);
+    const { name, email, password } = merchantAuth;
     const [error, setError] = useState(false)
-const ctegoryData =[
-    {
-        id:1,
-        name:'mobile'
-    },
-    {
-        id:2,
-        name:'laptop'
-    },
-    {
-        id:3,
-        name:'desktop'
-    },
-    {
-        id:4,
-        name:'Ipad'
-    },
-    {
-        id:5,
-        name:'tablet'
-    },
-    {
-        id:6,
-        name:'tablet'
-    },
-    {
-        id:7,
-        name:'tablet'
-    },
-    {
-        id:8,
-        name:'tablet'
-    },
-    {
-        id:9,
-        name:'tablet'
-    },
-    {
-        id:10,
-        name:'tablet'
-    },
-    {
-        id:11,
-        name:'tablet'
-    },
-]
+    const ctegoryData = [
+        {
+            id: 1,
+            name: 'mobile'
+        },
+        {
+            id: 2,
+            name: 'laptop'
+        },
+        {
+            id: 3,
+            name: 'desktop'
+        },
+        {
+            id: 4,
+            name: 'Ipad'
+        },
+        {
+            id: 5,
+            name: 'tablet'
+        },
+        {
+            id: 6,
+            name: 'tablet'
+        },
+        {
+            id: 7,
+            name: 'tablet'
+        },
+        {
+            id: 8,
+            name: 'tablet'
+        },
+        {
+            id: 9,
+            name: 'tablet'
+        },
+        {
+            id: 10,
+            name: 'tablet'
+        },
+        {
+            id: 11,
+            name: 'tablet'
+        },
+    ]
     const { handleSubmit, register } = useForm();
 
     const onSubmit = async (data) => {
-        const companyData = {
+        const merchant = {
             courierLogo: courierLogo,
-            name: data.name,
-            email: data.email,
-            password: data.password,
+            name: name,
+            email: email,
+            password: password,
             website: data.website,
             weight: data.weight,
-            address: data.address, 
+            address: data.address,
             description: data.description,
             pickupFrom: data.pickupFrom,
             pickupTo: data.pickupTo,
@@ -74,12 +77,12 @@ const ctegoryData =[
                 data.tablet
             ]
         }
-        console.log(companyData);
+        console.log(merchant);
         try {
             const res = await axios({
                 method: 'post',
-                url: 'https://fastexpress.herokuapp.com/api/couriers/addcourier',
-                data: companyData
+                url: 'http://localhost:5500/api/merchant/addmerchant',
+                data: merchant
             });
             console.log(res);
         } catch (err) {
@@ -109,10 +112,10 @@ const ctegoryData =[
 
     return (
         <section class="text-gray-600 body-font">
-             <form onSubmit={handleSubmit(onSubmit)}
-                >
-            <div class="container px-5 py-24 mx-auto flex flex-wrap">
-               
+            <form onSubmit={handleSubmit(onSubmit)}
+            >
+                <div class="container px-5 py-24 mx-auto flex flex-wrap">
+
                     <div class="p-4 lg:w-full md:w-full">
                         <div class="my-5">
                             <h1 className="font-medium text-gray-700 font-medium">Add company logo</h1>
@@ -136,8 +139,8 @@ const ctegoryData =[
                             <label class="font-medium text-gray-700">
                                 Name of company
                                 <div>
-                                    <input {...register("name")}
-                                        type="text" class="rounded  border-transparent flex-1 border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent" placeholder="Your company name" required />
+                                    <input 
+                                        type="text" class="rounded  border-transparent flex-1 border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent" placeholder="Your company name" required value={name}/>
                                 </div>
                             </label>
                         </div>
@@ -147,8 +150,8 @@ const ctegoryData =[
                             <label class="font-medium text-gray-700">
                                 Company Email
                                 <div>
-                                    <input {...register("email")}
-                                        type="email" class="rounded w-full  border-transparent border border-gray-300  py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent" placeholder="Your company email" required />
+                                    <input 
+                                        type="email" class="rounded w-full  border-transparent border border-gray-300  py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent" placeholder="Your company email" required value={email}/>
                                 </div>
                             </label>
                         </div>
@@ -158,8 +161,8 @@ const ctegoryData =[
                             <label class="font-medium text-gray-700">
                                 Password
                                 <div>
-                                    <input {...register("password")}
-                                        type="text" class="rounded  border-transparent flex-1 border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent" placeholder="Your company password" required />
+                                    <input 
+                                        type="text" class="rounded  border-transparent flex-1 border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent" placeholder="Your company password" required value ={password}/>
                                 </div>
                             </label>
                         </div>
@@ -327,7 +330,7 @@ const ctegoryData =[
                             {ctegoryData.map(d => (
                                 <label class="flex items-center space-x-3 mb-3">
                                     <input {...register(`${d.name}`)}
-                                        class="w-6 h-6 rounded-lg" type="checkbox" value={d.name}/>
+                                        class="w-6 h-6 rounded-lg" type="checkbox" value={d.name} />
                                     <span class="text-gray-700 dark:text-white font-normal">
                                         {d.name}
                                     </span>
@@ -346,7 +349,7 @@ const ctegoryData =[
                     </div>
                     {/* container end */}
 
-            </div>
+                </div>
             </form>
         </section>
 
