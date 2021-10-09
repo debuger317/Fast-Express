@@ -1,12 +1,38 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
 
 const UserSignUp = () => {
+    const [error, setError] = useState(false);
+
+    const { handleSubmit, register } = useForm();
+
+    const onSubmit = async (data) => {
+        const userData = {
+            name: data.name,
+            email: data.email,
+            password: data.password,
+        }
+        console.log(userData);
+        try {
+            const res = await axios({
+                method: 'post',
+                url: 'http://localhost:5500/api/userauth/register',
+                data: userData
+            });
+            console.log(res);
+        } catch (err) {
+            setError(true);
+            console.log(err);
+        }
+    }
+
     return (
         <div className="w-1/2">
             <div class="flex flex-col max-w-lg px-4 py-8 bg-white rounded-lg shadow dark:bg-gray-800 sm:px-6 md:px-8 lg:px-10 mx-auto">
                 <div class="self-center mb-2 text-xl font-light text-gray-800 sm:text-2xl dark:text-white">
-                    Create a new user account
+                    User Signup
                 </div>
                 <span class="justify-center text-sm text-center text-gray-500 flex-items-center dark:text-gray-400">
                     Already have an account ?
@@ -15,20 +41,23 @@ const UserSignUp = () => {
                     </Link>
                 </span>
                 <div class="p-6 mt-8">
-                    <form>
+                    <form onSubmit={handleSubmit(onSubmit)}>
                         <div class="flex flex-col mb-2">
                             <div class=" relative ">
-                                <input type="text" id="create-account-pseudo" class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" name="name" placeholder="Your Full Name" />
+                                <input type="text" id="create-account-pseudo" class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" name="name" placeholder="Your Full Name"
+                                {...register("name")} />
                             </div>
                         </div>
                         <div class="flex flex-col mb-2">
                             <div class=" relative ">
-                                <input type="email" id="create-account-pseudo" class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" name="email" placeholder="Your Email Address" />
+                                <input type="email" id="create-account-pseudo" class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" name="email" placeholder="Your Email Address" 
+                                {...register("email")}/>
                             </div>
                         </div>
                         <div class="flex flex-col mb-2">
                             <div class=" relative ">
-                                <input type="password" class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder=" Password" />
+                                <input type="password" class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder=" Password" 
+                                {...register("password")}/>
                             </div>
                         </div>
                         <div class="flex w-full my-4">
@@ -36,6 +65,7 @@ const UserSignUp = () => {
                                 SignUp
                             </button>
                         </div>
+                        {error && <span style={{color: 'red', marginTop: '10px'}}>Something went wrong!</span>}
                     </form>
                 </div>
             </div>

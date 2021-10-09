@@ -13,7 +13,7 @@ const SingleCourierDetail = () => {
         fetch(`https://fastexpress.herokuapp.com/api/couriers/${_id}`)
             .then(response => response.json())
             .then(data => setItem(data))
-    }, [])
+    }, [_id])
     const { name, courierLogo, description } = Item;
 
     return (

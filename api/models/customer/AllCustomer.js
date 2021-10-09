@@ -4,7 +4,7 @@ const CustomerSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
-        unique: true,
+        unique: false,
     },
     email: {
         type: String,
@@ -14,7 +14,7 @@ const CustomerSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true,
-        unique: true,
+        unique: false,
     },
     photo: {
         type: String,
@@ -31,7 +31,7 @@ const CustomerSchema = new mongoose.Schema({
     },
     label: {
         type: String,
-        required: true,
+        required: false,
         unique: false,
     },
 

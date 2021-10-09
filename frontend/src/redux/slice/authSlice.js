@@ -4,7 +4,8 @@ export const authSlice = createSlice({
     name: 'auth',
     initialState: {
         userdetails: {
-        }    
+            
+        }
     },
     reducers: {
         googleAuth: (state, action) => {
