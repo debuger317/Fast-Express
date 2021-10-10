@@ -5,11 +5,16 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const port = process.env.PORT || 5500;
 const categories = require("./routes/categories");
+<<<<<<< HEAD
 const users = require("./routes/users")
 const orders = require("./routes/orders")
 const merchants = require("./routes/merchant")
 const auth = require("./routes/auth")
 const dashboard = require("./routes/dashboard")
+=======
+const userauth = require("./routes/userauth")
+
+>>>>>>> 39461bc (ksjdtkhg)
 dotenv.config();
 app.use(cors());
 app.use(express.json());
