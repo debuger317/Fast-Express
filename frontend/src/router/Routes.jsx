@@ -55,10 +55,10 @@ const Routes = () => {
                         <Services />
                     </Route>
                     <Route path="/faq">
-                        <Faq></Faq>
+                        <Faq/>
                     </Route>
                     <Route path="/about">
-                        <About></About>
+                        <About/>
                     </Route>
                     <Route path="/signup">
                         <SignUp />
