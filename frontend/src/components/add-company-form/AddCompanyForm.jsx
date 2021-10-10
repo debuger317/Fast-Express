@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from "axios";
 import { AiOutlineCloudUpload } from 'react-icons/ai';
 import { useForm } from 'react-hook-form';
@@ -8,57 +8,25 @@ import { useHistory } from 'react-router-dom';
 const AddCompanyForm = () => {
     const history = useHistory();
     const [logo, setLogo] = useState('');
+    const [cat, setcat] = useState([]);
     const merchantAuth = useSelector((state) => state.auth.merchantdetails);
+    // const categories = useSelector((state) => state.categories.items);
+    const getCategories = async () => {
+        try {
+            const res = await axios.get('https://fastexpress.herokuapp.com/api/categories/all');
+            setcat(res.data)
+        } catch (error) {
+            console.error(error);
+        }
+    }
+    useEffect(() => {
+        getCategories()
+    }, [])
+
     const { name, email } = merchantAuth;
     const [error, setError] = useState(false);
     const [pending, setPending] = useState(false);
 
-    const ctegoryData = [
-        {
-            id: 1,
-            name: 'mobile'
-        },
-        {
-            id: 2,
-            name: 'laptop'
-        },
-        {
-            id: 3,
-            name: 'desktop'
-        },
-        {
-            id: 4,
-            name: 'Ipad'
-        },
-        {
-            id: 5,
-            name: 'tablet'
-        },
-        {
-            id: 6,
-            name: 'tablet'
-        },
-        {
-            id: 7,
-            name: 'tablet'
-        },
-        {
-            id: 8,
-            name: 'tablet'
-        },
-        {
-            id: 9,
-            name: 'tablet'
-        },
-        {
-            id: 10,
-            name: 'tablet'
-        },
-        {
-            id: 11,
-            name: 'tablet'
-        },
-    ]
     const { handleSubmit, register } = useForm();
 
     const onSubmit = async (data) => {
@@ -77,10 +45,21 @@ const AddCompanyForm = () => {
             status: "pending",
             phone: data.helpline,
             serviceCategory: [
-                data.mobile,
-                data.laptop,
-                data.tablet || "",
-                data.desktop,
+                data.Electronics && data.Electronics ,
+                data.Furniture && data.Furniture ,
+                data.Food && data.Food ,
+                data.Fashion && data.Fashion ,
+                data.Educations && data.Educations,
+                data.Sportsoutdoor && data.Sportsoutdoor,                
+                data.WatchesAccessories && data.WatchesAccessories,
+                data.Automotivemotorbike && data.Automotivemotorbike,
+                data.HealthBeauty && data.HealthBeauty,
+                data.SmartProduct && data.SmartProduct,
+                data.MedicalSupplies && data.MedicalSupplies,
+                data.CookingIngredients && data.CookingIngredients,
+                data.KitchenAppliances && data.KitchenAppliances,
+                data.HomeLiving && data.HomeLiving 
+
 
             ]
         }
@@ -149,7 +128,7 @@ const AddCompanyForm = () => {
                                 Name of company
                                 <div>
                                     <input 
-                                        type="text" class="rounded  border-transparent flex-1 border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent" placeholder="Your company name" required value={name}/>
+                                        type="text" class="rounded  border-transparent flex-1 border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent" placeholder="Your company name"  value={name}/>
                                 </div>
                             </label>
                         </div>
@@ -160,7 +139,7 @@ const AddCompanyForm = () => {
                                 Company Email
                                 <div>
                                     <input 
-                                        type="email" class="rounded w-full  border-transparent border border-gray-300  py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent" placeholder="Your company email" required value={email}/>
+                                        type="email" class="rounded w-full  border-transparent border border-gray-300  py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent" placeholder="Your company email"  value={email}/>
                                 </div>
                             </label>
                         </div>
@@ -170,7 +149,7 @@ const AddCompanyForm = () => {
                         <label class="font-medium text-gray-700">
                                Payment per accept whight (kg)
                                 <select {...register("payment")}
-                                    class="rounded block w-full py-2 px-3 border border-gray-300 bg-white shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500" required>
+                                    class="rounded block w-full py-2 px-3 border border-gray-300 bg-white shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500" >
                                     <option value="">
                                         Select an option
                                     </option>
@@ -199,7 +178,7 @@ const AddCompanyForm = () => {
                                 Company address
                                 <div>
                                     <input {...register("address")}
-                                        type="text" class="rounded  border-transparent flex-1 border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent" placeholder="Your company name" required />
+                                        type="text" class="rounded  border-transparent flex-1 border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent" placeholder="Your company name"  />
                                 </div>
                             </label>
                         </div>
@@ -209,7 +188,7 @@ const AddCompanyForm = () => {
                             <label class="font-medium text-gray-700">
                                 Accept whight (kg)
                                 <select {...register("weight")}
-                                    class="rounded block w-full py-2 px-3 border border-gray-300 bg-white shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500" required>
+                                    class="rounded block w-full py-2 px-3 border border-gray-300 bg-white shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500" >
                                     <option value="">
                                         Select an option
                                     </option>
@@ -252,7 +231,7 @@ const AddCompanyForm = () => {
                                 <label class=" font-mediumtext-gray-700">
                                     About your company
                                     <textarea {...register("description")}
-                                        class="rounded flex-1 border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 text-base focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent" placeholder="About of your company" rows="5" cols="40" required>
+                                        class="rounded flex-1 border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 text-base focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent" placeholder="About of your company" rows="5" cols="40" >
                                     </textarea>
                                 </label>
                             </div>
@@ -264,7 +243,7 @@ const AddCompanyForm = () => {
                             <label class="font-medium text-gray-700">
                                 Pickup from
                                 <select {...register("pickupFrom")}
-                                    class="rounded block w-full py-2 px-3 border border-gray-300 bg-white shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500" required>
+                                    class="rounded block w-full py-2 px-3 border border-gray-300 bg-white shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500" >
                                     <option value="">
                                         Select an option
                                     </option>
@@ -292,7 +271,7 @@ const AddCompanyForm = () => {
                             <label class="font-medium text-gray-700">
                                 Pickup to
                                 <select {...register("pickupTo")}
-                                    class="rounded block w-full py-2 px-3 border border-gray-300 bg-white shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500" required>
+                                    class="rounded block w-full py-2 px-3 border border-gray-300 bg-white shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500" >
                                     <option value="">
                                         Select an option
                                     </option>
@@ -320,7 +299,7 @@ const AddCompanyForm = () => {
                             <label class="font-medium text-gray-700">
                                 Delivery by
                                 <select {...register("deliveryOption")}
-                                    class="rounded block w-full py-2 px-3 border border-gray-300 bg-white shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500" required>
+                                    class="rounded block w-full py-2 px-3 border border-gray-300 bg-white shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500" >
                                     <option value="">
                                         Select an option
                                     </option>
@@ -343,7 +322,7 @@ const AddCompanyForm = () => {
                                 Helpline number
                                 <div>
                                     <input {...register("helpline")}
-                                        type="text" class="rounded border-transparent flex-1 border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent" placeholder="Your company helpline number" required />
+                                        type="text" class="rounded border-transparent flex-1 border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent" placeholder="Your company helpline number"  />
                                 </div>
                             </label>
                         </div>
@@ -352,13 +331,13 @@ const AddCompanyForm = () => {
                         <div className="my-5">
                             <h1 className="font-medium text-gray-500 uppercase text-md text">Choose your service category</h1>
                         </div>
-                        <div class="grid lg:grid-cols-7 md:grid-cols-5 sm:grid-cols-4 gap-5">
-                            {ctegoryData.map(d => (
+                        <div class="grid lg:grid-cols-6 md:grid-cols-5 sm:grid-cols-4 gap-5">
+                            {cat.map(d => (
                                 <label class="flex items-center space-x-3 mb-3">
-                                    <input {...register(`${d.name}`)}
-                                        class="w-6 h-6 rounded-lg" type="checkbox" value={d.name} />
+                                    <input {...register(`${d.value}`)}
+                                        class="w-6 h-6 rounded-lg" type="checkbox" value={d.value} />
                                     <span class="text-gray-700 dark:text-white font-normal">
-                                        {d.name}
+                                        {d.value}
                                     </span>
                                 </label>
                             ))

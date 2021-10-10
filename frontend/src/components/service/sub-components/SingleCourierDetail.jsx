@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { useLocation, useParams } from 'react-router';
-import { Link } from 'react-router-dom';
+import { selectedMerchant } from '../../../redux/action/merchants';
 
 const SingleCourierDetail = () => {
     const path = useLocation();
     const c_name=path.pathname.slice(18);
     console.log(c_name);
     const { _id } = useParams();
+    const dispatch = useDispatch();
     console.log(_id);
     const [Item, setItem] = useState({})
     useEffect(() => {
@@ -24,7 +26,7 @@ const SingleCourierDetail = () => {
                     <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">{name}</h1>
                     <p class="mb-8 leading-relaxed">{description}</p>
                     <div class="flex justify-center">
-                        <button class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg"><Link to={`/service/category/${c_name}/${_id}/checkoutform`} >Take a order</Link></button>
+                        <button onClick={()=>dispatch(selectedMerchant(Item))} class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Take a order</button>
                     </div>
                 </div>
             </div>

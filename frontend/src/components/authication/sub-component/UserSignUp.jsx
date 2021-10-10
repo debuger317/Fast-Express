@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form';
 
 const UserSignUp = () => {
     const [error, setError] = useState(false);
+    const [pending, setPending] = useState(false);
     const history = useHistory()
     const { handleSubmit, register } = useForm();
     const onSubmit = async (data) => {
@@ -15,6 +16,7 @@ const UserSignUp = () => {
             role: "user",
         }
         console.log(userData);
+        setPending(true)
         try {
             const res = await axios({
                 method: 'post',
@@ -26,6 +28,7 @@ const UserSignUp = () => {
 
         } catch (err) {
             setError(true);
+            setPending(false);
             console.log(err);
         }
     }
@@ -64,7 +67,7 @@ const UserSignUp = () => {
                         </div>
                         <div class="flex w-full my-4">
                             <button type="submit" class="py-2 px-4  bg-purple-600 hover:bg-purple-700 focus:ring-purple-500 focus:ring-offset-purple-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
-                                SignUp
+                                {pending ? "loading.." : "Sign up"}
                             </button>
                         </div>
                         {error && <span style={{ color: 'red', marginTop: '10px' }}>Something went wrong!</span>}
