@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import "swiper/swiper.min.css";
 import "swiper/components/pagination/pagination.min.css";
 import "swiper/components/navigation/navigation.min.css";
+//swiper slider
 import SwiperCore, {
     Autoplay, Pagination
 } from 'swiper/core';
@@ -11,6 +12,7 @@ import { ImQuotesLeft, ImQuotesRight } from "react-icons/im";
 
 const Review = () => {
     SwiperCore.use([Pagination, Autoplay]);
+    
     return (
         <section>
             <div className="container mx-auto mt-16">
@@ -81,8 +83,7 @@ const Review = () => {
                                         </div>
                                     </div>
                                 </div>
-                            </SwiperSlide>)
-                    }
+                            </SwiperSlide>)}
                 </Swiper>
             </div >
         </section >

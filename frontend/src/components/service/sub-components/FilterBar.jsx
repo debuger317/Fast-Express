@@ -4,7 +4,7 @@ const FilterBar = () => {
     return (
         <div>
             <div>
-                <h3 className="uppercase text-gray-700 text-lg font-bold">Filter by location name</h3>
+                <h3 className="uppercase text-gray-700 text-md font-bold">Filter by location name</h3>
             </div>
             <div>
                 <label class="text-gray-700 text-md font-bold" for="animals">
@@ -54,7 +54,9 @@ const FilterBar = () => {
 
             </div>
             <div>
-
+            <div className="mb-5">
+                <h3 className="uppercase text-gray-700 text-md font-bold">Filter by item name</h3>
+            </div>
                 <div>
                     <label class="flex items-center space-x-3 mb-3">
                         <input type="checkbox" name="checked-demo" class=" bg-white bg-check h-6 w-6 border border-gray-300 rounded-md checked:bg-blue-500 checked:border-transparent focus:outline-none" />

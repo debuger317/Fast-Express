@@ -6,8 +6,10 @@ import {
     Route
 } from "react-router-dom";
 import Private from '../components/auth/PrivateRoute';
-import CompanyForm from '../pages/CompanyForm';
+import PrivateForm from '../components/auth/PrivateForm';
+const ShippingForm =  lazy(() => import('../pages/ShippingForm'));
 const Home = lazy(() => import('../pages/Home'));
+const CompanyForm = lazy(() => import('../pages/CompanyForm'));
 const Pricing = lazy(() => import('../pages/Pricing'));
 const Contacts = lazy(() => import('../pages/Contacts'));
 const Services = lazy(() => import('../pages/Services'));
@@ -37,14 +39,18 @@ const Routes = () => {
                     <Route path="/contact">
                         <Contacts />
                     </Route>
-                    <Route exact path="/new-company/register-form">
+                    <PrivateForm exact path="/new-company/register-form">
                         <CompanyForm />
-                    </Route>
-                    <Route exact path="/service/category">
+                    </PrivateForm>
+                    <Route exact path="/service/category/:name">
                         <CategoryDetail />
                     </Route>
-                    <Route exact path="/service/category/:_id">
+
+                    <Route exact path="/service/category/:filterPath/:_id">
                         <SingleCourierDetail />
+                    </Route>
+                    <Route exact path="/customer-parcel-shipping-form">
+                        <ShippingForm />
                     </Route>
                     <Route path="/service">
                         <Services />
@@ -61,7 +67,7 @@ const Routes = () => {
                     <Route path="/login">
                         <Login />
                     </Route>
-                    <Private path="/dashboard">
+                    <Private exact path="/dashboard">
                         <Dashboard />
                     </Private>
                     <Route path="*">

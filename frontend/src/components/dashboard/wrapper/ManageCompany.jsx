@@ -4,7 +4,7 @@ import PendingCompany from '../components/manageCompany/PendingCompany';
 const ManageCompany = () => {
     return (
         <div>
-            <PendingCompany/>
+            {/* <PendingCompany/> */}
         </div>
     );
 };

@@ -1,176 +1,55 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useEffect } from 'react';
 import { FcCellPhone, FcGraduationCap, FcHome, FcFactory, FcAutomotive } from "react-icons/fc";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { useDispatch, useSelector } from 'react-redux';
+import { getCategoriesAction } from '../../../redux/action/categories';
 
 const CategoryList = () => {
+    const categories = useSelector((state) => state.categories.items)
+
+    const location = useLocation();
+    const Path = location.pathname.split('/')[1];
+    
+    const dispatch = useDispatch();
+
+    const getCategories = async () => {
+        try {
+            const res = await axios.get('https://fastexpress.herokuapp.com/api/categories/all');
+            dispatch(getCategoriesAction(res.data))
+        } catch (error) {
+            console.error(error);
+        }
+    }
+    useEffect(() => {
+        getCategories()
+    }, [Path])
+
     return (
         <div className="container mx-auto px-20 py-24">
             <div className="mb-10">
-                <h4>Browse items by category</h4>
+                <h4 className="font-semibold uppercase">Browse items by category</h4>
             </div>
             <div class="grid xl:grid-cols-6 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2  xl:gap-10 lg:gap-8 sm:gap-3">
 
-                <Link to="/service/category" class="p-4 bg-gray-50 shadow-lg rounded-md h-40">
-                    <div class="flex flex-col items-center text-center mt-5">
-                        <span class="text-6xl">
-                            <FcCellPhone />
-                        </span>
-                        <h4>Mobile Device</h4>
-                    </div>
-                </Link>
 
-                <div class="p-4 bg-gray-50 shadow-lg rounded-md h-40">
-                    <div class="flex flex-col items-center text-center mt-5">
-                        <span class="text-6xl">
-                            <FcGraduationCap />
-                        </span>
-                        <h4>Mobile Device</h4>
-                    </div>
-                </div>
-                <div class="p-4 bg-gray-50 shadow-lg rounded-md h-40">
-                    <div class="flex flex-col items-center text-center mt-5">
-                        <span class="text-6xl">
-                            <FcHome />
-                        </span>
-                        <h4>Mobile Device</h4>
-                    </div>
-                </div>
-                <div class="p-4 bg-gray-50 shadow-lg rounded-md h-40">
-                    <div class="flex flex-col items-center text-center mt-5">
-                        <span class="text-6xl">
-                            <FcFactory />
-                        </span>
-                        <h4>Mobile Device</h4>
-                    </div>
-                </div>
-                <div class="p-4 bg-gray-50 shadow-lg rounded-md h-40">
-                    <div class="flex flex-col items-center text-center mt-5">
-                        <span class="text-6xl">
-                            <FcAutomotive />
-                        </span>
-                        <h4>Mobile Device</h4>
-                    </div>
-                </div>
-                <div class="p-4 bg-gray-50 shadow-lg rounded-md h-40">
-                    <div class="flex flex-col items-center text-center mt-5">
-                        <span class="text-6xl">
-                            <FcCellPhone />
-                        </span>
-                        <h4>Mobile Device</h4>
-                    </div>
-                </div>
-                <div class="p-4 bg-gray-50 shadow-lg rounded-md h-40">
-                    <div class="flex flex-col items-center text-center mt-5">
-                        <span class="text-6xl">
-                            <FcCellPhone />
-                        </span>
-                        <h4>Mobile Device</h4>
-                    </div>
-                </div>
-                <div class="p-4 bg-gray-50 shadow-lg rounded-md h-40">
-                    <div class="flex flex-col items-center text-center mt-5">
-                        <span class="text-6xl">
-                            <FcCellPhone />
-                        </span>
-                        <h4>Mobile Device</h4>
-                    </div>
-                </div>
-                <div class="p-4 bg-gray-50 shadow-lg rounded-md h-40">
-                    <div class="flex flex-col items-center text-center mt-5">
-                        <span class="text-6xl">
-                            <FcCellPhone />
-                        </span>
-                        <h4>Mobile Device</h4>
-                    </div>
-                </div>
-                <div class="p-4 bg-gray-50 shadow-lg rounded-md h-40">
-                    <div class="flex flex-col items-center text-center mt-5">
-                        <span class="text-6xl">
-                            <FcCellPhone />
-                        </span>
-                        <h4>Mobile Device</h4>
-                    </div>
-                </div>
-                <div class="p-4 bg-gray-50 shadow-lg rounded-md h-40">
-                    <div class="flex flex-col items-center text-center mt-5">
-                        <span class="text-6xl">
-                            <FcCellPhone />
-                        </span>
-                        <h4>Mobile Device</h4>
-                    </div>
-                </div>
-                <div class="p-4 bg-gray-50 shadow-lg rounded-md h-40">
-                    <div class="flex flex-col items-center text-center mt-5">
-                        <span class="text-6xl">
-                            <FcCellPhone />
-                        </span>
-                        <h4>Mobile Device</h4>
-                    </div>
-                </div>
-                <div class="p-4 bg-gray-50 shadow-lg rounded-md h-40">
-                    <div class="flex flex-col items-center text-center mt-5">
-                        <span class="text-6xl">
-                            <FcCellPhone />
-                        </span>
-                        <h4>Mobile Device</h4>
-                    </div>
-                </div>
-                <div class="p-4 bg-gray-50 shadow-lg rounded-md h-40">
-                    <div class="flex flex-col items-center text-center mt-5">
-                        <span class="text-6xl">
-                            <FcCellPhone />
-                        </span>
-                        <h4>Mobile Device</h4>
-                    </div>
-                </div>
-                <div class="p-4 bg-gray-50 shadow-lg rounded-md h-40">
-                    <div class="flex flex-col items-center text-center mt-5">
-                        <span class="text-6xl">
-                            <FcCellPhone />
-                        </span>
-                        <h4>Mobile Device</h4>
-                    </div>
-                </div>
-                <div class="p-4 bg-gray-50 shadow-lg rounded-md h-40">
-                    <div class="flex flex-col items-center text-center mt-5">
-                        <span class="text-6xl">
-                            <FcCellPhone />
-                        </span>
-                        <h4>Mobile Device</h4>
-                    </div>
-                </div>
-                <div class="p-4 bg-gray-50 shadow-lg rounded-md h-40">
-                    <div class="flex flex-col items-center text-center mt-5">
-                        <span class="text-6xl">
-                            <FcCellPhone />
-                        </span>
-                        <h4>Mobile Device</h4>
-                    </div>
-                </div>
-                <div class="p-4 bg-gray-50 shadow-lg rounded-md h-40">
-                    <div class="flex flex-col items-center text-center mt-5">
-                        <span class="text-6xl">
-                            <FcCellPhone />
-                        </span>
-                        <h4>Mobile Device</h4>
-                    </div>
-                </div>
-                <div class="p-4 bg-gray-50 shadow-lg rounded-md h-40">
-                    <div class="flex flex-col items-center text-center mt-5">
-                        <span class="text-6xl">
-                            <FcCellPhone />
-                        </span>
-                        <h4>Mobile Device</h4>
-                    </div>
-                </div>
-                <div class="p-4 bg-gray-50 shadow-lg rounded-md h-40">
-                    <div class="flex flex-col items-center text-center mt-5">
-                        <span class="text-6xl">
-                            <FcCellPhone />
-                        </span>
-                        <h4>Mobile Device</h4>
-                    </div>
-                </div>
+                {categories.map(item =>
+
+
+                    <Link to={`/service/category/${item.name}`} class="p-4 bg-gray-50 shadow-lg rounded-md h-40">
+                        <div class="flex flex-col items-center text-center mt-5">
+                            <span class="w-16">
+                                <img src={item.photo} alt="" srcset="" />
+                            </span>
+
+                            <h4 class="font-semibold">{item.name}</h4>
+
+
+                        </div>
+                    </Link>
+                )
+
+                }
             </div>
         </div>
     )

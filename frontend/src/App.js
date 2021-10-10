@@ -4,7 +4,7 @@ import AppRoutes from './router/Routes';
 const App = () => {
   return (
     <Fragment>
-      <AppRoutes />
+        <AppRoutes />
     </Fragment>
   )
 }

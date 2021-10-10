@@ -2,7 +2,7 @@ import React from 'react';
 import { Redirect, Route } from 'react-router';
 import { useSelector } from 'react-redux';
 const PrivateRoute = ({ children, ...rest }) => {
-  const email = useSelector((state) => state.auth.userdetails.email)
+  const email = useSelector((state) => state.auth.userdetails.email)  
     return (
         <Route
         {...rest}
