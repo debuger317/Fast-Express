@@ -9,6 +9,7 @@ const users = require("./routes/users")
 const orders = require("./routes/orders")
 const merchants = require("./routes/merchant")
 const auth = require("./routes/auth")
+const review = require("./routes/review")
 const dashboard = require("./routes/dashboard")
 dotenv.config();
 app.use(cors());
@@ -28,6 +29,7 @@ app.use("/api/merchant", merchants)
 app.use("/api/auth", auth)
 app.use("/api/user", users)
 app.use("/api/order", orders)
+app.use("/api/reviews", review)
 app.use("/api/dashboard", dashboard)
 
 app.get('/', (req, res) => {

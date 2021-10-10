@@ -19,12 +19,10 @@ const adduser = async (req, res) => {
 }
 
 //get all merchant list from
-
 const allusers = async (req, res, next) => {
     try {
         const users = await Users.find()
         res.status(200).json(users)
-
     }
     catch (err) {
         console.log(err)
