@@ -3,7 +3,7 @@ import axios from 'axios';
 import { AiOutlineLoading3Quarters } from 'react-icons/ai';
 import { Link, useHistory } from 'react-router-dom';
 import loginImg from '../../assets/images/loginImg.svg';
-import { getAuth, signInWithPopup, signInWithRedirect, GoogleAuthProvider } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore';
 import firebaseConfig from '../../config/firebase';
