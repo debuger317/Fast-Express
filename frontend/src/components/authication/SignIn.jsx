@@ -30,7 +30,7 @@ const SignIn = () => {
     try {
       const res = await axios({
         method: 'post',
-        url: 'http://localhost:5500/api/auth/login',
+        url: 'https://fastexpress.herokuapp.com/api/auth/login',
         data: userData
       });
       console.log(res);
