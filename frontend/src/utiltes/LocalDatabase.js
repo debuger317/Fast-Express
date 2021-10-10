@@ -1,4 +1,5 @@
 import { FaUserTie, FaUserNurse } from 'react-icons/fa';
+import { VscDashboard,VscPerson, VscOrganization,VscPreview, VscReport,VscRequestChanges, VscGear } from 'react-icons/vsc';
 
 export const FaqData = [
     {
@@ -337,73 +338,117 @@ export const users = [
         id:1,
         path: "/dashboard",
         pathname: "dashboard",
+        icon:<VscDashboard/>,
+        size:"text-2xl",
+        bg:"border-r-2",
         role:["admin","user","merchant"]
     },
     {
         id:2,
         path: "/dashbaord/manage-company-info",
         pathname: "Manage",
+        icon:<VscGear/>,
+        size:"text-2xl",
         role:["merchant"]
     },
     {
         id:3,
         path: "/dashbaord/customer-list",
         pathname: "Customer-list",
+        size:"text-2xl",
         role:["merchant"]
     },
     {
         id:4,
         path: "/dashbaord/customer-order-list",
         pathname: "Manage",
+        size:"text-2xl",
         role:["merchant"]
     },
     {
         id:5,
         path: "/dashbaord/report",
         pathname: "Report",
+        size:"text-2xl",
         role:["merchant"]
     },
     {
         id:6,
-        path: "/dashbaord/your-order-list",
-        pathname: "See your all orders",
-        role:["user"]
-    },
+        path: "/dashboard/add-review",
+        pathname: "Add a review",
+        icon:<VscRequestChanges/>,
+        size:"text-2xl",
+        role:["merchant"]
+    }, 
     {
         id:7,
-        path: "/dashbaord/payment-info",
-        pathname: "Payment",
+        path: "/dashbaord/your-order-list",
+        pathname: "See your all orders",
+        size:"text-2xl",
         role:["user"]
     },
     {
         id:8,
-        path: "/dashboard/my-account",
-        pathname: "User Profile",
+        path: "/dashbaord/payment-info",
+        pathname: "Payment",
+        size:"text-2xl",
         role:["user"]
     },
     {
         id:9,
-        path: "/dashboard/userlist",
-        pathname: "User list",
-        role:["admin"]
-    },
+        path: "/dashboard/add-review",
+        pathname: "Add a review",
+        icon:<VscRequestChanges/>,
+        size:"text-2xl",
+        role:["user"]
+    } ,
     {
         id:10,
-        path: "/dashboard/companylist",
-        pathname: "Company list",
-        role:["admin"]
+        path: "/dashboard/my-account",
+        pathname: "Manage Setting",
+        icon:<VscGear/>,
+        size:"text-2xl",
+        role:["user"]
     },
     {
         id:11,
-        path: "/dashboard/report-all",
-        pathname: "Report",
+        path: "/dashboard/userlist",
+        pathname: "User list",
+        icon:<VscPerson/>,
+        size:"text-2xl",
         role:["admin"]
     },
     {
         id:12,
-        path: "/dashboard/admin-profile",
-        pathname: "Admin Profile",
+        path: "/dashboard/companylist",
+        pathname: "Company list",
+        icon:<VscOrganization/>,
+        size:"text-xl",
         role:["admin"]
-    } 
+    },
+    {
+        id:13,
+        path: "/dashboard/report-all",
+        pathname: "Report",
+        icon:<VscReport/>,
+        size:"text-xl",
+        role:["admin"]
+    },
+    {
+        id:14,
+        path: "/dashboard/manage-review",
+        pathname: "Manage review",
+        icon:<VscPreview/>,
+        size:"text-xl",
+        role:["admin"]
+    },
+    {
+        id:15,
+        path: "/dashboard/my-profile",
+        pathname: "Manage Setting",
+        icon:<VscGear/>,
+        size:"text-xl",
+        role:["admin"]
+    },
 
   ]

@@ -9,7 +9,7 @@ const FilteredItems = () => {
     const path = useLocation()
     const [getCourier, setCourier] = useState([])
 
-    const filterPath = (path.pathname.slice(18));
+    const filterPath = (path.pathname.slice(18)).replace("&","");
     const dispatch = useDispatch();
 
     useEffect(() => {

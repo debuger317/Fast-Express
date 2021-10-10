@@ -7,6 +7,7 @@ import AboutContainer from '../components/about/AboutContainer';
 import ClientCounter from '../components/about/ClientCounter';
 
 const About = () => {
+  document.title = "local courier service | about";
   return (
     <Fragment>
       <TopBar/>
