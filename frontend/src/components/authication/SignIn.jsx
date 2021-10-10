@@ -27,6 +27,7 @@ const SignIn = () => {
       email: data.email,
       password: data.password,
     }
+    setLoading(true);
     try {
       const res = await axios({
         method: 'post',
@@ -35,13 +36,13 @@ const SignIn = () => {
       });
       console.log(res);
       dispatch(customAuthAction(res.data.others));
-      setLoading(true);
       if (res) {
         history.push("/dashboard")
       }
 
     } catch (err) {
       setError(true);
+      setLoading(false);
       console.log(err);
     }
   }
@@ -129,9 +130,8 @@ const SignIn = () => {
                 <div class="flex w-full">
                   <button type="submit" class="py-2 px-4  bg-purple-600 hover:bg-purple-700 focus:ring-purple-500 focus:ring-offset-purple-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
                     {loading ?
-                      <svg class="animate-spin h-5 w-5">
-                        <AiOutlineLoading3Quarters class="text-red-500" />
-                      </svg> : "Login"
+
+                      "loading..." : "Login"
                     }
                   </button>
                 </div>

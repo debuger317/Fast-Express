@@ -19,19 +19,20 @@ const CompanySignUp = () => {
             password: data.password,
             role: "merchant",
         }
-        console.log(merchantData);
+        setPending(true)
         try {
             const res = await axios({
                 method: 'post',
                 url: 'http://localhost:5500/api/auth/register',
                 data: merchantData
             });
-            res.status(202) && setPending(true)
+
             dispatch(merchantAuthAction(res.data))
             res && history.push("/new-company/register-form")
 
         } catch (err) {
             setError(true);
+            setPending(false);
             console.log(err);
         }
     }
@@ -52,7 +53,7 @@ const CompanySignUp = () => {
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <div class="flex flex-col mb-2">
                             <div class=" relative ">
-                                <input type="text" class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"  placeholder="Your Company Name" {...register("name")} />
+                                <input type="text" class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="Your Company Name" {...register("name")} />
                             </div>
                         </div>
                         <div class="flex flex-col mb-2">
@@ -62,12 +63,12 @@ const CompanySignUp = () => {
                         </div>
                         <div class="flex flex-col mb-2">
                             <div class="relative">
-                                <input type="password" class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"  placeholder="Your Company Password" {...register("password")} />
+                                <input type="password" class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="Your Company Password" {...register("password")} />
                             </div>
                         </div>
                         <div class="flex w-full my-4">
-                            <button type="submit"  class="py-2 px-4  bg-purple-600 hover:bg-purple-700 focus:ring-purple-500 focus:ring-offset-purple-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
-                                {pending? "loading..":"Next Step"}
+                            <button type="submit" class="py-2 px-4  bg-purple-600 hover:bg-purple-700 focus:ring-purple-500 focus:ring-offset-purple-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
+                                {pending ? "loading.." : "Next Step"}
                             </button>
                         </div>
                         {error && <span style={{ color: 'red', marginTop: '10px' }}>Something went wrong!</span>}
