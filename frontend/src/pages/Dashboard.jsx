@@ -11,10 +11,11 @@ import CompanyList from '../components/dashboard/components/manageCompany/Compan
 import PendingCompany from '../components/dashboard/components/manageCompany/PendingCompany';
 import OrderList from '../components/dashboard/wrapper/OrderList';
 import AccountSetting from '../components/dashboard/components/settings/AccountSetting';
-
 import AllUserList from '../components/dashboard/components/ManageUser/AllUserList';
 import Settings from '../components/dashboard/wrapper/Settings';
 import Reports from '../components/dashboard/wrapper/Reports';
+import AddReview from '../components/dashboard/components/manageReview/AddReview';
+import ManageReviews from '../components/dashboard/components/manageReview/ManageReviews';
 
 const Dashboard = () => {
     return (
@@ -47,6 +48,12 @@ const Dashboard = () => {
                         </Route>
                         <Route path="/dashboard/my-account">
                             <AccountSetting />
+                        </Route>
+                        <Route path="/dashboard/addreview">
+                            <AddReview />
+                        </Route>
+                        <Route path="/dashboard/managereviews">
+                            <ManageReviews />
                         </Route>
                     </Switch>
                 </div>

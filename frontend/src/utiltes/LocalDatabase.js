@@ -404,6 +404,18 @@ export const users = [
         path: "/dashboard/admin-profile",
         pathname: "Admin Profile",
         role:["admin"]
-    } 
+    },
+    {
+        id:13,
+        path: "/dashboard/addreview",
+        pathname: "Add Review",
+        role:["user"]
+    },
+    {
+        id:14,
+        path: "/dashboard/managereviews",
+        pathname: "Manage Reviews",
+        role:["user"]
+    }
 
   ]

@@ -59,8 +59,6 @@ const AddCompanyForm = () => {
                 data.CookingIngredients && data.CookingIngredients,
                 data.KitchenAppliances && data.KitchenAppliances,
                 data.HomeLiving && data.HomeLiving 
-
-
             ]
         }
         console.log(merchant);
@@ -77,7 +75,6 @@ const AddCompanyForm = () => {
             setError(true);
             console.log(err);
         }
-
     }
 
     const handleImageUpload = (event) => {
@@ -95,7 +92,6 @@ const AddCompanyForm = () => {
             .catch((error) => {
 
             });
-
     }
 
     return (
