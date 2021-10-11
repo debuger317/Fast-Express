@@ -7,7 +7,6 @@ import { FaLinkedin } from "react-icons/fa";
 import { FaTwitterSquare } from "react-icons/fa";
 import { FaInstagramSquare } from "react-icons/fa";
 import { Link } from 'react-router-dom';
-import Logo from '../../assets/images/Fast-Express.PNG';
 import ScrollTop from '../../helper/ScrollTop';
 
 const Footer = () => {
@@ -17,10 +16,10 @@ const Footer = () => {
                 <div className="flex-shrink-0 md:mx-0 mx-auto text-center">
                     <a className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900" href=" #">
                         <Link className="flex items-center md:justify-start justify-center" to="/">
-                            <img src={Logo} alt="" srcset="" />
+                            <img src="https://i.ibb.co/1Gp1MV3/Fast-Express.png" alt="" srcset="" />
                         </Link>
                     </a>
-                    <div className="flex justify-center text-4xl py-7 text-red-500">
+                    <div className="flex text-4xl py-7 text-red-500">
                         <a href="https://facebook.com"><FaFacebookSquare /></a>
                         <a className="pl-2" href="https://linkedin.com"><FaLinkedin /></a>
                         <a className="pl-2" href="https://twitter.com"><FaTwitterSquare /></a>

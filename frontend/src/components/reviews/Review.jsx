@@ -13,7 +13,7 @@ import { ImQuotesLeft, ImQuotesRight } from "react-icons/im";
 
 const Review = () => {
     SwiperCore.use([Pagination, Autoplay]);
-    const [reviews, setReviews] = useState('');
+    const [reviews, setReviews] = useState([]);
 
     useEffect(() => {
         fetch ('http://localhost:5500/api/reviews/allreviews')
@@ -62,7 +62,7 @@ const Review = () => {
                         "clickable": true
                     }} className="mySwiper">
                     {
-                        ReviewItem.map(review =>
+                        reviews.map(review =>
                             <SwiperSlide>
                                 <div className="group w-90 mt-10 mb-16 testimonial-card cursor-pointer bg-white dark:bg-gray-800 shadow-lg mx-auto rounded-xl p-4">
                                     <p className="text-gray-600 dark:text-white flex">

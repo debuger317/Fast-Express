@@ -1,10 +1,16 @@
-import React from 'react';
 
+import React, { Fragment } from 'react';
 const Settings = () => {
     return (
-        <div>
-           Settings 
-        </div>
+      
+
+        <Fragment>
+  
+            {/* <ReportManagement/> */}
+            sett
+
+    </Fragment>
+
     );
 };
 

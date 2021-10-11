@@ -5,6 +5,7 @@ import Logo from '../../../../assets/images/Fast-Express.PNG';
 import { RiUser3Line } from 'react-icons/ri';
 import { useDispatch, useSelector } from 'react-redux';
 import { logOutAction } from '../../../../redux/action/action';
+import { BackToHomeAction } from '../../../../redux/action/dashboard';
 
 const Navbar = () => {
     const [show, setShow] = useState(false)
@@ -14,7 +15,7 @@ const Navbar = () => {
     const dispatch = useDispatch();
     const email = useSelector((state) => state.auth.userdetails.email)
     return (
-       <nav className="bg-white dark:bg-gray-800 shadow py-3 position-sticky">
+        <nav className="bg-white dark:bg-gray-800 shadow py-3 position-sticky">
             <div className="max-w-7xl mx-auto px-4">
                 <div className="flex items-center justify-between h-16">
                     <div className="w-full justify-between flex items-center">
@@ -30,6 +31,12 @@ const Navbar = () => {
                                             {link.name}
                                         </Link>
                                     )}
+                                    {
+                                        email && <Link onClick={ ()=>dispatch(BackToHomeAction(false))} className="text-gray-800 uppercase hover:text-gray-500 dark:hover:text-white mx-5 py-2 text-sm font-medium" to={'/dashboard'}>
+
+                                            Dashboard
+                                        </Link>
+                                    }
                                 </div>
                                 <div className="flex flex-col items-center ml-5 cursor-pointer">
                                     {

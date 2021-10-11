@@ -1,10 +1,11 @@
-import React from 'react';
+
+import React, { Fragment } from 'react';
 
 const Payment = () => {
     return (
-        <div>
-            
-        </div>
+        <Fragment>
+            p
+        </Fragment>
     );
 };
 

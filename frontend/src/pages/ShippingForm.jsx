@@ -3,6 +3,7 @@ import Footer from '../components/footer/Footer';
 import Navbar from '../components/header/sub-component/nav-bar/Navbar';
 import TopBar from '../components/header/sub-component/top-bar/TopBar';
 import CustomerInfoForm from '../components/parcel-shipping-form/sub-components/CustomerInfoForm';
+import DeliveryMethod from '../components/parcel-shipping-form/sub-components/DeliveryMethod';
 import ParcelOverview from '../components/parcel-shipping-form/sub-components/ParcelOverview';
 import PaymentMethod from '../components/parcel-shipping-form/sub-components/PaymentMethod';
 import PromoCode from '../components/parcel-shipping-form/sub-components/PromoCode';
@@ -23,7 +24,7 @@ const ShippingForm = () => {
                             <PaymentMethod />
                         </div>
                         <div className="w-1/2">
-                            <PaymentMethod />
+                            <DeliveryMethod />
                         </div>
                         <div class="lg:py-6 lg:w-full">
                             <PromoCode />

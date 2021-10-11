@@ -65,7 +65,7 @@ const AddCompanyForm = () => {
         try {
             const res = await axios({
                 method: 'post',
-                url: 'http://localhost:5500/api/merchant/addmerchant',
+                url: 'https://fastexpress.herokuapp.com/api/merchant/addmerchant',
                 data: merchant
             });
             setPending(true)
