@@ -4,7 +4,7 @@ const ManageCompany = () => {
     return (
 
         <div className="col-span-4">
-          manage
+          manage our company
         </div>
     );
 };

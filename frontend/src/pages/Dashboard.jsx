@@ -6,9 +6,10 @@ import TopBar from '../components/dashboard/components/TopBar';
 import {
     BrowserRouter as Router,
     Switch,
-    useLocation,
     Route
 } from "react-router-dom";
+import ManageCompany from '../components/dashboard/wrapper/ManageCompany';
+import CustomerList from '../components/dashboard/wrapper/CustomerList';
 
 const DashboardHome = lazy(() => import('../components/dashboard/wrapper/Home'));
 const Home = lazy(() => import('./Home'));
@@ -50,6 +51,12 @@ const Dashboard = () => {
                             </Route>
                             <Route path="/dashboard/pending-company">
                                 <PendingCompany />
+                            </Route>
+                            <Route path="/dashboard/manage-company-info">
+                                <ManageCompany />
+                            </Route>
+                            <Route path="/dashboard/customer-list">
+                                <CustomerList />
                             </Route>
                             <Route path="/dashboard/orderlist">
                                 <OrderList />
