@@ -1,6 +1,5 @@
 import React, { Fragment } from 'react';
 import DailyActivity from '../components/DailyActivity';
-import SideBar from '../components/SideBar';
 import TopBar from '../components/TopBar';
 import TottalSell from '../components/TottalSell';
 
