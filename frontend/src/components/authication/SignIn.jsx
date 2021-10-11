@@ -28,7 +28,6 @@ const SignIn = () => {
       email: data.email,
       password: data.password,
     }
-    setLoading(true);
     try {
       const res = await axios({
         method: 'post',
