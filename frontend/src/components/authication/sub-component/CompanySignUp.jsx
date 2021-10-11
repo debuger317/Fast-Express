@@ -1,7 +1,43 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import axios from 'axios';
+import React, { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { useDispatch } from 'react-redux';
+import { Link, useHistory } from 'react-router-dom';
+import { merchantAuthAction } from '../../../redux/action/action';
 
 const CompanySignUp = () => {
+    const dispatch = useDispatch();
+    const [error, setError] = useState(false);
+    const [pending, setPending] = useState(false);
+
+    const history = useHistory();
+    const { handleSubmit, register } = useForm();
+    const onSubmit = async (data) => {
+        const merchantData = {
+            name: data.name,
+            email: data.email,
+            password: data.password,
+            role: "merchant",
+        }
+        console.log(merchantData);
+        setPending(true)
+        console.log('pending',pending);
+        try {
+            const res = await axios({
+                method: 'post',
+                url: 'http://localhost:5500/api/auth/register',
+                data: merchantData
+            });
+            console.log(res);
+            dispatch(merchantAuthAction(res.data))
+            res && history.push("/new-company/register-form")
+
+        } catch (err) {
+            setError(true);
+            console.log(err);
+        }
+    }
+
     return (
         <div className="w-1/2">
             <div class="flex flex-col max-w-lg px-4 py-8 bg-white rounded-lg shadow dark:bg-gray-800 sm:px-6 md:px-8 lg:px-10 mx-auto">
@@ -15,22 +51,28 @@ const CompanySignUp = () => {
                     </Link>
                 </span>
                 <div class="p-6 mt-8">
-                    <form>
+                    <form onSubmit={handleSubmit(onSubmit)}>
                         <div class="flex flex-col mb-2">
                             <div class=" relative ">
-                                <input type="text" class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" name="companyname" placeholder="Your Company Name" />
+                                <input type="text" class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"  placeholder="Your Company Name" {...register("name")} />
                             </div>
                         </div>
                         <div class="flex flex-col mb-2">
                             <div class="relative">
-                                <input type="email" class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" name="email" placeholder="Your Company Email Address" />
+                                <input type="email" class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="Your Company Email Address" {...register("email")} />
+                            </div>
+                        </div>
+                        <div class="flex flex-col mb-2">
+                            <div class="relative">
+                                <input type="password" class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"  placeholder="Your Company Password" {...register("password")} />
                             </div>
                         </div>
                         <div class="flex w-full my-4">
-                            <Link to="/new-company/register-form"  class="py-2 px-4  bg-purple-600 hover:bg-purple-700 focus:ring-purple-500 focus:ring-offset-purple-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
-                                SignUp
-                            </Link>
+                            <button type="submit"  class="py-2 px-4  bg-purple-600 hover:bg-purple-700 focus:ring-purple-500 focus:ring-offset-purple-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
+                                {pending? "loading..":"Next Step"}
+                            </button>
                         </div>
+                        {error && <span style={{ color: 'red', marginTop: '10px' }}>Something went wrong!</span>}
                     </form>
                 </div>
             </div>
