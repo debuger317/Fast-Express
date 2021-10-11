@@ -6,6 +6,7 @@ const ManageCompany = () => {
         <div className="col-span-4">
           manage
         </div>
+    </div>
     );
 };
 

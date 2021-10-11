@@ -1,7 +1,10 @@
 import { FaUserTie, FaUserNurse } from 'react-icons/fa';
+
 import { MdPayment } from 'react-icons/md';
-// 
+
 import { VscDashboard,VscPerson,VscPackage, VscOrganization,VscPreview, VscReport,VscRequestChanges,VscStarFull, VscGear } from 'react-icons/vsc';
+
+
 
 export const FaqData = [
     {
@@ -394,6 +397,7 @@ export const users = [
         role:["user"]
     },
     {
+
         id:8,
         path: "/dashboard/payment-info",
         pathname: "Payment",
@@ -402,6 +406,7 @@ export const users = [
         role:["user"]
     },
     {
+
         id:9,
         path: "/dashboard/add-review",
         pathname: "Add a review",
@@ -418,6 +423,7 @@ export const users = [
         role:["user"]
     },
     {
+
         id:11,
         path: "/dashboard/userlist",
         pathname: "User list",
@@ -435,7 +441,9 @@ export const users = [
     },
     {
         id:13,
+
         path: "/dashboard/account-report",
+
         pathname: "Report",
         icon:<VscReport/>,
         size:"text-xl",
@@ -451,7 +459,9 @@ export const users = [
     },
     {
         id:15,
+
         path: "/dashboard/manage-setting",
+
         pathname: "Manage Setting",
         icon:<VscGear/>,
         size:"text-xl",

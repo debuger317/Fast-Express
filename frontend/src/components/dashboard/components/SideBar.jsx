@@ -38,7 +38,7 @@ const SideBar = () => {
                 </nav>
                 <span onClick={() => abv()} class="flex items-center cursor-pointer uppercase mx-8 text-sm font-semibold text-gray-500"><span class="text-xl pr-2"><VscHome /></span> Back to home</span>
             </div>
-        </div>
+        </Router>
 
     );
 };

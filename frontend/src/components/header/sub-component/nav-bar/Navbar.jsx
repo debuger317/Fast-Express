@@ -33,6 +33,7 @@ const Navbar = () => {
                                     )}
                                     {
                                         email && <Link onClick={ ()=>dispatch(BackToHomeAction(false))} className="text-gray-800 uppercase hover:text-gray-500 dark:hover:text-white mx-5 py-2 text-sm font-medium" to={'/dashboard'}>
+
                                             Dashboard
                                         </Link>
                                     }

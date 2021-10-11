@@ -48,7 +48,10 @@ const SignIn = () => {
     }
   }
   const provider = new GoogleAuthProvider();
+
   const GoogleSigning = async () => {
+
+
     const auth = getAuth();
     signInWithPopup(auth, provider)
       .then((result) => {
@@ -71,6 +74,7 @@ const SignIn = () => {
           token
         }));
 
+
         if (signInUser) {
           history.push("/dashboard")
         }
@@ -81,22 +85,23 @@ const SignIn = () => {
         const credential = GoogleAuthProvider.credentialFromError(error);
 
       });
-    try {
-      const res = await axios({
-        method: 'post',
-        url: 'https://fastexpress.herokuapp.com/api/auth/login',
-        data: user
-      });
-      console.log(res);
-
-      if (res) {
-        history.push("/dashboard")
+      try {
+        const res = await axios({
+          method: 'post',
+          url: 'https://fastexpress.herokuapp.com/api/auth/login',
+          data: user
+        });
+        console.log(res);
+        
+        if (res) {
+          history.push("/dashboard")
+        }
+  
+      } catch (err) {
+        setError(true);
+        console.log(err);
       }
 
-    } catch (err) {
-      setError(true);
-      console.log(err);
-    }
 
   }
   return (
@@ -147,6 +152,7 @@ const SignIn = () => {
                     {loading ?
 
                       <CgSpinner class="animate-spin text-xl" /> : "Login"
+
                     }
                   </button>
                 </div>

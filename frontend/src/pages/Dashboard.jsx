@@ -20,6 +20,8 @@ const OrderList = lazy(() => import('../components/dashboard/wrapper/OrderList')
 const Reports = lazy(() => import('../components/dashboard/wrapper/Reports'));
 const Payment = lazy(() => import('../components/dashboard/wrapper/Payment'));
 
+import Home from './Home';
+
 const Dashboard = () => {
     const back = useSelector((state) => state.dashboard.backtohome)
     return (
@@ -68,7 +70,6 @@ const Dashboard = () => {
                 </div>
             </Router>
         </Suspense>
-
     );
 };
 
