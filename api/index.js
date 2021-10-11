@@ -11,6 +11,7 @@ const merchants = require("./routes/merchant")
 const auth = require("./routes/auth")
 const review = require("./routes/review")
 const dashboard = require("./routes/dashboard")
+
 dotenv.config();
 app.use(cors());
 app.use(express.json());
