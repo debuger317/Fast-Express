@@ -5,6 +5,7 @@ import Logo from '../../../../assets/images/Fast-Express.PNG';
 import { RiUser3Line } from 'react-icons/ri';
 import { useDispatch, useSelector } from 'react-redux';
 import { logOutAction } from '../../../../redux/action/action';
+import { BackToHomeAction } from '../../../../redux/action/dashboard';
 
 const Navbar = () => {
     const [show, setShow] = useState(false)
@@ -31,7 +32,8 @@ const Navbar = () => {
                                         </Link>
                                     )}
                                     {
-                                        email && <Link className="text-gray-800 uppercase hover:text-gray-500 dark:hover:text-white mx-5 py-2 text-sm font-medium" to={'/dashboard'}>
+                                        email && <Link onClick={ ()=>dispatch(BackToHomeAction(false))} className="text-gray-800 uppercase hover:text-gray-500 dark:hover:text-white mx-5 py-2 text-sm font-medium" to={'/dashboard'}>
+
                                             Dashboard
                                         </Link>
                                     }

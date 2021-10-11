@@ -1,5 +1,10 @@
 import { FaUserTie, FaUserNurse } from 'react-icons/fa';
-import { VscDashboard,VscPerson, VscOrganization,VscPreview, VscReport,VscRequestChanges, VscGear } from 'react-icons/vsc';
+
+import { MdPayment } from 'react-icons/md';
+
+import { VscDashboard,VscPerson,VscPackage, VscOrganization,VscPreview, VscReport,VscRequestChanges,VscStarFull, VscGear } from 'react-icons/vsc';
+
+
 
 export const FaqData = [
     {
@@ -345,7 +350,7 @@ export const users = [
     },
     {
         id:2,
-        path: "/dashbaord/manage-company-info",
+        path: "/dashboard/manage-company-info",
         pathname: "Manage",
         icon:<VscGear/>,
         size:"text-2xl",
@@ -353,23 +358,26 @@ export const users = [
     },
     {
         id:3,
-        path: "/dashbaord/customer-list",
+        path: "/dashboard/customer-list",
         pathname: "Customer-list",
+        icon:<VscPerson/>,
         size:"text-2xl",
         role:["merchant"]
     },
     {
         id:4,
-        path: "/dashbaord/customer-order-list",
-        pathname: "Manage",
+        path: "/dashboard/customer-order-list",
+        pathname: "Manage customer order",
         size:"text-2xl",
+        icon:<VscPackage/>,
         role:["merchant"]
     },
     {
         id:5,
-        path: "/dashbaord/report",
+        path: "/dashboard/account-report",
         pathname: "Report",
         size:"text-2xl",
+        icon:<VscReport/>,
         role:["merchant"]
     },
     {
@@ -382,35 +390,40 @@ export const users = [
     }, 
     {
         id:7,
-        path: "/dashbaord/your-order-list",
-        pathname: "See your all orders",
+        path: "/dashboard/orderlist",
+        pathname: "See your orders",
+        icon:<VscPackage/>,
         size:"text-2xl",
         role:["user"]
     },
     {
+
         id:8,
-        path: "/dashbaord/payment-info",
+        path: "/dashboard/payment-info",
         pathname: "Payment",
+        icon:<MdPayment/>,
         size:"text-2xl",
         role:["user"]
     },
     {
+
         id:9,
         path: "/dashboard/add-review",
         pathname: "Add a review",
-        icon:<VscRequestChanges/>,
+        icon:<VscStarFull/>,
         size:"text-2xl",
         role:["user"]
     } ,
     {
         id:10,
-        path: "/dashboard/my-account",
+        path: "/dashboard/manage-setting",
         pathname: "Manage Setting",
         icon:<VscGear/>,
         size:"text-2xl",
         role:["user"]
     },
     {
+
         id:11,
         path: "/dashboard/userlist",
         pathname: "User list",
@@ -428,7 +441,9 @@ export const users = [
     },
     {
         id:13,
-        path: "/dashboard/report-all",
+
+        path: "/dashboard/account-report",
+
         pathname: "Report",
         icon:<VscReport/>,
         size:"text-xl",
@@ -444,7 +459,9 @@ export const users = [
     },
     {
         id:15,
-        path: "/dashboard/my-profile",
+
+        path: "/dashboard/manage-setting",
+
         pathname: "Manage Setting",
         icon:<VscGear/>,
         size:"text-xl",

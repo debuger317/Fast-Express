@@ -1,57 +1,75 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
+import { useSelector } from 'react-redux';
+import Spinner from '../helper/Spinner';
+import SideBar from '../components/dashboard/components/SideBar';
+import TopBar from '../components/dashboard/components/TopBar';
 import {
     BrowserRouter as Router,
     Switch,
+    useLocation,
     Route
 } from "react-router-dom";
-import DashboardHome from '../components/dashboard/wrapper/Home';
-import CompanyList from '../components/dashboard/components/manageCompany/CompanyList';
-import PendingCompany from '../components/dashboard/components/manageCompany/PendingCompany';
-import OrderList from '../components/dashboard/wrapper/OrderList';
-import AccountSetting from '../components/dashboard/components/settings/AccountSetting';
 
-import AllUserList from '../components/dashboard/components/ManageUser/AllUserList';
-import Settings from '../components/dashboard/wrapper/Settings';
-import Reports from '../components/dashboard/wrapper/Reports';
+const DashboardHome = lazy(() => import('../components/dashboard/wrapper/Home'));
+const Home = lazy(() => import('./Home'));
+const CompanyList = lazy(() => import('../components/dashboard/components/manageCompany/CompanyList'));
+const PendingCompany = lazy(() => import('../components/dashboard/components/manageCompany/PendingCompany'));
+const Settings = lazy(() => import('../components/dashboard/wrapper/Settings'));
+const UserList = lazy(() => import('../components/dashboard/wrapper/UserList'));
+const OrderList = lazy(() => import('../components/dashboard/wrapper/OrderList'));
+const Reports = lazy(() => import('../components/dashboard/wrapper/Reports'));
+const Payment = lazy(() => import('../components/dashboard/wrapper/Payment'));
 
 import Home from './Home';
 
 const Dashboard = () => {
+    const back = useSelector((state) => state.dashboard.backtohome)
     return (
-        <Router>
-            <Switch>
-                <Route exact path="/">
-                    <Home />
-                </Route>
-                <Route exact path="/dashboard">
-                    <DashboardHome />
-                </Route>
-                <Route path="/dashboard/userlist">
-                    <AllUserList />
-                </Route>
-                <Route path="/dashboard/companylist">
-                    <CompanyList />
-                </Route>
-                <Route path="/dashboard/pending-company">
-                    <PendingCompany />
-                </Route>
-                <Route path="/dashboard/orderlist">
-                    <OrderList />
-                </Route>
-                <Route path="/dashboard/account-report">
-                    <Reports />
-                </Route>
-                <Route path="/dashboard/account-setting">
-                    <Settings />
-                </Route>
-                <Route path="/dashboard/my-account">
-                    <AccountSetting />
-                </Route>
-            </Switch>
-
-        </Router>
-
-
+        <Suspense fallback={<Spinner />}>
+            <Router>
+                <switch>
+                    <Route exact path="/">
+                        <Home />
+                    </Route>
+                </switch>
+                <div className={`w-full ${back? 'hidden':''}`}>
+                    <TopBar />
+                </div>
+                <div className="flex">
+                    <div className={`w-1/4 ${back? 'hidden':''}`}>
+                        <SideBar />
+                    </div>
+                    <div className="w-3/4">
+                        <Switch>
+                            <Route exact path="/dashboard">
+                                <DashboardHome />
+                            </Route>
+                            <Route path="/dashboard/userlist">
+                                <UserList />
+                            </Route>
+                            <Route path="/dashboard/companylist">
+                                <CompanyList />
+                            </Route>
+                            <Route path="/dashboard/pending-company">
+                                <PendingCompany />
+                            </Route>
+                            <Route path="/dashboard/orderlist">
+                                <OrderList />
+                            </Route>
+                            <Route path="/dashboard/account-report">
+                                <Reports />
+                            </Route>
+                            <Route path="/dashboard/payment-info">
+                                <Payment />
+                            </Route>
+                            <Route path="/dashboard/manage-setting">
+                                <Settings />
+                            </Route>
+                        </Switch>
+                    </div>
+                </div>
+            </Router>
+        </Suspense>
     );
 };
 
