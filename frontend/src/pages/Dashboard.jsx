@@ -26,7 +26,7 @@ const Dashboard = () => {
                 <Route exact path="/dashboard">
                     <DashboardHome />
                 </Route>
-                <Route path="/dashboard/userlist">
+                <Route path="/dashboard/customer-list">
                     <AllUserList />
                 </Route>
                 <Route path="/dashboard/companylist">
