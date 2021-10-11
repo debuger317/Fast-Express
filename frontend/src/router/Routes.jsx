@@ -49,7 +49,7 @@ const Routes = () => {
                     <Route exact path="/service/category/:filterPath/:_id">
                         <SingleCourierDetail />
                     </Route>
-                    <Route exact path="/customer-parcel-shipping-form">
+                    <Route exact path="/service/category/:filterPath/:_id/customer-parcel-shipping-form">
                         <ShippingForm />
                     </Route>
                     <Route path="/service">

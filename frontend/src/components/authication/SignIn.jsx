@@ -3,7 +3,7 @@ import axios from 'axios';
 import { AiOutlineLoading3Quarters } from 'react-icons/ai';
 import { Link, useHistory } from 'react-router-dom';
 import loginImg from '../../assets/images/loginImg.svg';
-import { getAuth, signInWithPopup, signInWithRedirect, GoogleAuthProvider } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore';
 import firebaseConfig from '../../config/firebase';
@@ -18,6 +18,7 @@ const SignIn = () => {
   const history = useHistory();
   const dispatch = useDispatch();
   const [error, setError] = useState(false);
+  const [user, setUser] = useState({});
   const [loading, setLoading] = useState(false);
 
   const { handleSubmit, register } = useForm();
@@ -30,7 +31,7 @@ const SignIn = () => {
     try {
       const res = await axios({
         method: 'post',
-        url: 'http://localhost:5500/api/auth/login',
+        url: 'https://fastexpress.herokuapp.com/api/auth/login',
         data: userData
       });
       console.log(res);
@@ -46,16 +47,29 @@ const SignIn = () => {
     }
   }
   const provider = new GoogleAuthProvider();
-  const GoogleSigning = () => {
+  const GoogleSigning = async() => {
     const auth = getAuth();
     signInWithPopup(auth, provider)
       .then((result) => {
         const credential = GoogleAuthProvider.credentialFromResult(result);
         const token = credential.accessToken;
-        const user = result.user;
-        const { email } = result.user;
+        const { email, displayName, photoURL } = result.user;
+        setUser({ 
+          email,
+          displayName,
+          photoURL,
+          role:'user',
+          token
+        })
         const signInUser = { email };
-        dispatch(googleSignUpAction(user));
+        dispatch(googleSignUpAction({
+          email,
+          displayName,
+          photoURL,
+          role:'user',
+          token
+        }));
+        
         if (signInUser) {
           history.push("/dashboard")
         }
@@ -66,6 +80,22 @@ const SignIn = () => {
         const credential = GoogleAuthProvider.credentialFromError(error);
 
       });
+      try {
+        const res = await axios({
+          method: 'post',
+          url: 'https://fastexpress.herokuapp.com/api/auth/login',
+          data: user
+        });
+        console.log(res);
+        
+        if (res) {
+          history.push("/dashboard")
+        }
+  
+      } catch (err) {
+        setError(true);
+        console.log(err);
+      }
 
   }
   return (

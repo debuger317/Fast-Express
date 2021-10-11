@@ -34,13 +34,13 @@ const CategoryList = () => {
                 {categories.map(item => item ?
 
 
-                    <Link to={`/service/category/${item.name}`} class="p-4 bg-gray-50 shadow-lg rounded-md h-40">
+                    <Link to={`/service/category/${item.name.replace("&","")}`} class="p-4 bg-gray-50 shadow-lg rounded-md h-40">
                         <div class="flex flex-col items-center text-center mt-5">
                             <span class="w-16">
                                 <img src={item.photo} alt="" srcset="" />
                             </span>
 
-                            <h4 class="font-semibold">{item.name}</h4>
+                            <h4 class="font-semibold text-md">{item.name}</h4>
 
 
                         </div>
