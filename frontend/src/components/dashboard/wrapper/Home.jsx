@@ -8,9 +8,9 @@ const Home = () => {
     return (
 
         <div className="grid grid-cols-5">
-            <SideBar />
+            {/* <SideBar /> */}
             <div className="col-span-4">
-                <TopBar />
+                {/* <TopBar /> */}
                 <TottalSell />
                 <DailyActivity />
             </div>

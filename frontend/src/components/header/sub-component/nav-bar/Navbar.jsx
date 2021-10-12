@@ -5,6 +5,7 @@ import Logo from '../../../../assets/images/Fast-Express.PNG';
 import { RiUser3Line } from 'react-icons/ri';
 import { useDispatch, useSelector } from 'react-redux';
 import { logOutAction } from '../../../../redux/action/action';
+import { BackToHomeAction } from '../../../../redux/action/dashboard';
 
 const Navbar = () => {
     const [show, setShow] = useState(false)
@@ -31,7 +32,7 @@ const Navbar = () => {
                                         </Link>
                                     )}
                                     {
-                                        email && <Link className="text-gray-800 uppercase hover:text-gray-500 dark:hover:text-white mx-5 py-2 text-sm font-medium" to={'/dashboard'}>
+                                        email && <Link onClick={ ()=>dispatch(BackToHomeAction(false))} className="text-gray-800 uppercase hover:text-gray-500 dark:hover:text-white mx-5 py-2 text-sm font-medium" to={'/dashboard'}>
                                             Dashboard
                                         </Link>
                                     }
@@ -42,7 +43,6 @@ const Navbar = () => {
                                             <RiUser3Line className="text-2xl p-1 border rounded-full my-1 mr-1" />
                                             LogOut
                                         </button> : <Link to="/login" class="py-1 px-4 flex justify-center items-center  bg-red-600 hover:bg-red-700 focus:ring-red-500 focus:ring-offset-red-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
-                                            <RiUser3Line className="text-2xl p-1 border rounded-full my-1 mr-1" />
                                             Login
                                         </Link>
                                     }
