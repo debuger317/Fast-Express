@@ -8,7 +8,6 @@ import "swiper/components/navigation/navigation.min.css";
 import SwiperCore, {
     Autoplay, Pagination
 } from 'swiper/core';
-import { ReviewItem } from '../../utiltes/LocalDatabase';
 import { ImQuotesLeft, ImQuotesRight } from "react-icons/im";
 
 const Review = () => {
@@ -19,7 +18,7 @@ const Review = () => {
         fetch ('http://localhost:5500/api/reviews/allreviews')
             .then(res => res.json())
             .then(data => setReviews(data))
-    }, [])
+    }, [reviews])
 
     return (
         <section>
