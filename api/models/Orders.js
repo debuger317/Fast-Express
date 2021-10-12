@@ -1,32 +1,51 @@
 const mongoose = require('mongoose');
 
 const OrderSchema = new mongoose.Schema({
-    companyphoto: {
+    userId: { type: String },
+    merchant: [
+        {
+            merchantId: {
+                type: String,
+                required: true,
+                unique: false,
+            },
+            email: {
+                type: String,
+                required: true,
+                unique: false,
+            },
+            name: {
+                type: String,
+                required: true,
+                unique: false,
+            },
+            photo: {
+                type: String,
+                required: true,
+                unique: false,
+            },
+            address: {
+                type: String,
+                required: true,
+                unique: false,
+            },
+
+        },
+        { _id: false },
+    ],
+    username: {
         type: String,
         required: true,
     },
-    companyname: {
+    useraddress: {
         type: String,
         required: true,
         unique: false,
     },
-    email: {
+    useremail: {
         type: String,
         lowercase: true,
         trim: true,
-        required: true,
-        unique: true,
-    },
-    companyemail: {
-        type: String,
-        lowercase: true,
-        trim: true,
-        required: true,
-        unique: false,
-    },
-    address: {
-        type: String,
-        minlength: 5,
         required: true,
         unique: true,
     },
@@ -59,6 +78,6 @@ const OrderSchema = new mongoose.Schema({
         unique: false,
     },
 
-}, { timestamps: true });
+}, { timestamps: true }, { _id: false });
 
-module.exports = mongoose.model('orders', OrderSchema);
+module.exports = mongoose.model('order', OrderSchema);

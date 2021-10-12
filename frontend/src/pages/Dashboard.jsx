@@ -31,11 +31,11 @@ const Dashboard = () => {
                         <Home />
                     </Route>
                 </switch>
-                <div className={`w-full ${back? 'hidden':''}`}>
+                <div className={`w-full ${back ? 'hidden' : ''}`}>
                     <TopBar />
                 </div>
                 <div className="flex">
-                    <div className={`w-1/4 ${back? 'hidden':''}`}>
+                    <div className={`w-1/4 ${back ? 'hidden' : ''}`}>
                         <SideBar />
                     </div>
                     <div className="w-3/4">
