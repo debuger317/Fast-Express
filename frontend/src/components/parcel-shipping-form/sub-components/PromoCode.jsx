@@ -2,7 +2,7 @@ import React from 'react';
 
 const PromoCode = () => {
     return (
-        <div class="shadow-lg bg-white dark:bg-gray-700 relative overflow-hidden mr-10 flex py-5">
+        <div class="shadow bg-white dark:bg-gray-700 relative overflow-hidden mr-10 flex py-5">
             <div className="w-1/2 md:w-full">
                 <form class="flex flex-col md:flex-row md:space-x-3 space-y-3 md:space-y-0 justify-center">
                     <div class="relative">

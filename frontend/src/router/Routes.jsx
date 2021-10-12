@@ -46,7 +46,6 @@ const Routes = () => {
                     <Route exact path="/service/category/:name">
                         <CategoryDetail />
                     </Route>
-
                     <Route exact path="/service/category/:filterPath/:_id">
                         <SingleCourierDetail />
                     </Route>
@@ -57,10 +56,10 @@ const Routes = () => {
                         <Services />
                     </Route>
                     <Route path="/faq">
-                        <Faq></Faq>
+                        <Faq/>
                     </Route>
                     <Route path="/about">
-                        <About></About>
+                        <About/>
                     </Route>
                     <Route path="/signup">
                         <SignUp />

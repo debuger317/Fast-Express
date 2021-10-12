@@ -68,48 +68,29 @@ const CustomerOrderList = () => {
                         <td class="p-2 border-r">john@gmail.com</td>
                         <td class="p-2 border-r">Sydney, Australia</td>
                         <td class="p-2 border-r">Strip</td>
-                        <td class="p-2 border-r">Panding</td>
-                        <td>
-                            <a href="#" class="bg-blue-500 p-2 text-white hover:shadow-lg text-xs font-thin">Edit</a>
-                            <a href="#" class="bg-red-500 p-2 text-white hover:shadow-lg text-xs font-thin">Remove</a>
-                        </td>
-                    </tr>
-                    <tr class="bg-gray-100 text-center border-b text-sm text-gray-600">
+                        <td class="p-2 border-r">
+                            <select class="block w-30 text-gray-700 mx-auto py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500" name="animals">
+                                <option value="">
+                                    Select
+                                </option>
+                                <option value="dog">
+                                    OnGoing
+                                </option>
+                                <option value="cat">
+                                    Panding
+                                </option>
+                                <option value="hamster">
+                                    Done
+                                </option>
 
-                        <td class="p-2 border-r">John Doe</td>
-                        <td class="p-2 border-r">john@gmail.com</td>
-                        <td class="p-2 border-r">Sydney, Australia</td>
-                        <td class="p-2 border-r">Strip</td>
-                        <td class="p-2 border-r">Panding</td>
-                        <td>
-                            <a href="#" class="bg-blue-500 p-2 text-white hover:shadow-lg text-xs font-thin">Edit</a>
-                            <a href="#" class="bg-red-500 p-2 text-white hover:shadow-lg text-xs font-thin">Remove</a>
+                            </select>
                         </td>
-                    </tr>
-                    <tr class="bg-gray-100 text-center border-b text-sm text-gray-600">
+                        <td>
 
-                        <td class="p-2 border-r">John Doe</td>
-                        <td class="p-2 border-r">john@gmail.com</td>
-                        <td class="p-2 border-r">Sydney, Australia</td>
-                        <td class="p-2 border-r">Strip</td>
-                        <td class="p-2 border-r">Panding</td>
-                        <td>
-                            <a href="#" class="bg-blue-500 p-2 text-white hover:shadow-lg text-xs font-thin">Edit</a>
                             <a href="#" class="bg-red-500 p-2 text-white hover:shadow-lg text-xs font-thin">Remove</a>
                         </td>
                     </tr>
-                    <tr class="bg-gray-100 text-center border-b text-sm text-gray-600">
 
-                        <td class="p-2 border-r">John Doe</td>
-                        <td class="p-2 border-r">john@gmail.com</td>
-                        <td class="p-2 border-r">Sydney, Australia</td>
-                        <td class="p-2 border-r">Strip</td>
-                        <td class="p-2 border-r">Panding</td>
-                        <td>
-                            <a href="#" class="bg-blue-500 p-2 text-white hover:shadow-lg text-xs font-thin">Edit</a>
-                            <a href="#" class="bg-red-500 p-2 text-white hover:shadow-lg text-xs font-thin">Remove</a>
-                        </td>
-                    </tr>
                 </tbody>
             </table>
         </section>

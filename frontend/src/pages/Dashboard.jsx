@@ -6,9 +6,9 @@ import TopBar from '../components/dashboard/components/TopBar';
 import {
     BrowserRouter as Router,
     Switch,
-    useLocation,
     Route
 } from "react-router-dom";
+import ManageCompany from '../components/dashboard/wrapper/ManageCompany';
 const CustomerOrderList = lazy(() => import('../components/dashboard/wrapper/CustomerOrderLists'));
 const CustomerList = lazy(() => import('../components/dashboard/wrapper/CustomerLists'));
 const DashboardHome = lazy(() => import('../components/dashboard/wrapper/Home'));
@@ -20,6 +20,8 @@ const UserList = lazy(() => import('../components/dashboard/wrapper/UserList'));
 const OrderList = lazy(() => import('../components/dashboard/wrapper/OrderList'));
 const Reports = lazy(() => import('../components/dashboard/wrapper/Reports'));
 const Payment = lazy(() => import('../components/dashboard/wrapper/Payment'));
+const AddReview =lazy(()=> import ('../components/dashboard/components/manageReview/AddReview'));
+const ManageReviews =lazy(()=> import ('../components/dashboard/components/manageReview/ManageReviews'));
 
 const Dashboard = () => {
     const back = useSelector((state) => state.dashboard.backtohome)
@@ -31,11 +33,11 @@ const Dashboard = () => {
                         <Home />
                     </Route>
                 </switch>
-                <div className={`w-full ${back? 'hidden':''}`}>
+                <div className={`w-full ${back ? 'hidden' : ''}`}>
                     <TopBar />
                 </div>
                 <div className="flex">
-                    <div className={`w-1/4 ${back? 'hidden':''}`}>
+                    <div className={`w-1/4 ${back ? 'hidden' : ''}`}>
                         <SideBar />
                     </div>
                     <div className="w-3/4">
@@ -58,6 +60,12 @@ const Dashboard = () => {
                             <Route path="/dashboard/pending-company">
                                 <PendingCompany />
                             </Route>
+                            <Route path="/dashboard/manage-company-info">
+                                <ManageCompany />
+                            </Route>
+                            <Route path="/dashboard/customer-list">
+                                <CustomerList />
+                            </Route>
                             <Route path="/dashboard/orderlist">
                                 <OrderList />
                             </Route>
@@ -70,12 +78,17 @@ const Dashboard = () => {
                             <Route path="/dashboard/manage-setting">
                                 <Settings />
                             </Route>
+                            <Route path="/dashboard/add-review">
+                                <AddReview />
+                            </Route>
+                            <Route path="/dashboard/manage-review">
+                                <ManageReviews />
+                            </Route>
                         </Switch>
                     </div>
                 </div>
             </Router>
         </Suspense>
-
     );
 };
 
