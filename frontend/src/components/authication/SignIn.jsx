@@ -29,6 +29,7 @@ const SignIn = () => {
       email: data.email,
       password: data.password,
     }
+    setLoading(true);
     try {
       const res = await axios({
         method: 'post',
@@ -182,7 +183,7 @@ const SignIn = () => {
           </div>
 
         </div>
-        <div className="w-1/2 shadow-2xl">
+        <div className="w-1/2 p-10">
           <img className="hidden md:block" src={loginImg} alt="Login img" />
         </div>
       </div>

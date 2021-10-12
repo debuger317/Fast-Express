@@ -381,6 +381,14 @@ export const users = [
         role:["merchant"]
     },
     {
+        id:54,
+        path: "/dashboard/manage-delivery-man",
+        pathname: "Manage delivery man",
+        size:"text-2xl",
+        icon:<VscReport/>,
+        role:["merchant"]
+    },
+    {
         id:6,
         path: "/dashboard/add-review",
         pathname: "Add a review",
@@ -465,6 +473,22 @@ export const users = [
         icon:<VscGear/>,
         size:"text-xl",
         role:["admin"]
-    }
+    },
+    {
+        id:16,
+        path: "/dashboard/manage-category",
+        pathname: "Manage category",
+        icon:<VscGear/>,
+        size:"text-xl",
+        role:["admin"]
+    },
+    {
+        id:17,
+        path: "/dashboard/manage-review",
+        pathname: "Manage review",
+        icon:<VscGear/>,
+        size:"text-xl",
+        role:["admin"]
+    },
 
   ]

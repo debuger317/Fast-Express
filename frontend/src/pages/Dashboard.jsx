@@ -6,9 +6,10 @@ import TopBar from '../components/dashboard/components/TopBar';
 import {
     BrowserRouter as Router,
     Switch,
-    useLocation,
     Route
 } from "react-router-dom";
+import ManageCompany from '../components/dashboard/wrapper/ManageCompany';
+import CustomerList from '../components/dashboard/wrapper/CustomerList';
 
 const DashboardHome = lazy(() => import('../components/dashboard/wrapper/Home'));
 const Home = lazy(() => import('./Home'));
@@ -32,11 +33,11 @@ const Dashboard = () => {
                         <Home />
                     </Route>
                 </switch>
-                <div className={`w-full ${back? 'hidden':''}`}>
+                <div className={`w-full ${back ? 'hidden' : ''}`}>
                     <TopBar />
                 </div>
                 <div className="flex">
-                    <div className={`w-1/4 ${back? 'hidden':''}`}>
+                    <div className={`w-1/4 ${back ? 'hidden' : ''}`}>
                         <SideBar />
                     </div>
                     <div className="w-3/4">
@@ -53,7 +54,13 @@ const Dashboard = () => {
                             <Route path="/dashboard/pending-company">
                                 <PendingCompany />
                             </Route>
-                            <Route path="/dashboard/customer-order-list">
+                            <Route path="/dashboard/manage-company-info">
+                                <ManageCompany />
+                            </Route>
+                            <Route path="/dashboard/customer-list">
+                                <CustomerList />
+                            </Route>
+                            <Route path="/dashboard/orderlist">
                                 <OrderList />
                             </Route>
                             <Route path="/dashboard/account-report">
