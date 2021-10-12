@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export const fetchAuth = async() => {
         try {
-          await axios.get('http://localhost:5500/api/auth/all');
+          await axios.get('https://fastexpress.herokuapp.com/api/auth/all');
 
         } catch (error) {
             console.error(error);

@@ -1,10 +1,10 @@
 import React from 'react';
-import PendingCompany from '../components/manageCompany/PendingCompany';
 
 const ManageCompany = () => {
     return (
-        <div>
-            {/* <PendingCompany/> */}
+
+        <div className="col-span-4">
+          manage
         </div>
     );
 };
