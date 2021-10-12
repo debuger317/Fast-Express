@@ -28,7 +28,7 @@ const ParcelOverview = () => {
 
     return (
         <div class="shadow bg-white dark:bg-gray-700 relative overflow-hidden mr-10">
-            <h2 class="text-xl font-semibold ml-5 py-2">4. Delivery overview</h2>
+            <h2 class="text-xl font-semibold ml-5 py-2">2. Delivery overview</h2>
             <div class="flex overflow-hidden">
                 <div class="w-full bg-cover bg-landscape">
                     <img src={logo} alt="" srcset="" />
@@ -69,21 +69,21 @@ const ParcelOverview = () => {
                             <label for="name-with-label" class="text-gray-700">
                                 Parcel name
                             </label>
-                            <input type="text" id="name-with-label" class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" name="email" placeholder="Your name" />
+                            <input type="text" id="name-with-label" class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" name="email" placeholder="parcel name" required/>
                         </div>
 
                         <div class="relative mt-3">
                             <label for="name-with-label" class="text-gray-700">
                                 parcel type
                             </label>
-                            <input type="text" id="name-with-label" class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" name="email" placeholder="Your name" />
+                            <input type="text" id="name-with-label" class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" name="email" placeholder="type" required/>
                         </div>
 
                         <div class="relative mt-3">
                             <label for="name-with-label" class="text-gray-700">
-                                parcel 
+                                parcel weight 
                             </label>
-                            <input type="text" id="name-with-label" class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" name="email" placeholder="Your name" />
+                            <input type="text" id="name-with-label" class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" name="email" placeholder="weight" required/>
                         </div>
                     </div>
                 </div>
