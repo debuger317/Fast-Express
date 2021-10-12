@@ -1,7 +1,11 @@
 import React from 'react';
 import { BsGrid, BsListUl } from "react-icons/bs";
-
+import { useSelector } from 'react-redux';
 const TopFilterOption = () => {
+
+    const count = useSelector((state) => state.merchant.filtercount)
+    const filteredName = useSelector((state) => state.merchant.filterName)
+
     return (
         <div className="ml-5">
             <div className="flex items-center justify-between">
@@ -21,12 +25,12 @@ const TopFilterOption = () => {
                         </option>
                     </select>
                     <div>
-                        Showing 2006 results for tablet
+                        Showing {count} results for {filteredName}
                     </div>
                 </div>
                 <div className="flex items-center text-dark-900">
-                    <BsGrid className="text-lg mx-4 cursor-pointer"/>
-                    <BsListUl className="text-lg ml-4 cursor-pointer"/>
+                    <BsGrid className="text-lg mx-4 cursor-pointer" />
+                    <BsListUl className="text-lg ml-4 cursor-pointer" />
                 </div>
             </div>
         </div>

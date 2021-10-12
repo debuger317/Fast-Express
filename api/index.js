@@ -13,7 +13,6 @@ const dashboard = require("./routes/dashboard")
 dotenv.config();
 app.use(cors());
 app.use(express.json());
-
 mongoose.connect(process.env.Mongoose_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
