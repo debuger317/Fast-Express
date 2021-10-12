@@ -53,7 +53,7 @@ const Dashboard = () => {
                             <Route path="/dashboard/pending-company">
                                 <PendingCompany />
                             </Route>
-                            <Route path="/dashboard/orderlist">
+                            <Route path="/dashboard/customer-order-list">
                                 <OrderList />
                             </Route>
                             <Route path="/dashboard/account-report">
@@ -65,10 +65,10 @@ const Dashboard = () => {
                             <Route path="/dashboard/manage-setting">
                                 <Settings />
                             </Route>
-                            <Route path="/dashboard/addreview">
+                            <Route path="/dashboard/add-review">
                                 <AddReview />
                             </Route>
-                            <Route path="/dashboard/managereviews">
+                            <Route path="/dashboard/manage-review">
                                 <ManageReviews />
                             </Route>
                         </Switch>

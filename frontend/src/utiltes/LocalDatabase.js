@@ -443,7 +443,6 @@ export const users = [
         id:13,
 
         path: "/dashboard/account-report",
-
         pathname: "Report",
         icon:<VscReport/>,
         size:"text-xl",
@@ -466,18 +465,6 @@ export const users = [
         icon:<VscGear/>,
         size:"text-xl",
         role:["admin"]
-    },
-    {
-        id:16,
-        path: "/dashboard/addreview",
-        pathname: "Add Review",
-        role:["user"]
-    },
-    {
-        id:17,
-        path: "/dashboard/managereviews",
-        pathname: "Manage Reviews",
-        role:["user"]
     }
 
   ]
