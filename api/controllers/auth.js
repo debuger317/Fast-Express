@@ -37,7 +37,9 @@ const Login = async (req, res) => {
     } catch (err) {
         res.status(500).json(err);
     }
-}
+};
+
+//All User
 
 const all = async (req, res) => {
     try {
@@ -48,7 +50,7 @@ const all = async (req, res) => {
         console.log(err)
         res.status(500).json({ message: err.message })
     }
-}
+};
 
 module.exports = {
     Register,
