@@ -92,7 +92,7 @@ const AddCompanyForm = () => {
                         </div>
                         <div className="md:flex items-center">
                             <div className="block relative">
-                                {logo ? <img alt="company_logo" src={logo} className=" rounded h-36 w-36 " /> : <span>loading..</span>}
+                                {logo ? <img alt="company_logo" src={logo} className=" rounded h-36 w-36 " /> : <img alt="company_logo" src="https://i.ibb.co/Cm61Z60/instagram.png" className=" rounded h-36 w-36 " />}
                             </div>
                             <div className="text-gray-600 mx-10">
                                 <label
