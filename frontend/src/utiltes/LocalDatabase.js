@@ -1,7 +1,10 @@
 import { FaUserTie, FaUserNurse } from 'react-icons/fa';
+
 import { MdPayment } from 'react-icons/md';
-// 
+
 import { VscDashboard,VscPerson,VscPackage, VscOrganization,VscPreview, VscReport,VscRequestChanges,VscStarFull, VscGear } from 'react-icons/vsc';
+
+
 
 export const FaqData = [
     {
@@ -378,6 +381,14 @@ export const users = [
         role:["merchant"]
     },
     {
+        id:54,
+        path: "/dashboard/manage-delivery-man",
+        pathname: "Manage delivery man",
+        size:"text-2xl",
+        icon:<VscReport/>,
+        role:["merchant"]
+    },
+    {
         id:6,
         path: "/dashboard/add-review",
         pathname: "Add a review",
@@ -394,6 +405,7 @@ export const users = [
         role:["user"]
     },
     {
+
         id:8,
         path: "/dashboard/payment-info",
         pathname: "Payment Details",
@@ -402,6 +414,7 @@ export const users = [
         role:["user"]
     },
     {
+
         id:9,
         path: "/dashboard/add-review",
         pathname: "Add a review",
@@ -418,6 +431,7 @@ export const users = [
         role:["user"]
     },
     {
+
         id:11,
         path: "/dashboard/userlist",
         pathname: "User list",
@@ -435,6 +449,7 @@ export const users = [
     },
     {
         id:13,
+
         path: "/dashboard/account-report",
         pathname: "Report",
         icon:<VscReport/>,
@@ -451,8 +466,26 @@ export const users = [
     },
     {
         id:15,
+
         path: "/dashboard/manage-setting",
+
         pathname: "Manage Setting",
+        icon:<VscGear/>,
+        size:"text-xl",
+        role:["admin"]
+    },
+    {
+        id:16,
+        path: "/dashboard/manage-category",
+        pathname: "Manage category",
+        icon:<VscGear/>,
+        size:"text-xl",
+        role:["admin"]
+    },
+    {
+        id:17,
+        path: "/dashboard/manage-review",
+        pathname: "Manage review",
         icon:<VscGear/>,
         size:"text-xl",
         role:["admin"]

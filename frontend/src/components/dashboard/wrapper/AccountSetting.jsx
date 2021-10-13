@@ -14,6 +14,7 @@ const AccountSetting = () => {
                         <div class="flex items-center space-x-4">
                         <div class="block relative">
                                 <img alt="profil" src={photoURL} class="mx-auto object-cover rounded-full h-16 w-16 " />
+                                {/* //https://i.ibb.co/Zcfndd4/user.png */}
                                 </div>
                             <h1 class="text-gray-600">
                                 {displayName}

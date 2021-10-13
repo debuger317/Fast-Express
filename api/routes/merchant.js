@@ -15,5 +15,7 @@ router.get('/all', merchant_control.getallmerchant_C)
 router.get('/:id', merchant_control.signlemerchant_c)
 
 router.put('/:id', merchant_control.updatemerchant_c)
+// router.delete('/:id', merchant_control.updatemerchant_c)
+
 
 module.exports = router;

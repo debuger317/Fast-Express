@@ -8,7 +8,7 @@ const UserSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
-        unique: true,
+        unique: false,
     },
     email: {
         type: String,
@@ -36,33 +36,13 @@ const UserSchema = new mongoose.Schema({
         required: true,
         unique: true,
     },
-    pickupFrom: {
-        type: String,
-        required: true,
-        unique: false,
-    },
-    pickupTo: {
-        type: String,
-        required: true,
-        unique: false,
-    },
 
-    deliveryOption: {
-        type: String,
-        required: true,
-        unique: false,
-    },
     phone: {
         type: Number,
         minlength: 11,
         maxlength: 11,
         required: true,
         unique: true,
-    },
-    payment: {
-        type: String,
-        required: true,
-        unique: false,
     },
 
 }, { timestamps: true });

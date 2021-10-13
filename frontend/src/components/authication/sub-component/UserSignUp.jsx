@@ -67,8 +67,11 @@ const UserSignUp = () => {
                             </div>
                         </div>
                         <div class="flex w-full my-4">
+
                             <button type="submit" class="py-2 px-4 flex justify-center items-center  bg-red-600 hover:bg-red-700 focus:ring-red-500 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none rounded">
                                 {pending ?  <CgSpinner class="animate-spin text-xl"/> : "Sign up"}
+
+
                             </button>
                         </div>
                         {error && <span style={{ color: 'red', marginTop: '10px' }}>Something went wrong!</span>}

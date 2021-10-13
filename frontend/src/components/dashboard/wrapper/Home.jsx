@@ -5,8 +5,8 @@ import TottalSell from '../components/TottalSell';
 const Home = () => {
     return (
         <Fragment>
-            <TottalSell/>
-            <DailyActivity/>
+                <TottalSell />
+                <DailyActivity />
         </Fragment>
     );
 };

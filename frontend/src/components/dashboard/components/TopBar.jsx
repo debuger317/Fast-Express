@@ -22,6 +22,7 @@ const TopBar = () => {
     return (
         <nav onClick={() => toggleText()} class="bg-white border-b border-gray-200">
             <div class="max-w-7xl mx-auto">
+
                 <div class="flex items-center justify-between h-16">
                     <Link to='/dashboard'>
                         <img class="pr-10" src={Logo} alt="" srcset="" />
@@ -48,7 +49,9 @@ const TopBar = () => {
                                                 <p class="text-gray-800 dark:text-white text-xl font-normal">
                                                     Activity
                                                 </p>
+
                                             </div>
+
                                         </div>
                                     </div>
                                 </div>

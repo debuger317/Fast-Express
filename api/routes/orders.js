@@ -8,10 +8,11 @@ const order_control = require("../controllers/orders")
 
 router.post("/addorder", order_control.Addorder_control)
 
-router.get('/allorder', order_control.allorders_control)
+router.get('/allorder', order_control.allorder_control)
+// router.delete('/:email', order_control.allorder_control)
 
-// router.get('/:id', couriers_Controller.signlecourier_c)
+// router.get('/:userid', couriers_Controller.signlecourier_c)
 
-// router.put('/:id', couriers_Controller.updatecourier_c)
+// router.put('/:merchantid', couriers_Controller.updatecourier_c)
 
 module.exports = router;

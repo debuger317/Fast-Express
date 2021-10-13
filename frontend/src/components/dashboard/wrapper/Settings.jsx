@@ -1,14 +1,16 @@
-import React, { Fragment } from 'react';
 
+import React, { Fragment } from 'react';
 const Settings = () => {
     return (
       
+
         <Fragment>
   
             {/* <ReportManagement/> */}
             settings
 
     </Fragment>
+
     );
 };
 
