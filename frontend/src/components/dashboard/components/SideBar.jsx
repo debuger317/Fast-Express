@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useHistory } from "react-router-dom";
 import { dashboard_nav } from '../../../utiltes/LocalDatabase';
@@ -13,12 +13,6 @@ const SideBar = () => {
     }
     const role = useSelector((state) => state.auth.authdetails.role)
 
-    useEffect(() => {
-
-    }, [])
-
-    const filtered = dashboard_nav.filter(nav => nav.role.includes(role))
-    console.log(filtered);
     return (
         <div class="lg:block relative mr-14 h-screen">
             <div class="h-screen bg-white mr-10 shadow-lg">
