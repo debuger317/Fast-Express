@@ -4,12 +4,13 @@ import { AiOutlineCloudUpload } from 'react-icons/ai';
 import { useForm } from 'react-hook-form';
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import { CgSpinner } from 'react-icons/cg';
 
 const AddCompanyForm = () => {
     const history = useHistory();
     const [logo, setLogo] = useState('');
     const [cat, setcat] = useState([]);
-    const merchantAuth = useSelector((state) => state.auth.merchantdetails);
+    const merchantAuth = useSelector((state) => state.auth.authdetails);
     // const categories = useSelector((state) => state.categories.items);
     const getCategories = async () => {
         try {
@@ -44,22 +45,7 @@ const AddCompanyForm = () => {
             deliveryOption: data.deliveryOption,
             status: "pending",
             phone: data.helpline,
-            serviceCategory: [
-                data.Electronics && data.Electronics ,
-                data.Furniture && data.Furniture ,
-                data.Food && data.Food ,
-                data.Fashion && data.Fashion ,
-                data.Educations && data.Educations,
-                data.Sportsoutdoor && data.Sportsoutdoor,                
-                data.WatchesAccessories && data.WatchesAccessories,
-                data.Automotivemotorbike && data.Automotivemotorbike,
-                data.HealthBeauty && data.HealthBeauty,
-                data.SmartProduct && data.SmartProduct,
-                data.MedicalSupplies && data.MedicalSupplies,
-                data.CookingIngredients && data.CookingIngredients,
-                data.KitchenAppliances && data.KitchenAppliances,
-                data.HomeLiving && data.HomeLiving 
-            ]
+            serviceCategory: [data.ctegory]
         }
         console.log(merchant);
         try {
@@ -123,8 +109,8 @@ const AddCompanyForm = () => {
                             <label class="font-medium text-gray-700">
                                 Name of company
                                 <div>
-                                    <input 
-                                        type="text" class="rounded  border-transparent flex-1 border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent" placeholder="Your company name"  value={name}/>
+                                    <input
+                                        type="text" class="rounded  border-transparent flex-1 border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent" placeholder="Your company name" value={name} />
                                 </div>
                             </label>
                         </div>
@@ -134,16 +120,16 @@ const AddCompanyForm = () => {
                             <label class="font-medium text-gray-700">
                                 Company Email
                                 <div>
-                                    <input 
-                                        type="email" class="rounded w-full  border-transparent border border-gray-300  py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent" placeholder="Your company email"  value={email}/>
+                                    <input
+                                        type="email" class="rounded w-full  border-transparent border border-gray-300  py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent" placeholder="Your company email" value={email} />
                                 </div>
                             </label>
                         </div>
                     </div>
                     <div class="p-4 lg:w-1/2 md:w-full">
                         <div>
-                        <label class="font-medium text-gray-700">
-                               Payment per accept whight (kg)
+                            <label class="font-medium text-gray-700">
+                                Payment per accept whight (kg)
                                 <select {...register("payment")}
                                     class="rounded block w-full py-2 px-3 border border-gray-300 bg-white shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500" >
                                     <option value="">
@@ -174,7 +160,7 @@ const AddCompanyForm = () => {
                                 Company address
                                 <div>
                                     <input {...register("address")}
-                                        type="text" class="rounded  border-transparent flex-1 border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent" placeholder="Your company name"  />
+                                        type="text" class="rounded  border-transparent flex-1 border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent" placeholder="Your company name" />
                                 </div>
                             </label>
                         </div>
@@ -318,7 +304,7 @@ const AddCompanyForm = () => {
                                 Helpline number
                                 <div>
                                     <input {...register("helpline")}
-                                        type="text" class="rounded border-transparent flex-1 border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent" placeholder="Your company helpline number"  />
+                                        type="text" class="rounded border-transparent flex-1 border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent" placeholder="Your company helpline number" />
                                 </div>
                             </label>
                         </div>
@@ -330,7 +316,7 @@ const AddCompanyForm = () => {
                         <div class="grid lg:grid-cols-6 md:grid-cols-5 sm:grid-cols-4 gap-5">
                             {cat.map(d => (
                                 <label class="flex items-center space-x-3 mb-3">
-                                    <input {...register(`${d.value}`)}
+                                    <input {...register("ctegory")}
                                         class="w-6 h-6 rounded-lg" type="checkbox" value={d.value} />
                                     <span class="text-gray-700 dark:text-white font-normal">
                                         {d.value}
@@ -345,9 +331,12 @@ const AddCompanyForm = () => {
                     <div class="p-4 lg:full md:w-full">
                         <div class="flex w-32 ml-auto">
                             <button onClick={() => handleSubmit()} type="submit" class="py-2 px-4 my-10 bg-red-600 hover:bg-red-700 focus:ring-red-500 focus:ring-offset-red-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
-                                {pending? "loading...": "Add request"}
+                                {pending ?
+                                    <CgSpinner class="animate-spin text-xl" /> : "Add request"
+                                }
                             </button>
                         </div>
+                        {error && <span style={{ color: 'red', marginTop: '10px' }}>Something went wrong!</span>}
                     </div>
                     {/* container end */}
 

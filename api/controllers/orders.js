@@ -17,18 +17,25 @@ const Addorder_control = async (req, res) => {
             userId: req.body.userId,
             userinfo: [
                 {
-                    name: req.body.username,
+                    fname: req.body.fname,
+                    lname: req.body.lname,
                     address: req.body.useraddress,
                     email: req.body.useremail,
                     pickupFrom: req.body.pickupFrom,
                     pickupTo: req.body.pickupTo,
                     phone: req.body.phone,
-                    paymentinfo: {
-                        payment: req.body.payment,
-                    },
-                    deliveryinfo: {
-                        deliveryOption: req.body.deliveryOption,
-                    }
+                    city: req.body.city,
+                    zip: req.body.zip,
+                    paymentinfo: [{
+                        paymentType: req.body.paymentType,
+                        paymentAmount: req.body.paymentAmount,
+                        createdAt: req.body.createdAt,
+                        paymentStatus: req.body.paymentStatus,
+                        cardNumber: req.body.cardNumber,
+                        cardtype: req.body.cardtype,
+                    }],
+
+                    deliverytype: req.body.deliverytype,
                 }
             ],
             parcelinfo: [

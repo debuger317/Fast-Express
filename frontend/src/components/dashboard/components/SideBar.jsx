@@ -11,7 +11,7 @@ const SideBar = () => {
         history.push('/')
         dispatch(BackToHomeAction(true))
     }
-    const role = useSelector((state) => state.auth.userdetails.role)
+    const role = useSelector((state) => state.auth.authdetails.role)
 
     useEffect(() => {
 

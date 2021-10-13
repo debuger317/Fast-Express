@@ -13,7 +13,7 @@ const Navbar = () => {
         setShow(!show)
     };
     const dispatch = useDispatch();
-    const email = useSelector((state) => state.auth.userdetails.email)
+    const email = useSelector((state) => state.auth.authdetails.email)
     return (
         <nav className="bg-white dark:bg-gray-800 shadow py-3 position-sticky">
             <div className="max-w-7xl mx-auto px-4">

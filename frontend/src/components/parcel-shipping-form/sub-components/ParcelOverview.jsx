@@ -1,9 +1,11 @@
+import axios from 'axios';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { AiOutlineCloudUpload } from 'react-icons/ai';
-import axios from 'axios';
+import { useFormContext } from "react-hook-form";
 
 const ParcelOverview = () => {
+    const methods = useFormContext();
     const MerchantOverview = useSelector(state => state.merchant.selectedMerchant);
     const { name, logo, pickupFrom, pickupTo,description } = MerchantOverview;
 
@@ -69,21 +71,21 @@ const ParcelOverview = () => {
                             <label for="name-with-label" class="text-gray-700">
                                 Parcel name
                             </label>
-                            <input type="text" id="name-with-label" class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" name="email" placeholder="parcel name" required/>
+                            <input {...methods.register("parcelName")} type="text" class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"  placeholder="parcel name" required/>
                         </div>
 
                         <div class="relative mt-3">
                             <label for="name-with-label" class="text-gray-700">
                                 parcel type
                             </label>
-                            <input type="text" id="name-with-label" class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" name="email" placeholder="type" required/>
+                            <input {...methods.register("parceltype")} type="text" class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"  placeholder="type" required/>
                         </div>
 
                         <div class="relative mt-3">
                             <label for="name-with-label" class="text-gray-700">
                                 parcel weight 
                             </label>
-                            <input type="text" id="name-with-label" class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" name="email" placeholder="weight" required/>
+                            <input {...methods.register("parcelweight")}  type="text"  class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="weight" required/>
                         </div>
                     </div>
                 </div>
