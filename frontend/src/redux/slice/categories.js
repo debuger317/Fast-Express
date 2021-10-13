@@ -15,7 +15,7 @@ export const CategoriesSlice = createSlice({
         },
 
         logOut: (state, action) => {
-            state.userdetails = {}
+            state.authdetails = {}
 
         }
 

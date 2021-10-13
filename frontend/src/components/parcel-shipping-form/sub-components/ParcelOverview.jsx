@@ -1,9 +1,12 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { AiOutlineCloudUpload } from 'react-icons/ai';
-import axios from 'axios';
+import { useFormContext } from "react-hook-form";
 
 const ParcelOverview = () => {
+    const [p_logo, setPLogo] = useState();
+    const methods = useFormContext();
     const MerchantOverview = useSelector(state => state.merchant.selectedMerchant);
     const { name, logo, pickupFrom, pickupTo,description } = MerchantOverview;
 
@@ -18,7 +21,7 @@ const ParcelOverview = () => {
             imageData)
             .then((response) => {
 
-                // (response.data.data.display_url);
+                setPLogo(response.data.data.display_url);
             })
             .catch((error) => {
 
@@ -28,7 +31,7 @@ const ParcelOverview = () => {
 
     return (
         <div class="shadow bg-white dark:bg-gray-700 relative overflow-hidden mr-10">
-            <h2 class="text-xl font-semibold ml-5 py-2">4. Delivery overview</h2>
+            <h2 class="text-xl font-semibold ml-5 py-2">2. Delivery overview</h2>
             <div class="flex overflow-hidden">
                 <div class="w-full bg-cover bg-landscape">
                     <img src={logo} alt="" srcset="" />
@@ -50,7 +53,7 @@ const ParcelOverview = () => {
                     <h2 class="text-md font-semibold ml-5 py-2">1. Upload your parcel Photo</h2>
                     <div className="md:flex items-center">
                         <div className="block relative mt-5">
-                            {logo ? <img alt="company_logo" src={logo} className=" rounded h-36 w-36 " /> : <img alt="company_logo" src="https://i.ibb.co/Cm61Z60/instagram.png" className=" rounded h-16 w-16 " />}
+                            {p_logo ? <img alt="company_logo" src={p_logo} className=" rounded h-36 w-36 " /> : <img alt="company_logo" src="https://i.ibb.co/Cm61Z60/instagram.png" className=" rounded h-16 w-16 " />}
                         </div>
                         <div className="text-gray-600 mx-10 mt-5">
                             <label
@@ -69,21 +72,21 @@ const ParcelOverview = () => {
                             <label for="name-with-label" class="text-gray-700">
                                 Parcel name
                             </label>
-                            <input type="text" id="name-with-label" class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" name="email" placeholder="Your name" />
+                            <input {...methods.register("parcelName")} type="text" class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"  placeholder="parcel name" required/>
                         </div>
 
                         <div class="relative mt-3">
                             <label for="name-with-label" class="text-gray-700">
                                 parcel type
                             </label>
-                            <input type="text" id="name-with-label" class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" name="email" placeholder="Your name" />
+                            <input {...methods.register("parceltype")} type="text" class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"  placeholder="type" required/>
                         </div>
 
                         <div class="relative mt-3">
                             <label for="name-with-label" class="text-gray-700">
-                                parcel 
+                                parcel weight 
                             </label>
-                            <input type="text" id="name-with-label" class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" name="email" placeholder="Your name" />
+                            <input {...methods.register("parcelweight")}  type="text"  class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="weight" required/>
                         </div>
                     </div>
                 </div>

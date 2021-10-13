@@ -1,13 +1,17 @@
 import axios from 'axios';
 import React, { useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { CgSpinner } from 'react-icons/cg';
-
+import { useDispatch } from 'react-redux';
+import { customAuthAction } from '../../../redux/action/action';
 const UserSignUp = () => {
+    const location = useLocation()
+    let { from } = location.state || { from: { pathname: "/" } };
     const [error, setError] = useState(false);
     const [pending, setPending] = useState(false);
-    const history = useHistory()
+    const history = useHistory();
+    const dispatch = useDispatch();
     const { handleSubmit, register } = useForm();
     const onSubmit = async (data) => {
         const userData = {
@@ -24,9 +28,11 @@ const UserSignUp = () => {
                 url: 'https://fastexpress.herokuapp.com/api/auth/register',
                 data: userData
             });
+            dispatch(customAuthAction(res.data))
 
-            res && history.push("/login")
-
+            if (res) {
+                history.replace(from)
+            }
         } catch (err) {
             setError(true);
             setPending(false);
@@ -69,7 +75,7 @@ const UserSignUp = () => {
                         <div class="flex w-full my-4">
 
                             <button type="submit" class="py-2 px-4 flex justify-center items-center  bg-red-600 hover:bg-red-700 focus:ring-red-500 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none rounded">
-                                {pending ?  <CgSpinner class="animate-spin text-xl"/> : "Sign up"}
+                                {pending ? <CgSpinner class="animate-spin text-xl" /> : "Sign up"}
 
 
                             </button>

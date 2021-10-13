@@ -51,14 +51,12 @@ export default function PaymentCard() {
   };
 
   const handleChange = async (event) => {
-    // Listen for changes in the CardElement
-    // and display any errors as the customer types their card details
     setDisabled(event.empty);
     setError(event.error ? event.error.message : "");
   };
 
-  const handleSubmit = async ev => {
-    ev.preventDefault();
+  const handleSubmit = async e => {
+    e.preventDefault();
     setProcessing(true);
 
     const payload = await stripe.confirmCardPayment(clientSecret, {

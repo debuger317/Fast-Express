@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 const AccountSetting = () => {
-    const user = useSelector((state) => state.auth.userdetails)
+    const user = useSelector((state) => state.auth.authdetails)
     const { displayName, email, photoURL } = user;
     return (
         <section class="bg-gray-100 bg-opacity-50 py-10">
