@@ -3,25 +3,43 @@ const Orders = require("../models/Orders");
 const Addorder_control = async (req, res) => {
     try {
         const addNew = new Orders({
-            userId: req.body.userId,
-            merchant: [
+
+            merchantId: req.body.merchantId,
+            merchantinfo: [
                 {
-                    merchantId: req.body.merchantId,
-                    email: req.body.email,
-                    name: req.body.name,
-                    photo: req.body.photo,
-                    address: req.body.address,
-       
-                },
+                    email: req.body.merchantemail,
+                    name: req.body.merchantname,
+                    photo: req.body.merchantphoto,
+                    address: req.body.merchantaddress,
+
+                }
             ],
-            username: req.body.username,
-            useraddress: req.body.useraddress,
-            useremail: req.body.useremail,
-            pickupFrom: req.body.pickupFrom,
-            pickupTo: req.body.pickupTo,
-            deliveryOption: req.body.deliveryOption,
-            phone: req.body.phone,
-            payment: req.body.payment,
+            userId: req.body.userId,
+            userinfo: [
+                {
+                    name: req.body.username,
+                    address: req.body.useraddress,
+                    email: req.body.useremail,
+                    pickupFrom: req.body.pickupFrom,
+                    pickupTo: req.body.pickupTo,
+                    phone: req.body.phone,
+                    paymentinfo: {
+                        payment: req.body.payment,
+                    },
+                    deliveryinfo: {
+                        deliveryOption: req.body.deliveryOption,
+                    }
+                }
+            ],
+            parcelinfo: [
+                {
+                    name: req.body.parcelname,
+                    type: req.body.parceltype,
+                    weight: req.body.parcelweight,
+
+                }
+            ],
+
         });
         const newOrder = await addNew.save();
         res.status(200).json({

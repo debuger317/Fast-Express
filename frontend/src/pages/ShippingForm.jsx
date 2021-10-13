@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { Fragment, useState } from 'react';
-import { useForm } from 'react-hook-form';
+import { useForm, FormProvider } from "react-hook-form";
 import { useHistory } from 'react-router';
 import Footer from '../components/footer/Footer';
 import Navbar from '../components/header/sub-component/nav-bar/Navbar';
@@ -11,17 +11,27 @@ import ParcelOverview from '../components/parcel-shipping-form/sub-components/Pa
 import PaymentMethod from '../components/parcel-shipping-form/sub-components/PaymentMethod';
 import PromoCode from '../components/parcel-shipping-form/sub-components/PromoCode';
 const ShippingForm = () => {
+    const methods = useForm();
     const history = useHistory();
     const [error, setError] = useState(false);
     const [pending, setPending] = useState(false);
 
-    const { handleSubmit } = useForm();
+    const { register, handleSubmit } = methods;
 
     const onSubmit = async (data) => {
         const Neworder = {
 
-        }
-        console.log(Neworder);
+                    fname: data.fName,
+                    lname: data.lName,
+                    address: data.address,
+                    phone: data.phone,
+                    email: data.email,
+                    city: data.city,
+                    zip: data.zip,
+                    comment: data.comment,
+        
+            }
+console.log(Neworder);
         try {
             const res = await axios({
                 method: 'post',
@@ -41,7 +51,8 @@ const ShippingForm = () => {
             <TopBar />
             <Navbar />
             {/* Container */}
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <FormProvider {...methods}>
+            <form onSubmit={handleSubmit((data) => onSubmit(data))}>
                 <section class="text-gray-600 body-font">
                     <div class="container px-5 pb-24 pt-5 mx-auto flex flex-wrap">
                         <div class="lg:w-1/3 w-full mb-10 lg:mb-0 rounded-lg overflow-hidden">
@@ -84,6 +95,7 @@ const ShippingForm = () => {
                     </div>
                 </section>
             </form>
+            </FormProvider>
             <Footer />
         </Fragment>
     );

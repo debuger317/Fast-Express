@@ -6,7 +6,7 @@ const OrderManagement = () => {
     console.log(clist);
 
     useEffect(() => {
-        fetch(`https://fastexpress.herokuapp.com/api/couriers/all`)
+        fetch(`https://fastexpress.herokuapp.com/api/order/allorder`)
             .then(res => res.json())
             .then(data => setClist(data))
     }, [])

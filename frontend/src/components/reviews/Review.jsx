@@ -15,7 +15,7 @@ const Review = () => {
     const [reviews, setReviews] = useState([]);
 
     useEffect(() => {
-        fetch ('http://localhost:5500/api/reviews/allreviews')
+        fetch ('https://fastexpress.herokuapp.com/api/reviews/allreviews')
             .then(res => res.json())
             .then(data => setReviews(data))
     }, [reviews])
