@@ -11,14 +11,13 @@ const SideBar = () => {
         history.push('/')
         dispatch(BackToHomeAction(true))
     }
-    const role = useSelector((state) => state.auth.userdetails.role)
-    
+    const role = useSelector((state) => state)
+    console.log(role);
     useEffect(() => {
 
     }, [])
 
-    const filtered = dashboard_nav.filter(nav => nav.role.includes(role))
-    console.log('filtered',filtered);
+
     return (
         <div class="lg:block relative mr-14 h-screen">
             <div class="h-screen bg-white mr-10 shadow-lg">
