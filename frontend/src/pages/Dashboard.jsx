@@ -37,10 +37,10 @@ const Dashboard = () => {
                     <TopBar />
                 </div>
                 <div className="flex">
-                    <div className={`w-1/4 ${back ? 'hidden' : ''}`}>
-                        <SideBar />
+                    <div className={`w-1/4  ${back ? 'hidden' : ''}`}>
+                        <SideBar/>
                     </div>
-                    <div className="w-3/4">
+                    <div className="w-3/4 mt-16">
                         <Switch>
                             <Route exact path="/dashboard">
                                 <DashboardHome />
