@@ -87,14 +87,19 @@ const user_order_list_control = async (req, res, next) => {
         res.status(500).json({ message: err.message })
     }
 }
-
+          
 //get order list for merchant by username id
-
 const merchant_order_list_control = async (req, res, next) => {
     try {
-        const orders = await Orders.find()
+        const orders = await Orders.findById(req.params.id);
+        if(orders.email === req.body.email){
+            const filterOrder =await orders.findById(
+                req.params.id,  
+                { $set: req.body },
+                { new: true }
+            );
+        }
         res.status(200).json(orders)
-
     }
     catch (err) {
         console.log(err)
@@ -105,7 +110,8 @@ const merchant_order_list_control = async (req, res, next) => {
 
 module.exports = {
     Addorder_control,
-    allorder_control
+    allorder_control,
+    merchant_order_list_control
 }
 
 
