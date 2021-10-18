@@ -8,7 +8,7 @@ const CompanyList = () => {
     console.log(clist);
 
     useEffect(() => {
-        fetch(`http://localhost:5500/api/merchant/all`)
+        fetch(`https://fastexpress.herokuapp.com/api/merchant/all`)
             .then(res => res.json())
             .then(data => setClist(data))
     }, [])

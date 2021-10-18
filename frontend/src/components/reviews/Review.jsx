@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import "swiper/swiper.min.css";
@@ -10,14 +11,25 @@ import SwiperCore, {
 } from 'swiper/core';
 import { ImQuotesLeft, ImQuotesRight } from "react-icons/im";
 
+
 const Review = () => {
+
     SwiperCore.use([Pagination, Autoplay]);
+
     const [reviews, setReviews] = useState([]);
 
+    const getCategories = async () => {
+        try {
+            const res = await axios.get('https://fastexpress.herokuapp.com/api/reviews/allreviews');
+
+            setReviews(res.data)
+
+        } catch (error) {
+            console.error(error);
+        }
+    }
     useEffect(() => {
-        fetch ('http://localhost:5500/api/reviews/allreviews')
-            .then(res => res.json())
-            .then(data => setReviews(data))
+        getCategories()
     }, [reviews])
 
     return (
@@ -74,17 +86,15 @@ const Review = () => {
                                         </span>
                                     </p>
                                     <div className="flex items-center mt-4 xl:w-1/4 md:w-1/2 p-4">
-                                        <a href="#" className="block relative">
-                                            <div className="flex items-center border border-gray-900 group-hover:border-white group-hover:text-white rounded-full text-4xl p-2">
-                                                <img src={review.photo} className="ml-2 h-4 w-4" />
-                                            </div>
-                                        </a>
+
+                                        <img className="w-full" src={review.photo} alt="=" srcset="" />
+
                                         <div className="flex flex-col ml-5 justify-between">
                                             <span className="font-semibold text-indigo-500 text-sm">
                                                 {review.name}
                                             </span>
                                             <span className="dark:text-gray-400 text-xs flex items-center">
-                                            {review.city}
+                                                {review.city}
                                                 {/* <img src={review.photo} className="ml-2 h-4 w-4" /> */}
                                             </span>
                                         </div>

@@ -3,25 +3,50 @@ const Orders = require("../models/Orders");
 const Addorder_control = async (req, res) => {
     try {
         const addNew = new Orders({
-            userId: req.body.userId,
-            merchant: [
+
+            merchantId: req.body.merchantId,
+            merchantinfo: [
                 {
-                    merchantId: req.body.merchantId,
-                    email: req.body.email,
-                    name: req.body.name,
-                    photo: req.body.photo,
-                    address: req.body.address,
-       
-                },
+                    email: req.body.merchantemail,
+                    name: req.body.merchantname,
+                    photo: req.body.merchantphoto,
+                    address: req.body.merchantaddress,
+
+                }
             ],
-            username: req.body.username,
-            useraddress: req.body.useraddress,
-            useremail: req.body.useremail,
-            pickupFrom: req.body.pickupFrom,
-            pickupTo: req.body.pickupTo,
-            deliveryOption: req.body.deliveryOption,
-            phone: req.body.phone,
-            payment: req.body.payment,
+            userId: req.body.userId,
+            userinfo: [
+                {
+                    fname: req.body.fname,
+                    lname: req.body.lname,
+                    address: req.body.useraddress,
+                    email: req.body.useremail,
+                    pickupFrom: req.body.pickupFrom,
+                    pickupTo: req.body.pickupTo,
+                    phone: req.body.phone,
+                    city: req.body.city,
+                    zip: req.body.zip,
+                    paymentinfo: [{
+                        paymentType: req.body.paymentType,
+                        paymentAmount: req.body.paymentAmount,
+                        createdAt: req.body.createdAt,
+                        paymentStatus: req.body.paymentStatus,
+                        cardNumber: req.body.cardNumber,
+                        cardtype: req.body.cardtype,
+                    }],
+
+                    deliverytype: req.body.deliverytype,
+                }
+            ],
+            parcelinfo: [
+                {
+                    name: req.body.parcelname,
+                    type: req.body.parceltype,
+                    weight: req.body.parcelweight,
+
+                }
+            ],
+
         });
         const newOrder = await addNew.save();
         res.status(200).json({

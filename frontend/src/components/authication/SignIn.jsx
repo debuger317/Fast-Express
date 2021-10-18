@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { CgSpinner, CgFacebook, CgGoogle } from 'react-icons/cg';
 import { BiEnvelope, BiLockOpenAlt } from 'react-icons/bi';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 import loginImg from '../../assets/images/loginImg.svg';
 import { getAuth, signInWithPopup, GoogleAuthProvider, FacebookAuthProvider } from "firebase/auth";
 import firebase from 'firebase/compat/app';
@@ -17,6 +17,9 @@ if (!firebase.apps.length) {
 }
 // email signIn
 const SignIn = () => {
+  const location = useLocation()
+  let { from } = location.state || { from: { pathname: "/" } };
+
   const history = useHistory();
   const dispatch = useDispatch();
   const [error, setError] = useState(false);
@@ -39,7 +42,7 @@ const SignIn = () => {
       console.log(res);
       dispatch(customAuthAction(res.data.others));
       if (res) {
-        history.push("/dashboard")
+        history.replace(from)
       }
     } catch (err) {
       setError(true);
@@ -82,13 +85,13 @@ const SignIn = () => {
         const email = error.email;
         const credential = GoogleAuthProvider.credentialFromError(error);
       });
+      setError(false);
     try {
       const res = await axios({
         method: 'post',
         url: 'https://fastexpress.herokuapp.com/api/auth/login',
         data: user
       });
-      console.log(res);
 
       if (res) {
         history.push("/dashboard")
