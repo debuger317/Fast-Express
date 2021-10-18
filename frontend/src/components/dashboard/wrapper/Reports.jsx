@@ -6,13 +6,9 @@ import TopBar from '../components/TopBar';
 
 const Reports = () => {
     return (
-
         <Fragment>
-         
-                <ReportManagement />
-
+            <ReportManagement />
         </Fragment>
-
     );
 };
 

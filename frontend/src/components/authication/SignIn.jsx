@@ -36,13 +36,13 @@ const SignIn = () => {
     try {
       const res = await axios({
         method: 'post',
-        url: 'https://fastexpress.herokuapp.com/api/auth/login',
+        url: 'http://localhost:5500/api/auth/login',
         data: userData
       });
       console.log(res);
       dispatch(customAuthAction(res.data.others));
       if (res) {
-        history.replace(from)
+        history.push("/dashboard")
       }
     } catch (err) {
       setError(true);

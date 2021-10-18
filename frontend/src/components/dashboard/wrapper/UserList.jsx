@@ -6,9 +6,6 @@ import TopBar from '../components/TopBar';
 
 const UserList = () => {
     return (
-
-
-
         <div className="container mx-auto w-4/5">
             <UserCard />
             <div>
