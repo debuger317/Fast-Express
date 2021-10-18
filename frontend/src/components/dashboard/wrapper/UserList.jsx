@@ -8,14 +8,12 @@ const UserList = () => {
     return (
 
 
-
-        <div className="container mx-auto w-4/5">
+        <div className="container mx-auto w-5/5">
             <UserCard />
             <div>
                 <AllUserList />
             </div>
         </div>
-
 
     );
 };
