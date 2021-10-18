@@ -9,7 +9,6 @@ const CompanyListDetiles = (props) => {
             <td className="p-2 border-r">{name}</td>
             <td className="p-2 border-r">{email}</td>
             <td className="p-2 border-r">{address}</td>
-            <td className="p-2 border-r">Paypal</td>
             <td className="p-2 border-r">{new Date(createdAt).toDateString()}
             </td>
             <td className="p-2 border-r">{new Date(updatedAt).toDateString()}</td>
