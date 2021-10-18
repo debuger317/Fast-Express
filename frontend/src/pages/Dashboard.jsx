@@ -40,6 +40,7 @@ const Dashboard = () => {
                         <SideBar/>
                     </div>
                     <div className="w-3/4 mt-16">
+                    <Suspense fallback={<Spinner />}>
                         <Switch>
                             <Route exact path="/dashboard">
                                 <DashboardHome />
