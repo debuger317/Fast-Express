@@ -3,7 +3,6 @@ import React from 'react';
 const OrderManageTable = (props) => {
     const { name, email, courierLogo, address, updatedAt, createdAt } = props.list;
     return (
-
         <tr>
             <td class="px-5  mr-6 py-5 border-b border-gray-200 bg-white text-sm">
                 <div class="flex items-center">

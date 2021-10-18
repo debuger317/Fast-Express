@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import Private from '../components/auth/PrivateRoute';
 import PrivateForm from '../components/auth/PrivateForm';
+import PrivateShippingForm from '../components/auth/PrivateShippingForm';
 const ShippingForm =  lazy(() => import('../pages/ShippingForm'));
 const Home = lazy(() => import('../pages/Home'));
 const CompanyForm = lazy(() => import('../pages/CompanyForm'));
@@ -45,21 +46,20 @@ const Routes = () => {
                     <Route exact path="/service/category/:name">
                         <CategoryDetail />
                     </Route>
-
                     <Route exact path="/service/category/:filterPath/:_id">
                         <SingleCourierDetail />
                     </Route>
-                    <Route exact path="/service/category/:filterPath/:_id/customer-parcel-shipping-form">
+                    <PrivateShippingForm exact path="/service/category/:filterPath/:_id/customer-parcel-shipping-form">
                         <ShippingForm />
-                    </Route>
+                    </PrivateShippingForm>
                     <Route path="/service">
                         <Services />
                     </Route>
                     <Route path="/faq">
-                        <Faq></Faq>
+                        <Faq/>
                     </Route>
                     <Route path="/about">
-                        <About></About>
+                        <About/>
                     </Route>
                     <Route path="/signup">
                         <SignUp />

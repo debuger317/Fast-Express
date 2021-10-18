@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import OrderManageTable from './OrderManageTable';
 
-
 const OrderManagement = () => {
     const [clist, setClist] = useState([]);
     console.log(clist);
+
     useEffect(() => {
-        fetch(`https://fastexpress.herokuapp.com/api/couriers/all`)
+        fetch(`https://fastexpress.herokuapp.com/api/order/allorder`)
             .then(res => res.json())
             .then(data => setClist(data))
     }, [])
+
     return (
         <section className="container w-5/6 mx-auto px-4 sm:px-8 max-w-6xl">
-
             <div class="py-8">
                 <div class="flex flex-row mb-1 sm:mb-0 justify-between">
                     <h2 class="text-2xl leading-tight">
@@ -66,9 +66,7 @@ const OrderManagement = () => {
                             <tbody>
 
                                 {
-
                                     clist.map(list => <OrderManageTable list={list} key={list._id}></OrderManageTable>)
-
                                 }
                             </tbody>
                         </table>

@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { CgSpinner, CgFacebook, CgGoogle } from 'react-icons/cg';
 import { BiEnvelope, BiLockOpenAlt } from 'react-icons/bi';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 import loginImg from '../../assets/images/loginImg.svg';
-import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider, FacebookAuthProvider } from "firebase/auth";
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore';
 import firebaseConfig from '../../config/firebase';
@@ -15,14 +15,18 @@ import { useForm } from 'react-hook-form';
 if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig);
 }
+// email signIn
 const SignIn = () => {
+  const location = useLocation()
+  let { from } = location.state || { from: { pathname: "/" } };
+
   const history = useHistory();
   const dispatch = useDispatch();
   const [error, setError] = useState(false);
   const [user, setUser] = useState({});
   const [loading, setLoading] = useState(false);
-
   const { handleSubmit, register } = useForm();
+
   const onSubmit = async (data) => {
     const userData = {
       email: data.email,
@@ -38,15 +42,16 @@ const SignIn = () => {
       console.log(res);
       dispatch(customAuthAction(res.data.others));
       if (res) {
-        history.push("/dashboard")
+        history.replace(from)
       }
-
     } catch (err) {
       setError(true);
       setLoading(false);
       console.log(err);
     }
   }
+
+  //google singIn 
   const provider = new GoogleAuthProvider();
   const GoogleSigning = async () => {
     const auth = getAuth();
@@ -79,15 +84,14 @@ const SignIn = () => {
         const errorMessage = error.message;
         const email = error.email;
         const credential = GoogleAuthProvider.credentialFromError(error);
-
       });
+      setError(false);
     try {
       const res = await axios({
         method: 'post',
         url: 'https://fastexpress.herokuapp.com/api/auth/login',
         data: user
       });
-      console.log(res);
 
       if (res) {
         history.push("/dashboard")
@@ -97,8 +101,28 @@ const SignIn = () => {
       setError(true);
       console.log(err);
     }
-
   }
+
+  //Facebook signIn
+  const fbProvider = new FacebookAuthProvider();
+  const facebookSignIn = () => {
+    const auth = getAuth();
+    signInWithPopup(auth, fbProvider)
+      .then((result) => {
+        const user = result.user;
+        const credential = FacebookAuthProvider.credentialFromResult(result);
+        const accessToken = credential.accessToken;
+        console.log("user info", user)
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        const email = error.email;
+        const credential = FacebookAuthProvider.credentialFromError(error);
+        console.log(errorCode,errorMessage,email,credential)
+      });
+  }
+
   return (
     <div className="container mx-auto my-10">
       <div className="flex flex-wrap w-full mx-auto">
@@ -108,12 +132,12 @@ const SignIn = () => {
               Login To Your Account
             </div>
             <div className="flex gap-4 item-center">
-              <button type="button" className="py-2 px-4 flex justify-center items-center  bg-blue-600 hover:bg-blue-700 focus:ring-blue-500 focus:ring-offset-blue-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
+              <button onClick={() => facebookSignIn()} type="button" className="py-2 px-4 flex justify-center items-center  bg-blue-600 hover:bg-blue-700 focus:ring-blue-500 focus:ring-offset-blue-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
                 <CgFacebook />
                 Facebook
               </button>
               <button onClick={() => GoogleSigning()} type="button" className="py-2 px-4 flex justify-center items-center  bg-red-600 hover:bg-red-700 focus:ring-red-500 focus:ring-offset-red-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
-                <CgGoogle className="mr-1"/>
+                <CgGoogle className="mr-1" />
                 Google
               </button>
             </div>
@@ -145,7 +169,6 @@ const SignIn = () => {
                 <div class="flex w-full">
                   <button type="submit" class="py-2 px-4 flex justify-center items-center  bg-red-600 hover:bg-red-700 focus:ring-red-500 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none rounded">
                     {loading ?
-
                       <CgSpinner class="animate-spin text-xl" /> : "Login"
                     }
                   </button>
@@ -163,7 +186,7 @@ const SignIn = () => {
           </div>
 
         </div>
-        <div className="w-1/2 shadow-2xl">
+        <div className="w-1/2 p-10">
           <img className="hidden md:block" src={loginImg} alt="Login img" />
         </div>
       </div>

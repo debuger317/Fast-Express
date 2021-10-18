@@ -2,14 +2,13 @@ import { authSlice } from "../slice/authSlice";
 
 const { actions: slice } = authSlice;
 
-export const googleSignUpAction = (userdetails) => (dispatch) => {
-    dispatch(slice.googleAuth(userdetails))
+export const googleSignUpAction = (authdetails) => (dispatch) => {
+    dispatch(slice.googleAuth(authdetails))
 }
 
-export const customAuthAction = (userdetails) => (dispatch) => {
-    dispatch(slice.customAuth(userdetails))
+export const customAuthAction = (authdetails) => (dispatch) => {
+    dispatch(slice.customAuth(authdetails))
 }
-
 export const merchantAuthAction = (merchantdetails) => (dispatch) => {
     dispatch(slice.merchnatAuth(merchantdetails))
 }

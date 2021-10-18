@@ -3,11 +3,14 @@ const Users = require("../models/Users");
 const adduser = async (req, res) => {
     try {
         const newUser = new Users({
-          usernames: req.body.usernames,
-          email: req.body.useremail,
-          companymail: req.body.companymail,
-          companyname: req.body.companyname,
-          companyphoto: req.body.companyphoto,
+            photo: req.body.photo,
+            name: req.body.name,
+            email: req.body.email,
+            password: req.body.password,
+            role: req.body.role,
+            address: req.body.address,
+            phone: req.body.phone
+          
         });
         const newuser = await newUser.save();
         res.status(200).json(newuser);
@@ -19,12 +22,10 @@ const adduser = async (req, res) => {
 }
 
 //get all merchant list from
-
 const allusers = async (req, res, next) => {
     try {
         const users = await Users.find()
         res.status(200).json(users)
-
     }
     catch (err) {
         console.log(err)

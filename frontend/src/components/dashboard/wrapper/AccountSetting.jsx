@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 const AccountSetting = () => {
-    const user = useSelector((state) => state.auth.userdetails)
+    const user = useSelector((state) => state.auth.authdetails)
     const { displayName, email, photoURL } = user;
     return (
         <section class="bg-gray-100 bg-opacity-50 py-10">
@@ -14,6 +14,7 @@ const AccountSetting = () => {
                         <div class="flex items-center space-x-4">
                         <div class="block relative">
                                 <img alt="profil" src={photoURL} class="mx-auto object-cover rounded-full h-16 w-16 " />
+                                {/* //https://i.ibb.co/Zcfndd4/user.png */}
                                 </div>
                             <h1 class="text-gray-600">
                                 {displayName}

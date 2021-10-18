@@ -29,9 +29,9 @@ const TopBar = () => {
                     <div class=" flex items-center">
                         <div class="flex relative ">
                             {/* <input type="text" id="email-with-icon" class=" rounded-l-lg flex-1 appearance-none border border-gray-300 w-80 py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:border-gray-400 focus:border-r-0" name="email" placeholder="What are you looking for.." /> */}
-                            <span class="inline-flex  items-center px-3 bg-white text-gray-500  cursor-pointer">
+                            {/* <span class="inline-flex  items-center px-3 bg-white text-gray-500  cursor-pointer">
                                 <BiSearch className="text-xl" />
-                            </span>
+                            </span> */}
                         </div>
                     </div>
                     <div class="flex">
@@ -48,7 +48,9 @@ const TopBar = () => {
                                                 <p class="text-gray-800 dark:text-white text-xl font-normal">
                                                     Activity
                                                 </p>
+
                                             </div>
+
                                         </div>
                                     </div>
                                 </div>
