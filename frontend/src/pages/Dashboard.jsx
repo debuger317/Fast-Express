@@ -26,7 +26,6 @@ const ManageReviews =lazy(()=> import ('../components/dashboard/components/manag
 const Dashboard = () => {
     const back = useSelector((state) => state.dashboard.backtohome)
     return (
-        <Suspense fallback={<Spinner />}>
             <Router>
                 <switch>
                     <Route exact path="/">
@@ -41,6 +40,7 @@ const Dashboard = () => {
                         <SideBar />
                     </div>
                     <div className="w-3/4">
+                    <Suspense fallback={<Spinner />}>
                         <Switch>
                             <Route exact path="/dashboard">
                                 <DashboardHome />
@@ -79,10 +79,10 @@ const Dashboard = () => {
                                 <ManageReviews />
                             </Route>
                         </Switch>
+                        </Suspense>
                     </div>
                 </div>
             </Router>
-        </Suspense>
     );
 };
 
