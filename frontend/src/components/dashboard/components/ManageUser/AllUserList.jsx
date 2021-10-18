@@ -6,7 +6,9 @@ const AllUserList = () => {
     const [userList, setUserList] = useState([]);
 
     useEffect(() => {
+
         fetch(`https://fastexpress.herokuapp.com/api/user/alluser`)
+
             .then(res => res.json())
             .then(data => setUserList(data))
     }, [])
