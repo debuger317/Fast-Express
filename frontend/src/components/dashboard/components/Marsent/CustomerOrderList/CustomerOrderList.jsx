@@ -1,6 +1,14 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 const CustomerOrderList = () => {
+    const [order, setOrder] = useState([]);
+    console.log(order);
+
+    useEffect(() => {
+        fetch(`https://fastexpress.herokuapp.com/api/order/allorder`)
+            .then(res => res.json())
+            .then(data => setOrder(data))
+    }, [])
     return (
         <section class="table w-full p-2">
             <h2 class="text-2xl leading-tight">
@@ -61,35 +69,37 @@ const CustomerOrderList = () => {
                     </tr>
                 </thead>
                 <tbody>
+{
+    order.map(order =>{
+        
+        <tr class="bg-gray-100 text-center border-b text-sm text-gray-600">
+        <td class="p-2 border-r">{order.name}</td>
+        <td class="p-2 border-r">{order.email}</td>
+        <td class="p-2 border-r">Sydney, Australia</td>
+        <td class="p-2 border-r">Strip</td>
+        <td class="p-2 border-r">
+            <select class="block w-30 text-gray-700 mx-auto py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500" name="animals">
+                <option value="">
+                    Select
+                </option>
+                <option value="dog">
+                    OnGoing
+                </option>
+                <option value="cat">
+                    Panding
+                </option>
+                <option value="hamster">
+                    Done
+                </option>
 
-                    <tr class="bg-gray-100 text-center border-b text-sm text-gray-600">
-
-                        <td class="p-2 border-r">John Doe</td>
-                        <td class="p-2 border-r">john@gmail.com</td>
-                        <td class="p-2 border-r">Sydney, Australia</td>
-                        <td class="p-2 border-r">Strip</td>
-                        <td class="p-2 border-r">
-                            <select class="block w-30 text-gray-700 mx-auto py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500" name="animals">
-                                <option value="">
-                                    Select
-                                </option>
-                                <option value="dog">
-                                    OnGoing
-                                </option>
-                                <option value="cat">
-                                    Panding
-                                </option>
-                                <option value="hamster">
-                                    Done
-                                </option>
-
-                            </select>
-                        </td>
-                        <td>
-
-                            <a href="#" class="bg-red-500 p-2 text-white hover:shadow-lg text-xs font-thin">Remove</a>
-                        </td>
-                    </tr>
+            </select>
+        </td>
+        <td>
+            <a href="#" class="bg-red-500 p-2 text-white hover:shadow-lg text-xs font-thin">Remove</a>
+        </td>
+    </tr>
+    })
+}
 
                 </tbody>
             </table>

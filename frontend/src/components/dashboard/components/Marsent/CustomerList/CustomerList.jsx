@@ -4,7 +4,7 @@ const CustomerList = () => {
     return (
         <section class="table w-full p-2">
             <h2 class="text-2xl leading-tight">
-                Customer Order List
+                Customer  List
             </h2>
             <table class="w-full border">
 
