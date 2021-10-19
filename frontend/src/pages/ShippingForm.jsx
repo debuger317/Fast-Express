@@ -22,7 +22,6 @@ const ShippingForm = () => {
 
     const user = useSelector((state) => state.auth.authdetails)
 
-
     const { handleSubmit } = methods;
 
     const onSubmit = async (data) => {
@@ -59,13 +58,14 @@ const ShippingForm = () => {
         try {
             const res = await axios({
                 method: 'post',
-                url: 'https://fastexpress.herokuapp.com/api/order/addorder',
+                url: 'http://localhost:5500/api/order/addorder',
                 data: Neworder
             });
             res && history.push("/login")
 
         } catch (err) {
             setError(true);
+            setPending(false)
             console.log(err);
         }
     }
@@ -111,7 +111,7 @@ const ShippingForm = () => {
                                     <div class="flex w-26 m-6">
                                         <button type="submit" class="py-2 px-4  bg-purple-600 hover:bg-purple-700 focus:ring-purple-500 focus:ring-offset-purple-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
                                             {pending ?
-                                                <CgSpinner class="animate-spin text-xl"/> : "Comform order"
+                                                <CgSpinner class="animate-spin text-xl" /> : "Comform order"
                                             }
                                         </button>
                                     </div>

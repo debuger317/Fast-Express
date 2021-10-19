@@ -3,49 +3,33 @@ const Orders = require("../models/Orders");
 const Addorder_control = async (req, res) => {
     try {
         const addNew = new Orders({
-
             merchantId: req.body.merchantId,
-            merchantinfo: [
-                {
-                    email: req.body.merchantemail,
-                    name: req.body.merchantname,
-                    photo: req.body.merchantphoto,
-                    address: req.body.merchantaddress,
-
-                }
-            ],
+            merchantmail: req.body.merchantemail,
+            name: req.body.merchantname,
+            photo: req.body.merchantphoto,
+            address: req.body.merchantaddress,
             userId: req.body.userId,
-            userinfo: [
-                {
-                    fname: req.body.fname,
-                    lname: req.body.lname,
-                    address: req.body.useraddress,
-                    email: req.body.useremail,
-                    pickupFrom: req.body.pickupFrom,
-                    pickupTo: req.body.pickupTo,
-                    phone: req.body.phone,
-                    city: req.body.city,
-                    zip: req.body.zip,
-                    paymentinfo: [{
-                        paymentType: req.body.paymentType,
-                        paymentAmount: req.body.paymentAmount,
-                        createdAt: req.body.createdAt,
-                        paymentStatus: req.body.paymentStatus,
-                        cardNumber: req.body.cardNumber,
-                        cardtype: req.body.cardtype,
-                    }],
+            fname: req.body.fname,
+            lname: req.body.lname,
+            address: req.body.useraddress,
+            usermail: req.body.useremail,
+            pickupFrom: req.body.pickupFrom,
+            pickupTo: req.body.pickupTo,
+            phone: req.body.phone,
+            city: req.body.city,
+            zip: req.body.zip,
+            paymentType: req.body.paymentType,
+            paymentAmount: req.body.paymentAmount,
+            createdAt: req.body.createdAt,
+            paymentStatus: req.body.paymentStatus,
+            cardNumber: req.body.cardNumber,
+            cardtype: req.body.cardtype,
+            deliverytype: req.body.deliverytype,
+            name: req.body.parcelname,
+            type: req.body.parceltype,
+            weight: req.body.parcelweight,
 
-                    deliverytype: req.body.deliverytype,
-                }
-            ],
-            parcelinfo: [
-                {
-                    name: req.body.parcelname,
-                    type: req.body.parceltype,
-                    weight: req.body.parcelweight,
 
-                }
-            ],
 
         });
         const newOrder = await addNew.save();
@@ -110,23 +94,23 @@ module.exports = {
 
 
 
-/*{
-    "userId": "der##@4gwagf5",
-    "merchant": [
-        {
-            "merchantId": "iuhwwhjnd$566434",
-            "email": "merchwwwnat@gmail.com",
-            "name": "merhawnxt",
-            "photo": "qqqqwqq",
-            "address": "weuhwajbjhajbjahbahbhj"
-        }
-    ],
-    "username": "Kazwi Rayhan",
-    "useraddress": "Shailkupa,Jhendah",
-    "useremail": "rayhawnbd@gmail.com",
-    "pickupFrom": "Jesswore",
-    "pickupTo": "Dhawka",
-    "deliveryOption": "Homew Delivery",
-    "phone": "+019927w6567",
-    "payment": "Bkaswh"
-}*/
+// {
+//     "userId": "der##@4gwagf5",
+//     "merchant": [
+//         {
+//             "merchantId": "iuhwwhjnd$566434",
+//             "email": "merchwwwnat@gmail.com",
+//             "name": "merhawnxt",
+//             "photo": "qqqqwqq",
+//             "address": "weuhwajbjhajbjahbahbhj"
+//         }
+//     ],
+//     "username": "Kazwi Rayhan",
+//     "useraddress": "Shailkupa,Jhendah",
+//     "useremail": "rayhawnbd@gmail.com",
+//     "pickupFrom": "Jesswore",
+//     "pickupTo": "Dhawka",
+//     "deliveryOption": "Homew Delivery",
+//     "phone": "+019927w6567",
+//     "payment": "Bkaswh"
+// }
