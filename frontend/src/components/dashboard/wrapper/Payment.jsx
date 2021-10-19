@@ -1,10 +1,12 @@
 import React, { Fragment, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { userOrderAction } from '../../../redux/action/userOderList';
+import UserPaymentDetails from '../components/ManageUser/UserPaymentDetails';
 
 const Payment = () => {
     // const displayName = useSelector((state) => state)
     const userId = useSelector((state) => state.auth.authdetails._id)
+    const userDatas = useSelector((state) => state.user.userOrderLists)
     const dispatch = useDispatch();
     useEffect(()=>{
         const url = `http://localhost:5500/api/order/${userId}`;
@@ -12,8 +14,7 @@ const Payment = () => {
         .then(res => res.json())
         .then(data=> dispatch(userOrderAction(data)));
     
-        },[])
-    console.log(userId);
+        },[userId])
     return (
         <Fragment>
 
@@ -43,6 +44,9 @@ const Payment = () => {
                                             ORDER ID
                                         </th>
                                         <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal">
+                                            COURIER COMPANY
+                                        </th>
+                                        <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal">
                                             PAYMENT METHOD
                                         </th>
                                         <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal">
@@ -57,37 +61,8 @@ const Payment = () => {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                                <p class="text-gray-900 whitespace-no-wrap">
-                                                    #FE000001
-                                                </p>
-                                        </td>
-                                        <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                            <p class="text-gray-900 whitespace-no-wrap">
-                                                PAYPAL
-                                            </p>
-                                        </td>
-                                        <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                            <p class="text-gray-900 whitespace-no-wrap">
-                                                #pay23102152
-                                            </p>
-                                        </td>
-                                        <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                            <p class="text-gray-900 whitespace-no-wrap">
-                                                12/09/2021
-                                            </p>
-                                        </td>
-                                        <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                            <span class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
-                                                <span aria-hidden="true" class="absolute inset-0 bg-green-200 opacity-50 rounded-full">
-                                                </span>
-                                                <span class="relative">
-                                                    DONE
-                                                </span>
-                                            </span>
-                                        </td>
-                                    </tr>
+                                    {userDatas.map(data => <UserPaymentDetails data={data}></UserPaymentDetails>)}
+                                    
                                 </tbody>
                             </table>
                             <div class="px-5 bg-white py-5 w-96 mx-auto">
