@@ -2,9 +2,9 @@ const mongoose = require('mongoose');
 
 const OrderSchema = new mongoose.Schema({
     merchantId: { type: String, required: true },
-    merchantinfo: [
+    merchantinfo: 
         {
-            email: {
+            merchantemail: {
                 type: String,
                 required: true,
                 unique: false,
@@ -26,11 +26,13 @@ const OrderSchema = new mongoose.Schema({
             },
             _id: false
         }
-    ],
+    ,
     userId: { type: String, required: true },
-    userinfo: [
+    userinfo: 
 
         {
+            type:Object,
+
             fname: { type: String, required: true },
             lname: { type: String, required: true },
             address: {
@@ -38,12 +40,12 @@ const OrderSchema = new mongoose.Schema({
                 required: true,
                 unique: false,
             },
-            email: {
+            usermail: {
                 type: String,
                 lowercase: true,
                 trim: true,
                 required: true,
-                unique: true,
+                unique: false,
             },
             pickupFrom: {
                 type: String,
@@ -65,7 +67,9 @@ const OrderSchema = new mongoose.Schema({
             city: { type: String, required: true },
             zip: { type: String, required: true },
             paymentinfo: [
+                
                 {
+                    type:Object,
                     paymentType: { type: String, required: true },
                     paymentAmount: { type: Number, required: true },
                     createdAt: { type: Date, required: true },
@@ -85,8 +89,8 @@ const OrderSchema = new mongoose.Schema({
             },
             _id: false
         }
-    ],
-    parcelinfo: [
+    ,
+    parcelinfo: 
         {
             name: {
                 type: String,
@@ -107,8 +111,6 @@ const OrderSchema = new mongoose.Schema({
             },
             _id: false
         }
-    ]
-
 
 }, { timestamps: true }, { _id: false });
 
