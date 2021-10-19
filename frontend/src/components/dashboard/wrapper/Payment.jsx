@@ -1,11 +1,19 @@
-import React, { Fragment } from 'react';
-import { useSelector } from 'react-redux';
+import React, { Fragment, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { userOrderAction } from '../../../redux/action/userOderList';
 
 const Payment = () => {
     // const displayName = useSelector((state) => state)
-    const displayName = useSelector((state) => state.auth.authdetails.displayName)
+    const userId = useSelector((state) => state.auth.authdetails._id)
+    const dispatch = useDispatch();
+    useEffect(()=>{
+        const url = `http://localhost:5500/api/order/${userId}`;
+        fetch(url)
+        .then(res => res.json())
+        .then(data=> dispatch(userOrderAction(data)));
     
-    console.log(displayName);
+        },[])
+    console.log(userId);
     return (
         <Fragment>
 
@@ -13,7 +21,7 @@ const Payment = () => {
                 <div class="py-8">
                     <div class="flex flex-row mb-1 sm:mb-0 justify-between w-full">
                         <h2 class="text-2xl leading-tight">
-                            {displayName}
+                            {/* {displayName} */}
                         </h2>
                         <div class="text-end">
                             <form class="flex flex-col md:flex-row w-3/4 md:w-full max-w-sm md:space-x-3 space-y-3 md:space-y-0 justify-center">

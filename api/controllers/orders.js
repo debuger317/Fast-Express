@@ -3,50 +3,31 @@ const Orders = require("../models/Orders");
 const Addorder_control = async (req, res) => {
     try {
         const addNew = new Orders({
-
             merchantId: req.body.merchantId,
-            merchantinfo: [
-                {
-                    email: req.body.merchantemail,
-                    name: req.body.merchantname,
-                    photo: req.body.merchantphoto,
-                    address: req.body.merchantaddress,
-
-                }
-            ],
+            email: req.body.merchantemail,
+            name: req.body.merchantname,
+            photo: req.body.merchantphoto,
+            address: req.body.merchantaddress,
             userId: req.body.userId,
-            userinfo: [
-                {
-                    fname: req.body.fname,
-                    lname: req.body.lname,
-                    address: req.body.useraddress,
-                    email: req.body.useremail,
-                    pickupFrom: req.body.pickupFrom,
-                    pickupTo: req.body.pickupTo,
-                    phone: req.body.phone,
-                    city: req.body.city,
-                    zip: req.body.zip,
-                    paymentinfo: [{
-                        paymentType: req.body.paymentType,
-                        paymentAmount: req.body.paymentAmount,
-                        createdAt: req.body.createdAt,
-                        paymentStatus: req.body.paymentStatus,
-                        cardNumber: req.body.cardNumber,
-                        cardtype: req.body.cardtype,
-                    }],
-
-                    deliverytype: req.body.deliverytype,
-                }
-            ],
-            parcelinfo: [
-                {
-                    name: req.body.parcelname,
-                    type: req.body.parceltype,
-                    weight: req.body.parcelweight,
-
-                }
-            ],
-
+            fname: req.body.fname,
+            lname: req.body.lname,
+            address: req.body.useraddress,
+            email: req.body.useremail,
+            pickupFrom: req.body.pickupFrom,
+            pickupTo: req.body.pickupTo,
+            phone: req.body.phone,
+            city: req.body.city,
+            zip: req.body.zip,
+            paymentType: req.body.paymentType,
+            paymentAmount: req.body.paymentAmount,
+            createdAt: req.body.createdAt,
+            paymentStatus: req.body.paymentStatus,
+            cardNumber: req.body.cardNumber,
+            cardtype: req.body.cardtype,
+            deliverytype: req.body.deliverytype,
+            name: req.body.parcelname,
+            type: req.body.parceltype,
+            weight: req.body.parcelweight,
         });
         const newOrder = await addNew.save();
         res.status(200).json({
@@ -102,10 +83,25 @@ const merchant_order_list_control = async (req, res, next) => {
     }
 }
 
+//get order list for user by email id
+
+const email_order_list_control = async (req, res, next) => {
+    const id = req.params.userId;
+    try {
+        const userOrders = await Orders.find({userId:id});
+        res.status(200).json(userOrders)
+    }
+    catch (err) {
+        console.log(err)
+        res.status(500).json({ message: err.message })
+    }
+}
+
 
 module.exports = {
     Addorder_control,
-    allorder_control
+    allorder_control,
+    email_order_list_control
 }
 
 
