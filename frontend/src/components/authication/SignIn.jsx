@@ -36,13 +36,13 @@ const SignIn = () => {
     try {
       const res = await axios({
         method: 'post',
-        url: 'http://localhost:5500/api/auth/login',
+        url: 'https://fastexpress.herokuapp.com/api/auth/login',
         data: userData
       });
       console.log(res);
       dispatch(customAuthAction(res.data.others));
       if (res) {
-        history.push("/dashboard")
+        history.replace(from)
       }
     } catch (err) {
       setError(true);
@@ -179,7 +179,7 @@ const SignIn = () => {
             <div className="flex items-center justify-center mt-6">
               <Link to="/signup" className="inline-flex items-center text-xs font-thin text-center text-gray-500 hover:text-gray-700 dark:text-gray-100 dark:hover:text-white">
                 <span className="ml-2">
-                  You don't have an account?
+                  You don&#x27;t have an account?
                 </span>
               </Link>
             </div>
