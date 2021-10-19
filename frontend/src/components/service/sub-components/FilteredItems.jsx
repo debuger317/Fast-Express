@@ -32,7 +32,6 @@ const FilteredItems = () => {
                     !getCourier === [] && <h2>loading....</h2>
                 }
                 {
-
                     getCourier.filter(name => name.serviceCategory.includes(filterPath)).map(item =>
                         <Link to={`/service/category/${filterPath}/${item._id}`} key={item._id} className="bg-white rounded shadow py-5 px-10">
                             <img src={item.logo} alt="courier-logo" srcset="" />

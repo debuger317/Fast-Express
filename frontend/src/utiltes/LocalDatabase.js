@@ -401,7 +401,7 @@ export const users = [
         pathname: "See your orders",
         icon:<VscPackage/>,
         size:"text-2xl",
-        role:["user"]
+        role:["user","admin"]
     },
     {
         id:8,
@@ -463,7 +463,6 @@ export const users = [
         id:15,
 
         path: "/dashboard/manage-setting",
-
         pathname: "Manage Setting",
         icon:<VscGear/>,
         size:"text-xl",
@@ -476,14 +475,6 @@ export const users = [
         icon:<VscGear/>,
         size:"text-xl",
         role:["admin"]
-    },
-    {
-        id:17,
-        path: "/dashboard/manage-review",
-        pathname: "Manage review",
-        icon:<VscGear/>,
-        size:"text-xl",
-        role:["admin"]
-    },
+    }
 
   ]

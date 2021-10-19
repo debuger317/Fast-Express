@@ -34,9 +34,6 @@ const Routes = () => {
                     <Route path="/pricing">
                         <Pricing />
                     </Route>
-                    <Route path="/pricing">
-                        <Pricing />
-                    </Route>
                     <Route path="/contact">
                         <Contacts />
                     </Route>
