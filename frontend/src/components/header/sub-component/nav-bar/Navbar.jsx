@@ -13,7 +13,7 @@ const Navbar = () => {
         setShow(!show)
     };
     const dispatch = useDispatch();
-    const email = useSelector((state) => state.auth.userdetails.email)
+    const email = useSelector((state) => state.auth.authdetails.email)
     return (
         <nav className="bg-white dark:bg-gray-800 shadow py-3 position-sticky">
             <div className="max-w-7xl mx-auto px-4">
@@ -27,13 +27,12 @@ const Navbar = () => {
 
                                 <div className="display-inline">
                                     {NavItem.map(link =>
-                                        <Link className={`${link.rm} text-gray-800 uppercase hover:text-gray-500 dark:hover:text-white mx-5 py-2 text-sm font-medium ${link.className ? 'relative ' : ''}`} to={link.path}>
+                                        <Link className={`${link.rm} text-gray-800 uppercase hover:text-gray-500 dark:hover:text-white mx-5 py-2 text-sm font-medium`} to={link.path}>
                                             {link.name}
                                         </Link>
                                     )}
                                     {
                                         email && <Link onClick={ ()=>dispatch(BackToHomeAction(false))} className="text-gray-800 uppercase hover:text-gray-500 dark:hover:text-white mx-5 py-2 text-sm font-medium" to={'/dashboard'}>
-
                                             Dashboard
                                         </Link>
                                     }

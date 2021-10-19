@@ -3,27 +3,24 @@ import { createSlice } from '@reduxjs/toolkit';
 export const authSlice = createSlice({
     name: 'auth',
     initialState: {
-        userdetails: {
+        authdetails: {
             
         },
-        merchantdetails:{
-
-        }
     },
     reducers: {
         googleAuth: (state, action) => {
-            state.userdetails = action.payload
+            state.authdetails = action.payload
 
         },
         customAuth: (state, action) => {
-            state.userdetails = action.payload
+            state.authdetails = action.payload
 
         },
         merchnatAuth: (state, action) => {
-            state.merchantdetails = action.payload
+            state.authdetails = action.payload
         },
         logOut: (state, action) => {
-            state.userdetails = {}
+            state.authdetails = {}
 
         }
     },

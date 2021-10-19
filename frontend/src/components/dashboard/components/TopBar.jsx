@@ -20,9 +20,8 @@ const TopBar = () => {
     }
 
     return (
-        <nav onClick={() => toggleText()} class="bg-white border-b border-gray-200">
+        <nav onClick={() => toggleText()} class="fixed z-10 inset-0 flex-none h-16 w-full  bg-white border-b border-gray-200">
             <div class="max-w-7xl mx-auto">
-
                 <div class="flex items-center justify-between h-16">
                     <Link to='/dashboard'>
                         <img class="pr-10" src={Logo} alt="" srcset="" />

@@ -16,7 +16,10 @@ const CompanyList = () => {
         <section className="container w-full mx-auto px-4 sm:px-8 max-w-8xl">
 
             <div class="py-8">
-                <div class="flex flex-row mb-1 sm:mb-0 justify-between">
+            <h2 class="text-2xl leading-tight font-medium">
+                    <span className="text-3xl text-red-400">{clist.length}</span> COMPANY CONNECTED WITH US.
+                    </h2>
+                <div class="flex flex-row mb-1 sm:mb-0 justify-between pt-5">
                     <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
                         <div class="inline-block min-w-full shadow rounded-lg overflow-hidden">
                             <table class="min-w-full leading-normal">
@@ -49,14 +52,6 @@ const CompanyList = () => {
                                         <th className="p-2 border-r cursor-pointer text-sm font-thin text-gray-500">
                                             <div className="flex items-center justify-center">
                                                 Address
-                                                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4m0 6l-4 4-4-4" />
-                                                </svg>
-                                            </div>
-                                        </th>
-                                        <th className="p-2 border-r cursor-pointer text-sm font-thin text-gray-500">
-                                            <div className="flex items-center justify-center">
-                                                Merchant
                                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4m0 6l-4 4-4-4" />
                                                 </svg>

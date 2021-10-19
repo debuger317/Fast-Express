@@ -1,9 +1,10 @@
-
 import React, { Fragment } from 'react';
 import { useSelector } from 'react-redux';
 
 const Payment = () => {
-    const displayName = useSelector((state) => state.auth.userdetails.displayName)
+    // const displayName = useSelector((state) => state)
+    const displayName = useSelector((state) => state.auth.authdetails.displayName)
+    
     console.log(displayName);
     return (
         <Fragment>

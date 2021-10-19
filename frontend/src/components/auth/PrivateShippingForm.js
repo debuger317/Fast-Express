@@ -1,9 +1,9 @@
 import React from 'react';
 import { Redirect, Route } from 'react-router';
 import { useSelector } from 'react-redux';
-
-const PrivateRoute = ({ children, ...rest }) => {
+const PrivateShippingForm = ({ children, ...rest }) => {
   const email = useSelector((state) => state.auth.authdetails.email)  
+
     return (
         <Route
         {...rest}
@@ -13,7 +13,7 @@ const PrivateRoute = ({ children, ...rest }) => {
           ) : (
             <Redirect
               to={{
-                pathname: "/login",
+                pathname: "/signup",
                 state: { from: location }
               }}
             />
@@ -23,4 +23,4 @@ const PrivateRoute = ({ children, ...rest }) => {
     );
 };
 
-export default PrivateRoute;
+export default PrivateShippingForm;
