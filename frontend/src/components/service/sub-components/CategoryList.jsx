@@ -30,34 +30,28 @@ const CategoryList = () => {
             </div>
             <div class="grid xl:grid-cols-6 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2  xl:gap-10 lg:gap-8 sm:gap-3">
 
-
-                {categories.map(item => item ?
-
-
-                    <Link to={`/service/category/${item.name.replace("&","")}`} class="p-4 bg-gray-50 shadow-lg rounded-md h-40">
-                        <div class="flex flex-col items-center text-center mt-5">
-                            <span class="w-16">
-                                <img src={item.photo} alt="" srcset="" />
-                            </span>
-
-                            <h4 class="font-semibold text-md">{item.name}</h4>
-
-
-                        </div>
-                    </Link> : <div class="border border-blue-300 shadow rounded-md p-4 max-w-sm w-full mx-auto">
-                        <div class="animate-pulse flex space-x-4">
-                            <div class="rounded-full bg-blue-400 h-12 w-12"></div>
-                            <div class="flex-1 space-y-4 py-1">
-                                <div class="h-4 bg-blue-400 rounded w-3/4"></div>
-                                <div class="space-y-2">
-                                    <div class="h-4 bg-blue-400 rounded"></div>
-                                    <div class="h-4 bg-blue-400 rounded w-5/6"></div>
+                {
+                    categories.map(item => item ?
+                        <Link to={`/service/category/${item.name.replace("&", "")}`} class="p-4 bg-gray-50 shadow-lg rounded-md h-40">
+                            <div class="flex flex-col items-center text-center mt-5">
+                                <span class="w-16">
+                                    <img src={item.photo} alt="" srcset="" />
+                                </span>
+                                <h4 class="font-semibold text-md">{item.name}</h4>
+                            </div>
+                        </Link> : <div class="border border-blue-300 shadow rounded-md p-4 max-w-sm w-full mx-auto">
+                            <div class="animate-pulse flex space-x-4">
+                                <div class="rounded-full bg-blue-400 h-12 w-12"></div>
+                                <div class="flex-1 space-y-4 py-1">
+                                    <div class="h-4 bg-blue-400 rounded w-3/4"></div>
+                                    <div class="space-y-2">
+                                        <div class="h-4 bg-blue-400 rounded"></div>
+                                        <div class="h-4 bg-blue-400 rounded w-5/6"></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                )
-
+                    )
                 }
             </div>
         </div>

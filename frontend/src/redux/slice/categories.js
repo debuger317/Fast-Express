@@ -3,10 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 export const CategoriesSlice = createSlice({
     name: 'categories',
     initialState: {
-
-        items :[],
-
-        
+        items :[],    
     },
     reducers: {
         setCategories: (state, action) => {
@@ -14,8 +11,8 @@ export const CategoriesSlice = createSlice({
 
         },
 
-        logOut: (state, action) => {
-            state.authdetails = {}
+        removeCategories: (state, action) => {
+        return    state.items.filter((item) => item._id !== action.payload)
 
         }
 

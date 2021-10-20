@@ -37,7 +37,9 @@ const Login = async (req, res) => {
     } catch (err) {
         res.status(500).json(err);
     }
-}
+};
+
+//All User
 
 const all = async (req, res) => {
     try {
@@ -48,10 +50,55 @@ const all = async (req, res) => {
         console.log(err)
         res.status(500).json({ message: err.message })
     }
+};
+
+// update user 
+const update = async (req, res) => {
+    try {
+        const user = await auth.findById(req.params.id);
+        if (user.email === req.body.email) {
+            try {
+                const updateuser = await auth.findByIdAndUpdate(
+                    req.params.id,
+                    { $set: req.body },
+                    { new: true }
+                );
+                res.status(200).json(updateuser);
+            } catch (err) {
+                res.status(500).json(err);
+            }
+        } else {
+            res.status(401).json("You can update only your Data");
+        }
+    } catch (err) {
+        res.status(500).json(err)
+    }
+};
+
+//delete user
+const deleteuser = async (req, res) => {
+    try {
+        const user = await auth.findById(req.params.id);
+        if (user.email === req.body.email) {
+            try {
+                await user.delete();
+                res.status(200).json("Data has been deleted");
+            } catch (err) {
+                res.status(500).json(err)
+            }
+        } else {
+            res.status(401).json("You can delete only your Data");
+        }
+    }
+    catch (err) {
+        res.status(500).json(err)
+    }
 }
 
 module.exports = {
     Register,
     Login,
-    all
+    all,
+    update,
+    deleteuser
 }

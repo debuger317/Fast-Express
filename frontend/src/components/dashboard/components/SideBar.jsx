@@ -4,6 +4,7 @@ import { Link, useHistory } from "react-router-dom";
 import { dashboard_nav } from '../../../utiltes/LocalDatabase';
 import { VscHome } from 'react-icons/vsc';
 import { BackToHomeAction } from '../../../redux/action/dashboard';
+
 const SideBar = () => {
     const history = useHistory();
     const dispatch = useDispatch();
@@ -21,7 +22,6 @@ const SideBar = () => {
                         {
                             dashboard_nav.filter(nav => nav.role.includes(role)).map(item =>
                                 <Link to={item.path} class={`${item.bg} text-gray-500 focus:text-white focus:bg-red-500  border-red-600 uppercase  flex items-center p-4 my-2  duration-200 justify-start`}>
-
                                     <span class="mx-4 text-sm	 font-semibold flex items-center">
                                         <span class={`${item.size} pr-2`}>{item.icon}</span>  {item.pathname}
                                     </span>

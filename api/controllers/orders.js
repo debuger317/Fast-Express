@@ -4,7 +4,7 @@ const Addorder_control = async (req, res) => {
     try {
         const addNew = new Orders({
             merchantId: req.body.merchantId,
-            email: req.body.merchantemail,
+            merchantmail: req.body.merchantemail,
             name: req.body.merchantname,
             photo: req.body.merchantphoto,
             address: req.body.merchantaddress,
@@ -12,7 +12,7 @@ const Addorder_control = async (req, res) => {
             fname: req.body.fname,
             lname: req.body.lname,
             address: req.body.useraddress,
-            email: req.body.useremail,
+            usermail: req.body.useremail,
             pickupFrom: req.body.pickupFrom,
             pickupTo: req.body.pickupTo,
             phone: req.body.phone,
@@ -106,23 +106,23 @@ module.exports = {
 
 
 
-/*{
-    "userId": "der##@4gwagf5",
-    "merchant": [
-        {
-            "merchantId": "iuhwwhjnd$566434",
-            "email": "merchwwwnat@gmail.com",
-            "name": "merhawnxt",
-            "photo": "qqqqwqq",
-            "address": "weuhwajbjhajbjahbahbhj"
-        }
-    ],
-    "username": "Kazwi Rayhan",
-    "useraddress": "Shailkupa,Jhendah",
-    "useremail": "rayhawnbd@gmail.com",
-    "pickupFrom": "Jesswore",
-    "pickupTo": "Dhawka",
-    "deliveryOption": "Homew Delivery",
-    "phone": "+019927w6567",
-    "payment": "Bkaswh"
-}*/
+// {
+//     "userId": "der##@4gwagf5",
+//     "merchant": [
+//         {
+//             "merchantId": "iuhwwhjnd$566434",
+//             "email": "merchwwwnat@gmail.com",
+//             "name": "merhawnxt",
+//             "photo": "qqqqwqq",
+//             "address": "weuhwajbjhajbjahbahbhj"
+//         }
+//     ],
+//     "username": "Kazwi Rayhan",
+//     "useraddress": "Shailkupa,Jhendah",
+//     "useremail": "rayhawnbd@gmail.com",
+//     "pickupFrom": "Jesswore",
+//     "pickupTo": "Dhawka",
+//     "deliveryOption": "Homew Delivery",
+//     "phone": "+019927w6567",
+//     "payment": "Bkaswh"
+// }

@@ -10,6 +10,7 @@ import {
 } from "react-router-dom";
 import ManageCompany from '../components/dashboard/wrapper/ManageCompany';
 import CustomerList from '../components/dashboard/wrapper/CustomerList';
+import ManageCategories from '../components/dashboard/wrapper/ManageCategories';
 
 const DashboardHome = lazy(() => import('../components/dashboard/wrapper/Home'));
 const Home = lazy(() => import('./Home'));
@@ -77,6 +78,9 @@ const Dashboard = () => {
                             </Route>
                             <Route path="/dashboard/manage-review">
                                 <ManageReviews />
+                            </Route>
+                            <Route path="/dashboard/manage-category">
+                                <ManageCategories />
                             </Route>
                         </Switch>
                         </Suspense>

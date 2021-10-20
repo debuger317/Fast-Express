@@ -14,6 +14,4 @@ export const rootReducer = combineReducers({
     user: userOrderSlice.reducer,
     merchant:merchantSlice.reducer,
     dashboard:dashboardSlice.reducer,
-
-
 })
