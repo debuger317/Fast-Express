@@ -462,9 +462,9 @@ export const users = [
     {
         id:15,
 
-        path: "/dashboard/manage-setting",
+        path: "/dashboard/order-all",
 
-        pathname: "Manage Setting",
+        pathname: "All order list",
         icon:<VscGear/>,
         size:"text-xl",
         role:["admin"]
@@ -479,8 +479,8 @@ export const users = [
     },
     {
         id:17,
-        path: "/dashboard/manage-review",
-        pathname: "Manage review",
+        path: "/dashboard/manage-setting",
+        pathname: "Manage setting",
         icon:<VscGear/>,
         size:"text-xl",
         role:["admin"]

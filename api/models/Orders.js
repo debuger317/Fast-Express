@@ -2,9 +2,9 @@ const mongoose = require('mongoose');
 
 const OrderSchema = new mongoose.Schema({
     merchantId: { type: String, required: true },
-    merchantinfo: 
+    merchantinfo: [
         {
-            merchantemail: {
+            email: {
                 type: String,
                 required: true,
                 unique: false,
@@ -26,13 +26,11 @@ const OrderSchema = new mongoose.Schema({
             },
             _id: false
         }
-    ,
+    ],
     userId: { type: String, required: true },
-    userinfo: 
+    userinfo: [
 
         {
-            type:Object,
-
             fname: { type: String, required: true },
             lname: { type: String, required: true },
             address: {
@@ -40,12 +38,12 @@ const OrderSchema = new mongoose.Schema({
                 required: true,
                 unique: false,
             },
-            usermail: {
+            email: {
                 type: String,
                 lowercase: true,
                 trim: true,
                 required: true,
-                unique: false,
+                unique: true,
             },
             pickupFrom: {
                 type: String,
@@ -67,9 +65,7 @@ const OrderSchema = new mongoose.Schema({
             city: { type: String, required: true },
             zip: { type: String, required: true },
             paymentinfo: [
-                
                 {
-                    type:Object,
                     paymentType: { type: String, required: true },
                     paymentAmount: { type: Number, required: true },
                     createdAt: { type: Date, required: true },
@@ -89,20 +85,20 @@ const OrderSchema = new mongoose.Schema({
             },
             _id: false
         }
-    ,
-    parcelinfo: 
+    ],
+    parcelinfo: [
         {
-            name: {
+            p_name: {
                 type: String,
                 required: true,
                 unique: false,
             },
-            type: {
+            p_type: {
                 type: String,
                 required: true,
                 unique: false,
             },
-            weight: {
+            p_weight: {
                 type: Number,
                 max: 30,
                 min: 1,
@@ -111,6 +107,7 @@ const OrderSchema = new mongoose.Schema({
             },
             _id: false
         }
+    ]
 
 }, { timestamps: true }, { _id: false });
 

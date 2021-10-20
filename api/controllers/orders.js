@@ -3,33 +3,49 @@ const Orders = require("../models/Orders");
 const Addorder_control = async (req, res) => {
     try {
         const addNew = new Orders({
+
             merchantId: req.body.merchantId,
-            merchantmail: req.body.merchantemail,
-            name: req.body.merchantname,
-            photo: req.body.merchantphoto,
-            address: req.body.merchantaddress,
+            merchantinfo: [
+                {
+                    email: req.body.merchantemail,
+                    name: req.body.merchantname,
+                    photo: req.body.merchantphoto,
+                    address: req.body.merchantaddress,
+
+                }
+            ],
             userId: req.body.userId,
-            fname: req.body.fname,
-            lname: req.body.lname,
-            address: req.body.useraddress,
-            usermail: req.body.useremail,
-            pickupFrom: req.body.pickupFrom,
-            pickupTo: req.body.pickupTo,
-            phone: req.body.phone,
-            city: req.body.city,
-            zip: req.body.zip,
-            paymentType: req.body.paymentType,
-            paymentAmount: req.body.paymentAmount,
-            createdAt: req.body.createdAt,
-            paymentStatus: req.body.paymentStatus,
-            cardNumber: req.body.cardNumber,
-            cardtype: req.body.cardtype,
-            deliverytype: req.body.deliverytype,
-            name: req.body.parcelname,
-            type: req.body.parceltype,
-            weight: req.body.parcelweight,
+            userinfo: [
+                {
+                    fname: req.body.fname,
+                    lname: req.body.lname,
+                    address: req.body.useraddress,
+                    email: req.body.useremail,
+                    pickupFrom: req.body.pickupFrom,
+                    pickupTo: req.body.pickupTo,
+                    phone: req.body.phone,
+                    city: req.body.city,
+                    zip: req.body.zip,
+                    paymentinfo: [{
+                        paymentType: req.body.paymentType,
+                        paymentAmount: req.body.paymentAmount,
+                        createdAt: req.body.createdAt,
+                        paymentStatus: req.body.paymentStatus,
+                        cardNumber: req.body.cardNumber,
+                        cardtype: req.body.cardtype,
+                    }],
 
+                    deliverytype: req.body.deliverytype,
+                }
+            ],
+            parcelinfo: [
+                {
+                    p_name: req.body.parcelname,
+                    p_type: req.body.parceltype,
+                    p_weight: req.body.parcelweight,
 
+                }
+            ],
 
         });
         const newOrder = await addNew.save();

@@ -12,7 +12,8 @@ export const CategoriesSlice = createSlice({
         },
 
         removeCategories: (state, action) => {
-        return    state.items.filter((item) => item._id !== action.payload)
+
+        state.items = state.items.filter((item) => item._id !== action.payload);
 
         }
 
