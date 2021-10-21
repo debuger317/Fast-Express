@@ -76,7 +76,7 @@ const AddCompanyForm = () => {
                 setLogo(response.data.data.display_url);
             })
             .catch((error) => {
-
+                console.log(error.message);
             });
     }
 

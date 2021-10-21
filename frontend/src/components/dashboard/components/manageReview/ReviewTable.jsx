@@ -1,9 +1,9 @@
 import React from 'react';
 import { CgRemove } from "react-icons/cg";
-import { removeCategoryAction } from '../../../redux/action/categories';
+import { removeCategoryAction } from '../../../../redux/action/categories';
 import { useDispatch } from 'react-redux';
 
-const TableRow = (props) => {
+const ReviewTable = (props) => {
     const dispatch = useDispatch();
     const { _id, name, photo } = props.data;
     return (
@@ -43,4 +43,4 @@ const TableRow = (props) => {
     );
 };
 
-export default TableRow;
+export default ReviewTable;

@@ -43,13 +43,28 @@ const updatecategory_c = async (req, res, next) => {
         catch (err) { res.status(500).json(err) }
     }
     else {
-        res.status(401).json("you only update your company list")
+        res.status(401).json("category can update a admin")
     }
+
+}
+
+//delete a category
+
+const deletedcategory = async (req, res, next) => {
+    try {
+        const post = await categories.findById(req.params.id);
+            await post.delete();
+            res.status(200).json("Category has been deleted...");
+        }
+        catch (err) {
+            res.status(500).json(err);
+          } 
 
 }
 
 module.exports = {
     addcategory_C,
     getallcategory_C,
-    updatecategory_c
+    updatecategory_c,
+    deletedcategory
 }
