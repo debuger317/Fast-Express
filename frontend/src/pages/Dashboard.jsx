@@ -23,26 +23,26 @@ const UserList = lazy(() => import('../components/dashboard/wrapper/UserList'));
 const AllOrderList = lazy(() => import('./../components/dashboard/wrapper/AllOrderList'));
 const Reports = lazy(() => import('../components/dashboard/wrapper/Reports'));
 const Payment = lazy(() => import('../components/dashboard/wrapper/Payment'));
-const AddReview =lazy(()=> import ('../components/dashboard/components/manageReview/AddReview'));
-const ManageReviews =lazy(()=> import ('../components/dashboard/components/manageReview/ManageReviews'));
+const AddReview = lazy(() => import('../components/dashboard/components/manageReview/AddReview'));
+const ManageReviews = lazy(() => import('../components/dashboard/components/manageReview/ManageReviews'));
 
 const Dashboard = () => {
     const back = useSelector((state) => state.dashboard.backtohome)
     return (
-            <Router>
-                <switch>
-                    <Route exact path="/">
-                        <Home />
-                    </Route>
-                </switch>
-                <div className={`w-full ${back ? 'hidden' : ''}`}>
-                    <TopBar />
+        <Router>
+            <switch>
+                <Route exact path="/">
+                    <Home />
+                </Route>
+            </switch>
+            <div className={`w-full ${back ? 'hidden' : ''}`}>
+                <TopBar />
+            </div>
+            <div className="flex">
+                <div className={`w-1/4  ${back ? 'hidden' : ''}`}>
+                    <SideBar />
                 </div>
-                <div className="flex">
-                    <div className={`w-1/4  ${back ? 'hidden' : ''}`}>
-                        <SideBar/>
-                    </div>
-                    <div className="w-3/4 mt-16">
+                <div className="w-3/4 mt-16">
                     <Suspense fallback={<Spinner />}>
                         <Switch>
                             <Route exact path="/dashboard">
@@ -55,10 +55,10 @@ const Dashboard = () => {
                                 <CompanyList />
                             </Route>
                             <Route path="/dashboard/customer-order-list">
-                           <CustomerOrderList />
+                                <CustomerOrderList />
                             </Route>
                             <Route path="/dashboard/customer-list">
-                              <CustomerList />
+                                <CustomerList />
                             </Route>
                             <Route path="/dashboard/pending-company">
                                 <PendingCompany />
@@ -76,7 +76,7 @@ const Dashboard = () => {
                                 <Reports />
                             </Route>
                             <Route path="/dashboard/orderlist">
-                              <CustomerList />
+                                <CustomerList />
                             </Route>
                             <Route path="/dashboard/payment-info">
                                 <Payment />
@@ -94,10 +94,10 @@ const Dashboard = () => {
                                 <ManageCategories />
                             </Route>
                         </Switch>
-                        </Suspense>
-                    </div>
+                    </Suspense>
                 </div>
-            </Router>
+            </div>
+        </Router>
     );
 };
 

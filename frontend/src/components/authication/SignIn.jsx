@@ -126,7 +126,7 @@ const SignIn = () => {
   return (
     <div className="container mx-auto my-10">
       <div className="flex flex-wrap w-full mx-auto">
-        <div className="flex flex-col w-full md:w-1/2 py-8">
+        <div className="flex flex-col justify-center md:w-1/2 py-8">
           <div className="flex flex-col container w-full max-w-md  py-8 bg-white rounded-lg shadow dark:bg-gray-800 sm:px-6 md:px-8">
             <div className="self-center mb-6 text-xl font-light text-gray-600 sm:text-2xl dark:text-white">
               Login To Your Account
