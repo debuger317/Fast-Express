@@ -9,7 +9,9 @@ const order_control = require("../controllers/orders")
 router.post("/addorder", order_control.Addorder_control)
 
 router.get('/allorder', order_control.allorder_control)
-// router.delete('/:email', order_control.allorder_control)
+// get data for user by email
+router.get('/:userId', order_control.email_order_list_control)
+router.delete('/:email', order_control.allorder_control)
 
 // router.get('/:userid', couriers_Controller.signlecourier_c)
 

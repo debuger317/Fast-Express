@@ -27,7 +27,6 @@ const CompanySignUp = () => {
                 url: 'https://fastexpress.herokuapp.com/api/auth/register',
                 data: merchantData
             });
-
             dispatch(merchantAuthAction(res.data))
             res && history.push("/new-company/register-form")
 

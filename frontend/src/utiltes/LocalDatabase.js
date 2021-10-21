@@ -406,7 +406,7 @@ export const users = [
     {
         id:8,
         path: "/dashboard/payment-info",
-        pathname: "Payment",
+        pathname: "Payment Details",
         icon:<MdPayment/>,
         size:"text-2xl",
         role:["user"]
