@@ -2,9 +2,8 @@ import React from 'react';
 
 const PromoSell = () => {
     return (
-
-        <section class="text-gray-600 body-font">
-            <div class="container px-5 py-24 mx-auto flex flex-wrap">
+        <section class="container pt-5 mx-auto lg:px-8 px-4 sm:px-6 ">
+            <div class=" flex flex-wrap">
                 <div class="lg:w-1/2 w-full mb-10 lg:mb-0 rounded-lg overflow-hidden">
                     <img class="object-cover object-center h-full w-full" src="https://i.ibb.co/0BQvvWh/promo-sell.jpg" alt="" srcset="" />
                 </div>

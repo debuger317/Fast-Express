@@ -97,7 +97,7 @@ const Settings = () => {
     // );
 
     return(
-        <div>apple</div>
+        <div>Manage user profile</div>
     )
 };
 

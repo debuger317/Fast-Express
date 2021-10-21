@@ -10,7 +10,7 @@ import 'firebase/compat/firestore';
 import firebaseConfig from '../../config/firebase';
 import { useDispatch } from 'react-redux';
 import { customAuthAction, googleSignUpAction } from '../../redux/action/action';
-import { useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form'
 
 if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig);

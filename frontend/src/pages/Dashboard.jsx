@@ -9,9 +9,11 @@ import {
     Route
 } from "react-router-dom";
 import ManageCompany from '../components/dashboard/wrapper/ManageCompany';
-import CustomerList from '../components/dashboard/wrapper/CustomerList';
+// import CustomerList from '../components/dashboard/wrapper/CustomerList';
 import ManageCategories from '../components/dashboard/wrapper/ManageCategories';
 
+const CustomerOrderList = lazy(() => import('../components/dashboard/wrapper/CustomerOrderLists'));
+const CustomerList = lazy(() => import('../components/dashboard/wrapper/CustomerLists'));
 const DashboardHome = lazy(() => import('../components/dashboard/wrapper/Home'));
 const Home = lazy(() => import('./Home'));
 const CompanyList = lazy(() => import('../components/dashboard/components/manageCompany/CompanyList'));
@@ -52,6 +54,12 @@ const Dashboard = () => {
                             <Route path="/dashboard/companylist">
                                 <CompanyList />
                             </Route>
+                            <Route path="/dashboard/customer-order-list">
+                           <CustomerOrderList />
+                            </Route>
+                            <Route path="/dashboard/customer-list">
+                              <CustomerList />
+                            </Route>
                             <Route path="/dashboard/pending-company">
                                 <PendingCompany />
                             </Route>
@@ -66,6 +74,9 @@ const Dashboard = () => {
                             </Route>
                             <Route path="/dashboard/account-report">
                                 <Reports />
+                            </Route>
+                            <Route path="/dashboard/orderlist">
+                              <CustomerList />
                             </Route>
                             <Route path="/dashboard/payment-info">
                                 <Payment />
