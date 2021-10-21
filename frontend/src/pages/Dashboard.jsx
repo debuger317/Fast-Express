@@ -70,7 +70,7 @@ const Dashboard = () => {
                             <Route path="/dashboard/payment-info">
                                 <Payment />
                             </Route>
-                            <Route path="">
+                            <Route path="/dashboard/manage-setting">
                                 <Settings />
                             </Route>
                             <Route path="/dashboard/add-review">
