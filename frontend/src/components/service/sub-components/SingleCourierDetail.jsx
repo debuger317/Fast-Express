@@ -10,6 +10,7 @@ const SingleCourierDetail = () => {
     const dispatch = useDispatch();
     const [Item, setItem] = useState({})
     const { name, logo, description } = Item;
+    
     const singleitem = async () => {
         try {
             const res = await axios.get(`https://fastexpress.herokuapp.com/api/merchant/${_id}`);
