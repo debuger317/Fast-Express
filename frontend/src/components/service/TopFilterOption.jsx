@@ -11,7 +11,7 @@ const TopFilterOption = () => {
             <div className="flex items-center justify-between">
                 <div className="flex items-center">
                     <select class="block w-52 text-gray-700 py-2 px-3 mr-5 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500" name="animals">
-                        <option value="">
+                        <option value="" disabled selected>
                             Select an option
                         </option>
                         <option value="dog">
