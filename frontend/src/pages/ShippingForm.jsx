@@ -48,17 +48,18 @@ const ShippingForm = () => {
             cardNumber: 42424242424,
             cardtype: 'credit',
             deliverytype: data.deliverytype,
+            parcelphoto: data.photo,
             parcelname: data.parcelName,
             parceltype: data.parceltype,
             parcelweight: data.parcelweight,
         }
         setPending(true)
 
-        console.log(Neworder);
+        // console.log(Neworder);
         try {
             const res = await axios({
                 method: 'post',
-                url: 'http://localhost:5500/api/order/addorder',
+                url: 'https://fastexpress.herokuapp.com/api/order/addorder',
                 data: Neworder
             });
             res && history.push("/login")

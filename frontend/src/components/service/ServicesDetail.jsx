@@ -3,6 +3,7 @@ import FilterBar from './sub-components/FilterBar';
 import FilteredItems from './sub-components/FilteredItems';
 
 const ServicesDetail = () => {
+ 
     return (
         <div className="container mx-auto">
             <div className="flex mx-10 my-20">

@@ -18,7 +18,7 @@ const CompanyList = lazy(() => import('../components/dashboard/components/manage
 const PendingCompany = lazy(() => import('../components/dashboard/components/manageCompany/PendingCompany'));
 const Settings = lazy(() => import('../components/dashboard/wrapper/Settings'));
 const UserList = lazy(() => import('../components/dashboard/wrapper/UserList'));
-const OrderList = lazy(() => import('../components/dashboard/wrapper/OrderList'));
+const AllOrderList = lazy(() => import('./../components/dashboard/wrapper/AllOrderList'));
 const Reports = lazy(() => import('../components/dashboard/wrapper/Reports'));
 const Payment = lazy(() => import('../components/dashboard/wrapper/Payment'));
 const AddReview =lazy(()=> import ('../components/dashboard/components/manageReview/AddReview'));
@@ -61,8 +61,8 @@ const Dashboard = () => {
                             <Route path="/dashboard/customer-list">
                                 <CustomerList />
                             </Route>
-                            <Route path="/dashboard/orderlist">
-                                <OrderList />
+                            <Route path="/dashboard/order-all">
+                                <AllOrderList />
                             </Route>
                             <Route path="/dashboard/account-report">
                                 <Reports />
@@ -70,7 +70,7 @@ const Dashboard = () => {
                             <Route path="/dashboard/payment-info">
                                 <Payment />
                             </Route>
-                            <Route path="">
+                            <Route path="/dashboard/manage-setting">
                                 <Settings />
                             </Route>
                             <Route path="/dashboard/add-review">

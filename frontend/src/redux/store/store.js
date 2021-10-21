@@ -8,6 +8,7 @@ import { rootReducer } from "./rootReducer";
 const persistConfig = {
   key: 'root',
   storage,
+  lifeSpan: 5000,
   blacklist: ['categories','dashboard'],
 
 }

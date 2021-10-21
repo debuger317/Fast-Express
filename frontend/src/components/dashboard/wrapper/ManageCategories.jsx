@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import CategoriesTable from '../manage-category/CategoriesTable';
+import CategoriesTable from '../components/manage-category/CategoriesTable';
 
 const ManageCategories = () => {
     return (

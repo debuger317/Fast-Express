@@ -10,4 +10,7 @@ router.get('/all', category_Controller.getallcategory_C)
 
 router.put('/:id', category_Controller.updatecategory_c)
 
+router.delete('/:id', category_Controller.deletedcategory)
+
+
 module.exports = router;

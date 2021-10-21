@@ -41,7 +41,7 @@ const UserSignUp = () => {
     }
 
     return (
-        <div className="w-1/2">
+        <div className="mx-auto w-1/2">
             <div class="flex flex-col max-w-lg px-4 py-8 bg-white rounded-lg shadow dark:bg-gray-800 sm:px-6 md:px-8 lg:px-10 mx-auto">
                 <div class="self-center mb-2 text-xl font-light text-gray-800 sm:text-2xl dark:text-white">
                     User Signup
