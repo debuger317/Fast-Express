@@ -9,7 +9,7 @@ const Payment = () => {
     const userDatas = useSelector((state) => state.user.userOrderLists)
     const dispatch = useDispatch();
     useEffect(()=>{
-        const url = `http://localhost:5500/api/order/${userId}`;
+        const url = `https://fastexpress.herokuapp.com/api/order/${userId}`;
         fetch(url)
         .then(res => res.json())
         .then(data=> dispatch(userOrderAction(data)));

@@ -45,9 +45,9 @@ const AddCompanyForm = () => {
             deliveryOption: data.deliveryOption,
             status: "pending",
             phone: data.helpline,
-            serviceCategory: [data.ctegory]
+            serviceCategory: data.ctegory
         }
-        console.log(merchant);
+        // console.log(merchant);
         try {
             const res = await axios({
                 method: 'post',

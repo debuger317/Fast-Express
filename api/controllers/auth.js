@@ -1,5 +1,5 @@
 const auth = require("../models/Auth");
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 
 // Register
 
@@ -31,8 +31,9 @@ const Login = async (req, res) => {
 
         const validated = await bcrypt.compare(req.body.password, authuser.password);
         !validated && res.status(400).json("Wrong Credentials!");
-
+        
         const { password, ...others } = authuser._doc;
+
         res.status(200).json({message:'login successfully!',others});
     } catch (err) {
         res.status(500).json(err);

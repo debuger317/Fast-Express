@@ -71,7 +71,7 @@ const CategoriesTable = () => {
             const res = await axios({
 
                 method: 'post',
-                url: 'http://localhost:5500/api/categories/addcategory',
+                url: 'https://fastexpress.herokuapp.com/api/categories/addcategory',
                 data: newCategory
             })
 
