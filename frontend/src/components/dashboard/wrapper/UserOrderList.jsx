@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import UserOrderTable from '../components/user-order-list/UserOrderTable';
 
 const UserOrderList = () => {
     return (
-        <div>
-           UserOrderList 
-        </div>
+        <Fragment>
+           <UserOrderTable/> 
+        </Fragment>
     );
 };
 

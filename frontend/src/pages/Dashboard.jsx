@@ -11,6 +11,7 @@ import {
 import ManageCompany from '../components/dashboard/wrapper/ManageCompany';
 // import CustomerList from '../components/dashboard/wrapper/CustomerList';
 import ManageCategories from '../components/dashboard/wrapper/ManageCategories';
+import UserOrderList from '../components/dashboard/wrapper/UserOrderList';
 
 const CustomerOrderList = lazy(() => import('../components/dashboard/wrapper/CustomerOrderLists'));
 const CustomerList = lazy(() => import('../components/dashboard/wrapper/CustomerLists'));
@@ -75,8 +76,8 @@ const Dashboard = () => {
                             <Route path="/dashboard/account-report">
                                 <Reports />
                             </Route>
-                            <Route path="/dashboard/orderlist">
-                                <CustomerList />
+                            <Route path="/dashboard/your-order-list">
+                                <UserOrderList />
                             </Route>
                             <Route path="/dashboard/payment-info">
                                 <Payment />

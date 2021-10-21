@@ -389,7 +389,7 @@ export const users = [
     },
     {
         id:7,
-        path: "/dashboard/orderlist",
+        path: "/dashboard/your-order-list",
         pathname: "See your orders",
         icon:<VscPackage/>,
         size:"text-2xl",
