@@ -272,7 +272,7 @@ export const bannerData = [
     },
     {
         id: 4,
-        img:'https://i.ibb.co/DzSzwDk/Fast-express-banner-4.png'
+        img:'https://i.ibb.co/R6knZzY/fast-express-banner-4.png'
     }
 ]
 

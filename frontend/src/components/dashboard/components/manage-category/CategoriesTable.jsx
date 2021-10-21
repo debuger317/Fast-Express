@@ -4,7 +4,7 @@ import TableRow from './TableRow';
 import axios from 'axios';
 import { FiCamera } from 'react-icons/fi';
 import { useLocation } from 'react-router';
-import { getCategoriesAction } from './../../../../redux/action/categories';
+import { filterCategoryAction, getCategoriesAction } from './../../../../redux/action/categories';
 import { CgSpinner } from 'react-icons/cg';
 // 
 const CategoriesTable = () => {
@@ -13,7 +13,7 @@ const CategoriesTable = () => {
     const [pending, setPending] = useState(false);
     const [success, setsuccess] = useState(false);
     const [error, seterror] = useState(false);
-
+    const [filter, setFilter] = useState();
     const [CategoryName, setName] = useState();
     const dispatch = useDispatch();
     const location = useLocation();
@@ -31,7 +31,7 @@ const CategoriesTable = () => {
     }
     useEffect(() => {
         getCategories()
-    }, [Path, success])
+    }, [Path, success, filter])
 
     const toggleText = () => {
         setadd(!added)
@@ -65,6 +65,8 @@ const CategoriesTable = () => {
             photo: C_photo
         };
         console.log(newCategory);
+        setPending(true)
+
         try {
             const res = await axios({
 
@@ -72,12 +74,13 @@ const CategoriesTable = () => {
                 url: 'http://localhost:5500/api/categories/addcategory',
                 data: newCategory
             })
-            setPending(true)
 
             if (res) {
                 setsuccess(true);
                 setadd(false)
                 seterror(false);
+                setPending(false)
+
                 console.log('new category added successfully');
             }
         } catch (err) {
@@ -87,6 +90,13 @@ const CategoriesTable = () => {
         }
 
     };
+
+    //handle filter changes 
+
+    const handlefilter = (e) => {
+        e.preventDefault();
+        dispatch(filterCategoryAction(filter))
+    }
     return (
 
         <div class="container mx-auto px-12 max-w-5xl">
@@ -96,9 +106,9 @@ const CategoriesTable = () => {
                         Category List
                     </h2>
                     <div class="text-end">
-                        <form class="flex flex-col md:flex-row w-3/4 md:w-full max-w-sm md:space-x-3 space-y-3 md:space-y-0 justify-center">
-                            <div class=" relative ">
-                                <input type="text" id="&quot;form-subscribe-Filter" class="rounded border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent" placeholder="type any category  name" />
+                        <form onSubmit={handlefilter} class="flex flex-col md:flex-row w-3/4 md:w-full max-w-sm md:space-x-3 space-y-3 md:space-y-0 justify-center">
+                            <div class="relative">
+                                <input type="text" id="&quot;form-subscribe-Filter" class="rounded border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent" placeholder="type any category  name" onChange={e => setFilter(e.target.value)} required />
                             </div>
                             <button class="flex-shrink-0 px-4 py-2 text-base font-semibold text-white bg-red-600 rounded shadow-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 focus:ring-offset-red-200" type="submit">
                                 Filter
@@ -113,33 +123,36 @@ const CategoriesTable = () => {
                 {
                     added && (
                         <div className="w-full">
-                            <div className="edit__mode rounded shadow py-5 flex items-center justify-between">
+                            <div className="rounded shadow py-5 flex items-center justify-between">
                                 <div className="text-gray-600 mx-10">
                                     <div className="relative">
-                                        <img className={`C_photo? "w-16 h-16 rounded-full"`} src={C_photo ? C_photo : ""} alt="" srcset="" />
-                                        <p class={`${C_photo ? "hidden" : ""} pl-1`}>Photo</p>
-                                        {error && <p class="text-red-500 text-md text-center ">Something went wrong</p>}
+                                        <img className={`${C_photo ? "w-16 h-16 rounded" : ""}`} src={C_photo ? C_photo : ""} alt="" srcset="" />
                                         <label
-                                            class={`${C_photo ? "hidden" : ""} absolute top-4 left-2 cursor-pointer`}>
+                                            class={`${C_photo ? "hidden" : ""} absolute  -top-7 left-2 cursor-pointer`}>
                                             <FiCamera class="text-4xl text-black" />
                                             <input onChange={handleImageUpload} type='file' class="hidden" />
+                                            <p class={`${C_photo ? "hidden" : ""}`}>Photo</p>
                                         </label>
+
                                     </div>
                                 </div>
-                                <form onSubmit={handleSubmit} class="flex items-center mx-20 w-2/4">
-                                       <div className="w-full">
-                                       <input type="text" class=" rounded border-transparent appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent" placeholder="Category name" onBlur={e => setName(e.target.value)} />
-                                       </div>
-                                    <button class="px-6 py-2 text-base font-semibold text-white bg-red-600 rounded shadow-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 focus:ring-offset-red-200" type="submit">
-                                    {pending ?
-                                    <CgSpinner class="animate-spin text-xl" /> : "Add New"
-                                }
+                                <form onSubmit={handleSubmit} class="flex items-center mx-20 w-full">
+                                    <div className="w-3/4 mr-5">
+                                        <input type="text" class="rounded border-transparent appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent" placeholder="Category name" onBlur={e => setName(e.target.value)} required />
+                                    </div>
+
+                                    <button class="w-1/4 px-6 py-2 text-base font-semibold text-white bg-red-600 rounded shadow-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 focus:ring-offset-red-200" type="submit">
+                                        {pending ?
+                                            <CgSpinner class="animate-spin text-xl mx-auto" /> : "Add New"
+                                        }
                                     </button>
-                                    
+                                    <br />
+                                    <br />
+                                    {error && <p class="absolute text-red-500 text-md text-center pt-20">Something went wrong</p>}
                                 </form>
-                                
+
                             </div>
-                            
+
                         </div>
                     )
                 }
