@@ -13,7 +13,7 @@ const Settings = () => {
     }
     return (
         <Fragment>
-            <div class="container mx-auto px-4 mt-8 sm:px-8">
+            {/* <div class="container mx-auto px-4 mt-8 sm:px-8">
                 <div class="py-8">
                     <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
                         <div class="inline-block min-w-full shadow rounded-lg overflow-hidden">
@@ -59,8 +59,6 @@ const Settings = () => {
                                         </td>
                                         <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                             <span onClick={()=>{handleEditClidk(userdetails._id)}} class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
-                                                {/* <span aria-hidden="true" class="absolute inset-0 bg-green-200 opacity-50 rounded-full">
-                                                </span> */}
                                                 <span class="relative">
                                                     <FaEdit />
                                                 </span>
@@ -68,8 +66,6 @@ const Settings = () => {
                                         </td>
                                         <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                             <span class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
-                                                {/* <span aria-hidden="true" class="absolute inset-0 bg-green-200 opacity-50 rounded-full">
-                                                </span> */}
                                                 <span class="relative">
                                                     <FaTrashAlt />
                                                 </span>
@@ -77,8 +73,6 @@ const Settings = () => {
                                         </td>
                                         <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                             <span class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
-                                                {/* <span aria-hidden="true" class="absolute inset-0 bg-green-200 opacity-50 rounded-full">
-                                                </span> */}
                                                 <span class="relative">
                                                     <FaUserEdit />
                                                 </span>
@@ -91,7 +85,7 @@ const Settings = () => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
 
         </Fragment>
     );
