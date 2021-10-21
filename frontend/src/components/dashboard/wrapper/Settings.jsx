@@ -7,7 +7,7 @@ const Settings = () => {
     // const userDatas = useSelector((state) => state.user.userOrderLists[0])
     // const userdetails = useSelector((state) => state.auth.authdetails)
     // const handleEditClidk = id =>{
-    //     const url = `http://localhost:5500/api/order/${id}`;
+    //     const url = `https://fastexpress.herokuapp.com/api/order/${id}`;
         
 
     // }

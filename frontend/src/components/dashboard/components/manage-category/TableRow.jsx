@@ -13,7 +13,7 @@ const TableRow = (props) => {
     const handleDelete = async () => {
 
         try {
-            const res = await axios.delete(`http://localhost:5500/api/categories/${_id}`);
+            const res = await axios.delete(`https://fastexpress.herokuapp.com/api/categories/${_id}`);
 
             if (res) {
                 console.log('data deleted successfully');

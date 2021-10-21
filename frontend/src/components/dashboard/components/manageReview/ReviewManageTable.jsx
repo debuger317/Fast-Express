@@ -8,7 +8,7 @@ const ReviewManageTable = ({ list }) => {
 
     const deleteReview = async () => {
         try{
-            await axios.delete(`http://localhost:5500/api/reviews/${_id}`);
+            await axios.delete(`https://fastexpress.herokuapp.com/api/reviews/${_id}`);
             console.log('product deleted')
             window.location.replace("/manage-reviews");
         }
