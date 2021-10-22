@@ -88,17 +88,17 @@ const OrderSchema = new mongoose.Schema({
     ],
     parcelinfo: [
         {
-            name: {
+            p_name: {
                 type: String,
                 required: true,
                 unique: false,
             },
-            type: {
+            p_type: {
                 type: String,
                 required: true,
                 unique: false,
             },
-            weight: {
+            p_weight: {
                 type: Number,
                 max: 30,
                 min: 1,
@@ -108,7 +108,6 @@ const OrderSchema = new mongoose.Schema({
             _id: false
         }
     ]
-
 
 }, { timestamps: true }, { _id: false });
 

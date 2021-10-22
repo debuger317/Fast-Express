@@ -3,19 +3,24 @@ import { createSlice } from '@reduxjs/toolkit';
 export const CategoriesSlice = createSlice({
     name: 'categories',
     initialState: {
-
-        items :[],
-
-        
+        items: [],
     },
     reducers: {
         setCategories: (state, action) => {
             state.items = action.payload
 
         },
+        // 
 
-        logOut: (state, action) => {
-            state.authdetails = {}
+        filterCategories: (state, action) => {
+
+            state.items = state.items.filter((item) => item.name == action.payload);
+
+        },
+
+        removeCategories: (state, action) => {
+
+            state.items = state.items.filter((item) => item._id !== action.payload);
 
         }
 

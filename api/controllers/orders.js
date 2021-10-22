@@ -40,9 +40,9 @@ const Addorder_control = async (req, res) => {
             ],
             parcelinfo: [
                 {
-                    name: req.body.parcelname,
-                    type: req.body.parceltype,
-                    weight: req.body.parcelweight,
+                    p_name: req.body.parcelname,
+                    p_type: req.body.parceltype,
+                    p_weight: req.body.parcelweight,
 
                 }
             ],
@@ -107,32 +107,25 @@ const merchant_order_list_control = async (req, res, next) => {
     }
 }
 
+//get order list for user by email id
+
+const email_order_list_control = async (req, res, next) => {
+    const id = req.params.userId;
+    try {
+        const userOrders = await Orders.find({userId:id});
+        res.status(200).json(userOrders)
+    }
+    catch (err) {
+        console.log(err)
+        res.status(500).json({ message: err.message })
+    }
+
+}
 
 module.exports = {
     Addorder_control,
     allorder_control,
-    merchant_order_list_control
+    // user_order_list_control,
+    merchant_order_list_control,
+    email_order_list_control
 }
-
-
-
-/*{
-    "userId": "der##@4gwagf5",
-    "merchant": [
-        {
-            "merchantId": "iuhwwhjnd$566434",
-            "email": "merchwwwnat@gmail.com",
-            "name": "merhawnxt",
-            "photo": "qqqqwqq",
-            "address": "weuhwajbjhajbjahbahbhj"
-        }
-    ],
-    "username": "Kazwi Rayhan",
-    "useraddress": "Shailkupa,Jhendah",
-    "useremail": "rayhawnbd@gmail.com",
-    "pickupFrom": "Jesswore",
-    "pickupTo": "Dhawka",
-    "deliveryOption": "Homew Delivery",
-    "phone": "+019927w6567",
-    "payment": "Bkaswh"
-}*/

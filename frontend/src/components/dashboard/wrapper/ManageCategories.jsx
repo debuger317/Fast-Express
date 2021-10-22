@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import CategoriesTable from '../components/manage-category/CategoriesTable';
 
 const ManageCategories = () => {
     return (
-        <div>
-          ManageCategories  
-        </div>
+        <Fragment>
+          <CategoriesTable/>  
+        </Fragment>
     );
 };
 

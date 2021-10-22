@@ -73,7 +73,7 @@ const MerchantSchema = new mongoose.Schema({
         unique: true,
     },
     serviceCategory: {
-        type: [],
+        type: Array,
         required: true,
         unique: false,
     },

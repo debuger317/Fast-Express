@@ -272,7 +272,7 @@ export const bannerData = [
     },
     {
         id: 4,
-        img:'https://i.ibb.co/DzSzwDk/Fast-express-banner-4.png'
+        img:'https://i.ibb.co/R6knZzY/fast-express-banner-4.png'
     }
 ]
 
@@ -380,7 +380,7 @@ export const users = [
         role:["merchant"]
     },
     {
-        id:54,
+        id:6,
         path: "/dashboard/manage-delivery-man",
         pathname: "Manage delivery man",
         size:"text-2xl",
@@ -388,16 +388,8 @@ export const users = [
         role:["merchant"]
     },
     {
-        id:6,
-        path: "/dashboard/add-review",
-        pathname: "Add a review",
-        icon:<VscRequestChanges/>,
-        size:"text-2xl",
-        role:["merchant"]
-    }, 
-    {
         id:7,
-        path: "/dashboard/orderlist",
+        path: "/dashboard/your-order-list",
         pathname: "See your orders",
         icon:<VscPackage/>,
         size:"text-2xl",
@@ -406,7 +398,7 @@ export const users = [
     {
         id:8,
         path: "/dashboard/payment-info",
-        pathname: "Payment",
+        pathname: "Payment Details",
         icon:<MdPayment/>,
         size:"text-2xl",
         role:["user"]
@@ -417,7 +409,7 @@ export const users = [
         pathname: "Add a review",
         icon:<VscStarFull/>,
         size:"text-2xl",
-        role:["user"]
+        role:["user","merchant"]
     } ,
     {
         id:10,
@@ -462,9 +454,9 @@ export const users = [
     {
         id:15,
 
-        path: "/dashboard/manage-setting",
+        path: "/dashboard/order-all",
 
-        pathname: "Manage Setting",
+        pathname: "All order list",
         icon:<VscGear/>,
         size:"text-xl",
         role:["admin"]
@@ -479,11 +471,12 @@ export const users = [
     },
     {
         id:17,
-        path: "/dashboard/manage-review",
-        pathname: "Manage review",
+        path: "/dashboard/manage-setting",
+        pathname: "Manage setting",
         icon:<VscGear/>,
         size:"text-xl",
         role:["admin"]
     },
 
   ]
+  

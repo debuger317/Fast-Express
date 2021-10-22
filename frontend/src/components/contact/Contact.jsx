@@ -80,7 +80,7 @@ const Contact = () => {
                                                 </div>
                                             </div>
                                             <div class="col-span-2">
-                                                <label class="text-gray-700" for="name">
+                                                <label class="text-gray-700" for="message">
                                                     <textarea class="flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" id="comment" placeholder="Enter your comment" name="message" rows="5" cols="40" required>
                                                     </textarea>
                                                 </label>
