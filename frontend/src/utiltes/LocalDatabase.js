@@ -363,16 +363,9 @@ export const users = [
         size:"text-2xl",
         role:["merchant"]
     },
+
     {
         id:4,
-        path: "/dashboard/customer-order-list",
-        pathname: "Manage customer order",
-        size:"text-2xl",
-        icon:<VscPackage/>,
-        role:["merchant"]
-    },
-    {
-        id:5,
         path: "/dashboard/account-report",
         pathname: "Report",
         size:"text-2xl",
@@ -380,7 +373,7 @@ export const users = [
         role:["merchant"]
     },
     {
-        id:6,
+        id:5,
         path: "/dashboard/manage-delivery-man",
         pathname: "Manage delivery man",
         size:"text-2xl",
@@ -388,7 +381,7 @@ export const users = [
         role:["merchant"]
     },
     {
-        id:7,
+        id:6,
         path: "/dashboard/your-order-list",
         pathname: "See your orders",
         icon:<VscPackage/>,
@@ -396,7 +389,7 @@ export const users = [
         role:["user"]
     },
     {
-        id:8,
+        id:7,
         path: "/dashboard/payment-info",
         pathname: "Payment Details",
         icon:<MdPayment/>,
@@ -404,13 +397,21 @@ export const users = [
         role:["user"]
     },
     {
-        id:9,
+        id:8,
         path: "/dashboard/add-review",
         pathname: "Add a review",
         icon:<VscStarFull/>,
         size:"text-2xl",
         role:["user","merchant"]
     } ,
+    {
+        id:9,
+        path: "/dashboard/customer-order-list",
+        pathname: "Manage customer order",
+        size:"text-2xl",
+        icon:<VscPackage/>,
+        role:["merchant"]
+    },
     {
         id:10,
         path: "/dashboard/manage-setting",
