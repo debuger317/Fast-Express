@@ -117,8 +117,8 @@ const CategoriesTable = () => {
                     </div>
 
                 </div>
-                <div className="text-right">
-                    <button onClick={() => toggleText()} class="text-md my-4 py-1 px-4 bg-red-600 rounded text-white">Add new</button>
+                <div className="text-right">       
+                    <button onClick={() => toggleText()} class="text-md my-4 py-1 px-4 bg-red-600 rounded text-white">Add new</button> 
                 </div>
                 {
                     added && (
