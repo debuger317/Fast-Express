@@ -9,8 +9,7 @@ const UserList = () => {
             <div>
                 <AllUserList />
             </div>
-        </div>
-
+            </div>
     );
 };
 
