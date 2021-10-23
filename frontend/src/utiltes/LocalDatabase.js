@@ -349,14 +349,6 @@ export const users = [
     },
     {
         id:2,
-        path: "/dashboard/manage-company-info",
-        pathname: "Manage",
-        icon:<VscGear/>,
-        size:"text-2xl",
-        role:["merchant"]
-    },
-    {
-        id:3,
         path: "/dashboard/customer-list",
         pathname: "Customer-list",
         icon:<VscPerson/>,
@@ -364,7 +356,7 @@ export const users = [
         role:["merchant"]
     },
     {
-        id:4,
+        id:3,
         path: "/dashboard/customer-order-list",
         pathname: "Manage customer order",
         size:"text-2xl",
@@ -372,7 +364,7 @@ export const users = [
         role:["merchant"]
     },
     {
-        id:5,
+        id:4,
         path: "/dashboard/account-report",
         pathname: "Report",
         size:"text-2xl",
@@ -380,7 +372,7 @@ export const users = [
         role:["merchant"]
     },
     {
-        id:6,
+        id:5,
         path: "/dashboard/manage-delivery-man",
         pathname: "Manage delivery man",
         size:"text-2xl",
@@ -388,7 +380,7 @@ export const users = [
         role:["merchant"]
     },
     {
-        id:7,
+        id:6,
         path: "/dashboard/your-order-list",
         pathname: "See your orders",
         icon:<VscPackage/>,
@@ -396,12 +388,20 @@ export const users = [
         role:["user"]
     },
     {
-        id:8,
+        id:7,
         path: "/dashboard/payment-info",
         pathname: "Payment Details",
         icon:<MdPayment/>,
         size:"text-2xl",
         role:["user"]
+    },
+    {
+        id:8,
+        path: "/dashboard/manage-company-info",
+        pathname: "Manage your company",
+        icon:<VscGear/>,
+        size:"text-2xl",
+        role:["merchant"]
     },
     {
         id:9,
@@ -411,6 +411,7 @@ export const users = [
         size:"text-2xl",
         role:["user","merchant"]
     } ,
+
     {
         id:10,
         path: "/dashboard/manage-setting",
