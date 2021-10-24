@@ -13,7 +13,7 @@ const NewUserPayment = async (req, res) => {
         });
         const payment = await newPayment.save();
         res.status(200).json({
-            message: 'your payment has been completed!',
+            success: 'your payment has been completed!',
             payment
         });
     }

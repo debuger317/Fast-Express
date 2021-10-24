@@ -41,9 +41,9 @@ const update_user = async (req, res, next) => {
                 $set: req.body.name,
                 $set: req.body.photo,
                 $set: req.body.address,
-                $set: req.body.photo,
+                $set: req.body.password,
             })
-            res.status(200).json(updateduser)
+            res.status(200).json({ success:'account hasbeen updated successfully!',updateduser})
         }
         catch (err) { res.status(500).json(err) }
     }
@@ -57,7 +57,7 @@ const deleteduser = async (req, res, next) => {
     try {
         const post = await Users.findById(req.params.id);
             await post.delete();
-            res.status(200).json("Product has been deleted...");
+            res.status(200).json({ success:"Account has been deleted"});
         }
         catch (err) {
             res.status(500).json(err);

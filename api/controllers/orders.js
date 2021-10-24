@@ -23,7 +23,7 @@ const AddANewOrder = async (req, res) => {
         });
         const newOrder = await addNew.save();
         res.status(200).json({
-            message: 'your order has been added successfully!',
+            success: 'your order has been added successfully!',
             newOrder
         });
     }
@@ -71,7 +71,7 @@ const findAUserOrderById = async (req, res, next) => {
     let id = req.params.userId;
         try {
             const userOrders = await Orders.find({ userId: id });
-            res.status(200).json(userOrders)
+            res.status(200).json({ message:'We are not any order for you. Please take a order',userOrders})
         }
         catch (err) {
             console.log(err)
@@ -88,12 +88,12 @@ const deleteAUserOrderById = async (req, res, next) => {
         if (Orders.usermail === req.body.email) {
           try {
             await order.delete();
-            res.status(200).json("order has been deleted...");
+            res.status(200).json({ success:"order has been deleted..."});
           } catch (err) {
             res.status(500).json(err);
           }
         } else {
-          res.status(401).json("You can delete only your order!");
+          res.status(401).json({ error:"You can delete only your order!"});
         }
       } catch (err) {
         res.status(500).json(err);

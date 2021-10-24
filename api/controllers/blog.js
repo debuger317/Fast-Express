@@ -9,10 +9,10 @@ const addnewblog = async (req, res) => {
             tags: req.body.tags,
         })
         const blog = await newBlog.save()
-        res.status(200).json(blog)
+        res.status(200).json({ success: 'A new blog was created successfully!',blog})
     }
     catch (err) {
-        res.status(500).json({ message: err.message });
+        res.status(500).json({ message: 'only admin can create new blog'});
     }
 }
 
@@ -36,9 +36,9 @@ const DeleteABlogPost = async (req, res) => {
         if (req.body.email) {
             try {
                 await blog.delete();
-                res.status(200).json("blog has been deleted...");
+                res.status(200).json({ success:"blog has been deleted"});
             } catch (err) {
-                res.status(500).json(err);
+                res.status(500).json({ error: 'you are not an admin',err});
             }
         } else {
             res.status(401).json("You have no permissions to delete this blog!");

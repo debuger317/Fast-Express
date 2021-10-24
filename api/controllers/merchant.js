@@ -19,8 +19,7 @@ const addmerchant_C = async (req, res) => {
             serviceCategory: req.body.serviceCategory,
         });
         const merchant = await newmerchant.save();
-        res.status(200).json(merchant
-        );
+        res.status(200).json({ success: 'a new merchant account created successfully!', merchant });
     }
     catch (err) {
         console.log(err)

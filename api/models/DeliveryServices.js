@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 
+//model for delivery man add show updated and delete
+
 const DeliveryServiceSchema = new mongoose.Schema({
     title: {
         type: String,
