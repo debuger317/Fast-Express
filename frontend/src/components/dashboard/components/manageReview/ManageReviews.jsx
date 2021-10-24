@@ -7,13 +7,13 @@ const ManageReviews = () => {
     console.log(reviewlist);
 
     useEffect(() => {
-        fetch(`http://localhost:5500/api/reviews/allreviews`)
+        fetch(`https://fastexpress.herokuapp.com/api/reviews/allreviews`)
             .then(res => res.json())
             .then(data => setReviewlist(data))
     }, [])
 
     return (
-        <section className="container w-5/6 mx-auto px-4 sm:px-8 max-w-6xl">
+        <section className="container w-5/6 mx-auto px-4 sm:px-8">
             <div class="py-8">
                 <div class="flex flex-row mb-1 sm:mb-0 justify-between">
                     <h2 class="text-2xl leading-tight">
@@ -36,7 +36,7 @@ const ManageReviews = () => {
                             <thead>
                                 <tr>
                                     <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-c text-sm uppercase font-normal">
-                                        Logo
+                                        Photo
                                     </th>
                                     <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-c text-sm uppercase font-normal">
                                         Name

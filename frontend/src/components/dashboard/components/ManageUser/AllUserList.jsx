@@ -6,17 +6,16 @@ const AllUserList = () => {
     const [userList, setUserList] = useState([]);
     
     useEffect(() => {
-        fetch(`https://fastexpress.herokuapp.com/api/customers/all`)
+        fetch(`https://fastexpress.herokuapp.com/api/user/alluser`)
             .then(res => res.json())
             .then(data => setUserList(data))
     }, [])
     return (
-        <section className="container w-5/6 mx-auto px-4 sm:px-8 max-w-6xl">
-
+        <section className="container w-5/6 mx-auto px-4 sm:px-8">
             <div class="py-8">
                 <div class="flex flex-row mb-1 sm:mb-0 justify-between">
                     <h2 class="text-2xl leading-tight">
-                        Users Managment
+                        Users Management
                     </h2>
                     <div class="text-end">
                         <form class="flex flex-col md:flex-row   max-w-sm md:space-x-3 space-y-3 md:space-y-0 justify-center">
@@ -35,7 +34,7 @@ const AllUserList = () => {
                             <thead>
                                 <tr>
                                     <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-c text-sm uppercase font-normal">
-                                        Logo
+                                        Photo
                                     </th>
                                     <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-c text-sm uppercase font-normal">
                                         Name
@@ -45,9 +44,6 @@ const AllUserList = () => {
                                     </th>
                                     <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-c text-sm uppercase font-normal">
                                         Address
-                                    </th>
-                                    <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-c text-sm uppercase font-normal">
-                                        Merchant
                                     </th>
                                     <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-c text-sm uppercase font-normal">
                                         Created at

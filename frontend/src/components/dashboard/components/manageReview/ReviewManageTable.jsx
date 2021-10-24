@@ -7,12 +7,12 @@ const ReviewManageTable = ({ list }) => {
     // console.log(list)
 
     const deleteReview = async () => {
-        try{
-            await axios.delete(`http://localhost:5500/api/reviews/${_id}`);
-            console.log('product deleted')
-            window.location.replace("/manage-reviews");
+        try {
+            await axios.delete(`https://fastexpress.herokuapp.com/api/reviews/${_id}`);
+            console.log('Review deleted')
+            window.location.replace("/dashboard/manage-reviews");
         }
-        catch(err){
+        catch (err) {
             console.log(err);
         }
     }
@@ -57,9 +57,7 @@ const ReviewManageTable = ({ list }) => {
             </td>
             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                 <p class="text-gray-900 whitespace-no-wrap">
-
                     <button onClick={() => deleteReview(_id)}>Delete</button>
-
                 </p>
             </td>
         </tr>

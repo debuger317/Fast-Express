@@ -1,10 +1,22 @@
+import axios from 'axios';
 import React from 'react';
 
 const CustomerListDetails = (props) => {
-    const { name, email, photo, address, updatedAt, createdAt } = props.list;
+    const { name, email, photo, address, updatedAt, createdAt, _id } = props.list;
+
+    const deleteUser = async () => {
+        try{
+            await axios.delete(`https://fastexpress.herokuapp.com/api/user/${_id}`)
+            console.log("user deleted")
+            window.location.replace("/dashboard/userlist");
+        }
+        catch(err){
+            console.log(err)
+        }
+    }
     return (
         <tr>
-            <td class="px-5  mr-6 py-5 border-b border-gray-200 bg-white text-sm">
+            <td class="px-5 mr-6 py-5 border-b border-gray-200 bg-white text-sm">
                 <div class="flex items-center">
                     <div class="flex-shrink-0">
                         <a href="#" class="block relative">
@@ -32,14 +44,9 @@ const CustomerListDetails = (props) => {
                     <span aria-hidden="true" class="absolute inset-0 bg-green-200 opacity-50 rounded-full">
                     </span>
                     <span class="py-4 block px-6 text-center">
-                        Address
+                        {address}
                     </span>
                 </span>
-            </td>
-            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                <a href="#" class="text-indigo-600 hover:text-indigo-900">
-                    Paypal
-                </a>
             </td>
             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                 <p class="text-gray-900 whitespace-no-wrap">
@@ -58,7 +65,7 @@ const CustomerListDetails = (props) => {
             </td>
             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                 <p class="text-gray-900 whitespace-no-wrap">
-                    Delete
+                    <button onClick={() => deleteUser(_id)}>Delete</button>
                 </p>
             </td>
         </tr>

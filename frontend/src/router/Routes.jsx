@@ -49,6 +49,9 @@ const Routes = () => {
                     <PrivateShippingForm exact path="/service/category/:filterPath/:_id/customer-parcel-shipping-form">
                         <ShippingForm />
                     </PrivateShippingForm>
+                    {/* <Route exact path="/service/category/:filterPath/:_id/customer-parcel-shipping-form">
+                        <ShippingForm />
+                    </Route> */}
                     <Route path="/service">
                         <Services />
                     </Route>
