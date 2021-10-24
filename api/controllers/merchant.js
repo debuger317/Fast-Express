@@ -14,12 +14,12 @@ const addmerchant_C = async (req, res) => {
             pickupTo: req.body.pickupTo,
             costperkg: req.body.costperkg,
             deliveryOption: req.body.deliveryOption,
-            status:req.body.status,
+            status: req.body.status,
             phone: req.body.phone,
             serviceCategory: req.body.serviceCategory,
         });
         const merchant = await newmerchant.save();
-        res.status(200).json( merchant
+        res.status(200).json(merchant
         );
     }
     catch (err) {
@@ -74,9 +74,32 @@ const updatemerchant_c = async (req, res, next) => {
 
 }
 
+// delete a merchant account by id and email address
+
+const deleteAMerchantByIdAndEmail = async (req, res, next) => {
+
+    if (req.body.merchantEmail === merchants.email) {
+        try {
+            const post = await Orders.findById(req.params.id);
+            await post.delete();
+            res.status(200).json("Order has been deleted...");
+        }
+
+        catch (err) {
+            res.status(500).json(err);
+        }
+    }
+
+    else {
+        res.status(401).json("you only delete your company")
+    }
+
+}
+
 module.exports = {
     addmerchant_C,
     getallmerchant_C,
     signlemerchant_c,
-    updatemerchant_c
+    updatemerchant_c,
+    deleteAMerchantByIdAndEmail
 }

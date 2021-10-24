@@ -4,18 +4,16 @@
 // admin see the all order list 
 
 const router = require("express").Router();
+
 const order_control = require("../controllers/orders")
 
-router.post("/addorder", order_control.Addorder_control)
-router.get('/allorder', order_control.allorder_control)
-// get data for user by email
-router.get('/:userId', order_control.email_order_list_control)
-router.delete('/:email', order_control.allorder_control)
-router.get('/:orderid', order_control.merchant_order_list_control)
-// router.delete('/:email', order_control.allorder_control)
+router.post("/addorder", order_control.AddANewOrder)
 
-// router.get('/:userid', couriers_Controller.signlecourier_c)
+router.get('/allorder', order_control.GetAllOrderList)
 
-// router.put('/:merchantid', couriers_Controller.updatecourier_c)
+router.get('/user/:userId', order_control.findAUserOrderById)
+
+router.get('/merchant/:merchantId', order_control.findAMerchantOrderByIdAndEmail)
+router.delete('/:userId', order_control.deleteAUserOrderById)
 
 module.exports = router;

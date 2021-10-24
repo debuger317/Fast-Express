@@ -7,9 +7,11 @@ const port = process.env.PORT || 5500;
 const categories = require("./routes/categories");
 const users = require("./routes/users")
 const orders = require("./routes/orders")
+const payment = require("./routes/paymentInfo")
 const merchants = require("./routes/merchant")
 const auth = require("./routes/auth")
 const review = require("./routes/review")
+const blog = require("./routes/blog")
 const dashboard = require("./routes/dashboard")
 
 dotenv.config();
@@ -29,7 +31,9 @@ app.use("/api/merchant", merchants)
 app.use("/api/auth", auth)
 app.use("/api/user", users)
 app.use("/api/order", orders)
+app.use("/api/payment", payment)
 app.use("/api/reviews", review)
+app.use("/api/blog", blog)
 app.use("/api/dashboard", dashboard)
 
 app.get('/', (req, res) => {
