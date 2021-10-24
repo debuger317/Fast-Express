@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { CSSTransition } from 'react-transition-group';
 import { useSelector, useDispatch } from 'react-redux';
 import TableRow from './TableRow';
 import axios from 'axios';
@@ -18,6 +19,11 @@ const CategoriesTable = () => {
     const dispatch = useDispatch();
     const location = useLocation();
     const Path = location.pathname.split('/')[1];
+    // const
+
+    const [showButton, setShowButton] = useState(true);
+    const [showMessage, setShowMessage] = useState(false);
+
 
     const categories = useSelector((state) => state.categories.items);
 
@@ -117,46 +123,42 @@ const CategoriesTable = () => {
                     </div>
 
                 </div>
-                <div className="text-right">       
-                    <button onClick={() => toggleText()} class="text-md my-4 py-1 px-4 bg-red-600 rounded text-white">Add new</button> 
+                <div className="text-right">
+                    <button onClick={() => toggleText()} class="text-md my-4 py-1 px-4 bg-red-600 rounded text-white">{added ? "Close" : "Add new"}</button>
                 </div>
-                {
-                    added && (
-                        <div className="w-full">
-                            <div className="rounded shadow py-5 flex items-center justify-between">
-                                <div className="text-gray-600 mx-10">
-                                    <div className="relative">
-                                        <img className={`${C_photo ? "w-16 h-16 rounded" : ""}`} src={C_photo ? C_photo : ""} alt="" srcset="" />
-                                        <label
-                                            class={`${C_photo ? "hidden" : ""} absolute  -top-7 left-2 cursor-pointer`}>
-                                            <FiCamera class="text-4xl text-black" />
-                                            <input onChange={handleImageUpload} type='file' class="hidden" />
-                                            <p class={`${C_photo ? "hidden" : ""}`}>Photo</p>
-                                        </label>
-
-                                    </div>
+                {added && (
+                    <div className="w-full">
+                        <div className="rounded shadow py-5 flex items-center justify-between">
+                            <div className="text-gray-600 mx-10">
+                                <div className="relative">
+                                    <img className={`${C_photo ? "w-16 h-16 rounded" : ""}`} src={C_photo ? C_photo : ""} alt="" srcset="" />
+                                    <label
+                                        class={`${C_photo ? "hidden" : ""} absolute  -top-7 left-2 cursor-pointer`}>
+                                        <FiCamera class="text-4xl text-black" />
+                                        <input onChange={handleImageUpload} type='file' class="hidden" />
+                                        <p class={`${C_photo ? "hidden" : ""}`}>Photo</p>
+                                    </label>
                                 </div>
-                                <form onSubmit={handleSubmit} class="flex items-center mx-20 w-full">
-                                    <div className="w-3/4 mr-5">
-                                        <input type="text" class="rounded border-transparent appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent" placeholder="Category name" onBlur={e => setName(e.target.value)} required />
-                                    </div>
-
-                                    <button class="w-1/4 px-6 py-2 text-base font-semibold text-white bg-red-600 rounded shadow-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 focus:ring-offset-red-200" type="submit">
-                                        {pending ?
-                                            <CgSpinner class="animate-spin text-xl mx-auto" /> : "Add New"
-                                        }
-                                    </button>
-                                    <br />
-                                    <br />
-                                    {error && <p class="absolute text-red-500 text-md text-center pt-20">Something went wrong</p>}
-                                </form>
-
                             </div>
+                            <form onSubmit={handleSubmit} class="flex items-center mx-20 w-full">
+                                <div className="w-3/4 mr-5">
+                                    <input type="text" class="rounded border-transparent appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent" placeholder="Category name" onBlur={e => setName(e.target.value)} required />
+                                </div>
+
+                                <button class="w-1/4 px-6 py-2 text-base font-semibold text-white bg-red-600 rounded shadow-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 focus:ring-offset-red-200" type="submit">
+                                    {pending ?
+                                        <CgSpinner class="animate-spin text-xl mx-auto" /> : "Add New"
+                                    }
+                                </button>
+                                <br />
+                                <br />
+                                {error && <p class="absolute text-red-500 text-md text-center pt-20">Something went wrong</p>}
+                            </form>
 
                         </div>
-                    )
-                }
 
+                    </div>
+                )}
                 <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
                     <div class="inline-block min-w-full shadow rounded overflow-hidden">
                         <table class="min-w-full leading-normal">
