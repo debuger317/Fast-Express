@@ -6,6 +6,7 @@ import Support from '../components/support/Support';
 import Review from '../components/reviews/Review';
 import PromoSell from '../components/promo-sell/PromoSell';
 import FeatureBrand from '../components/feature-brand/FeatureBrand';
+import Blog from '../components/blog/Blog';
 
 const Home = () => {
     return (
@@ -16,6 +17,7 @@ const Home = () => {
             <PromoSell />
             <Review />
             <FeatureBrand/>
+            <Blog />
             <Footer/>
         </Fragment>
     )
