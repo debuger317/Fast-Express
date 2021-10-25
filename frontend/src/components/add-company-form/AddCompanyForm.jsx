@@ -84,7 +84,7 @@ const AddCompanyForm = () => {
         <section class="text-gray-600 body-font">
             <form onSubmit={handleSubmit(onSubmit)}
             >
-                <div class="container px-5 py-24 mx-auto flex flex-wrap">
+                <div class="container px-5 py-18 mx-auto flex flex-wrap">
 
                     <div class="p-4 lg:w-full md:w-full">
                         <div class="my-5">
@@ -92,7 +92,7 @@ const AddCompanyForm = () => {
                         </div>
                         <div className="md:flex items-center">
                             <div className="block relative">
-                                {logo ? <img alt="company_logo" src={logo} className=" rounded h-36 w-36 " /> : <img alt="company_logo" src="https://i.ibb.co/Cm61Z60/instagram.png" className=" rounded h-36 w-36 " />}
+                                {logo ? <img alt="company_logo" src={logo} className=" rounded h-14 w-14 " /> : <img alt="company_logo" src="https://i.ibb.co/Cm61Z60/instagram.png" className=" rounded h-14 w-14 " />}
                             </div>
                             <div className="text-gray-600 mx-10">
                                 <label
@@ -132,7 +132,7 @@ const AddCompanyForm = () => {
                                 Payment per accept whight (kg)
                                 <select {...register("payment")}
                                     class="rounded block w-full py-2 px-3 border border-gray-300 bg-white shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500" >
-                                    <option value="">
+                                    <option value="" disabled selected>
                                         Select an option
                                     </option>
                                     <option value="250">
@@ -171,7 +171,7 @@ const AddCompanyForm = () => {
                                 Accept whight (kg)
                                 <select {...register("weight")}
                                     class="rounded block w-full py-2 px-3 border border-gray-300 bg-white shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500" >
-                                    <option value="">
+                                    <option value="" disabled selected>
                                         Select an option
                                     </option>
                                     <option value="5">
@@ -202,7 +202,7 @@ const AddCompanyForm = () => {
                                     http://
                                 </span>
                                 <input {...register("website")}
-                                    type="text" class=" rounded-r flex-1 border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent" placeholder="www.google.com" />
+                                    type="text" class=" rounded-r flex-1 border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent" placeholder="google.com" />
                             </div>
                         </label>
                     </div>
@@ -226,7 +226,7 @@ const AddCompanyForm = () => {
                                 Pickup from
                                 <select {...register("pickupFrom")}
                                     class="rounded block w-full py-2 px-3 border border-gray-300 bg-white shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500" >
-                                    <option value="">
+                                    <option value="" disabled selected>
                                         Select an option
                                     </option>
                                     <option value="dhaka">
@@ -254,7 +254,7 @@ const AddCompanyForm = () => {
                                 Pickup to
                                 <select {...register("pickupTo")}
                                     class="rounded block w-full py-2 px-3 border border-gray-300 bg-white shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500" >
-                                    <option value="">
+                                    <option value="" disabled selected>
                                         Select an option
                                     </option>
                                     <option value="dhaka">
@@ -282,7 +282,7 @@ const AddCompanyForm = () => {
                                 Delivery by
                                 <select {...register("deliveryOption")}
                                     class="rounded block w-full py-2 px-3 border border-gray-300 bg-white shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500" >
-                                    <option value="">
+                                    <option value="" disabled selected>
                                         Select an option
                                     </option>
                                     <option value="homedelivery">
@@ -329,8 +329,8 @@ const AddCompanyForm = () => {
                     </div>
                     {error && <span style={{ color: 'red', marginTop: '10px' }}>Something went wrong!</span>}
                     <div class="p-4 lg:full md:w-full">
-                        <div class="flex w-32 ml-auto">
-                            <button onClick={() => handleSubmit()} type="submit" class="py-2 px-4 my-10 bg-red-600 hover:bg-red-700 focus:ring-red-500 focus:ring-offset-red-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
+                        <div class="flex w-32 m-auto">
+                            <button onClick={() => handleSubmit()} type="submit" class="py-2 px-4 my-10 bg-green-600 hover:bg-green-700 focus:ring-green-500 focus:ring-offset-red-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
                                 {pending ?
                                     <CgSpinner class="animate-spin text-xl" /> : "Add request"
                                 }

@@ -9,8 +9,9 @@ import {
     Route
 } from "react-router-dom";
 import ManageCompany from '../components/dashboard/wrapper/ManageCompany';
-import CustomerList from '../components/dashboard/wrapper/CustomerList';
-
+import CustomerOrderList from '../components/dashboard/wrapper/CustomerOrderList';
+import CustomerListManage from '../components/dashboard/wrapper/CustomerListManage';
+import DeliveryManManage from '../components/dashboard/wrapper/DeliveryManManage';
 const DashboardHome = lazy(() => import('../components/dashboard/wrapper/Home'));
 const Home = lazy(() => import('./Home'));
 const CompanyList = lazy(() => import('../components/dashboard/components/manageCompany/CompanyList'));
@@ -58,7 +59,7 @@ const Dashboard = () => {
                                 <ManageCompany />
                             </Route>
                             <Route path="/dashboard/customer-list">
-                                <CustomerList />
+                                <CustomerListManage />
                             </Route>
                             <Route path="/dashboard/orderlist">
                                 <OrderList />
@@ -77,6 +78,12 @@ const Dashboard = () => {
                             </Route>
                             <Route path="/dashboard/manage-review">
                                 <ManageReviews />
+                            </Route>
+                            <Route path="/dashboard/customer-order-list">
+                                <CustomerOrderList />
+                            </Route>
+                            <Route path="/dashboard/manage-delivery-man">
+                                <DeliveryManManage />
                             </Route>
                         </Switch>
                     </div>

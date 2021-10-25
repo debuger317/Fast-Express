@@ -46,12 +46,12 @@ const Routes = () => {
                     <Route exact path="/service/category/:filterPath/:_id">
                         <SingleCourierDetail />
                     </Route>
-                    <PrivateShippingForm exact path="/service/category/:filterPath/:_id/customer-parcel-shipping-form">
+                    {/* <PrivateShippingForm exact path="/service/category/:filterPath/:_id/customer-parcel-shipping-form">
                         <ShippingForm />
-                    </PrivateShippingForm>
-                    {/* <Route exact path="/service/category/:filterPath/:_id/customer-parcel-shipping-form">
+                    </PrivateShippingForm> */}
+                    <Route exact path="/service/category/:filterPath/:_id/customer-parcel-shipping-form">
                         <ShippingForm />
-                    </Route> */}
+                    </Route>
                     <Route path="/service">
                         <Services />
                     </Route>
