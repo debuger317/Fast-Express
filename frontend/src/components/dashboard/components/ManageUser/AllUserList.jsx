@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import CustomerListDetails from './CustomerListDetails';
+import CustomerListDetails from './UserListDetails';
 
 const AllUserList = () => {
 

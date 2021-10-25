@@ -57,7 +57,7 @@ const deleteduser = async (req, res, next) => {
     try {
         const post = await Users.findById(req.params.id);
             await post.delete();
-            res.status(200).json("Product has been deleted...");
+            res.status(200).json("User has been deleted...");
         }
         catch (err) {
             res.status(500).json(err);

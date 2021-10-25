@@ -1,8 +1,7 @@
-
 import React, { Fragment } from 'react';
 import { useSelector } from 'react-redux';
 import {FaEdit, FaTrashAlt, FaUserEdit} from 'react-icons/fa'
-import UserSettingsDetails from '../components/ManageUser/UserSettingsDetails';
+
 const Settings = () => {
     const userDatas = useSelector((state) => state.user.userOrderLists[0])
     const userdetails = useSelector((state) => state.auth.authdetails)
@@ -67,7 +66,7 @@ const Settings = () => {
                                             </span>
                                         </td>
                                         <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                            <span class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
+                                            <span class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight"> */}
                                                 {/* <span aria-hidden="true" class="absolute inset-0 bg-green-200 opacity-50 rounded-full">
                                                 </span> */}
                                                 {/* <span class="relative">
@@ -76,7 +75,7 @@ const Settings = () => {
                                             </span>
                                         </td>
                                         <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                            <span class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight"> */} */}
+                                            <span class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight"> */}
                                                 {/* <span aria-hidden="true" class="absolute inset-0 bg-green-200 opacity-50 rounded-full">
                                                 </span> */}
                                                 {/* <span class="relative">
@@ -90,8 +89,8 @@ const Settings = () => {
                             </table>
                         </div>
                     </div>
-                </div> */}
-            {/* </div>  */}
+                </div>
+            </div> */}
 
       </Fragment>
      );

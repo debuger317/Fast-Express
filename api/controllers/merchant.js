@@ -74,9 +74,25 @@ const updatemerchant_c = async (req, res, next) => {
 
 }
 
+
+//Delete any field from merchants
+
+const deletemerchant_c = async (req, res, next) => {
+    try {
+        const post = await merchants.findById(req.params.id);
+            await post.delete();
+            res.status(200).json("Company has been deleted...");
+        }
+        catch (err) {
+            res.status(500).json(err);
+          } 
+
+}
+
 module.exports = {
     addmerchant_C,
     getallmerchant_C,
     signlemerchant_c,
-    updatemerchant_c
+    updatemerchant_c,
+    deletemerchant_c
 }
