@@ -3,24 +3,24 @@ import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';
 import { useLocation } from 'react-router';
 import ReviewTable from './ReviewTable';
-import { getCategoriesAction } from './../../../../redux/action/categories';
+import { fetchReviewAction } from '../../../../redux/action/review';
 // 
 const ManageReviews = () => {
     const dispatch = useDispatch();
     const location = useLocation();
     const Path = location.pathname.split('/')[1];
-    const categories = useSelector((state) => state.categories.items);
-    console.log(categories);
-    const getCategories = async () => {
+    const review = useSelector((state) => state.review.item)
+    console.log(review);
+    const fetchReview = async () => {
         try {
-            const res = await axios.get('https://fastexpress.herokuapp.com/api/categories/all');
-            dispatch(getCategoriesAction(res.data))
+            const res = await axios.get('https://fastexpress.herokuapp.com/api/review/allreviews');
+            dispatch(fetchReviewAction(res.data))
         } catch (error) {
             console.error(error);
         }
     }
     useEffect(() => {
-        getCategories()
+        fetchReview()
     }, [Path])
     return (
 

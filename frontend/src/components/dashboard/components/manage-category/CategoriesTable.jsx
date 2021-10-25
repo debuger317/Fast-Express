@@ -9,7 +9,7 @@ import { filterCategoryAction, getCategoriesAction } from './../../../../redux/a
 import { CgSpinner } from 'react-icons/cg';
 // 
 const CategoriesTable = () => {
-    const [C_photo, setChoto] = useState();
+    const [C_photo, setPhoto] = useState();
     const [added, setadd] = useState(false);
     const [pending, setPending] = useState(false);
     const [success, setsuccess] = useState(false);
@@ -19,11 +19,6 @@ const CategoriesTable = () => {
     const dispatch = useDispatch();
     const location = useLocation();
     const Path = location.pathname.split('/')[1];
-    // const
-
-    const [showButton, setShowButton] = useState(true);
-    const [showMessage, setShowMessage] = useState(false);
-
 
     const categories = useSelector((state) => state.categories.items);
 
@@ -55,7 +50,7 @@ const CategoriesTable = () => {
             imageData)
             .then((response) => {
 
-                setChoto(response.data.data.display_url);
+                setPhoto(response.data.data.display_url);
             })
             .catch((error) => {
 
@@ -86,8 +81,7 @@ const CategoriesTable = () => {
                 setadd(false)
                 seterror(false);
                 setPending(false)
-
-                console.log('new category added successfully');
+                setPhoto('')
             }
         } catch (err) {
             seterror(true);
