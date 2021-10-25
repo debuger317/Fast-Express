@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React from 'react';
 
-const ReviewManageTable = ({ list }) => {
+const CustomerListPage = ({list}) => {
     const { name, updatedAt, createdAt, photo, city, _id } = list;
 
     // console.log(list)
@@ -65,4 +65,4 @@ const ReviewManageTable = ({ list }) => {
     );
 };
 
-export default ReviewManageTable;
+export default CustomerListPage;

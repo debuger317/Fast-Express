@@ -6,18 +6,30 @@ const AllUserList = () => {
     const [userList, setUserList] = useState([]);
 
     useEffect(() => {
+<<<<<<< HEAD
 
         fetch(`https://fastexpress.herokuapp.com/api/user/alluser`)
 
+=======
+        fetch(`https://fastexpress.herokuapp.com/api/user/alluser`)
+>>>>>>> 79ed42eb49c6b94ad198712db085ae479a7e7675
             .then(res => res.json())
             .then(data => setUserList(data))
     }, [])
     return (
+<<<<<<< HEAD
         <section className="container w-6/6 mx-auto px-4 sm:px-8 max-w-6xl">
             <div class="py-8">
                 <div class="flex flex-row mb-1 sm:mb-0 justify-between">
                     <h2 class="text-2xl leading-tight font-medium">
                         TOTAL <span className="text-3xl text-red-400">{userList.length}</span> USERS
+=======
+        <section className="container w-5/6 mx-auto px-4 sm:px-8">
+            <div class="py-8">
+                <div class="flex flex-row mb-1 sm:mb-0 justify-between">
+                    <h2 class="text-2xl leading-tight">
+                        Users Management
+>>>>>>> 79ed42eb49c6b94ad198712db085ae479a7e7675
                     </h2>
                     <div class="text-end">
                         <form class="flex flex-col md:flex-row   max-w-sm md:space-x-3 space-y-3 md:space-y-0 justify-center">
@@ -34,6 +46,7 @@ const AllUserList = () => {
                     <div class="inline-block min-w-full shadow rounded-lg overflow-hidden">
                         <table class="min-w-full leading-normal">
                             <thead>
+<<<<<<< HEAD
                                 <tr className="bg-gray-50 border-b">
                                     <th className="p-2 border-r cursor-pointer text-sm font-thin text-gray-500">
                                         <div className="flex items-center justify-center">
@@ -42,6 +55,11 @@ const AllUserList = () => {
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4m0 6l-4 4-4-4" />
                                             </svg>
                                         </div>
+=======
+                                <tr>
+                                    <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-c text-sm uppercase font-normal">
+                                        Photo
+>>>>>>> 79ed42eb49c6b94ad198712db085ae479a7e7675
                                     </th>
                                     <th className="p-2 border-r cursor-pointer text-sm font-thin text-gray-500">
                                         <div className="flex items-center justify-center">
@@ -67,6 +85,7 @@ const AllUserList = () => {
                                             </svg>
                                         </div>
                                     </th>
+<<<<<<< HEAD
                                     <th className="p-2 border-r cursor-pointer text-sm font-thin text-gray-500">
                                         <div className="flex items-center justify-center">
                                             Created
@@ -82,6 +101,10 @@ const AllUserList = () => {
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4m0 6l-4 4-4-4" />
                                             </svg>
                                         </div>
+=======
+                                    <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-c text-sm uppercase font-normal">
+                                        Created at
+>>>>>>> 79ed42eb49c6b94ad198712db085ae479a7e7675
                                     </th>
                                     <th className="p-2 border-r cursor-pointer text-sm font-thin text-gray-500">
                                         <div className="flex items-center justify-center">

@@ -13,9 +13,9 @@ const PaymentType = () => {
             <h2 class="border-b border-gray-200 text-xl font-bold">3. Payment Method</h2>
             <h6 class="my-3">Select a payment method</h6>
             <div class="flex items-center gap-4 my-3">
-                <input {...methods.register("paymentType")} class="h-4 w-4" type="radio"  value="onlinepayment" required/>
+                <input {...methods.register("paymentType")} class="h-4 w-4" type="radio" value="onlinepayment" required />
                 <label for="">Online payment</label>
-                <input {...methods.register("paymentType")} class="h-4 w-4" type="radio" value="cashon" required/>
+                <input {...methods.register("paymentType")} class="h-4 w-4" type="radio" value="cashon" required />
                 <label for="">Cash on delivery</label>
             </div>
 
