@@ -4,7 +4,7 @@ import { IoLocationOutline } from 'react-icons/io5';
 
 const SearchBar = () => {
     return (
-        <section className="bg-white-100 py-10 mt-10 shadow-md">
+        <section className="bg-white-100 py-10 shadow-md">
             <div className="container mx-auto">
                 <div className="flex justify-center">
                     <div className="w-1/6 flex items-center">

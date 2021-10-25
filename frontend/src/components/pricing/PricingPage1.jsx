@@ -1,7 +1,4 @@
 import React from 'react';
-import Footer from '../../common/footer/Footer';
-import Navbar from '../../common/header/sub-component/nav-bar/Navbar';
-import TopBar from '../../common/header/sub-component/top-bar/TopBar';
 import { FaTruckMoving, FaRoad } from 'react-icons/fa';
 import { useState } from 'react';
 
@@ -42,7 +39,7 @@ const PricingPage1 = () => {
                         <div className="max-w-sm mx-auto md:w-2/3">
                             <div className="">
                                 <select onBlur={handleBlur} name="kg" id="kg" form="carform" className="rounded-lg border-b-2 flex-1 appearance-none border-red-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base text-center focus:outline-none focus:ring-0 focus:border-green-300 focus:ring-purple-100 focus:border-transparent">
-                                    <option value="0">Please Select</option>
+                                    <option value="" disabled selected>Please Select</option>
                                     <option value="100">1</option>
                                     <option value="150">2</option>
                                     <option value="200">3</option>
@@ -64,8 +61,8 @@ const PricingPage1 = () => {
                         <div className="max-w-sm mx-auto md:w-2/3">
                             <div className="">
                                 <select onBlur={handleBlur} name="time" id="time" form="carform" className="rounded-lg border-b-2 flex-1 appearance-none border-red-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base text-center focus:outline-none focus:ring-0 focus:border-green-300 focus:ring-purple-600 focus:border-transparent">
-                                    <option value="0">Please Select</option>
-                                    <option value="100">3 Hours Delivery</option>
+                                    <option value="" disabled selected>Please Select</option>
+                                    <option value="100" >3 Hours Delivery</option>
                                     <option value="50">5 Hours Delivery</option>
                                     <option value="40">6 Hours Delivery</option>
                                     <option value="30">Same day Delivery</option>
