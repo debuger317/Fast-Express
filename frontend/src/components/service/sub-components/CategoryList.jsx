@@ -3,6 +3,8 @@ import React, { useEffect } from 'react';
 import { Link, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
 import { getCategoriesAction } from '../../../redux/action/categories';
+import { FaSpinner } from 'react-icons/fa';
+import Spinner from '../../../helper/Spinner';
 
 const CategoryList = () => {
     const categories = useSelector((state) => state.categories.items)
@@ -30,7 +32,7 @@ const CategoryList = () => {
             </div>
             <div class="grid xl:grid-cols-6 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2  xl:gap-10 lg:gap-8 sm:gap-3">
                 {
-                    categories.length === 0 && <h2>loading....</h2>
+                    categories.length === 0 && <Spinner/>
                 }
                 {
                     categories.map(item => item ?
