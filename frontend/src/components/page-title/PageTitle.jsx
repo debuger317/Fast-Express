@@ -1,12 +1,13 @@
 import React from 'react';
 import { BsArrowBarRight } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
+import Titleimg from '../../assets/images/about/titleimg.jpg';
 
 const PageTitle = (props) => {
     return (
-        <section className="bg-gray-100 border-b">
+        <section style={{ "backgroundImage":`url(${Titleimg})`}} className="bg-gray-100 border-b">
             <div className="container mx-auto p-10">
-                <div className="w-5/6 lg:w-full mx-auto flex items-center justify-between">
+                <div className="w-5/6 lg:w-full h-full mx-auto flex items-center justify-between">
                     <div className="">
                         <h1 className="uppercase text-4xl text-bold">{props.pageName}</h1>
                     </div>

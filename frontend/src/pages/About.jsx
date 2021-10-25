@@ -5,17 +5,19 @@ import Navbar from '../components/header/sub-component/nav-bar/Navbar';
 import TopBar from '../components/header/sub-component/top-bar/TopBar';
 import AboutContainer from '../components/about/AboutContainer';
 import ClientCounter from '../components/about/ClientCounter';
-
+import PageTitle from '../components/page-title/PageTitle';
 const About = () => {
   document.title = "local courier service | about";
   return (
     <Fragment>
-      <TopBar/>
-      <Navbar/>
-      <AboutBanner/>
-      <AboutContainer/>
-      <ClientCounter/>
-      <Footer/>
+      <TopBar />
+      <Navbar />
+      {/* about container */}
+      <PageTitle  title="about" pageName="Browse About" />
+      <AboutBanner />
+      <AboutContainer />
+      <ClientCounter />
+      <Footer />
     </Fragment>
   );
 };

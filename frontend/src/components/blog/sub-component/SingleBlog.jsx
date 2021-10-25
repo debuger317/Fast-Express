@@ -1,6 +1,7 @@
 import React from 'react';
 import HappyDelivery from '../../../assets/images/blog/Happy-Deepavali-Whatsapp-Story.png'
 const SingleBlog = () => {
+    document.title = "local courier service | blog";
     return (
         <div>
             <section class="text-gray-600 body-font">
@@ -41,7 +42,6 @@ const SingleBlog = () => {
                                 </div>
                             </div>
                             <div class="p-4 lg:w-1/2">
-
                                 <div class="h-full flex sm:flex-row flex-col items-center sm:justify-start justify-center text-center sm:text-left">
                                     <img alt="team" class="flex-shrink-0 rounded-lg w-48 h-48 object-cover object-center sm:mb-0 mb-4" src={HappyDelivery} />
                                     <div class="flex-grow sm:pl-8">
