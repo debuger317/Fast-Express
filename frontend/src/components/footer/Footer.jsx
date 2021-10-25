@@ -32,25 +32,25 @@ const Footer = () => {
                         <div className="flex">
                             <GoMail className="text-red-600" /> <span className="pl-2 text-sm">Email:</span>
                         </div>
-                        <p className="text-sm text-red-400 hover:text-gray-400 cursor-pointer">courier@fastexpress.com</p>
+                        <a className="text-sm text-red-400 hover:text-gray-400 cursor-pointer" href="mailto: dedugentity@gmail.com">dedugentity@gmail.com</a>
                     </div>
                     <div className="mx-auto  sm:mt-0 lg:w-1/3 md:w-1/2 sm:px-4 w-full pl-4">
                         <h2 className="title-font font-medium text-dark tracking-normal text-md mb-3 flex">MENU <RiArrowDownSFill className="text-red-600" /></h2>
                         <nav className="list-none mb-10">
                             <li>
-                                <a className="text-gray-400 text-sm hover:text-red-300" href=" #">Home</a>
+                                <Link to="/" className="text-gray-400 text-sm hover:text-red-300">Home</Link>
                             </li>
                             <li>
-                                <a className="text-gray-400 text-sm hover:text-red-400" href=" #">Our News and Updates</a>
+                                <Link to="/" className="text-gray-400 text-sm hover:text-red-400">Our News and Updates</Link>
                             </li>
                             <li>
-                                <a className="text-gray-400 text-sm hover:text-red-400" href=" #">Contact</a>
+                                <Link to="/contact" className="text-gray-400 text-sm hover:text-red-400">Contact</Link>
                             </li>
                             <li>
-                                <a className="text-gray-400 text-sm hover:text-red-400" href=" #">Sign Up</a>
+                                <Link to="/signup" className="text-gray-400 text-sm hover:text-red-400">Sign Up</Link>
                             </li>
                             <li>
-                                <a className="text-gray-400 text-sm hover:text-red-400" href=" #">Terms And Conditions</a>
+                                <Link to="/" className="text-gray-400 text-sm hover:text-red-400">Terms And Conditions</Link>
                             </li>
                         </nav>
                     </div>
