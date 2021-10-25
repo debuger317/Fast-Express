@@ -9,18 +9,14 @@ import {
     Route
 } from "react-router-dom";
 import ManageCompany from '../components/dashboard/wrapper/ManageCompany';
-<<<<<<< HEAD
 // import CustomerList from '../components/dashboard/wrapper/CustomerList';
 import ManageCategories from '../components/dashboard/wrapper/ManageCategories';
 import UserOrderList from '../components/dashboard/userDashboard/UserOrderList';
-
-const CustomerOrderList = lazy(() => import('../components/dashboard/wrapper/CustomerOrderLists'));
-const CustomerList = lazy(() => import('../components/dashboard/wrapper/CustomerLists'));
-=======
-import CustomerOrderList from '../components/dashboard/wrapper/CustomerOrderList';
 import CustomerListManage from '../components/dashboard/wrapper/CustomerListManage';
 import DeliveryManManage from '../components/dashboard/wrapper/DeliveryManManage';
->>>>>>> 79ed42eb49c6b94ad198712db085ae479a7e7675
+const CustomerOrderList = lazy(() => import('../components/dashboard/wrapper/CustomerOrderLists'));
+const CustomerList = lazy(() => import('../components/dashboard/wrapper/CustomerLists'));
+
 const DashboardHome = lazy(() => import('../components/dashboard/wrapper/Home'));
 const Home = lazy(() => import('./Home'));
 const CompanyList = lazy(() => import('../components/dashboard/components/manageCompany/CompanyList'));
@@ -97,16 +93,14 @@ const Dashboard = () => {
                             <Route path="/dashboard/manage-review">
                                 <ManageReviews />
                             </Route>
-<<<<<<< HEAD
                             <Route path="/dashboard/manage-category">
                                 <ManageCategories />
-=======
+                            </Route>
                             <Route path="/dashboard/customer-order-list">
                                 <CustomerOrderList />
                             </Route>
                             <Route path="/dashboard/manage-delivery-man">
                                 <DeliveryManManage />
->>>>>>> 79ed42eb49c6b94ad198712db085ae479a7e7675
                             </Route>
                         </Switch>
                     </Suspense>

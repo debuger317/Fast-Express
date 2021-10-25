@@ -19,14 +19,8 @@ const FilteredItems = () => {
             .then(res => res.json())
             .then(data => setCourier(data))
     }, [filterPath])
-<<<<<<< HEAD
-
-    const count = getCourier.filter(name => name.serviceCategory.includes(filterPath))
-    console.log(count);
-=======
     
     const count = getCourier.slice(3).filter(name => name.serviceCategory[0].includes(filterPath))
->>>>>>> 79ed42eb49c6b94ad198712db085ae479a7e7675
     dispatch(updateCount(count.length))
     dispatch(filterName(filterPath))
     // console.log(count)

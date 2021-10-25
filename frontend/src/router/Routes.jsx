@@ -9,6 +9,8 @@ import Private from '../components/auth/PrivateRoute';
 import PrivateForm from '../components/auth/PrivateForm';
 import PrivateShippingForm from '../components/auth/PrivateShippingForm';
 import UserSignUp from '../components/authication/sub-component/UserSignUp';
+
+const BlogPage = lazy(() => import('../pages/BlogPage'));
 const ShippingForm =  lazy(() => import('../pages/ShippingForm'));
 const Home = lazy(() => import('../pages/Home'));
 // const CompanyForm = lazy(() => import('../pages/CompanyForm'));
@@ -55,6 +57,9 @@ const Routes = () => {
                     </PrivateShippingForm>
                     <Route path="/service">
                         <Services />
+                    </Route>
+                    <Route path="/singleblog">
+                        <BlogPage />
                     </Route>
                     <Route path="/faq">
                         <Faq/>

@@ -1,9 +1,30 @@
 import { FaUserTie, FaUserNurse } from 'react-icons/fa';
 import { MdPayment } from 'react-icons/md';
-
 import { VscDashboard,VscPerson,VscPackage, VscOrganization,VscPreview, VscReport,VscRequestChanges,VscStarFull, VscGear } from 'react-icons/vsc';
+import Blog1 from '../assets/images/blog/Christmas-hamper-delivery.png';
+import Blog2 from '../assets/images/blog/Happy-Deepavali-Whatsapp-Story.png';
+import Blog3 from '../assets/images/blog/use-this-promo-code.jpg';
 
-
+export const BlogData = [
+    {
+        id:1,
+        img:Blog1,
+        heading:'19 Nov: FROM $8, BULK DELIVERY FOR CHRISTMAS & NEW YEAR HAMPER',
+        dec:'Swag shoivdigoitch literally meditation subway tile tumblr cold-pressed. Gastropub street art beard dreamcatcher neutra, ethical XOXO lumbersexual.'
+    },
+    {
+        id:2,
+        img:Blog2,
+        heading:'Integer portitor mass sit amt fringl',
+        dec:'Swag shoivdigoitch literally meditation subway tile tumblr cold-pressed. Gastropub street art beard dreamcatcher neutra, ethical XOXO lumbersexual.'
+    },
+    {
+        id:3,
+        img:Blog3,
+        heading:'Integer portitor mass sit amt fringl',
+        dec:'Swag shoivdigoitch literally meditation subway tile tumblr cold-pressed. Gastropub street art beard dreamcatcher neutra, ethical XOXO lumbersexual.'
+    },
+]
 
 export const FaqData = [
     {
