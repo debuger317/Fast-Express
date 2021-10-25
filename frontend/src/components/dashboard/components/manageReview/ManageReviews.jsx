@@ -69,7 +69,7 @@ const ManageReviews = () => {
                             </thead>
                             <tbody>
                                 {
-                                    categories.map(tdata => (<ReviewTable data={tdata} />))
+                                    review.map(tdata => (<ReviewTable data={tdata} />))
                                 }
                             </tbody>
                         </table>
