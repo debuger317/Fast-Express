@@ -8,16 +8,10 @@ const SingleCourierDetail = () => {
     const history = useHistory();
     const { _id } = useParams();
     const dispatch = useDispatch();
-<<<<<<< HEAD
-    const [Item, setItem] = useState({})
-    const { name, logo, description } = Item;
-    
-=======
     const [Item, setItem] = useState([]);
     console.log(Item);
     const { name, logo, description, address, updatedAt, createdAt, costperkg, deliveryOption, phone, pickupFrom, pickupTo, serviceCategory, website, weight } = Item;
   
->>>>>>> d42ca734f8beb5ff4296b605937691f564863515
     const singleitem = async () => {
         try {
             const res = await axios.get(`https://fastexpress.herokuapp.com/api/merchant/${_id}`);

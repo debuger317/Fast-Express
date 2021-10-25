@@ -3,18 +3,12 @@ import { useSelector, useDispatch } from 'react-redux';
 import TableRow from './TableRow';
 import axios from 'axios';
 import { useLocation } from 'react-router';
-<<<<<<< HEAD
 import { filterCategoryAction, getCategoriesAction } from './../../../../redux/action/categories';
 import { CgSpinner } from 'react-icons/cg';
 import ReactPaginate from 'react-paginate';
 import './userOrderPagination.css';
 
 // 
-=======
-
-import { userorderAction, RemoveuserorderAction } from './../../../../redux/action/userOderList';
-
->>>>>>> d42ca734f8beb5ff4296b605937691f564863515
 const UserOrderTable = () => {
 
     const [error, seterror] = useState(false);
@@ -28,11 +22,7 @@ const UserOrderTable = () => {
     const getCategories = async () => {
         try {
             const res = await axios.get('https://fastexpress.herokuapp.com/api/order/allorder');
-<<<<<<< HEAD
             dispatch(getCategoriesAction(res.data))
-=======
-            setFilter(res.data)
->>>>>>> d42ca734f8beb5ff4296b605937691f564863515
         } catch (error) {
             console.log(error);
         }
@@ -54,7 +44,6 @@ const UserOrderTable = () => {
 
     //handle filter changes 
 
-<<<<<<< HEAD
     const handlefilter = (e) => {
         e.preventDefault();
         dispatch(filterCategoryAction(filter))
@@ -72,12 +61,6 @@ const UserOrderTable = () => {
         setPageNumber(selected);
     };
     
-=======
-    // const handlefilter = (e) => {
-    //     e.preventDefault();
-    //     dispatch(filterCategoryAction(filter))
-    // }
->>>>>>> d42ca734f8beb5ff4296b605937691f564863515
     return (
 
         <div class="container mx-auto px-12 max-w-5xl">
@@ -131,11 +114,7 @@ const UserOrderTable = () => {
                             </thead>
                             <tbody>
                                 {
-<<<<<<< HEAD
                                     displayUserOrders
-=======
-                                    filter.map(tdata => (<TableRow data={tdata} />))
->>>>>>> d42ca734f8beb5ff4296b605937691f564863515
                                 }
                             </tbody>
                         </table>
