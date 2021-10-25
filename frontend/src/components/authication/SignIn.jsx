@@ -11,9 +11,6 @@ import firebaseConfig from '../../config/firebase';
 import { useDispatch } from 'react-redux';
 import { customAuthAction, googleSignUpAction } from '../../redux/action/action';
 import { useForm } from 'react-hook-form'
-import Fade from 'react-reveal/Fade';
-import Reveal from 'react-reveal/Reveal';
-
 
 if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig);
@@ -132,7 +129,6 @@ const SignIn = () => {
       {/* <div className="w-1/2 p-10 bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500">
           <img className="hidden md:block" src={loginImg} alt="Login img" />
         </div> */}
-      <Fade top duration={3000}>
         <div className="flex flex-col justify-center items-center">
           <div className="flex flex-col container w-full max-w-md border-2 border-red-400 py-8 bg-white rounded-lg shadow dark:bg-gray-800 sm:px-6 md:px-8">
             <div className="self-center mb-6 text-xl font-light text-gray-600 sm:text-2xl dark:text-white">
@@ -195,7 +191,6 @@ const SignIn = () => {
           </div>
 
         </div>
-      </Fade>
 
       {/* </div> */}
 
