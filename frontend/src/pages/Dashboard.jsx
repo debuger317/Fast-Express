@@ -27,7 +27,7 @@ const AllOrderList = lazy(() => import('./../components/dashboard/wrapper/AllOrd
 const Reports = lazy(() => import('../components/dashboard/wrapper/Reports'));
 const Payment = lazy(() => import('../components/dashboard/userDashboard/Payment'));
 const AddReview = lazy(() => import('../components/dashboard/components/manageReview/AddReview'));
-const ManageReviews = lazy(() => import('../components/dashboard/components/manageReview/ManageReviews'));
+const ManageReviews = lazy(() => import('../components/dashboard/wrapper/ManageReview'));
 
 const Dashboard = () => {
     const back = useSelector((state) => state.dashboard.backtohome)
