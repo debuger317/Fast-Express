@@ -11,6 +11,9 @@ import firebaseConfig from '../../config/firebase';
 import { useDispatch } from 'react-redux';
 import { customAuthAction, googleSignUpAction } from '../../redux/action/action';
 import { useForm } from 'react-hook-form'
+import Fade from 'react-reveal/Fade';
+import Reveal from 'react-reveal/Reveal';
+
 
 if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig);
@@ -85,7 +88,7 @@ const SignIn = () => {
         const email = error.email;
         const credential = GoogleAuthProvider.credentialFromError(error);
       });
-      setError(false);
+    setError(false);
     try {
       const res = await axios({
         method: 'post',
@@ -119,27 +122,21 @@ const SignIn = () => {
         const errorMessage = error.message;
         const email = error.email;
         const credential = FacebookAuthProvider.credentialFromError(error);
-        console.log(errorCode,errorMessage,email,credential)
+        console.log(errorCode, errorMessage, email, credential)
       });
   }
 
   return (
-    <div className="container mx-auto my-10">
-      <div className="flex flex-wrap w-full mx-auto">
-        <div className="flex flex-col justify-center md:w-1/2 py-8">
-          <div className="flex flex-col container w-full max-w-md  py-8 bg-white rounded-lg shadow dark:bg-gray-800 sm:px-6 md:px-8">
+    <div className="container mx-auto my-10 justify-center place-items-center">
+      {/* <div className="flex flex-wrap w-full mx-auto"> */}
+      {/* <div className="w-1/2 p-10 bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500">
+          <img className="hidden md:block" src={loginImg} alt="Login img" />
+        </div> */}
+      <Fade top duration={3000}>
+        <div className="flex flex-col justify-center items-center">
+          <div className="flex flex-col container w-full max-w-md border-2 border-red-400 py-8 bg-white rounded-lg shadow dark:bg-gray-800 sm:px-6 md:px-8">
             <div className="self-center mb-6 text-xl font-light text-gray-600 sm:text-2xl dark:text-white">
               Login To Your Account
-            </div>
-            <div className="flex gap-4 item-center">
-              <button onClick={() => facebookSignIn()} type="button" className="py-2 px-4 flex justify-center items-center  bg-blue-600 hover:bg-blue-700 focus:ring-blue-500 focus:ring-offset-blue-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
-                <CgFacebook />
-                Facebook
-              </button>
-              <button onClick={() => GoogleSigning()} type="button" className="py-2 px-4 flex justify-center items-center  bg-red-600 hover:bg-red-700 focus:ring-red-500 focus:ring-offset-red-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
-                <CgGoogle className="mr-1" />
-                Google
-              </button>
             </div>
             <div className="mt-8">
               <form onSubmit={handleSubmit(onSubmit)} autoComplete="off">
@@ -183,13 +180,24 @@ const SignIn = () => {
                 </span>
               </Link>
             </div>
+            <div className="flex gap-4 item-center justify-center py-8">
+              <button onClick={() => facebookSignIn()} type="button" className="py-2 px-4 flex justify-center items-center  bg-blue-600 hover:bg-blue-700 focus:ring-blue-500 focus:ring-offset-blue-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
+                <CgFacebook />
+                Facebook
+              </button>
+              {/* <SiFacebook className="text-3xl"/> */}
+              <button onClick={() => GoogleSigning()} type="button" className="py-2 px-4 flex justify-center items-center  bg-red-600 hover:bg-red-700 focus:ring-red-500 focus:ring-offset-red-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
+                <CgGoogle className="mr-1" />
+                Google
+              </button>
+              {/* <AiFillGoogleCircle className="text-4xl"/> */}
+            </div>
           </div>
 
         </div>
-        <div className="w-1/2 p-10">
-          <img className="hidden md:block" src={loginImg} alt="Login img" />
-        </div>
-      </div>
+      </Fade>
+
+      {/* </div> */}
 
     </div>
   );
