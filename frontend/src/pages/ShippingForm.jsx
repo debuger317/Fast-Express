@@ -18,57 +18,72 @@ const ShippingForm = () => {
     const [error, setError] = useState(false);
     const [pending, setPending] = useState(false);
     const MerchantOverview = useSelector(state => state.merchant.selectedMerchant);
-    const { _id, name, email, logo, address } = MerchantOverview;
+    const { _id, email } = MerchantOverview;
 
     const user = useSelector((state) => state.auth.authdetails)
 
     const { handleSubmit } = methods;
 
     const onSubmit = async (data) => {
+        
         const Neworder = {
             merchantId: _id,
-            merchantemail: email,
-            merchantname: name,
-            merchantphoto: logo,
-            merchantaddress: address,
+            merchantmail: email,
             userId: user._id,
             fname: data.fName,
             lname: data.lName,
-            useraddress: data.address,
-            useremail: user.email,
+            address: data.address,
+            usermail: user.email,
             pickupFrom: data.pickupform,
             pickupTo: data.pickupto,
             phone: data.phone,
             city: data.city,
             zip: data.zip,
-            paymentType: data.paymentType,
-            paymentAmount: 12,
-            createdAt: Date.now(),
-            paymentStatus: "pending",
-            cardNumber: 42424242424,
-            cardtype: 'credit',
             deliverytype: data.deliverytype,
             parcelphoto: data.photo,
             parcelname: data.parcelName,
             parceltype: data.parceltype,
             parcelweight: data.parcelweight,
         }
+        const newPayment = {
+            userId: user._id,
+            usermail: user.email,
+            paymentType: data.paymentType,
+            paymentAmount: 12,
+            paymentStatus: "pending",
+            cardNumber: 42424242424,
+            cardtype: 'credit',
+        }
         setPending(true)
 
-        // console.log(Neworder);
         try {
-            const res = await axios({
+            var res1 = await axios({
                 method: 'post',
                 url: 'https://fastexpress.herokuapp.com/api/order/addorder',
                 data: Neworder
             });
-            res && history.push("/login")
-
+ 
         } catch (err) {
             setError(true);
             setPending(false)
             console.log(err);
         }
+        try {
+            var res2 = await axios(
+                {
+                    method: 'post',
+                    url: 'https://fastexpress.herokuapp.com/api/payment/newPayment',
+                    data: newPayment
+                }
+            )
+
+        }
+        catch (err) {
+            setError(true);
+            setPending(false)
+            console.log(err);
+        }
+        res1 && res2 && history.push("/dashboard")
     }
     return (
         <Fragment>
