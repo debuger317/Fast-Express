@@ -12,6 +12,7 @@ const Settings = () => {
     }
     return (
         <Fragment>
+            <h2>Hello</h2>
             {/* <div class="container mx-auto px-4 mt-8 sm:px-8">
                 <div class="py-8">
                     <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">

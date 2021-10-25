@@ -6,6 +6,9 @@ import { FiCamera } from 'react-icons/fi';
 import { useLocation } from 'react-router';
 import { filterCategoryAction, getCategoriesAction } from './../../../../redux/action/categories';
 import { CgSpinner } from 'react-icons/cg';
+import ReactPaginate from 'react-paginate';
+import './userOrderPagination.css';
+
 // 
 const UserOrderTable = () => {
     const [C_photo, setChoto] = useState();
@@ -19,11 +22,11 @@ const UserOrderTable = () => {
     const location = useLocation();
     const Path = location.pathname.split('/')[1];
 
-    const categories = useSelector((state) => state.categories.items);
-
+    const orders = useSelector((state) => state.categories.items);
+    console.log(orders);
     const getCategories = async () => {
         try {
-            const res = await axios.get('https://fastexpress.herokuapp.com/api/categories/all');
+            const res = await axios.get('https://fastexpress.herokuapp.com/api/order/allorder');
             dispatch(getCategoriesAction(res.data))
         } catch (error) {
             console.log(error);
@@ -97,6 +100,19 @@ const UserOrderTable = () => {
         e.preventDefault();
         dispatch(filterCategoryAction(filter))
     }
+    let serial = 1;
+    // pagination
+    const [pageNumber, setPageNumber] = useState(0);
+    const usersPerPage = 2;
+    const pagesVisited = pageNumber * usersPerPage;
+    const displayUserOrders = orders
+        .slice(pagesVisited, pagesVisited + usersPerPage)
+        .map(tdata => (<TableRow serial={serial++} data={tdata} />))
+    const pageCount = Math.ceil(orders.length / usersPerPage);
+    const changePage = ({ selected }) => {
+        setPageNumber(selected);
+    };
+    
     return (
 
         <div class="container mx-auto px-12 max-w-5xl">
@@ -163,16 +179,25 @@ const UserOrderTable = () => {
                             <thead>
                                 <tr>
                                     <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal">
-                                        Photo
+                                        Serial No.
                                     </th>
                                     <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal">
-                                        Category name
+                                        Orders Photo
                                     </th>
                                     <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal">
-                                        Created at
+                                        Courier Name
                                     </th>
                                     <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal">
-                                        status
+                                        Ordered at
+                                    </th>
+                                    <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal">
+                                        Corier Company Name
+                                    </th>
+                                    <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal">
+                                        Reciver Address
+                                    </th>
+                                    <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal">
+                                        Delivery status
                                     </th>
                                     <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-justify text-sm uppercase font-normal">
                                         Action
@@ -181,13 +206,23 @@ const UserOrderTable = () => {
                             </thead>
                             <tbody>
                                 {
-                                    categories.map(tdata => (<TableRow data={tdata} />))
+                                    displayUserOrders
                                 }
                             </tbody>
                         </table>
                         <div class="px-5 bg-white py-5 flex flex-col xs:flex-row items-center xs:justify-between">
                             <div class="flex items-center">
-                                Pagination
+                                <ReactPaginate
+                                    previousLabel={"Prev"}
+                                    nextLabel={"Next"}
+                                    pageCount={pageCount}
+                                    onPageChange={changePage}
+                                    containerClassName={"paginationBttns"}
+                                    previousLinkClassName={"previousBttn"}
+                                    nextLinkClassName={"nextBttn"}
+                                    disabledClassName={"paginationDisabled"}
+                                    activeClassName={"paginationActive"}
+                                />
                             </div>
                         </div>
                     </div>

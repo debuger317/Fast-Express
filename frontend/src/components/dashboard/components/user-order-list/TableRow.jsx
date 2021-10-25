@@ -4,9 +4,9 @@ import { removeCategoryAction } from '../../../../redux/action/categories';
 import { useDispatch } from 'react-redux';
 import axios from 'axios';
 //
-const TableRow = (props) => {
+const TableRow = ({data, serial}) => {
     const dispatch = useDispatch();
-    const { _id, name, photo } = props.data;
+    const { _id, p_name, photo, createdAt, merchantId, pickupTo } = data;
 
     //delte a category
 
@@ -28,20 +28,40 @@ const TableRow = (props) => {
     return (
         <tr class="hover:opacity-70">
             <td class="py-5 border-b border-gray-200 bg-white text-sm">
+            <div class="flex items-center">
+                    <div class="ml-3">
+                        <p class="text-gray-900 whitespace-no-wrap">
+                            {serial}
+                        </p>
+                    </div>
+                </div>
+            </td>
+            <td class="py-5 border-b border-gray-200 bg-white text-sm">
                 <img alt="profil" src={photo} class=" ml-5 rounded-full h-10 w-10 " />
+                <h6>Photo is not found in api</h6>
             </td>
             <td class="py-5 border-b border-gray-200 bg-white text-sm">
                 <div class="flex items-center">
                     <div class="ml-3">
                         <p class="text-gray-900 whitespace-no-wrap">
-                            {name}
+                            {p_name}
                         </p>
                     </div>
                 </div>
             </td>
             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                 <p class="text-gray-900 whitespace-no-wrap">
-                    12/09/2020
+                    {createdAt.split("T")[0]}
+                </p>
+            </td>
+            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+            <p class="text-gray-900 whitespace-no-wrap">
+                    {merchantId}
+                </p>
+            </td>
+            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+            <p class="text-gray-900 whitespace-no-wrap">
+                    {pickupTo}
                 </p>
             </td>
             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
@@ -49,7 +69,8 @@ const TableRow = (props) => {
                     <span aria-hidden="true" class="absolute inset-0 bg-green-200 opacity-50 rounded-full">
                     </span>
                     <span class="relative">
-                        active
+                        {/* {merchantId} */}
+                        Status to be added in api
                     </span>
                 </span>
             </td>

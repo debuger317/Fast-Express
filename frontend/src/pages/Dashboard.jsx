@@ -11,7 +11,7 @@ import {
 import ManageCompany from '../components/dashboard/wrapper/ManageCompany';
 // import CustomerList from '../components/dashboard/wrapper/CustomerList';
 import ManageCategories from '../components/dashboard/wrapper/ManageCategories';
-import UserOrderList from '../components/dashboard/wrapper/UserOrderList';
+import UserOrderList from '../components/dashboard/userDashboard/UserOrderList';
 
 const CustomerOrderList = lazy(() => import('../components/dashboard/wrapper/CustomerOrderLists'));
 const CustomerList = lazy(() => import('../components/dashboard/wrapper/CustomerLists'));
@@ -19,11 +19,11 @@ const DashboardHome = lazy(() => import('../components/dashboard/wrapper/Home'))
 const Home = lazy(() => import('./Home'));
 const CompanyList = lazy(() => import('../components/dashboard/components/manageCompany/CompanyList'));
 const PendingCompany = lazy(() => import('../components/dashboard/components/manageCompany/PendingCompany'));
-const Settings = lazy(() => import('../components/dashboard/wrapper/Settings'));
+const Settings = lazy(() => import('../components/dashboard/userDashboard/Settings'));
 const UserList = lazy(() => import('../components/dashboard/wrapper/UserList'));
 const AllOrderList = lazy(() => import('./../components/dashboard/wrapper/AllOrderList'));
 const Reports = lazy(() => import('../components/dashboard/wrapper/Reports'));
-const Payment = lazy(() => import('../components/dashboard/wrapper/Payment'));
+const Payment = lazy(() => import('../components/dashboard/userDashboard/Payment'));
 const AddReview = lazy(() => import('../components/dashboard/components/manageReview/AddReview'));
 const ManageReviews = lazy(() => import('../components/dashboard/components/manageReview/ManageReviews'));
 
