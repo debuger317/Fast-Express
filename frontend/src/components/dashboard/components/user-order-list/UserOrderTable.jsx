@@ -103,7 +103,7 @@ const UserOrderTable = () => {
     let serial = 1;
     // pagination
     const [pageNumber, setPageNumber] = useState(0);
-    const usersPerPage = 2;
+    const usersPerPage = 5;
     const pagesVisited = pageNumber * usersPerPage;
     const displayUserOrders = orders
         .slice(pagesVisited, pagesVisited + usersPerPage)
