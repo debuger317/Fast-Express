@@ -7,7 +7,6 @@ const CustomerList = () => {
                 Customer  List
             </h2>
             <table class="w-full border">
-
                 <thead>
                     <tr class="bg-gray-50 border-b">
                         <th class="p-2 border-r cursor-pointer text-sm font-thin text-gray-500">

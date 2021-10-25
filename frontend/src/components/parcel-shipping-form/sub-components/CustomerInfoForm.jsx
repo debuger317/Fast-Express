@@ -68,20 +68,20 @@ const CustomerInfoForm = () => {
                     <label for="name-with-label" class="text-gray-700">
                         City
                     </label>
-                    <input {...methods.register("city")} type="text" class=" rounded border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent" placeholder="City**" required />
+                    <input {...methods.register("city")} type="text" class=" rounded border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent" placeholder="City" required />
                 </div>
                 <div class=" relative ">
                     <label for="name-with-label" class="text-gray-700">
                         Zip code
                     </label>
-                    <input {...methods.register("zip")} type="text" class=" rounded border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent" placeholder="1216" required />
+                    <input {...methods.register("zip")} type="text" class=" rounded border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent" placeholder="1234" required />
                 </div>
             </div>
             <label class="text-gray-700">
                 <label for="name-with-label" class="text-gray-700">
                     Comment
                 </label>
-                <textarea {...methods.register("comment")} class="flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded text-base focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent" placeholder="Enter your comment" rows="5" cols="40" required>
+                <textarea {...methods.register("comment")} class="flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded text-base focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent" placeholder="Enter your Instruction" rows="5" cols="40" required>
                 </textarea>
             </label>
         </div>

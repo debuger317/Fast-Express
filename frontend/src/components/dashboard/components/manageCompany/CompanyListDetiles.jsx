@@ -26,7 +26,7 @@ const CompanyListDetiles = (props) => {
             </td>
             <td className="p-2 border-r">{new Date(updatedAt).toDateString()}</td>
             <td>
-                <button onClick={handleCompanyDelete} className="bg-red-500 p-2 text-white hover:shadow-lg text-xs font-thin rounded">Remove</button>
+                <button onClick={handleCompanyDelete({_id})} className="bg-red-500 p-2 text-white hover:shadow-lg text-xs font-thin rounded">Remove</button>
             </td>
         </tr>
 

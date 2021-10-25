@@ -22,6 +22,23 @@ const AboutContainer = () => {
                 <a className="pl-2 hover:text-gray-400" href="https://twitter.com"><FaTwitterSquare /></a>
                 <a className="pl-2 hover:text-gray-400" href="https://instagram.com"><FaInstagramSquare /></a>
               </div>
+              <div class=" rounded-lg w-90  block ">
+                <h3 className="text-3xl title-font font-medium">Residential Movers</h3>
+                <div class="w-full h-4 bg-gray-400 rounded-full mt-3">
+                  <div class="w-3/4 h-full text-center text-xs text-white bg-yellow-500 rounded-full">
+                    75%
+                  </div>
+                </div>
+              </div>
+              <div class=" rounded-lg w-90  block  ">
+                <h3 className="text-3xl title-font font-medium">Quick Transportation</h3>
+                <div class="w-full h-4 bg-gray-400 rounded-full mt-3">
+                  <div class="w-3/4 h-full text-center text-xs text-white bg-yellow-500 rounded-full">
+                    75%
+                  </div>
+                </div>
+              </div>
+
             </div>
           </div>
         </div>

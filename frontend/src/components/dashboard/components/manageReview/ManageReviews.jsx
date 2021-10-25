@@ -3,24 +3,24 @@ import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';
 import { useLocation } from 'react-router';
 import ReviewTable from './ReviewTable';
-import { getCategoriesAction } from './../../../../redux/action/categories';
+import { fetchReviewAction } from '../../../../redux/action/review';
 // 
 const ManageReviews = () => {
     const dispatch = useDispatch();
     const location = useLocation();
     const Path = location.pathname.split('/')[1];
-    const categories = useSelector((state) => state.categories.items);
-    console.log(categories);
-    const getCategories = async () => {
+    const review = useSelector((state) => state.review.item)
+    console.log(review);
+    const fetchReview = async () => {
         try {
-            const res = await axios.get('https://fastexpress.herokuapp.com/api/categories/all');
-            dispatch(getCategoriesAction(res.data))
+            const res = await axios.get('https://fastexpress.herokuapp.com/api/review/allreviews');
+            dispatch(fetchReviewAction(res.data))
         } catch (error) {
             console.error(error);
         }
     }
     useEffect(() => {
-        getCategories()
+        fetchReview()
     }, [Path])
     return (
 
@@ -50,8 +50,11 @@ const ManageReviews = () => {
                         <table class="min-w-full leading-normal">
                             <thead>
                                 <tr>
-                                    <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal">
+                                    <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-c text-sm uppercase font-normal">
                                         Photo
+                                    </th>
+                                    <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-c text-sm uppercase font-normal">
+                                        Name
                                     </th>
                                     <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal">
                                         Category name
@@ -69,7 +72,7 @@ const ManageReviews = () => {
                             </thead>
                             <tbody>
                                 {
-                                    categories.map(tdata => (<ReviewTable data={tdata} />))
+                                    review.map(tdata => (<ReviewTable data={tdata} />))
                                 }
                             </tbody>
                         </table>

@@ -12,9 +12,11 @@ import ManageCompany from '../components/dashboard/wrapper/ManageCompany';
 // import CustomerList from '../components/dashboard/wrapper/CustomerList';
 import ManageCategories from '../components/dashboard/wrapper/ManageCategories';
 import UserOrderList from '../components/dashboard/userDashboard/UserOrderList';
-
+import CustomerListManage from '../components/dashboard/wrapper/CustomerListManage';
+import DeliveryManManage from '../components/dashboard/wrapper/DeliveryManManage';
 const CustomerOrderList = lazy(() => import('../components/dashboard/wrapper/CustomerOrderLists'));
 const CustomerList = lazy(() => import('../components/dashboard/wrapper/CustomerLists'));
+
 const DashboardHome = lazy(() => import('../components/dashboard/wrapper/Home'));
 const Home = lazy(() => import('./Home'));
 const CompanyList = lazy(() => import('../components/dashboard/components/manageCompany/CompanyList'));
@@ -25,7 +27,7 @@ const AllOrderList = lazy(() => import('./../components/dashboard/wrapper/AllOrd
 const Reports = lazy(() => import('../components/dashboard/wrapper/Reports'));
 const Payment = lazy(() => import('../components/dashboard/userDashboard/Payment'));
 const AddReview = lazy(() => import('../components/dashboard/components/manageReview/AddReview'));
-const ManageReviews = lazy(() => import('../components/dashboard/components/manageReview/ManageReviews'));
+const ManageReviews = lazy(() => import('../components/dashboard/wrapper/ManageReview'));
 
 const Dashboard = () => {
     const back = useSelector((state) => state.dashboard.backtohome)
@@ -68,7 +70,7 @@ const Dashboard = () => {
                                 <ManageCompany />
                             </Route>
                             <Route path="/dashboard/customer-list">
-                                <CustomerList />
+                                <CustomerListManage />
                             </Route>
                             <Route path="/dashboard/order-all">
                                 <AllOrderList />
@@ -93,6 +95,12 @@ const Dashboard = () => {
                             </Route>
                             <Route path="/dashboard/manage-category">
                                 <ManageCategories />
+                            </Route>
+                            <Route path="/dashboard/customer-order-list">
+                                <CustomerOrderList />
+                            </Route>
+                            <Route path="/dashboard/manage-delivery-man">
+                                <DeliveryManManage />
                             </Route>
                         </Switch>
                     </Suspense>

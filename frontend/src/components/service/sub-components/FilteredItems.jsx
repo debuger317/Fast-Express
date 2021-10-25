@@ -8,6 +8,7 @@ import './filterItemPagination.css'
 const FilteredItems = () => {
     const path = useLocation()
     const [getCourier, setCourier] = useState([])
+    console.log("get courier", getCourier)
 
     const filterPath = (path.pathname.slice(18)).replace("&", "");
     console.log("filterPath", filterPath);
@@ -17,13 +18,14 @@ const FilteredItems = () => {
         fetch(`https://fastexpress.herokuapp.com/api/merchant/all`)
             .then(res => res.json())
             .then(data => setCourier(data))
-
     }, [filterPath])
-
-    const count = getCourier.filter(name => name.serviceCategory.includes(filterPath))
-    console.log(count);
+    
+    const count = getCourier.slice(3).filter(name => name.serviceCategory[0].includes(filterPath))
     dispatch(updateCount(count.length))
     dispatch(filterName(filterPath))
+    // console.log(count)
+    const test = getCourier[4]
+    console.log("test",test)
 
     // pagination
     const [pageNumber, setPageNumber] = useState(0);

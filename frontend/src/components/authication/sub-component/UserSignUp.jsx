@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form';
 import { CgSpinner } from 'react-icons/cg';
 import { useDispatch } from 'react-redux';
 import { customAuthAction } from '../../../redux/action/action';
+
 const UserSignUp = () => {
     const location = useLocation()
     let { from } = location.state || { from: { pathname: "/" } };

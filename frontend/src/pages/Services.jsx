@@ -12,7 +12,7 @@ const Services = () => {
             <TopBar />
             <Navbar />
             {/* service container */}
-            <PageTitle title="services" pageName="Browse Services"/>
+            {/* <PageTitle title="services" pageName="Browse Services"/> */}
             <SearchBar/>
             <CategoryList/>
             <Footer />

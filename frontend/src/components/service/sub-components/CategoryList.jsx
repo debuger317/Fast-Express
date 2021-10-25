@@ -3,6 +3,8 @@ import React, { useEffect } from 'react';
 import { Link, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
 import { getCategoriesAction } from '../../../redux/action/categories';
+import { FaSpinner } from 'react-icons/fa';
+import Spinner from '../../../helper/Spinner';
 
 const CategoryList = () => {
     const categories = useSelector((state) => state.categories.items)
@@ -24,12 +26,14 @@ const CategoryList = () => {
     }, [Path])
 
     return (
-        <div className="container mx-auto px-20 py-24">
+        <div className="container mx-auto px-20 py-8">
             <div className="mb-10">
                 <h4 className="font-semibold uppercase">Browse items by category</h4>
             </div>
             <div class="grid xl:grid-cols-6 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2  xl:gap-10 lg:gap-8 sm:gap-3">
-
+                {
+                    categories.length === 0 && <Spinner/>
+                }
                 {
                     categories.map(item => item ?
                         <Link to={`/service/category/${item.name.replace("&", "")}`} class="p-4 bg-gray-50 shadow-lg rounded-md h-40">

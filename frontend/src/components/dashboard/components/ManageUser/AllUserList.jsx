@@ -6,18 +6,16 @@ const AllUserList = () => {
     const [userList, setUserList] = useState([]);
 
     useEffect(() => {
-
         fetch(`https://fastexpress.herokuapp.com/api/user/alluser`)
-
             .then(res => res.json())
             .then(data => setUserList(data))
     }, [])
     return (
-        <section className="container w-6/6 mx-auto px-4 sm:px-8 max-w-6xl">
+        <section className="container w-5/6 mx-auto px-4 sm:px-8">
             <div class="py-8">
                 <div class="flex flex-row mb-1 sm:mb-0 justify-between">
-                    <h2 class="text-2xl leading-tight font-medium">
-                        TOTAL <span className="text-3xl text-red-400">{userList.length}</span> USERS
+                    <h2 class="text-2xl leading-tight">
+                        Users Management
                     </h2>
                     <div class="text-end">
                         <form class="flex flex-col md:flex-row   max-w-sm md:space-x-3 space-y-3 md:space-y-0 justify-center">
@@ -34,14 +32,9 @@ const AllUserList = () => {
                     <div class="inline-block min-w-full shadow rounded-lg overflow-hidden">
                         <table class="min-w-full leading-normal">
                             <thead>
-                                <tr className="bg-gray-50 border-b">
-                                    <th className="p-2 border-r cursor-pointer text-sm font-thin text-gray-500">
-                                        <div className="flex items-center justify-center">
-                                            ID
-                                            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4m0 6l-4 4-4-4" />
-                                            </svg>
-                                        </div>
+                                <tr>
+                                    <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-c text-sm uppercase font-normal">
+                                        Photo
                                     </th>
                                     <th className="p-2 border-r cursor-pointer text-sm font-thin text-gray-500">
                                         <div className="flex items-center justify-center">
@@ -67,21 +60,8 @@ const AllUserList = () => {
                                             </svg>
                                         </div>
                                     </th>
-                                    <th className="p-2 border-r cursor-pointer text-sm font-thin text-gray-500">
-                                        <div className="flex items-center justify-center">
-                                            Created
-                                            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4m0 6l-4 4-4-4" />
-                                            </svg>
-                                        </div>
-                                    </th>
-                                    <th className="p-2 border-r cursor-pointer text-sm font-thin text-gray-500">
-                                        <div className="flex items-center justify-center">
-                                            Updated
-                                            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4m0 6l-4 4-4-4" />
-                                            </svg>
-                                        </div>
+                                    <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-c text-sm uppercase font-normal">
+                                        Created at
                                     </th>
                                     <th className="p-2 border-r cursor-pointer text-sm font-thin text-gray-500">
                                         <div className="flex items-center justify-center">

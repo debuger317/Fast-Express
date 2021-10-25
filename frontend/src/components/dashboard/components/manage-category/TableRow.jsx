@@ -3,7 +3,8 @@ import { CgRemove } from "react-icons/cg";
 import { removeCategoryAction } from '../../../../redux/action/categories';
 import { useDispatch } from 'react-redux';
 import axios from 'axios';
-//
+import { CSSTransition, } from 'react-transition-group';
+
 const TableRow = (props) => {
     const dispatch = useDispatch();
     const { _id, name, photo } = props.data;
@@ -26,6 +27,7 @@ const TableRow = (props) => {
     };
 
     return (
+        <CSSTransition>
         <tr class="hover:opacity-70">
             <td class="py-5 border-b border-gray-200 bg-white text-sm">
                 <img alt="profil" src={photo} class=" ml-5 rounded-full h-10 w-10 " />
@@ -59,6 +61,7 @@ const TableRow = (props) => {
                 </button>
             </td>
         </tr>
+        </CSSTransition>
     );
 };
 

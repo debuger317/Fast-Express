@@ -100,7 +100,6 @@ const CustomerOrderList = () => {
     </tr>
     })
 }
-
                 </tbody>
             </table>
         </section>
