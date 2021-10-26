@@ -8,7 +8,7 @@ const ParcelOverview = () => {
     const [p_logo, setPLogo] = useState();
     const methods = useFormContext();
     const MerchantOverview = useSelector(state => state.merchant.selectedMerchant);
-    const { name, logo, pickupFrom, pickupTo, description } = MerchantOverview;
+    const { name, logo, pickupFrom, pickupTo } = MerchantOverview;
 
     //handle imgae upload
     const handleImageUpload = (event) => {
@@ -32,15 +32,14 @@ const ParcelOverview = () => {
     return (
         <div class="shadow bg-white dark:bg-gray-700 relative overflow-hidden mr-10">
             <h2 class="text-xl font-semibold ml-5 py-2">2. Delivery overview</h2>
-            <div class="flex overflow-hidden">
-                <div class="w-full bg-cover bg-landscape">
+            <div class="overflow-hidden">
+                <div class="w-40 mx-10">
                     <img src={logo} alt="" srcset="" />
                 </div>
-                <div class=" p-4">
-                    <h1 class="text-gray-900 font-bold text-2xl">
+                <div class="p-4 mx-10">
+                    <h1 class="text-gray-900 font-bold text-2xl mb-3">
                         {name}
                     </h1>
-                    <p>{description}</p>
                     <div class="flex item-center mt-3">
                         <span class="capitalize mr-5">Pick from: {pickupFrom}</span>
                         <span class="capitalize">Pick to: {pickupTo}</span>

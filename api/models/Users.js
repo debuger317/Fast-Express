@@ -3,7 +3,8 @@ const mongoose = require('mongoose');
 const UserSchema = new mongoose.Schema({
     photo: {
         type: String,
-        required: true,
+        required: false,
+        unique: true,
     },
     name: {
         type: String,
@@ -16,13 +17,6 @@ const UserSchema = new mongoose.Schema({
         trim: true,
         required: true,
         unique: true,
-    },
-    password: {
-        type: String,
-        minlength: 6,
-        maxlength: 16,
-        required: true,
-        unique: false,
     },
     role: {
         type: String,

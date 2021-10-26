@@ -2,7 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+@import "./assets/scss/reset";
 @import "./assets/scss/faq";
+@import "./assets/scss/paginationButton";
 @import "./assets/scss//support";
 @import "./assets/scss/review";
 @import "./assets/scss/variable";

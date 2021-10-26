@@ -3,6 +3,7 @@ const Users = require("../models/Users");
 const adduser = async (req, res) => {
     try {
         const newUser = new Users({
+            Id: req.body.Id,
             photo: req.body.photo,
             name: req.body.name,
             email: req.body.email,

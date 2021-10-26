@@ -4,14 +4,14 @@ import { updateCount, filterName } from '../../../redux/action/merchants';
 import TopFilterOption from '../TopFilterOption';
 import { useDispatch } from 'react-redux';
 import ReactPaginate from "react-paginate";
-import './filterItemPagination.css'
+
 const FilteredItems = () => {
+    const PER_PAGE = 10;
     const path = useLocation()
     const [getCourier, setCourier] = useState([])
-    console.log("get courier", getCourier)
-
+    const [currentPage, setCurrentPage] = useState(0);
     const filterPath = (path.pathname.slice(18)).replace("&", "");
-    console.log("filterPath", filterPath);
+    const offset = currentPage * PER_PAGE;
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -19,52 +19,41 @@ const FilteredItems = () => {
             .then(res => res.json())
             .then(data => setCourier(data))
     }, [filterPath])
-    
-    const count = getCourier.slice(3).filter(name => name.serviceCategory[0].includes(filterPath))
-    dispatch(updateCount(count.length))
+
+    const filterCourier = getCourier.filter(name => name.serviceCategory.includes(filterPath))
+
+    dispatch(updateCount(filterCourier.length))
+
     dispatch(filterName(filterPath))
-    // console.log(count)
-    const test = getCourier[4]
-    console.log("test",test)
 
-    // pagination
-    const [pageNumber, setPageNumber] = useState(0);
-    const usersPerPage = 6;
-    const pagesVisited = pageNumber * usersPerPage;
-    const displayCompany = count
-        .slice(pagesVisited, pagesVisited + usersPerPage)
-        .map(item =>
-            <Link to={`/service/category/${filterPath}/${item._id}`} key={item._id} className="bg-white rounded shadow py-5 px-10">
-                <img src={item.logo} alt="courier-logo" srcset="" />
-                <h2>{item.name}</h2>
-            </Link>
-        )
-    const pageCount = Math.ceil(count.length / usersPerPage);
-    const changePage = ({ selected }) => {
-        setPageNumber(selected);
-    };
+    const pageCount = Math.ceil(filterCourier.length / PER_PAGE);
 
+    const handlePageClick = ({ selected: selectedPage }) => {
+        setCurrentPage(selectedPage);
+    }
     return (
         <div>
             <TopFilterOption />
             <div class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4 my-10 mx-5">
-                {
-                    !getCourier === [] && <h2>loading....</h2>
-                }
-                {
-                    displayCompany
+
+                {filterCourier?.slice(offset, offset + PER_PAGE)
+                    .map(item =>
+                        <Link to={`/service/category/${filterPath}/${item._id}`} key={item._id} className="bg-white rounded shadow py-5 px-10">
+                            <img src={item.logo} alt="courier-logo" srcset="" />
+                            <h2>{item.name}</h2>
+                        </Link>)
                 }
             </div>
             <ReactPaginate
-                previousLabel={"Prev"}
-                nextLabel={"Next"}
+                previousLabel={"←"}
+                nextLabel={"→"}
                 pageCount={pageCount}
-                onPageChange={changePage}
-                containerClassName={"paginationBttns"}
-                previousLinkClassName={"previousBttn"}
-                nextLinkClassName={"nextBttn"}
-                disabledClassName={"paginationDisabled"}
-                activeClassName={"paginationActive"}
+                onPageChange={handlePageClick}
+                containerClassName={"pagination"}
+                previousLinkClassName={"pagination__link"}
+                nextLinkClassName={"pagination__link"}
+                disabledClassName={"pagination__link--disabled"}
+                activeClassName={"pagination__link--active"}
             />
         </div>
     );

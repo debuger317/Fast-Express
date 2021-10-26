@@ -25,7 +25,15 @@ const ShippingForm = () => {
     const { handleSubmit } = methods;
 
     const onSubmit = async (data) => {
-        
+        const newUser = {
+            Id:user._id,
+            photo: "",
+            name: data.fName + ' ' + data.fNamelName,
+            email: user.email,
+            role: "user",
+            address: data.address,
+            phone: data.phone,
+        }
         const Neworder = {
             merchantId: _id,
             merchantmail: email,
@@ -59,6 +67,19 @@ const ShippingForm = () => {
         try {
             var res1 = await axios({
                 method: 'post',
+                url: 'https://fastexpress.herokuapp.com/api/user/adduser',
+                data: newUser
+            });
+ 
+        } catch (err) {
+            setError(true);
+            setPending(false)
+            console.log(err);
+        }
+
+        try {
+            var res2 = await axios({
+                method: 'post',
                 url: 'https://fastexpress.herokuapp.com/api/order/addorder',
                 data: Neworder
             });
@@ -69,7 +90,7 @@ const ShippingForm = () => {
             console.log(err);
         }
         try {
-            var res2 = await axios(
+            var res3 = await axios(
                 {
                     method: 'post',
                     url: 'https://fastexpress.herokuapp.com/api/payment/newPayment',
@@ -83,7 +104,7 @@ const ShippingForm = () => {
             setPending(false)
             console.log(err);
         }
-        res1 && res2 && history.push("/dashboard")
+        res1 && res2 && res3 && history.push("/dashboard")
     }
     return (
         <Fragment>

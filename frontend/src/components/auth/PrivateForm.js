@@ -12,7 +12,7 @@ const PrivateForm = ({ children, ...rest }) => {
           ) : (
             <Redirect
               to={{
-                pathname: "/signup",
+                pathname: "/company-signup",
                 state: { from: location }
               }}
             />

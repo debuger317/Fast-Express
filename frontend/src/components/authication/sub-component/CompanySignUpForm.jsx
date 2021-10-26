@@ -6,7 +6,8 @@ import { Link, useHistory } from 'react-router-dom';
 import { merchantAuthAction } from '../../../redux/action/action';
 import { CgSpinner } from 'react-icons/cg';
 
-const CompanySignUp = () => {
+const CompanySignUpForm = () => {
+    
     const dispatch = useDispatch();
     const [error, setError] = useState(false);
     const [pending, setPending] = useState(false);
@@ -15,7 +16,6 @@ const CompanySignUp = () => {
     const { handleSubmit, register } = useForm();
     const onSubmit = async (data) => {
         const merchantData = {
-            name: data.name,
             email: data.email,
             password: data.password,
             role: "merchant",
@@ -38,32 +38,21 @@ const CompanySignUp = () => {
     }
 
     return (
-        <div className="w-1/2">
-            <div class="flex flex-col max-w-lg px-4 py-8 bg-white rounded-lg shadow dark:bg-gray-800 sm:px-6 md:px-8 lg:px-10 mx-auto">
-                <div class="self-center mb-2 text-xl font-light text-gray-800 sm:text-2xl dark:text-white">
+        <div className="w-1/2 mx-auto mt-10">
+            <div class="flex flex-col px-4 py-8 bg-white rounded shadow dark:bg-gray-800 sm:px-6 md:px-8:px-10 justify-center mx-auto">
+                <h2 class="text-xl font-semibold text-gray-800 dark:text-white text-center">
                     Company Signup
-                </div>
-                <span class="justify-center text-sm text-center text-gray-500 flex-items-center dark:text-gray-400">
-                    Already have an account ?
-                    <Link to="login" class="text-sm text-blue-500 underline hover:text-blue-700">
-                        Log in
-                    </Link>
-                </span>
+                </h2>
                 <div class="p-6 mt-8">
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <div class="flex flex-col mb-2">
-                            <div class=" relative ">
-                                <input type="text" class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="Your Company Name" {...register("name")} />
+                            <div class="relative">
+                                <input type="email" class=" rounded border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="Your Company Email Address" {...register("email")} />
                             </div>
                         </div>
                         <div class="flex flex-col mb-2">
                             <div class="relative">
-                                <input type="email" class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="Your Company Email Address" {...register("email")} />
-                            </div>
-                        </div>
-                        <div class="flex flex-col mb-2">
-                            <div class="relative">
-                                <input type="password" class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="Your Company Password" {...register("password")} />
+                                <input type="password" class=" rounded border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="Your Company Password" {...register("password")} />
                             </div>
                         </div>
                         <div class="flex w-full my-4">
@@ -76,10 +65,16 @@ const CompanySignUp = () => {
                         </div>
                         {error && <span style={{ color: 'red', marginTop: '10px' }}>Something went wrong!</span>}
                     </form>
+                    <span class="justify-center text-sm text-center text-gray-500 flex-items-center dark:text-gray-400">
+                    Already have an account ?
+                    <Link to="login" class="text-sm text-blue-500 underline hover:text-blue-700">
+                        Log in
+                    </Link>
+                </span>
                 </div>
             </div>
         </div>
     );
 };
 
-export default CompanySignUp;
+export default CompanySignUpForm;

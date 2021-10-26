@@ -13,7 +13,7 @@ const PrivateShippingForm = ({ children, ...rest }) => {
           ) : (
             <Redirect
               to={{
-                pathname: "/customerSignup",
+                pathname: "/user-signup",
                 state: { from: location }
               }}
             />
