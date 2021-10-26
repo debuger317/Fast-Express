@@ -12,6 +12,7 @@ import DeliveryMethod from '../components/parcel-shipping-form/sub-components/De
 import ParcelOverview from '../components/parcel-shipping-form/sub-components/ParcelOverview';
 import PaymentMethod from '../components/parcel-shipping-form/sub-components/PaymentMethod';
 import PromoCode from '../components/parcel-shipping-form/sub-components/PromoCode';
+
 const ShippingForm = () => {
     const methods = useForm();
     const history = useHistory();
@@ -21,7 +22,6 @@ const ShippingForm = () => {
     const { _id, name, email, logo, address } = MerchantOverview;
 
     const user = useSelector((state) => state.auth.authdetails)
-
 
     const { handleSubmit } = methods;
 

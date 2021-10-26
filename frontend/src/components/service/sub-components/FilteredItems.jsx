@@ -36,8 +36,8 @@ const FilteredItems = () => {
                 }
                 {
                     getCourier.filter(name => name.serviceCategory.includes(filterPath)).map(item =>
-                        <Link to={`/service/category/${filterPath}/${item._id}`} key={item._id} className="bg-white rounded shadow py-5 px-10">
-                            <img src={item.logo} alt="courier-logo" srcset="" />
+                        <Link to={`/service/category/${filterPath}/${item._id}`} key={item._id} className="bg-white hover:bg-gray-200 rounded-lg duration-700 shadow-lg py-5 px-10">
+                            <img className="rounded-lg" src={item.logo} alt="courier-logo" srcset="" />
                             <h2>{item.name}</h2>
                         </Link>
                     )

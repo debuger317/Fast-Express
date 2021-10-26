@@ -29,7 +29,7 @@ const AddCompanyForm = () => {
     const [pending, setPending] = useState(false);
 
     const { handleSubmit, register } = useForm();
-
+    
     const onSubmit = async (data) => {
         const merchant = {
             logo: logo,

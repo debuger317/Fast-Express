@@ -6,7 +6,6 @@ const CustomerInfoForm = () => {
     const methods = useFormContext();
     const user = useSelector((state) => state.auth.authdetails)
     return (
-
         <div class="px-5 mr-10 mt-6 py-10 bg-white rounded shadow dark:bg-gray-800">
             <div class="mb-3 text-lg font-semibold uppercase text-gray-800 dark:text-white">
                 1. Customer Information
