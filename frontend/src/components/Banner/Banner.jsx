@@ -12,7 +12,7 @@ const Banner = () => {
     return (
         <section >
             <div className="pb-4">
-                <Swiper spaceBetween={30} centeredSlides={false} autoplay={{
+                <Swiper spaceBetween={30} loop={true} centeredSlides={false} autoplay={{
                     "delay": 2500,
                     "disableOnInteraction": false
                 }} pagination={{

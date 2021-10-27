@@ -125,10 +125,6 @@ const SignIn = () => {
 
   return (
     <div className="container mx-auto my-10 justify-center place-items-center">
-      {/* <div className="flex flex-wrap w-full mx-auto"> */}
-      {/* <div className="w-1/2 p-10 bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500">
-          <img className="hidden md:block" src={loginImg} alt="Login img" />
-        </div> */}
         <div className="flex flex-col justify-center items-center">
           <div className="flex flex-col container w-full max-w-md border-2 border-red-400 py-8 bg-white rounded-lg shadow dark:bg-gray-800 sm:px-6 md:px-8">
             <div className="self-center mb-6 text-xl font-light text-gray-600 sm:text-2xl dark:text-white">
@@ -186,13 +182,10 @@ const SignIn = () => {
                 <CgGoogle className="mr-1" />
                 Google
               </button>
-              {/* <AiFillGoogleCircle className="text-4xl"/> */}
             </div>
           </div>
 
         </div>
-
-      {/* </div> */}
 
     </div>
   );
