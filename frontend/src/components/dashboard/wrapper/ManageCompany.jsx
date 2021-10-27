@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import CompanyManagement from './../components/Merchant/manage-company/CompanyManagement';
 
 const ManageCompany = () => {
     return (
 
-        <div className="col-span-4">
-          manage our company
-        </div>
+        <Fragment>
+          <CompanyManagement/>
+        </Fragment>
     );
 };
 

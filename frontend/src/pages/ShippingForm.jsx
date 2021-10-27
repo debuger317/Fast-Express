@@ -18,25 +18,29 @@ const ShippingForm = () => {
     const [error, setError] = useState(false);
     const [pending, setPending] = useState(false);
     const MerchantOverview = useSelector(state => state.merchant.selectedMerchant);
-    const { _id, email } = MerchantOverview;
+    const { _id, name, email } = MerchantOverview;
 
     const user = useSelector((state) => state.auth.authdetails)
+    const exit_user = useSelector((state) => state.users)
+    const parcel_photo_url = useSelector((state) => state.users.parcelPhotoUrl)
 
     const { handleSubmit } = methods;
 
     const onSubmit = async (data) => {
         const newUser = {
-            Id:user._id,
+            Id: user._id,
             photo: "",
-            name: data.fName + ' ' + data.fNamelName,
+            name: data.fName + ' ' + data.lName,
             email: user.email,
             role: "user",
+            status:"active",
             address: data.address,
             phone: data.phone,
         }
         const Neworder = {
             merchantId: _id,
             merchantmail: email,
+            merchantName: name,
             userId: user._id,
             fname: data.fName,
             lname: data.lName,
@@ -45,10 +49,11 @@ const ShippingForm = () => {
             pickupFrom: data.pickupform,
             pickupTo: data.pickupto,
             phone: data.phone,
+            orderStatus: "pending",
             city: data.city,
             zip: data.zip,
             deliverytype: data.deliverytype,
-            parcelphoto: data.photo,
+            parcelphoto: parcel_photo_url,
             parcelname: data.parcelName,
             parceltype: data.parceltype,
             parcelweight: data.parcelweight,
@@ -70,7 +75,7 @@ const ShippingForm = () => {
                 url: 'https://fastexpress.herokuapp.com/api/user/adduser',
                 data: newUser
             });
- 
+
         } catch (err) {
             setError(true);
             setPending(false)
@@ -83,7 +88,7 @@ const ShippingForm = () => {
                 url: 'https://fastexpress.herokuapp.com/api/order/addorder',
                 data: Neworder
             });
- 
+
         } catch (err) {
             setError(true);
             setPending(false)
@@ -93,7 +98,7 @@ const ShippingForm = () => {
             var res3 = await axios(
                 {
                     method: 'post',
-                    url: 'https://fastexpress.herokuapp.com/api/payment/newPayment',
+                    url: 'https://fastexpress.herokuapp.com/api/payment/user/newPayment',
                     data: newPayment
                 }
             )

@@ -22,9 +22,9 @@ const CustomerListPage = ({list}) => {
             <td class="px-5  mr-6 py-5 border-b border-gray-200 bg-white text-sm">
                 <div class="flex items-center">
                     <div class="flex-shrink-0">
-                        <a href="#" class="block relative">
-                            <img alt='photo' src={photo} class="mx-auto object-cover rounded-full h-10 w-10 " />
-                        </a>
+                        <div class="block relative">
+                            <img class='mx-auto object-cover rounded-full h-10 w-10 ' src={photo} alt="" srcset="" />
+                        </div>
                     </div>
 
                 </div>

@@ -16,3 +16,7 @@ export const merchantAuthAction = (merchantdetails) => (dispatch) => {
 export const logOutAction = () => (dispatch) => {
     dispatch(slice.logOut())
 }
+
+export const deleteAuthAction = () => (dispatch) => {
+    dispatch(slice.removeAuth())
+}

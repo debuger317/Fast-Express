@@ -9,12 +9,13 @@ const ManageReviews = () => {
     const dispatch = useDispatch();
     const location = useLocation();
     const Path = location.pathname.split('/')[1];
-    const review = useSelector((state) => state.review.item)
+    const review = useSelector((state) => state.reviews.review)
     console.log(review);
     const fetchReview = async () => {
         try {
-            const res = await axios.get('https://fastexpress.herokuapp.com/api/review/allreviews');
+            const res = await axios.get('https://fastexpress.herokuapp.com/api/reviews/allreviews');
             dispatch(fetchReviewAction(res.data))
+            
         } catch (error) {
             console.error(error);
         }
@@ -56,9 +57,7 @@ const ManageReviews = () => {
                                     <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-c text-sm uppercase font-normal">
                                         Name
                                     </th>
-                                    <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal">
-                                        Category name
-                                    </th>
+                                   
                                     <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal">
                                         Created at
                                     </th>
@@ -72,7 +71,7 @@ const ManageReviews = () => {
                             </thead>
                             <tbody>
                                 {
-                                    review.map(tdata => (<ReviewTable data={tdata} />))
+                                    review?.map(tdata => (<ReviewTable data={tdata} />))
                                 }
                             </tbody>
                         </table>

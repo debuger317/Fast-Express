@@ -26,7 +26,8 @@ const NewUserPayment = async (req, res) => {
 const GetAUserPaymentByEmail = async (req, res, next) => {
 
     let id = req.params.userId;
-    if (req.body.email) {
+    
+    if (userPayment.usermail === req.body.email) {
         try {
             const userpayment = await userPayment.find({ userId: id })
             res.status(200).json(userpayment)

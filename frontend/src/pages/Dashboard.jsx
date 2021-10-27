@@ -13,7 +13,7 @@ import ManageCompany from '../components/dashboard/wrapper/ManageCompany';
 import ManageCategories from '../components/dashboard/wrapper/ManageCategories';
 import UserOrderList from '../components/dashboard/userDashboard/UserOrderList';
 import CustomerListManage from '../components/dashboard/wrapper/CustomerListManage';
-import DeliveryManManage from '../components/dashboard/wrapper/DeliveryManManage';
+import MerchantDeliveryMan from '../components/dashboard/wrapper/MerchantDeliveryMan';
 const CustomerOrderList = lazy(() => import('../components/dashboard/wrapper/CustomerOrderLists'));
 const CustomerList = lazy(() => import('../components/dashboard/wrapper/CustomerLists'));
 
@@ -100,7 +100,7 @@ const Dashboard = () => {
                                 <CustomerOrderList />
                             </Route>
                             <Route path="/dashboard/manage-delivery-man">
-                                <DeliveryManManage />
+                                <MerchantDeliveryMan />
                             </Route>
                         </Switch>
                     </Suspense>

@@ -1,11 +1,13 @@
 import axios from 'axios';
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { AiOutlineCloudUpload } from 'react-icons/ai';
 import { useFormContext } from "react-hook-form";
+import { PhotoUrlAction } from '../../../redux/action/users';
 
 const ParcelOverview = () => {
     const [p_logo, setPLogo] = useState();
+    const dispatch = useDispatch();
     const methods = useFormContext();
     const MerchantOverview = useSelector(state => state.merchant.selectedMerchant);
     const { name, logo, pickupFrom, pickupTo } = MerchantOverview;
@@ -22,6 +24,8 @@ const ParcelOverview = () => {
             .then((response) => {
 
                 setPLogo(response.data.data.display_url);
+                //send photo to redux store
+                dispatch(PhotoUrlAction(response.data.data.display_url))
             })
             .catch((error) => {
 

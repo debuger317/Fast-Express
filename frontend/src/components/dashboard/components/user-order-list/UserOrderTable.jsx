@@ -3,64 +3,39 @@ import { useSelector, useDispatch } from 'react-redux';
 import TableRow from './TableRow';
 import axios from 'axios';
 import { useLocation } from 'react-router';
-import { filterCategoryAction, getCategoriesAction } from './../../../../redux/action/categories';
-import { CgSpinner } from 'react-icons/cg';
 import ReactPaginate from 'react-paginate';
-import './userOrderPagination.css';
 
-// 
 const UserOrderTable = () => {
-
+const userId = useSelector((state) => state.auth.authdetails._id) 
+console.log(userId);
     const [error, seterror] = useState(false);
     const [filter, setFilter] = useState([]);
     const dispatch = useDispatch();
     const location = useLocation();
     const Path = location.pathname.split('/')[1];
 
-    const orders = useSelector((state) => state.categories.items);
-    console.log(orders);
-    const getCategories = async () => {
+    const GetAorderForUser = async () => {
         try {
-            const res = await axios.get('https://fastexpress.herokuapp.com/api/order/allorder');
-            dispatch(getCategoriesAction(res.data))
+            const res = await axios.get(`https://fastexpress.herokuapp.com/api/order//user/${userId}`);
+            console.log(res.data.userOrders)
+            setFilter(res.data.userOrders)
+
         } catch (error) {
             console.log(error);
         }
     }
     useEffect(() => {
-        getCategories()
-    }, [Path])
-    const order = (filter.map(a => a));
-
-    const merchantinfo = (filter.map(a => a.merchantinfo));
-    const userinfo = (filter.map(a => a.userinfo));
-    const PaymentInfo = (userinfo.paymentinfo);
-
-    console.log(order);
-    console.log(merchantinfo);
-    console.log(userinfo);
-    console.log(PaymentInfo);
+        GetAorderForUser()
+    }, [Path,userId])
 
 
     //handle filter changes 
 
-    const handlefilter = (e) => {
-        e.preventDefault();
-        dispatch(filterCategoryAction(filter))
-    }
-    let serial = 1;
-    // pagination
-    const [pageNumber, setPageNumber] = useState(0);
-    const usersPerPage = 5;
-    const pagesVisited = pageNumber * usersPerPage;
-    const displayUserOrders = orders
-        .slice(pagesVisited, pagesVisited + usersPerPage)
-        .map(tdata => (<TableRow serial={serial++} data={tdata} />))
-    const pageCount = Math.ceil(orders.length / usersPerPage);
-    const changePage = ({ selected }) => {
-        setPageNumber(selected);
-    };
-    
+    // const handlefilter = (e) => {
+    //     e.preventDefault();
+    //     dispatch(filterCategoryAction(filter))
+    // }
+
     return (
 
         <div class="container mx-auto px-12 max-w-5xl">
@@ -93,13 +68,13 @@ const UserOrderTable = () => {
                                         Orders Photo
                                     </th>
                                     <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal">
-                                        Courier Name
+                                        Parcel name
                                     </th>
                                     <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal">
                                         Ordered at
                                     </th>
                                     <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal">
-                                        Corier Company Name
+                                        Courier name
                                     </th>
                                     <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal">
                                         Reciver Address
@@ -114,13 +89,13 @@ const UserOrderTable = () => {
                             </thead>
                             <tbody>
                                 {
-                                    displayUserOrders
+                                    filter.map((a,i) => (<TableRow key={a.userId} index={i} data={a}/>))
                                 }
                             </tbody>
                         </table>
                         <div class="px-5 bg-white py-5 flex flex-col xs:flex-row items-center xs:justify-between">
                             <div class="flex items-center">
-                                <ReactPaginate
+                                {/* <ReactPaginate
                                     previousLabel={"Prev"}
                                     nextLabel={"Next"}
                                     pageCount={pageCount}
@@ -130,7 +105,7 @@ const UserOrderTable = () => {
                                     nextLinkClassName={"nextBttn"}
                                     disabledClassName={"paginationDisabled"}
                                     activeClassName={"paginationActive"}
-                                />
+                                /> */}
                             </div>
                         </div>
                     </div>
