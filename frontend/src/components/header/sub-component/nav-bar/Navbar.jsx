@@ -70,7 +70,7 @@ const Navbar = () => {
                         </Link>)}
                     <div className="flex items-center ml-2 cursor-pointer">
                         {
-                            email ? <button onClick={() => dispatch(logOutAction())} type="button" class="w-36 py-1 px-4 flex justify-center items-center  bg-red-600 hover:bg-red-700 focus:ring-red-500 focus:ring-offset-red-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
+                            email ? <button onClick={() => dispatch(logOutAction())} type="button" class="w-36 py-1 px-4 flex justify-center items-center  bg-red-600 hover:bg-red-700 focus:ring-red-500 focus:ring-offset-red-200 text-white  transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
                                 <RiUser3Line className="text-2xl p-1 border rounded-full my-1 mr-1" />
                                 LogOut
                             </button> : <Link to="/login" class="w-36 py-1 px-4 flex justify-center items-center  bg-red-600 hover:bg-red-700 focus:ring-red-500 focus:ring-offset-red-200 text-white  transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">

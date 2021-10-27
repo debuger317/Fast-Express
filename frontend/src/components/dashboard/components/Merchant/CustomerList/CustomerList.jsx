@@ -1,16 +1,19 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router';
+import { useSelector } from 'react-redux';
 
 const CustomerList = () => {
     const location = useLocation();
     const [customer, setCustomer] = useState([]);
     const Path = location.pathname.split('/')[1];
-
+    const merchant = useSelector((state => state.auth.authdetails._id))
+    console.log(merchant);
     const GetCustomer = async () => {
         try {
-            const res = await axios.get('https://fastexpress.herokuapp.com/api/order/allorder')
+            const res = await axios.get(`https://fastexpress.herokuapp.com/api/order/merchant/${merchant}`)
             setCustomer(res.data);
+            console.log(res.data);
         }
         catch (err) {
             console.log(err);
