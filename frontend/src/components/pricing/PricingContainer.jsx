@@ -15,6 +15,7 @@ const PricingContainer = () => {
         console.log(newGetValue);
     }
     const handleBlur = e => {
+        console.log(e.target.name);
         if (e.target.name === "kg") {
             const newGetValue = { ...getValue, kg: e.target.value };
             setValue(newGetValue);
@@ -33,23 +34,23 @@ const PricingContainer = () => {
                     <form onSubmit={handleSubmit} className="">
                         <div className="bg-gray-900 w-3/5 mx-auto rounded-3xl py-1 text-gray-200 text-center"><small>Estimated Delivery Cost</small></div>
                         <div className="items-center w-full p-4 space-y-4 text-gray-500 md:inline-flex md:space-y-0">
-                            <h2 className="max-w-sm mx-auto md:w-1/3">
+                            <h2 title="weight title" className="max-w-sm mx-auto md:w-1/3">
                                 Weight (KG)
                             </h2>
                             <div className="max-w-sm mx-auto md:w-2/3">
                                 <div className=" relative ">
-                                    <select onBlur={handleBlur} name="kg" id="kg" form="carform" className="rounded-lg border-b-2 flex-1 appearance-none border-red-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base text-center focus:outline-none focus:ring-0 focus:border-green-300 focus:ring-purple-100 focus:border-transparent">
-                                        <option value="0">Please Select</option>
-                                        <option value="100">1</option>
-                                        <option value="150">2</option>
-                                        <option value="200">3</option>
-                                        <option value="300">5</option>
-                                        <option value="500">10</option>
-                                        <option value="750">15</option>
-                                        <option value="900">20</option>
-                                        <option value="1200">30</option>
-                                        <option value="1500">40</option>
-                                        <option value="1600">50</option>
+                                    <select onBlur={handleBlur} name="kg" id="kg" form="carform" className="rounded-lg border-b-2 flex-1 appearance-none border-red-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base text-center focus:outline-none focus:ring-0 focus:border-green-300 focus:ring-purple-100 focus:border-transparent" title="select-weight">
+                                        <option value="0" name="zero">Please Select Weight(s)</option>
+                                        <option value="100" name="one">1</option>
+                                        <option value="150" name="two">2</option>
+                                        <option value="200" name="three">3</option>
+                                        <option value="300" name="five">5</option>
+                                        <option value="500" name="ten">10</option>
+                                        <option value="750" name="fifteen">15</option>
+                                        <option value="900" name="tweenty">20</option>
+                                        <option value="1200" name="thirty">30</option>
+                                        <option value="1500" name="forty">40</option>
+                                        <option value="1600" name="fifty">50</option>
                                     </select>
                                 </div>
                             </div>
@@ -62,7 +63,7 @@ const PricingContainer = () => {
                             <div className="max-w-sm mx-auto md:w-2/3">
                                 <div className=" relative ">
                                     <select onBlur={handleBlur} name="time" id="time" form="carform" className="rounded-lg border-b-2 flex-1 appearance-none border-red-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base text-center focus:outline-none focus:ring-0 focus:border-green-300 focus:ring-purple-600 focus:border-transparent">
-                                        <option value="0">Please Select</option>
+                                        <option value="0">Please Select Delivery Way</option>
                                         <option value="100">3 Hours Delivery</option>
                                         <option value="50">5 Hours Delivery</option>
                                         <option value="40">6 Hours Delivery</option>
@@ -102,7 +103,7 @@ const PricingContainer = () => {
                                     1
                                 </td>
                                 <td class="border-b-2 p-4 dark:border-dark-5">
-                                    Weigth of Items ({ }) kg
+                                    Weigth of Items ({getValue.kg }) kg
                                 </td>
                                 <td class="border-b-2 p-4 dark:border-dark-5">
                                     BDT { getValue.kg}.00
@@ -116,7 +117,7 @@ const PricingContainer = () => {
                                     2
                                 </td>
                                 <td class="border-b-2 p-4 dark:border-dark-5">
-                                    Weigth of Items ({ }) kg
+                                    Weigth of Items ({ getValue.time}) kg
                                 </td>
                                 <td class="border-b-2 p-4 dark:border-dark-5">
                                     BDT {getValue.time}.00
