@@ -1,5 +1,5 @@
 const auth = require("../models/Auth");
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 
 // Register
 
@@ -27,15 +27,16 @@ const Register = async (req, res) => {
 const Login = async (req, res) => {
     try {
         const authuser = await auth.findOne({ email: req.body.email });
-        !authuser && res.status(400).json("Wrong Credentials!");
+        !authuser && res.status(400).json({ message: 'email not match!' });
 
         const validated = await bcrypt.compare(req.body.password, authuser.password);
-        !validated && res.status(400).json("Wrong Credentials!");
+        !validated && res.status(400).json({ error: 'password not match!' });
 
         const { password, ...others } = authuser._doc;
-        res.status(200).json({message:'login successfully!',others});
+
+        res.status(200).json({ success: 'login successfully!', others });
     } catch (err) {
-        res.status(500).json(err);
+        res.status(500).json({ error: 'you have no account', err });
     }
 };
 

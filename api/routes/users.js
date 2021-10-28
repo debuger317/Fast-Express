@@ -4,7 +4,6 @@
 //user see only their name, email, password, photo in user profile
 // admin see the all user information
 
-
 const router = require("express").Router();
 const users_control = require("../controllers/users");
 

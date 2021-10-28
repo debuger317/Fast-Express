@@ -1,10 +1,30 @@
 import { FaUserTie, FaUserNurse } from 'react-icons/fa';
-
 import { MdPayment } from 'react-icons/md';
-
 import { VscDashboard,VscPerson,VscPackage, VscOrganization,VscPreview, VscReport,VscRequestChanges,VscStarFull, VscGear } from 'react-icons/vsc';
+import Blog1 from '../assets/images/blog/Christmas-hamper-delivery.png';
+import Blog2 from '../assets/images/blog/Happy-Deepavali-Whatsapp-Story.png';
+import Blog3 from '../assets/images/blog/use-this-promo-code.jpg';
 
-
+export const BlogData = [
+    {
+        id:1,
+        img:Blog1,
+        heading:'19 Nov: FROM $8, BULK DELIVERY FOR CHRISTMAS & NEW YEAR HAMPER',
+        dec:'Swag shoivdigoitch literally meditation subway tile tumblr cold-pressed. Gastropub street art beard dreamcatcher neutra, ethical XOXO lumbersexual.'
+    },
+    {
+        id:2,
+        img:Blog2,
+        heading:'Integer portitor mass sit amt fringl',
+        dec:'Swag shoivdigoitch literally meditation subway tile tumblr cold-pressed. Gastropub street art beard dreamcatcher neutra, ethical XOXO lumbersexual.'
+    },
+    {
+        id:3,
+        img:Blog3,
+        heading:'Integer portitor mass sit amt fringl',
+        dec:'Swag shoivdigoitch literally meditation subway tile tumblr cold-pressed. Gastropub street art beard dreamcatcher neutra, ethical XOXO lumbersexual.'
+    },
+]
 
 export const FaqData = [
     {
@@ -273,7 +293,7 @@ export const bannerData = [
     },
     {
         id: 4,
-        img:'https://i.ibb.co/DzSzwDk/Fast-express-banner-4.png'
+        img:'https://i.ibb.co/R6knZzY/fast-express-banner-4.png'
     }
 ]
 
@@ -350,22 +370,15 @@ export const users = [
     },
     {
         id:2,
-        path: "/dashboard/manage-company-info",
-        pathname: "Manage",
-        icon:<VscGear/>,
-        size:"text-2xl",
-        role:["merchant"]
-    },
-    {
-        id:3,
         path: "/dashboard/customer-list",
         pathname: "Customer-list",
         icon:<VscPerson/>,
         size:"text-2xl",
         role:["merchant"]
     },
+
     {
-        id:4,
+        id:3,
         path: "/dashboard/customer-order-list",
         pathname: "Manage customer order",
         size:"text-2xl",
@@ -373,7 +386,7 @@ export const users = [
         role:["merchant"]
     },
     {
-        id:5,
+        id:4,
         path: "/dashboard/account-report",
         pathname: "Report",
         size:"text-2xl",
@@ -381,7 +394,7 @@ export const users = [
         role:["merchant"]
     },
     {
-        id:6,
+        id:5,
         path: "/dashboard/manage-delivery-man",
         pathname: "Manage delivery man",
         size:"text-2xl",
@@ -389,24 +402,30 @@ export const users = [
         role:["merchant"]
     },
     {
-        id:7,
-        path: "/dashboard/orderlist",
+        id:6,
+        path: "/dashboard/your-order-list",
         pathname: "See your orders",
         icon:<VscPackage/>,
         size:"text-2xl",
-        role:["user","admin"]
+        role:["user"]
     },
     {
-
-        id:8,
+        id:7,
         path: "/dashboard/payment-info",
-        pathname: "Payment",
+        pathname: "Payment Details",
         icon:<MdPayment/>,
         size:"text-2xl",
         role:["user"]
     },
     {
-
+        id:8,
+        path: "/dashboard/manage-company-info",
+        pathname: "Manage your company",
+        icon:<VscGear/>,
+        size:"text-2xl",
+        role:["merchant"]
+    },
+    {
         id:9,
         path: "/dashboard/add-review",
         pathname: "Add a review",
@@ -414,6 +433,15 @@ export const users = [
         size:"text-2xl",
         role:["user","merchant"]
     } ,
+
+    {
+        id:9,
+        path: "/dashboard/customer-order-list",
+        pathname: "Manage customer order",
+        size:"text-2xl",
+        icon:<VscPackage/>,
+        role:["merchant"]
+    },
     {
         id:10,
         path: "/dashboard/manage-setting",
@@ -423,7 +451,6 @@ export const users = [
         role:["user"]
     },
     {
-
         id:11,
         path: "/dashboard/userlist",
         pathname: "User list",
@@ -457,8 +484,10 @@ export const users = [
     },
     {
         id:15,
-        path: "/dashboard/manage-setting",
-        pathname: "Manage Setting",
+
+        path: "/dashboard/order-all",
+
+        pathname: "All order list",
         icon:<VscGear/>,
         size:"text-xl",
         role:["admin"]
@@ -470,7 +499,15 @@ export const users = [
         icon:<VscGear/>,
         size:"text-xl",
         role:["admin"]
-    }
+    },
+    {
+        id:17,
+        path: "/dashboard/manage-setting",
+        pathname: "Manage setting",
+        icon:<VscGear/>,
+        size:"text-xl",
+        role:["admin"]
+    },
 
   ]
   

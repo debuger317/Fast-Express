@@ -7,7 +7,7 @@ const addcategory_C = async (req, res) => {
             photo: req.body.photo,
         });
         const category = await newCategory.save();
-        res.status(200).json(category);
+        res.status(200).json({ success:'a new category added successfully!',category});
 
     }
     catch (err) {
@@ -38,18 +38,33 @@ const updatecategory_c = async (req, res, next) => {
             const updatedcategory = await categories.findByIdAndUpdate(req.params.id, {
                 $set: req.body
             })
-            res.status(200).json(updatedcategory)
+            res.status(200).json({ success:'Category hasbeen updated',updatedcategory})
         }
         catch (err) { res.status(500).json(err) }
     }
     else {
-        res.status(401).json("you only update your company list")
+        res.status(401).json({ error:'category can update a admin'})
     }
+
+}
+
+//delete a category
+
+const deletedcategory = async (req, res, next) => {
+    try {
+        const post = await categories.findById(req.params.id);
+            await post.delete();
+            res.status(200).json({ success:"Category has been deleted!"});
+        }
+        catch (err) {
+            res.status(500).json(err);
+          } 
 
 }
 
 module.exports = {
     addcategory_C,
     getallcategory_C,
-    updatecategory_c
+    updatecategory_c,
+    deletedcategory
 }

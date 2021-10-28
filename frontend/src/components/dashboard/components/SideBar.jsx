@@ -15,9 +15,9 @@ const SideBar = () => {
     const role = useSelector((state) => state.auth.authdetails.role)
 
     return (
-        <div class="lg:block relative mr-14 h-screen">
-            <div class="h-screen bg-white mr-10 shadow-lg">
-                <nav class="mb-32">
+        <div class="fixed inset-0 flex-none h-full w-full overflow-y-visible lg:pt-0 lg:w-60 xl:w-72 lg:block mt-16">
+            <div class="bg-white mr-10 shadow-lg h-screen">
+                <nav class="mb-16">
                     <div>
                         {
                             dashboard_nav.filter(nav => nav.role.includes(role)).map(item =>

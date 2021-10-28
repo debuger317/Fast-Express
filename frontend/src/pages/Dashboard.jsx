@@ -9,39 +9,44 @@ import {
     Route
 } from "react-router-dom";
 import ManageCompany from '../components/dashboard/wrapper/ManageCompany';
-import CustomerOrderList from '../components/dashboard/wrapper/CustomerOrderList';
+// import CustomerList from '../components/dashboard/wrapper/CustomerList';
+import ManageCategories from '../components/dashboard/wrapper/ManageCategories';
+import UserOrderList from '../components/dashboard/userDashboard/UserOrderList';
 import CustomerListManage from '../components/dashboard/wrapper/CustomerListManage';
 import DeliveryManManage from '../components/dashboard/wrapper/DeliveryManManage';
+const CustomerOrderList = lazy(() => import('../components/dashboard/wrapper/CustomerOrderLists'));
+const CustomerList = lazy(() => import('../components/dashboard/wrapper/CustomerLists'));
+
 const DashboardHome = lazy(() => import('../components/dashboard/wrapper/Home'));
 const Home = lazy(() => import('./Home'));
 const CompanyList = lazy(() => import('../components/dashboard/components/manageCompany/CompanyList'));
 const PendingCompany = lazy(() => import('../components/dashboard/components/manageCompany/PendingCompany'));
-const Settings = lazy(() => import('../components/dashboard/wrapper/Settings'));
+const Settings = lazy(() => import('../components/dashboard/userDashboard/Settings'));
 const UserList = lazy(() => import('../components/dashboard/wrapper/UserList'));
-const OrderList = lazy(() => import('../components/dashboard/wrapper/OrderList'));
+const AllOrderList = lazy(() => import('./../components/dashboard/wrapper/AllOrderList'));
 const Reports = lazy(() => import('../components/dashboard/wrapper/Reports'));
-const Payment = lazy(() => import('../components/dashboard/wrapper/Payment'));
-const AddReview =lazy(()=> import ('../components/dashboard/components/manageReview/AddReview'));
-const ManageReviews =lazy(()=> import ('../components/dashboard/components/manageReview/ManageReviews'));
+const Payment = lazy(() => import('../components/dashboard/userDashboard/Payment'));
+const AddReview = lazy(() => import('../components/dashboard/components/manageReview/AddReview'));
+const ManageReviews = lazy(() => import('../components/dashboard/wrapper/ManageReview'));
 
 const Dashboard = () => {
     const back = useSelector((state) => state.dashboard.backtohome)
     return (
-        <Suspense fallback={<Spinner />}>
-            <Router>
-                <switch>
-                    <Route exact path="/">
-                        <Home />
-                    </Route>
-                </switch>
-                <div className={`w-full ${back ? 'hidden' : ''}`}>
-                    <TopBar />
+        <Router>
+            <switch>
+                <Route exact path="/">
+                    <Home />
+                </Route>
+            </switch>
+            <div className={`w-full ${back ? 'hidden' : ''}`}>
+                <TopBar />
+            </div>
+            <div className="flex">
+                <div className={`w-1/4  ${back ? 'hidden' : ''}`}>
+                    <SideBar />
                 </div>
-                <div className="flex">
-                    <div className={`w-1/4 ${back ? 'hidden' : ''}`}>
-                        <SideBar />
-                    </div>
-                    <div className="w-3/4">
+                <div className="w-3/4 mt-16">
+                    <Suspense fallback={<Spinner />}>
                         <Switch>
                             <Route exact path="/dashboard">
                                 <DashboardHome />
@@ -52,6 +57,12 @@ const Dashboard = () => {
                             <Route path="/dashboard/companylist">
                                 <CompanyList />
                             </Route>
+                            <Route path="/dashboard/customer-order-list">
+                                <CustomerOrderList />
+                            </Route>
+                            <Route path="/dashboard/customer-list">
+                                <CustomerList />
+                            </Route>
                             <Route path="/dashboard/pending-company">
                                 <PendingCompany />
                             </Route>
@@ -61,11 +72,14 @@ const Dashboard = () => {
                             <Route path="/dashboard/customer-list">
                                 <CustomerListManage />
                             </Route>
-                            <Route path="/dashboard/orderlist">
-                                <OrderList />
+                            <Route path="/dashboard/order-all">
+                                <AllOrderList />
                             </Route>
                             <Route path="/dashboard/account-report">
                                 <Reports />
+                            </Route>
+                            <Route path="/dashboard/your-order-list">
+                                <UserOrderList />
                             </Route>
                             <Route path="/dashboard/payment-info">
                                 <Payment />
@@ -79,6 +93,9 @@ const Dashboard = () => {
                             <Route path="/dashboard/manage-review">
                                 <ManageReviews />
                             </Route>
+                            <Route path="/dashboard/manage-category">
+                                <ManageCategories />
+                            </Route>
                             <Route path="/dashboard/customer-order-list">
                                 <CustomerOrderList />
                             </Route>
@@ -86,10 +103,10 @@ const Dashboard = () => {
                                 <DeliveryManManage />
                             </Route>
                         </Switch>
-                    </div>
+                    </Suspense>
                 </div>
-            </Router>
-        </Suspense>
+            </div>
+        </Router>
     );
 };
 

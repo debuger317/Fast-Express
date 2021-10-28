@@ -2,15 +2,16 @@ import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { updateCount, filterName } from '../../../redux/action/merchants';
 import TopFilterOption from '../TopFilterOption';
-import Pagination from './Pagination';
 import { useDispatch } from 'react-redux';
-
+import ReactPaginate from "react-paginate";
+import './filterItemPagination.css'
 const FilteredItems = () => {
     const path = useLocation()
     const [getCourier, setCourier] = useState([])
     console.log("get courier", getCourier)
 
-    const filterPath = (path.pathname.slice(18)).replace("&","");
+    const filterPath = (path.pathname.slice(18)).replace("&", "");
+    console.log("filterPath", filterPath);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -26,24 +27,45 @@ const FilteredItems = () => {
     const test = getCourier[4]
     console.log("test",test)
 
+    // pagination
+    const [pageNumber, setPageNumber] = useState(0);
+    const usersPerPage = 6;
+    const pagesVisited = pageNumber * usersPerPage;
+    const displayCompany = count
+        .slice(pagesVisited, pagesVisited + usersPerPage)
+        .map(item =>
+            <Link to={`/service/category/${filterPath}/${item._id}`} key={item._id} className="bg-white rounded shadow py-5 px-10">
+                <img src={item.logo} alt="courier-logo" srcset="" />
+                <h2>{item.name}</h2>
+            </Link>
+        )
+    const pageCount = Math.ceil(count.length / usersPerPage);
+    const changePage = ({ selected }) => {
+        setPageNumber(selected);
+    };
+
     return (
         <div>
             <TopFilterOption />
             <div class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4 my-10 mx-5">
-
                 {
                     !getCourier === [] && <h2>loading....</h2>
                 }
                 {
-                    getCourier.filter(name => name.serviceCategory.includes(filterPath)).map(item =>
-                        <Link to={`/service/category/${filterPath}/${item._id}`} key={item._id} className="bg-white hover:bg-gray-200 rounded-lg duration-700 shadow-lg py-5 px-10">
-                            <img className="rounded-lg" src={item.logo} alt="courier-logo" srcset="" />
-                            <h2>{item.name}</h2>
-                        </Link>
-                    )
+                    displayCompany
                 }
             </div>
-            <Pagination />
+            <ReactPaginate
+                previousLabel={"Prev"}
+                nextLabel={"Next"}
+                pageCount={pageCount}
+                onPageChange={changePage}
+                containerClassName={"paginationBttns"}
+                previousLinkClassName={"previousBttn"}
+                nextLinkClassName={"nextBttn"}
+                disabledClassName={"paginationDisabled"}
+                activeClassName={"paginationActive"}
+            />
         </div>
     );
 };
