@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 const port = process.env.PORT || 5500;
 const categories = require("./routes/categories");
 const users = require("./routes/users")
+const admin = require("./routes/admin")
 const orders = require("./routes/orders")
 const payment = require("./routes/paymentInfo")
 const merchants = require("./routes/merchant")
@@ -32,6 +33,7 @@ app.use("/api/merchant", merchants)
 app.use("/api/delivery/boy", deliveryBoy)
 app.use("/api/auth", auth)
 app.use("/api/user", users)
+app.use("/api/admin", admin)
 app.use("/api/order", orders)
 app.use("/api/payment", payment)
 app.use("/api/reviews", review)

@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
-const UserSchema = new mongoose.Schema({
-    Id:{
+const AdminSchema = new mongoose.Schema({
+    Id: {
         type: String,
         required: true,
         unique: true,
@@ -29,12 +29,6 @@ const UserSchema = new mongoose.Schema({
         unique: false,
         default: 'user',
     },
-    status: {
-        type: String,
-        required: true,
-        unique: false,
-        default: 'active',
-    },
     address: {
         type: String,
         minlength: 5,
@@ -49,7 +43,6 @@ const UserSchema = new mongoose.Schema({
         required: true,
         unique: false,
     },
+}, { timestamps: true })
 
-}, { timestamps: true });
-
-module.exports = mongoose.model('users', UserSchema);
+module.exports = mongoose.model('admin',AdminSchema)

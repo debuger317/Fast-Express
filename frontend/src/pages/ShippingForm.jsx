@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import { useForm, FormProvider } from "react-hook-form";
 import { CgSpinner } from 'react-icons/cg';
 import { useSelector } from 'react-redux';
@@ -17,26 +17,28 @@ const ShippingForm = () => {
     const history = useHistory();
     const [error, setError] = useState(false);
     const [pending, setPending] = useState(false);
+    const [exit_user, setExitUser] = useState();
+    console.log(exit_user);
     const MerchantOverview = useSelector(state => state.merchant.selectedMerchant);
     const { _id, name, email } = MerchantOverview;
 
     const user = useSelector((state) => state.auth.authdetails)
-    const exit_user = useSelector((state) => state.users)
+
     const parcel_photo_url = useSelector((state) => state.users.parcelPhotoUrl)
 
     const { handleSubmit } = methods;
 
+    const findUser = async () => {
+        const res = await axios.get(`https://fastexpress.herokuapp.com/api/user/${user._id}`)
+        setExitUser(res.data);
+    }
+
+    useEffect(() => {
+        findUser()
+    }, [])
     const onSubmit = async (data) => {
-        const newUser = {
-            Id: user._id,
-            photo: "",
-            name: data.fName + ' ' + data.lName,
-            email: user.email,
-            role: "user",
-            status:"active",
-            address: data.address,
-            phone: data.phone,
-        }
+        setError(false)
+
         const Neworder = {
             merchantId: _id,
             merchantmail: email,
@@ -53,11 +55,22 @@ const ShippingForm = () => {
             city: data.city,
             zip: data.zip,
             deliverytype: data.deliverytype,
-            parcelphoto: parcel_photo_url,
             parcelname: data.parcelName,
+            parcelphoto: parcel_photo_url,
             parceltype: data.parceltype,
             parcelweight: data.parcelweight,
         }
+        const newUser = {
+            Id: user._id,
+            name: data.fName + ' ' + data.lName,
+            email: user.email,
+            role: "user",
+            status: "active",
+            address: data.address,
+            phone: data.phone,
+        }
+        console.log(newUser);
+
         const newPayment = {
             userId: user._id,
             usermail: user.email,
@@ -68,48 +81,55 @@ const ShippingForm = () => {
             cardtype: 'credit',
         }
         setPending(true)
-
         try {
-            var res1 = await axios({
-                method: 'post',
-                url: 'https://fastexpress.herokuapp.com/api/user/adduser',
-                data: newUser
-            });
-
-        } catch (err) {
-            setError(true);
-            setPending(false)
-            console.log(err);
-        }
-
-        try {
-            var res2 = await axios({
+            const res = await axios({
                 method: 'post',
                 url: 'https://fastexpress.herokuapp.com/api/order/addorder',
                 data: Neworder
             });
 
+            if (res && exit_user === null) {
+
+                    try {
+                        const res = await axios({
+                            method: 'post',
+                            url: 'https://fastexpress.herokuapp.com/api/user/adduser',
+                            data: newUser
+                        });
+                        console.log(res);
+                    }
+                    catch (err) {
+                        setError(true);
+                        setPending(false)
+                        console.log(err);
+                    }
+                }
+
+                if (res) {
+                    try {
+                         await axios(
+                            {
+                                method: 'post',
+                                url: 'https://fastexpress.herokuapp.com/api/payment/user/newPayment',
+                                data: newPayment
+                            });
+
+
+                    }
+                    catch (err) {
+                        setError(true);
+                        setPending(false)
+                        console.log(err);
+                    }
+                }
+
+
         } catch (err) {
             setError(true);
             setPending(false)
             console.log(err);
         }
-        try {
-            var res3 = await axios(
-                {
-                    method: 'post',
-                    url: 'https://fastexpress.herokuapp.com/api/payment/user/newPayment',
-                    data: newPayment
-                }
-            )
-
-        }
-        catch (err) {
-            setError(true);
-            setPending(false)
-            console.log(err);
-        }
-        res1 && res2 && res3 && history.push("/dashboard")
+        history.push("/login")
     }
     return (
         <Fragment>
@@ -170,3 +190,61 @@ const ShippingForm = () => {
 };
 
 export default ShippingForm;
+
+// merchantId
+// :
+// "61761dc5c7f1b624d4f5fa89"
+// merchantmail
+// :
+// "dutch@gmail.com"
+// merchantName
+// :
+// "Royal Dytch"
+// userId
+// :
+// "6177fc7f92fb501576ddf66f"
+// fname
+// :
+// "Mr"
+// lname
+// :
+// "Cat"
+// address
+// :
+// "Dhakasd-1216bbb"
+// usermail
+// :
+// "cat@gmail.com"
+// pickupFrom
+// :
+// "Dhaka"
+// pickupTo
+// :
+// "Jessore"
+// phone
+// :
+// 1111111
+// orderStatus
+// :
+// "pending"
+// city
+// :
+// "Jhenaidah"
+// zip
+// :
+// "11234"
+// deliverytype
+// :
+// "location"
+// p_name
+// :
+// "Dog Food"
+// p_photo
+// :
+// "https://i.ibb.co/pJQJvSv/kazi-shop-15.jpg"
+// p_type
+// :
+// "Food"
+// p_weight
+// :
+// 13

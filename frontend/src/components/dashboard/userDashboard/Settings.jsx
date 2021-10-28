@@ -5,15 +5,17 @@ import axios from 'axios';
 import { RemoveuserAction, userlistAction } from './../../../redux/action/users';
 import { deleteAuthAction, logOutAction } from './../../../redux/action/action';
 import { useForm } from 'react-hook-form';
+import { useLocation } from 'react-router-dom';
 
 const Settings = () => {
-
+    const location = useLocation();
+    const Path = location.pathname.split('/')[1];
     const { handleSubmit, register } = useForm();
     const dispatch = useDispatch();
     const [update, setUpdate] = useState(false);
     const authUser = useSelector((state) => state.auth.authdetails);
 
-    var { _id, email } = authUser
+    var { _id, email, role } = authUser
 
     const singleUser = useSelector((state) => state.users?.userlist);
 
@@ -29,17 +31,33 @@ const Settings = () => {
         }
     }
 
-    useEffect(() => {
-        GetAUserInfo()
-    }, [_id])
+    const GetAAdminInfo = async () => {
+        try {
+            const res = await axios.get(`https://fastexpress.herokuapp.com/api/admin/${_id}`);
 
+            dispatch(userlistAction(res.data))
+
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+    useEffect(() => {
+        if (role === "admin") {
+            GetAAdminInfo()
+        }
+        else {
+            GetAUserInfo()
+        }
+    }, [_id, Path])
+    
     const onSubmit = async (data) => {
 
         const updateUser = {
             photo: "",
             phone: data?.phone,
             address: data?.address,
-            
+
         }
 
         try {
@@ -56,7 +74,7 @@ const Settings = () => {
             console.log(err);
         }
         const updatedPassword = {
-            email:email,
+            email: email,
             password: data?.password,
         }
         console.log(updatedPassword);
@@ -73,12 +91,12 @@ const Settings = () => {
         catch (err) {
             console.log(err);
         }
-        if(res1 || res2){
+        if (res1 || res2) {
 
             setUpdate(true)
             dispatch(logOutAction())
         }
-        
+
     }
 
     //delete user account from database

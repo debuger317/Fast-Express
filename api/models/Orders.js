@@ -67,7 +67,7 @@ const OrderSchema = new mongoose.Schema({
     p_photo: {
         type: String,
         required: true,
-        unique: true,
+        unique: false,
     },
     p_type: {
         type: String,

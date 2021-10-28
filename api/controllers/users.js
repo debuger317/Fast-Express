@@ -7,7 +7,6 @@ const adduser = async (req, res) => {
             photo: req.body.photo,
             name: req.body.name,
             email: req.body.email,
-            password: req.body.password,
             role: req.body.role,
             status: req.body.status,
             address: req.body.address,

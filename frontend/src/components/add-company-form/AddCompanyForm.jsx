@@ -45,23 +45,9 @@ const AddCompanyForm = () => {
             pickupTo: data.pickupTo,
             costperkg: data.payment,
             deliveryOption: data.deliveryOption,
-            status: "pending",
             phone: data.helpline,
-            serviceCategory: data.ctegory
-        }
-        setPending(true)
-
-        try {
-            var res1 = await axios({
-                method: 'post',
-                url: 'https://fastexpress.herokuapp.com/api/merchant/addmerchant',
-                data: merchant
-            });
-
-
-        } catch (err) {
-            setError(true);
-            console.log(err);
+            serviceCategory: data.ctegory,
+            status: "pending"
         }
 
         const userData = {
@@ -69,19 +55,43 @@ const AddCompanyForm = () => {
             password: password,
             role: "merchant",
         }
+
+        setPending(true)
+
         try {
-            var res2 = await axios({
+            const res1 = await axios({
                 method: 'post',
-                url: 'https://fastexpress.herokuapp.com/api/auth/register',
-                data: userData
+                url: 'https://fastexpress.herokuapp.com/api/merchant/addmerchant',
+                data: merchant
             });
-            console.log(res2);
+            console.log(res1);
+            if (res1) {
+                try {
+                    const res2 = await axios({
+                        method: 'post',
+                        url: 'https://fastexpress.herokuapp.com/api/auth/register',
+                        data: userData
+                    });
+                    console.log(res2);
+
+                    if (res2) {
+                        history.push("/login")
+                    }
+                } catch (err) {
+                    setError(true);
+                    setPending(false);
+                }
+            }
+            else {
+                setError(true);
+                setPending(false)
+
+            }
+
         } catch (err) {
+            setPending(false)
             setError(true);
-            setPending(false);
-        }
-        if (res1 && res2) {
-            history.push("/login")
+            console.log(err);
         }
     }
 
@@ -351,7 +361,7 @@ const AddCompanyForm = () => {
                     </div>
                     {error && <span style={{ color: 'red', marginTop: '10px' }}>Something went wrong!</span>}
                     <div class="p-4 lg:full md:w-full">
-                        <div class="flex w-32 m-auto">
+                        <div class="flex w-32 ml-auto">
                             <button onClick={() => handleSubmit()} type="submit" class="py-2 px-4 my-10 bg-green-600 hover:bg-green-700 focus:ring-green-500 focus:ring-offset-red-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
                                 {pending ?
                                     <CgSpinner class="animate-spin text-xl" /> : "Add request"
