@@ -199,12 +199,12 @@ export const ReviewItem = [
 export const DeliveryProcessData  = [
     {
         id:1,
-        levelName:'HOW DO I PLACE AN ORDER?',
+        levelName:'How do I place an order?',
         description:'You can place your order at our booking form.'
     },
     {
         id:2,
-        levelName:'HOW DO I KNOW THE PRICE OF MY DELIVERY?',
+        levelName:'How do I know the price of my delivery?',
         description:'When you fill up the booking form you will see a summary of the total price of your order. Or you can calculate the price before booking your order.'
     },
     {

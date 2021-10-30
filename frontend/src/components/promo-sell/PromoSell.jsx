@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const PromoSell = () => {
     return (
@@ -13,7 +14,9 @@ const PromoSell = () => {
                             Summer styles are finally here
                         </h1>
                         <p class="mt-4 text-xl text-gray-500 pb-5">This year, our new summer collection will shelter you from the harsh elements of a world that doesn't care if you live or die.This year, our new summer collection will shelter you from the harsh elements of a world that doesn't care if you live or die.</p>
-                        <button className="bg-red-600 rounded text-xl text-white px-5 py-2 hover:bg-red-700">Order Now</button>
+                        <Link to="/service">
+                            <button className="bg-red-600 rounded text-xl text-white px-5 py-2 hover:bg-red-700">Order Now</button>
+                        </Link>
 
                     </div>
                 </div>
