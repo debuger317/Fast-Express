@@ -5,6 +5,7 @@ import TopFilterOption from '../TopFilterOption';
 import { useDispatch } from 'react-redux';
 import ReactPaginate from "react-paginate";
 import './filterItemPagination.css'
+
 const FilteredItems = () => {
     const path = useLocation()
     const [getCourier, setCourier] = useState([])
@@ -24,8 +25,9 @@ const FilteredItems = () => {
     dispatch(updateCount(count.length))
     dispatch(filterName(filterPath))
     // console.log(count)
-    const test = getCourier[4]
+    const test = getCourier[1]
     console.log("test",test)
+    console.log('count', count)
 
     // pagination
     const [pageNumber, setPageNumber] = useState(0);

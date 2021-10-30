@@ -4,7 +4,7 @@ import CustomerList from '../components/Marsent/CustomerList/CustomerList';
 const CustomerLists = () => {
     return (
         <div>
-    <CustomerList />
+            <CustomerList />
         </div>
     );
 };

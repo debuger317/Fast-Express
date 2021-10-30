@@ -55,7 +55,6 @@ const CategoriesTable = () => {
             .catch((error) => {
 
             });
-
     }
     //add new category 
 
@@ -88,7 +87,6 @@ const CategoriesTable = () => {
             setPending(false)
 
         }
-
     };
 
     //handle filter changes 

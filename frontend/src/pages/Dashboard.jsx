@@ -9,7 +9,6 @@ import {
     Route
 } from "react-router-dom";
 import ManageCompany from '../components/dashboard/wrapper/ManageCompany';
-// import CustomerList from '../components/dashboard/wrapper/CustomerList';
 import ManageCategories from '../components/dashboard/wrapper/ManageCategories';
 import UserOrderList from '../components/dashboard/userDashboard/UserOrderList';
 import CustomerListManage from '../components/dashboard/wrapper/CustomerListManage';

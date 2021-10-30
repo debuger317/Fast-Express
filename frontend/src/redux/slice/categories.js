@@ -14,7 +14,7 @@ export const CategoriesSlice = createSlice({
 
         filterCategories: (state, action) => {
 
-            state.items = state.items.filter((item) => item.name == action.payload);
+            state.items = state.items.filter((item) => item.name === action.payload);
 
         },
 
