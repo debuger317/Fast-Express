@@ -1,20 +1,28 @@
-import React, { Fragment, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { userOrderAction } from '../../../redux/action/userOderList';
+import axios from 'axios';
+import React, { Fragment, useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import UserPaymentDetails from '../components/ManageUser/UserPaymentDetails';
 
 const Payment = () => {
-    // const displayName = useSelector((state) => state)
-    const userId = useSelector((state) => state.auth.authdetails._id)
-    const userDatas = useSelector((state) => state.user.userOrderLists)
-    const dispatch = useDispatch();
-    useEffect(()=>{
-        const url = `https://fastexpress.herokuapp.com/api/order/${userId}`;
-        fetch(url)
-        .then(res => res.json())
-        .then(data=> dispatch(userOrderAction(data)));
-    
-        },[userId])
+
+    const [payment, setPayment] = useState([]);
+    const user = useSelector((state) => state.auth.authdetails)
+    const { _id, email } = user;
+
+    const GetAUserPayment = async () => {
+        try {
+            const res = await axios.get(`https://fastexpress.herokuapp.com/api/payment/user/${_id}`, {
+                data: { email },
+            });
+            setPayment(res.data)
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    useEffect(() => {
+        GetAUserPayment()
+    }, [_id])
     return (
         <Fragment>
 
@@ -30,7 +38,7 @@ const Payment = () => {
                                     <input type="text" id="&quot;form-subscribe-Filter" class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="name" />
                                 </div>
                                 <button class="flex-shrink-0 px-4 py-2 text-base font-semibold text-white bg-purple-600 rounded-lg shadow-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-purple-200" type="submit">
-                                    Filter here
+                                    Filter
                                 </button>
                             </form>
                         </div>
@@ -40,29 +48,33 @@ const Payment = () => {
                             <table class="min-w-full leading-normal">
                                 <thead>
                                     <tr>
-                                        <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal">
-                                            ORDER ID
+                                        <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-md  font-semibold">
+                                            Order id
                                         </th>
-                                        <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal">
-                                            COURIER COMPANY
+                                        <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-md  font-semibold">
+                                            Card number
                                         </th>
-                                        <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal">
-                                            PAYMENT METHOD
+                                        <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-md  font-semibold">
+                                            Payment Method
                                         </th>
-                                        <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal">
-                                            TRANSACTION ID
+                                        <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-md  font-semibold">
+                                            Amount
                                         </th>
-                                        <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal">
+                                        <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-center text-md  font-semibold">
                                             Created at
                                         </th>
-                                        <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal">
-                                            status
+                                        <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-center text-md  font-semibold">
+                                            Status
                                         </th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {userDatas.map(data => <UserPaymentDetails data={data}></UserPaymentDetails>)}
-                                    
+                                    {
+                                        payment?.map((p, i) => (
+                                            <UserPaymentDetails key={p._id} index={i} data={p}/>
+                                        ))
+                                    }
+
                                 </tbody>
                             </table>
                             <div class="px-5 bg-white py-5 w-96 mx-auto">

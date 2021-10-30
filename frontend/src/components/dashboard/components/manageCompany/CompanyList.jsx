@@ -14,9 +14,9 @@ const CompanyList = () => {
         <section className="container w-full mx-auto px-4 sm:px-8 max-w-8xl">
 
             <div class="py-8">
-            <h2 class="text-2xl leading-tight font-medium">
+                <h2 class="text-2xl leading-tight font-medium">
                     <span className="text-3xl text-red-400">{clist.length}</span> COMPANY CONNECTED WITH US.
-                    </h2>
+                </h2>
                 <div class="flex flex-row mb-1 sm:mb-0 justify-between pt-5">
                     <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
                         <div class="inline-block min-w-full shadow rounded-lg overflow-hidden">

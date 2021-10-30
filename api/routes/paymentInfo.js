@@ -3,7 +3,7 @@ const router = require("express").Router();
 
 const Payment_controller = require("../controllers/userPaymentInfo")
 
-router.post("/newPayment", Payment_controller.NewUserPayment)
-router.get('/:userId', Payment_controller.GetAUserPaymentByEmail)
+router.post("/user/newPayment", Payment_controller.NewUserPayment)
+router.get('/user/:userId', Payment_controller.GetAUserPaymentByEmail)
 
 module.exports = router;

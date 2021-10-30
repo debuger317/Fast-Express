@@ -1,22 +1,37 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import CustomerOrderManageTable from './CustomerOrderManageTable';
+import { useSelector } from 'react-redux';
 
 const CustomerOrderManage = () => {
+    
     const [clist, setClist] = useState([]);
-    console.log(clist);
 
+    const merchant = useSelector((state) => state.auth.authdetails)
+    const { _id } = merchant;
+
+    const fetchOrder = async () => {
+
+        try {
+            const order = await axios.get(`https://fastexpress.herokuapp.com/api/order/merchant/${_id}`)
+
+            setClist(order)
+        }
+
+        catch (error) {
+            console.log(error);
+        }
+    }
     useEffect(() => {
-        fetch(`https://fastexpress.herokuapp.com/api/order/allorder`)
-            .then(res => res.json())
-            .then(data => setClist(data))
-    }, [])
+        fetchOrder()
+    }, [_id])
 
     return (
         <section className="container w-5/6 mx-auto px-4 sm:px-8 max-w-6xl">
             <div class="py-8">
                 <div class="flex flex-row mb-1 sm:mb-0 justify-between">
                     <h2 class="text-2xl leading-tight">
-                        Customers order management
+                        Your customers order management
                     </h2>
                     <div class="text-end">
                         <form class="flex flex-col md:flex-row   max-w-sm md:space-x-3 space-y-3 md:space-y-0 justify-center">
@@ -66,7 +81,7 @@ const CustomerOrderManage = () => {
                             <tbody>
 
                                 {
-                                    clist.map(list => <CustomerOrderManageTable list={list} key={list._id}/>)
+                                    clist.map(list => <CustomerOrderManageTable list={list} key={list._id} />)
                                 }
                             </tbody>
                         </table>
