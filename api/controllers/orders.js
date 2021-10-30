@@ -59,6 +59,7 @@ const findAMerchantOrderByIdAndEmail = async (req, res, next) => {
 
         try {    
             const orders = await Orders.find({ merchantId: id });
+            console.log(orders);
             res.status(200).json(orders)
         }
         catch (err) {

@@ -1,15 +1,11 @@
 import axios from 'axios';
 import React, { Fragment, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-
 import UserPaymentDetails from '../components/ManageUser/UserPaymentDetails';
 
 const Payment = () => {
 
     const [payment, setPayment] = useState([]);
-
-    console.log(payment);
-
     const user = useSelector((state) => state.auth.authdetails)
     const { _id, email } = user;
 
@@ -20,7 +16,7 @@ const Payment = () => {
             });
             setPayment(res.data)
         } catch (error) {
-            console.error(error);
+            console.log(error);
         }
     }
 
@@ -74,7 +70,7 @@ const Payment = () => {
                                 </thead>
                                 <tbody>
                                     {
-                                        payment.map((p, i) => (
+                                        payment?.map((p, i) => (
                                             <UserPaymentDetails key={p._id} index={i} data={p}/>
                                         ))
                                     }
