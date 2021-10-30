@@ -1,5 +1,5 @@
 import React from 'react';
-import CustomerList from '../components/Marsent/CustomerList/CustomerList';
+import CustomerList from '../components/Merchant/CustomerList/CustomerList';
 
 const CustomerLists = () => {
     return (

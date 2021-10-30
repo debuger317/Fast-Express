@@ -8,7 +8,6 @@ const Register = async (req, res) => {
         const salt = await bcrypt.genSalt(16);
         const hashedPass = await bcrypt.hash(req.body.password, salt);
         const newauthUser = new auth({
-            name: req.body.name,
             email: req.body.email,
             password: hashedPass,
             role: req.body.role

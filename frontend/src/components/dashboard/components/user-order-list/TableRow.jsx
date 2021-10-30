@@ -1,12 +1,11 @@
 import React from 'react';
 import { CgRemove } from "react-icons/cg";
-import { removeCategoryAction } from '../../../../redux/action/categories';
-import { useDispatch } from 'react-redux';
+// import { removeCategoryAction } from '../../../../redux/action/categories';
 import axios from 'axios';
 //
-const TableRow = ({data, serial}) => {
-    const dispatch = useDispatch();
-    const { _id, p_name, photo, createdAt, merchantId, pickupTo } = data;
+const TableRow = ({ data, index }) => {
+
+    const { _id, p_name, p_photo, createdAt,merchantName, pickupTo, orderStatus } = data;
 
     //delte a category
 
@@ -28,17 +27,16 @@ const TableRow = ({data, serial}) => {
     return (
         <tr class="hover:opacity-70">
             <td class="py-5 border-b border-gray-200 bg-white text-sm">
-            <div class="flex items-center">
+                <div class="flex items-center">
                     <div class="ml-3">
                         <p class="text-gray-900 whitespace-no-wrap">
-                            {serial}
+                            {1 + index}
                         </p>
                     </div>
                 </div>
             </td>
             <td class="py-5 border-b border-gray-200 bg-white text-sm">
-                <img alt="profil" src={photo} class=" ml-5 rounded-full h-10 w-10 " />
-                <h6>Photo is not found in api</h6>
+                <img alt="profil" src={p_photo} class=" ml-5 rounded-full h-10 w-10 " />
             </td>
             <td class="py-5 border-b border-gray-200 bg-white text-sm">
                 <div class="flex items-center">
@@ -51,16 +49,16 @@ const TableRow = ({data, serial}) => {
             </td>
             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                 <p class="text-gray-900 whitespace-no-wrap">
-                    {createdAt.split("T")[0]}
+                    {new Date(createdAt).toDateString()}
                 </p>
             </td>
             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-            <p class="text-gray-900 whitespace-no-wrap">
-                    {merchantId}
+                <p class="text-gray-900 whitespace-no-wrap">
+                    {merchantName}
                 </p>
             </td>
             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-            <p class="text-gray-900 whitespace-no-wrap">
+                <p class="text-gray-900 whitespace-no-wrap">
                     {pickupTo}
                 </p>
             </td>
@@ -69,13 +67,12 @@ const TableRow = ({data, serial}) => {
                     <span aria-hidden="true" class="absolute inset-0 bg-green-200 opacity-50 rounded-full">
                     </span>
                     <span class="relative">
-                        {/* {merchantId} */}
-                        Status to be added in api
+                        {orderStatus}
                     </span>
                 </span>
             </td>
             <td class="pl-6 py-5 border-b border-gray-200 bg-white text-sm">
-                <button onClick={() => { dispatch(removeCategoryAction(_id)); handleDelete() }} class="text-red-600 hover:text-rted-800 px-3 py-1 text-xl">
+                <button  class="text-red-600 hover:text-rted-800 px-3 py-1 text-xl">
                     <CgRemove />
                 </button>
             </td>
@@ -84,3 +81,5 @@ const TableRow = ({data, serial}) => {
 };
 
 export default TableRow;
+
+//onClick={() => { dispatch(removeCategoryAction(_id)); handleDelete() }}

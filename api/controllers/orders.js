@@ -6,6 +6,7 @@ const AddANewOrder = async (req, res) => {
 
             merchantId: req.body.merchantId,
             merchantmail: req.body.merchantmail,
+            merchantName: req.body.merchantName,
             userId: req.body.userId,
             fname: req.body.fname,
             lname: req.body.lname,
@@ -14,10 +15,12 @@ const AddANewOrder = async (req, res) => {
             pickupFrom: req.body.pickupFrom,
             pickupTo: req.body.pickupTo,
             phone: req.body.phone,
+            orderStatus: req.body.orderStatus,
             city: req.body.city,
             zip: req.body.zip,
             deliverytype: req.body.deliverytype,
             p_name: req.body.parcelname,
+            p_photo: req.body.parcelphoto,
             p_type: req.body.parceltype,
             p_weight: req.body.parcelweight,
         });

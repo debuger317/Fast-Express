@@ -16,9 +16,8 @@ const SideBar = () => {
 
     return (
         <div class="fixed inset-0 flex-none h-full w-full overflow-y-visible lg:pt-0 lg:w-60 xl:w-72 lg:block mt-16">
-            <div class="bg-white mr-10 shadow-lg h-screen">
+            <div class="bg-white mr-10 shadow-lg h-screen overflow-y-scroll	">
                 <nav class="mb-16">
-                    <div>
                         {
                             dashboard_nav.filter(nav => nav.role.includes(role)).map(item =>
                                 <Link to={item.path} class={`${item.bg} text-gray-500 focus:text-white focus:bg-red-500  border-red-600 uppercase  flex items-center p-4 my-2  duration-200 justify-start`}>
@@ -28,9 +27,8 @@ const SideBar = () => {
                                 </Link>
                             )
                         }
-                    </div>
-                </nav>
-                <span onClick={() => abv()} class="flex items-center cursor-pointer uppercase mx-8 text-sm font-semibold text-gray-500"><span class="text-xl pr-2"><VscHome /></span> Back to home</span>
+                        <a  href={'/'} class="flex items-center cursor-pointer uppercase mx-8 text-sm font-semibold text-gray-500 pb-10"><span class="text-xl pr-2 "><VscHome /></span> Back to home</a>
+                </nav>    
             </div>
         </div>
 

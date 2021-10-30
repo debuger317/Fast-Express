@@ -3,7 +3,8 @@ const mongoose = require('mongoose');
 //model for delivery man add show updated and delete
 
 const DeliveryServiceSchema = new mongoose.Schema({
-    title: {
+    
+    boy_name: {
         type: String,
         require: true,
         unique: true,
@@ -14,7 +15,22 @@ const DeliveryServiceSchema = new mongoose.Schema({
         required: true,
         unique: true,
     },
-    description: {
+    email: {
+        type: String,
+        required: true,
+        unique: false,
+    },
+    phone: {
+        type: String,
+        required: true,
+        unique: false,
+    },
+    PickupForm: {
+        type: String,
+        required: true,
+        unique: false,
+    },
+    PickupTo: {
         type: String,
         required: true,
         unique: false,

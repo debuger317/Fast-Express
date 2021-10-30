@@ -1,18 +1,31 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { useLocation } from 'react-router';
+import { useSelector } from 'react-redux';
 
-const CustomerOrderList = () => {
-    const [order, setOrder] = useState([]);
-    console.log(order);
-
+const CustomerList = () => {
+    const location = useLocation();
+    const [customer, setCustomer] = useState([]);
+    const Path = location.pathname.split('/')[1];
+    const merchant = useSelector((state => state.auth.authdetails._id))
+    console.log(merchant);
+    const GetCustomer = async () => {
+        try {
+            const res = await axios.get(`https://fastexpress.herokuapp.com/api/order/merchant/${merchant}`)
+            setCustomer(res.data);
+            console.log(res.data);
+        }
+        catch (err) {
+            console.log(err);
+        }
+    }
     useEffect(() => {
-        fetch(`https://fastexpress.herokuapp.com/api/order/allorder`)
-            .then(res => res.json())
-            .then(data => setOrder(data))
-    }, [])
+        GetCustomer()
+    }, [Path])
     return (
         <section class="table w-full p-2">
-            <h2 class="text-2xl leading-tight">
-                Customer Order List
+            <h2 class="text-xl font-semibold uppercase my-5">
+                Customer list
             </h2>
             <table class="w-full border">
 
@@ -44,7 +57,7 @@ const CustomerOrderList = () => {
                         </th>
                         <th class="p-2 border-r cursor-pointer text-sm font-thin text-gray-500">
                             <div class="flex items-center justify-center">
-                                Merchant
+                                City
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4m0 6l-4 4-4-4" />
                                 </svg>
@@ -52,7 +65,7 @@ const CustomerOrderList = () => {
                         </th>
                         <th class="p-2 border-r cursor-pointer text-sm font-thin text-gray-500">
                             <div class="flex items-center justify-center">
-                                status
+                                Created at
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4m0 6l-4 4-4-4" />
                                 </svg>
@@ -60,7 +73,7 @@ const CustomerOrderList = () => {
                         </th>
                         <th class="p-2 border-r cursor-pointer text-sm font-thin text-gray-500">
                             <div class="flex items-center justify-center">
-                                Action
+                                Contact
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4m0 6l-4 4-4-4" />
                                 </svg>
@@ -69,41 +82,27 @@ const CustomerOrderList = () => {
                     </tr>
                 </thead>
                 <tbody>
-{
-    order.map(order =>{
-        
-        <tr class="bg-gray-100 text-center border-b text-sm text-gray-600">
-        <td class="p-2 border-r">{order.name}</td>
-        <td class="p-2 border-r">{order.email}</td>
-        <td class="p-2 border-r">Sydney, Australia</td>
-        <td class="p-2 border-r">Strip</td>
-        <td class="p-2 border-r">
-            <select class="block w-30 text-gray-700 mx-auto py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500" name="animals">
-                <option value="">
-                    Select
-                </option>
-                <option value="dog">
-                    OnGoing
-                </option>
-                <option value="cat">
-                    Panding
-                </option>
-                <option value="hamster">
-                    Done
-                </option>
+                    {
+                        customer?.map((customer, index) => (
 
-            </select>
-        </td>
-        <td>
-            <a href="#" class="bg-red-500 p-2 text-white hover:shadow-lg text-xs font-thin">Remove</a>
-        </td>
-    </tr>
-    })
-}
+                            <tr key={index} class="bg-gray-100 text-center border-b text-sm text-gray-600">
+                                <td class="p-2 border-r">{customer.fname + ' ' + customer.lname}</td>
+                                <td class="p-2 border-r">{customer.usermail}</td>
+                                <td class="p-2 border-r">{customer.address}</td>
+                                <td class="p-2 border-r">{customer.city}</td>
+                                <td class="p-2 border-r">
+                                    {new Date(customer.createdAt).toDateString()}
+                                </td>
+                                <td>
+                                    {customer.phone}
+                                </td>
+                            </tr>
+                        ))
+                    }
                 </tbody>
             </table>
         </section>
     );
 };
 
-export default CustomerOrderList;
+export default CustomerList;

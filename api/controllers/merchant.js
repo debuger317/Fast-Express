@@ -4,7 +4,7 @@ const addmerchant_C = async (req, res) => {
     try {
         const newmerchant = new merchants({
             logo: req.body.logo,
-            name: req.body.name,
+            name: req.body.companyName,
             email: req.body.email,
             website: req.body.website,
             weight: req.body.weight,
@@ -14,9 +14,9 @@ const addmerchant_C = async (req, res) => {
             pickupTo: req.body.pickupTo,
             costperkg: req.body.costperkg,
             deliveryOption: req.body.deliveryOption,
-            status: req.body.status,
             phone: req.body.phone,
             serviceCategory: req.body.serviceCategory,
+            status: req.body.status
         });
         const merchant = await newmerchant.save();
         res.status(200).json({ success: 'a new merchant account created successfully!', merchant });

@@ -3,15 +3,17 @@ import axios from "axios";
 import { AiOutlineCloudUpload } from 'react-icons/ai';
 import { useForm } from 'react-hook-form';
 import { useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import { CgSpinner } from 'react-icons/cg';
 
 const AddCompanyForm = () => {
     const history = useHistory();
+    const location = useLocation();
+    const Path = location.pathname.split('/')[1];
     const [logo, setLogo] = useState('');
     const [cat, setcat] = useState([]);
     const merchantAuth = useSelector((state) => state.auth.authdetails);
-    // const categories = useSelector((state) => state.categories.items);
+
     const getCategories = async () => {
         try {
             const res = await axios.get('https://fastexpress.herokuapp.com/api/categories/all');
@@ -22,9 +24,9 @@ const AddCompanyForm = () => {
     }
     useEffect(() => {
         getCategories()
-    }, [])
+    }, [Path])
 
-    const { name, email } = merchantAuth;
+    const { email, password } = merchantAuth;
     const [error, setError] = useState(false);
     const [pending, setPending] = useState(false);
 
@@ -33,7 +35,7 @@ const AddCompanyForm = () => {
     const onSubmit = async (data) => {
         const merchant = {
             logo: logo,
-            name: name,
+            companyName: data.Cname,
             email: email,
             website: data.website,
             weight: data.weight,
@@ -43,21 +45,51 @@ const AddCompanyForm = () => {
             pickupTo: data.pickupTo,
             costperkg: data.payment,
             deliveryOption: data.deliveryOption,
-            status: "pending",
             phone: data.helpline,
-            serviceCategory: data.ctegory
+            serviceCategory: data.ctegory,
+            status: "pending"
         }
-        // console.log(merchant);
+
+        const userData = {
+            email: email,
+            password: password,
+            role: "merchant",
+        }
+
+        setPending(true)
+
         try {
-            const res = await axios({
+            const res1 = await axios({
                 method: 'post',
                 url: 'https://fastexpress.herokuapp.com/api/merchant/addmerchant',
                 data: merchant
             });
-            setPending(true)
-            res && history.push("/login")
+            console.log(res1);
+            if (res1) {
+                try {
+                    const res2 = await axios({
+                        method: 'post',
+                        url: 'https://fastexpress.herokuapp.com/api/auth/register',
+                        data: userData
+                    });
+                    console.log(res2);
+
+                    if (res2) {
+                        history.push("/login")
+                    }
+                } catch (err) {
+                    setError(true);
+                    setPending(false);
+                }
+            }
+            else {
+                setError(true);
+                setPending(false)
+
+            }
 
         } catch (err) {
+            setPending(false)
             setError(true);
             console.log(err);
         }
@@ -88,7 +120,7 @@ const AddCompanyForm = () => {
 
                     <div class="p-4 lg:w-full md:w-full">
                         <div class="my-5">
-                            <h1 className="font-medium text-gray-700 font-medium">Add company logo</h1>
+                            <h1 className="font-medium text-gray-700">Add company logo</h1>
                         </div>
                         <div className="md:flex items-center">
                             <div className="block relative">
@@ -109,8 +141,8 @@ const AddCompanyForm = () => {
                             <label class="font-medium text-gray-700">
                                 Name of company
                                 <div>
-                                    <input
-                                        type="text" class="rounded  border-transparent flex-1 border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent" placeholder="Your company name" value={name} />
+                                    <input {...register("Cname")}
+                                        type="text" class="rounded  border-transparent flex-1 border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent" placeholder="Your company name" />
                                 </div>
                             </label>
                         </div>
@@ -313,13 +345,13 @@ const AddCompanyForm = () => {
                         <div className="my-5">
                             <h1 className="font-medium text-gray-500 uppercase text-md text">Choose your service category</h1>
                         </div>
-                        <div class="grid lg:grid-cols-6 md:grid-cols-5 sm:grid-cols-4 gap-5">
-                            {cat.map(d => (
+                        <div class="grid lg:grid-cols-5 md:grid-cols-5 sm:grid-cols-4 gap-5">
+                            {cat?.map(d => (
                                 <label class="flex items-center space-x-3 mb-3">
                                     <input {...register("ctegory")}
-                                        class="w-6 h-6 rounded-lg" type="checkbox" value={d.value} />
-                                    <span class="text-gray-700 dark:text-white font-normal">
-                                        {d.value}
+                                        class="w-6 h-6 rounded-lg" type="checkbox" value={d.name} />
+                                    <span class="text-gray-700 dark:text-white uppercase text-sm font-semibold">
+                                        {d.name}
                                     </span>
                                 </label>
                             ))
@@ -329,7 +361,7 @@ const AddCompanyForm = () => {
                     </div>
                     {error && <span style={{ color: 'red', marginTop: '10px' }}>Something went wrong!</span>}
                     <div class="p-4 lg:full md:w-full">
-                        <div class="flex w-32 m-auto">
+                        <div class="flex w-32 ml-auto">
                             <button onClick={() => handleSubmit()} type="submit" class="py-2 px-4 my-10 bg-green-600 hover:bg-green-700 focus:ring-green-500 focus:ring-offset-red-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
                                 {pending ?
                                     <CgSpinner class="animate-spin text-xl" /> : "Add request"
