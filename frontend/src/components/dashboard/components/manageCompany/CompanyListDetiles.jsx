@@ -4,17 +4,18 @@ const CompanyListDetiles = (props) => {
     const { _id, name, email, address, updatedAt, createdAt } = props.list;
 
 
-    const handleCompanyDelete = (e) => {
-        const url = `http://localhost:5500/api/merchant/${_id}`;
-        fetch(url, {
-            method: 'DELETE'
-        })
-        .then(res => res.json())
-        .then(result => {
-            console.log('delete successfully')
-            e.target.parentNode.style.display = 'none';
-        })
-    }
+    // const handleCompanyDelete = (e) => {
+
+    //     const url = `https://fastexpress.herokuapp.com/api/merchant/${_id}`;
+    //     fetch(url, {
+    //         method: 'DELETE'
+    //     })
+    //     .then(res => res.json())
+    //     .then(result => {
+    //         console.log('delete successfully')
+    //         e.target.parentNode.style.display = 'none';
+    //     })
+    // }
 
     return (
         <tr className="bg-gray-100 text-center border-b text-sm text-gray-600">
@@ -26,11 +27,11 @@ const CompanyListDetiles = (props) => {
             </td>
             <td className="p-2 border-r">{new Date(updatedAt).toDateString()}</td>
             <td>
-                <button onClick={handleCompanyDelete({_id})} className="bg-red-500 p-2 text-white hover:shadow-lg text-xs font-thin rounded">Remove</button>
+                <button  className="bg-red-500 p-2 text-white hover:shadow-lg text-xs font-thin rounded">Remove</button>
             </td>
         </tr>
 
     );
 };
-
+//onClick={handleCompanyDelete({_id})}
 export default CompanyListDetiles;

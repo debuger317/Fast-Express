@@ -5,15 +5,14 @@ import {
     Switch,
     Route
 } from "react-router-dom";
+
 import Private from '../components/auth/PrivateRoute';
 import PrivateForm from '../components/auth/PrivateForm';
 import PrivateShippingForm from '../components/auth/PrivateShippingForm';
-import UserSignUp from '../components/authication/sub-component/UserSignUp';
 
 const BlogPage = lazy(() => import('../pages/BlogPage'));
 const ShippingForm =  lazy(() => import('../pages/ShippingForm'));
 const Home = lazy(() => import('../pages/Home'));
-// const CompanyForm = lazy(() => import('../pages/CompanyForm'));
 const Pricing = lazy(() => import('../pages/Pricing'));
 const Contacts = lazy(() => import('../pages/Contacts'));
 const Services = lazy(() => import('../pages/Services'));
@@ -21,12 +20,11 @@ const CategoryDetail = lazy(() => import('../pages/ServiceDetails'));
 const SingleCourierDetail = lazy(() => import('../pages/SingleCourier'));
 const Faq = lazy(() => import('../pages/FAQ'));
 const About = lazy(() => import('../pages/About'));
-const SignUp = lazy(() => import('../pages/SignUp'));
+const UserSignUp = lazy(() => import('../pages/UserSignUp'));
+const CompanySignUp = lazy(() => import('../pages/CompanySignUp'));
 const Login = lazy(() => import('../pages/Login'));
 const Dashboard = lazy(() => import('../pages/Dashboard'));
 const NotFound = lazy(() => import('../pages/NotFound'));
-// const SingleCourierDetail = lazy(() => import('../components/service/sub-components/SingleCourierDetail'));
-// const CategoryDetails = lazy(() => import('../pages/CategoryDetails'));
 const CompanyForm = lazy(() => import('../pages/CompanyForm'));
 
 const Routes = () => {
@@ -67,11 +65,11 @@ const Routes = () => {
                     <Route path="/about">
                         <About/>
                     </Route>
-                    <Route path="/customerSignup">
+                    <Route path="/user-signup">
                         <UserSignUp />
                     </Route> 
-                    <Route path="/signup">
-                        <SignUp />
+                    <Route path="/company-signup">
+                        <CompanySignUp />
                     </Route>
                     <Route path="/login">
                         <Login />

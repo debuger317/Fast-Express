@@ -1,6 +1,6 @@
 import { FaUserTie, FaUserNurse } from 'react-icons/fa';
 import { MdPayment } from 'react-icons/md';
-import { VscDashboard,VscPerson,VscPackage, VscOrganization,VscPreview, VscReport,VscRequestChanges,VscStarFull, VscGear } from 'react-icons/vsc';
+import { VscDashboard,VscPerson,VscPackage, VscOrganization,VscPreview, VscReport,VscStarFull, VscGear } from 'react-icons/vsc';
 import Blog1 from '../assets/images/blog/Christmas-hamper-delivery.png';
 import Blog2 from '../assets/images/blog/Happy-Deepavali-Whatsapp-Story.png';
 import Blog3 from '../assets/images/blog/use-this-promo-code.jpg';
@@ -433,17 +433,8 @@ export const users = [
         size:"text-2xl",
         role:["user","merchant"]
     } ,
-
     {
         id:9,
-        path: "/dashboard/customer-order-list",
-        pathname: "Manage customer order",
-        size:"text-2xl",
-        icon:<VscPackage/>,
-        role:["merchant"]
-    },
-    {
-        id:10,
         path: "/dashboard/manage-setting",
         pathname: "Manage Setting",
         icon:<VscGear/>,
@@ -451,7 +442,7 @@ export const users = [
         role:["user"]
     },
     {
-        id:11,
+        id:10,
         path: "/dashboard/userlist",
         pathname: "User list",
         icon:<VscPerson/>,
@@ -459,53 +450,53 @@ export const users = [
         role:["admin"]
     },
     {
-        id:12,
+        id:11,
         path: "/dashboard/companylist",
         pathname: "Company list",
         icon:<VscOrganization/>,
-        size:"text-xl",
+        size:"text-2xl",
+        role:["admin"]
+    },
+    {
+        id:12,
+        path: "/dashboard/account-report",
+        pathname: "Report",
+        icon:<VscReport/>,
+        size:"text-2xl",
         role:["admin"]
     },
     {
         id:13,
-        path: "/dashboard/account-report",
-        pathname: "Report",
-        icon:<VscReport/>,
-        size:"text-xl",
+        path: "/dashboard/manage-review",
+        pathname: "Manage review",
+        icon:<VscPreview/>,
+        size:"text-2xl",
         role:["admin"]
     },
     {
         id:14,
-        path: "/dashboard/manage-review",
-        pathname: "Manage review",
-        icon:<VscPreview/>,
-        size:"text-xl",
-        role:["admin"]
-    },
-    {
-        id:15,
 
         path: "/dashboard/order-all",
 
         pathname: "All order list",
         icon:<VscGear/>,
-        size:"text-xl",
+        size:"text-2xl",
+        role:["admin"]
+    },
+    {
+        id:15,
+        path: "/dashboard/manage-category",
+        pathname: "Manage category",
+        icon:<VscGear/>,
+        size:"text-2xl",
         role:["admin"]
     },
     {
         id:16,
-        path: "/dashboard/manage-category",
-        pathname: "Manage category",
-        icon:<VscGear/>,
-        size:"text-xl",
-        role:["admin"]
-    },
-    {
-        id:17,
         path: "/dashboard/manage-setting",
         pathname: "Manage setting",
         icon:<VscGear/>,
-        size:"text-xl",
+        size:"text-2xl",
         role:["admin"]
     },
 

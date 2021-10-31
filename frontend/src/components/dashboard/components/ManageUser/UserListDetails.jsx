@@ -3,7 +3,7 @@ import React from 'react';
 const UserListDetails = (props) => {
     const { _id, name, email, address, updatedAt, createdAt } = props.list;
     const handleUserDelete = (e) => {
-        const url = `http://localhost:5500/api/user/${_id}`;
+        const url = `https://fastexpress.herokuapp.com/api/user/${_id}`;
         fetch(url, {
             method: 'DELETE'
         })

@@ -9,6 +9,10 @@ const OrderSchema = new mongoose.Schema({
         required: true,
         unique: false,
     },
+    merchantName: {
+        type: String,
+        required: true
+    },
     userId: { type: String, required: true },
     fname: { type: String, required: true },
     lname: { type: String, required: true },
@@ -41,6 +45,11 @@ const OrderSchema = new mongoose.Schema({
         required: true,
         unique: false
     },
+    orderStatus: {
+        type: String,
+        required: true,
+        unique: false,
+    },
     city: { type: String, required: true },
     zip: { type: String, required: true },
 
@@ -51,6 +60,11 @@ const OrderSchema = new mongoose.Schema({
     },
 
     p_name: {
+        type: String,
+        required: true,
+        unique: false,
+    },
+    p_photo: {
         type: String,
         required: true,
         unique: false,

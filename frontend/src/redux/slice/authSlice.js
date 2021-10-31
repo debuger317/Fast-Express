@@ -22,6 +22,10 @@ export const authSlice = createSlice({
         logOut: (state, action) => {
             state.authdetails = {}
 
+        },
+        removeAuth: (state, action) => {
+            state.authdetails = {}
+
         }
     },
 })
