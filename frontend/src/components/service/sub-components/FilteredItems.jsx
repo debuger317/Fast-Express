@@ -14,6 +14,7 @@ const FilteredItems = () => {
     const offset = currentPage * PER_PAGE;
     const dispatch = useDispatch();
 
+    console.log("filterpath", filterPath)
     useEffect(() => {
         fetch(`https://fastexpress.herokuapp.com/api/merchant/all`)
             .then(res => res.json())
@@ -21,13 +22,13 @@ const FilteredItems = () => {
     }, [filterPath])
 
     const filterCourier = getCourier.filter(name => name.serviceCategory.includes(filterPath))
-
+    
+    console.log("filtercourier", filterCourier)
     dispatch(updateCount(filterCourier.length))
-
     dispatch(filterName(filterPath))
 
+    //  pagination 
     const pageCount = Math.ceil(filterCourier.length / PER_PAGE);
-
     const handlePageClick = ({ selected: selectedPage }) => {
         setCurrentPage(selectedPage);
     }

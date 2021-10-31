@@ -11,3 +11,4 @@ export const filterName = (filterpath) => (dispatch) => {
 export const selectedMerchant = (merchant) => (dispatch) => {
     dispatch(slice.selectedMerchant(merchant))
 }
+

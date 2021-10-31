@@ -8,7 +8,6 @@ export const CategoriesSlice = createSlice({
     reducers: {
         setCategories: (state, action) => {
             state.items = action.payload
-
         },
         // 
 

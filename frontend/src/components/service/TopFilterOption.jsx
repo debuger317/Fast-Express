@@ -25,7 +25,7 @@ const TopFilterOption = () => {
                         </option>
                     </select>
                     <div>
-                        Showing {count} results for {filteredName}
+                        Showing <strong>{count}</strong> results for <strong>{filteredName}</strong>
                     </div>
                 </div>
                 <div className="flex items-center text-dark-900">

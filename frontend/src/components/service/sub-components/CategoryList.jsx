@@ -3,7 +3,6 @@ import React, { useEffect } from 'react';
 import { Link, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
 import { getCategoriesAction } from '../../../redux/action/categories';
-import { FaSpinner } from 'react-icons/fa';
 import Spinner from '../../../helper/Spinner';
 
 const CategoryList = () => {
