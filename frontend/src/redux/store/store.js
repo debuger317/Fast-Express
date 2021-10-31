@@ -9,7 +9,7 @@ const persistConfig = {
   key: 'root',
   storage,
   lifeSpan: 5000,
-  blacklist: ['categories','dashboard'],
+  blacklist: ['categories','dashboard','merchant'],
 
 }
 const persistedReducer = persistReducer(persistConfig, rootReducer)
