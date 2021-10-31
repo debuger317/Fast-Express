@@ -7,7 +7,7 @@ const addcategory_C = async (req, res) => {
             photo: req.body.photo,
         });
         const category = await newCategory.save();
-        res.status(200).json({ success:'a new category added successfully!',category});
+        res.status(200).json({ success: 'category added successfully!', category });
 
     }
     catch (err) {
@@ -38,12 +38,12 @@ const updatecategory_c = async (req, res, next) => {
             const updatedcategory = await categories.findByIdAndUpdate(req.params.id, {
                 $set: req.body
             })
-            res.status(200).json({ success:'Category hasbeen updated',updatedcategory})
+            res.status(200).json({ success: 'Category has been updated', updatedcategory })
         }
         catch (err) { res.status(500).json(err) }
     }
     else {
-        res.status(401).json({ error:'category can update a admin'})
+        res.status(401).json({ error: 'category can update a admin' })
     }
 
 }
@@ -53,12 +53,12 @@ const updatecategory_c = async (req, res, next) => {
 const deletedcategory = async (req, res, next) => {
     try {
         const post = await categories.findById(req.params.id);
-            await post.delete();
-            res.status(200).json({ success:"Category has been deleted!"});
-        }
-        catch (err) {
-            res.status(500).json(err);
-          } 
+        await post.delete();
+        res.status(200).json({ success: "Category has been deleted!" });
+    }
+    catch (err) {
+        res.status(500).json(err);
+    }
 
 }
 
