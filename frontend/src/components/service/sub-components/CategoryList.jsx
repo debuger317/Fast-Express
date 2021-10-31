@@ -29,10 +29,11 @@ const CategoryList = () => {
             <div className="mb-10">
                 <h4 className="font-semibold uppercase">Browse items by category</h4>
             </div>
-            <div class="grid xl:grid-cols-6 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2  xl:gap-10 lg:gap-8 sm:gap-4">
-                {
-                    categories.length === 0 && <Spinner/>
-                }
+            {
+                categories.length === 0 && <Spinner />
+            }
+            <div class="grid xl:grid-cols-6 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2  xl:gap-10 lg:gap-8 sm:gap-3">
+
                 {
                     categories.map(item => item ?
                         <Link to={`/service/category/${item.name.replace("&", "")}`} class="p-4 bg-gray-300 hover:bg-gray-400 duration-700 shadow-xl hover:text-white rounded-xl h-40">

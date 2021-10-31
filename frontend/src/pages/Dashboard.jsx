@@ -1,13 +1,14 @@
 import React, { lazy, Suspense } from 'react';
-import { useSelector } from 'react-redux';
-import Spinner from '../helper/Spinner';
-import SideBar from '../components/dashboard/components/SideBar';
-import TopBar from '../components/dashboard/components/TopBar';
 import {
     BrowserRouter as Router,
     Switch,
     Route
 } from "react-router-dom";
+import { useSelector } from 'react-redux';
+import Spinner from '../helper/Spinner';
+import SideBar from '../components/dashboard/components/SideBar';
+import TopBar from '../components/dashboard/components/TopBar';
+import CloseButton from './../components/dashboard/components/CloseButton';
 import ManageCompany from '../components/dashboard/wrapper/ManageCompany';
 import ManageCategories from '../components/dashboard/wrapper/ManageCategories';
 import UserOrderList from '../components/dashboard/userDashboard/UserOrderList';
@@ -15,7 +16,6 @@ import CustomerListManage from '../components/dashboard/wrapper/CustomerListMana
 import MerchantDeliveryMan from '../components/dashboard/wrapper/MerchantDeliveryMan';
 const CustomerOrderList = lazy(() => import('../components/dashboard/wrapper/CustomerOrderLists'));
 const CustomerList = lazy(() => import('../components/dashboard/wrapper/CustomerLists'));
-
 const DashboardHome = lazy(() => import('../components/dashboard/wrapper/Home'));
 const Home = lazy(() => import('./Home'));
 const CompanyList = lazy(() => import('../components/dashboard/components/manageCompany/CompanyList'));
@@ -30,6 +30,8 @@ const ManageReviews = lazy(() => import('../components/dashboard/wrapper/ManageR
 
 const Dashboard = () => {
     const back = useSelector((state) => state.dashboard.backtohome)
+    const open = useSelector((state) => state.dashboard.openmenu)
+
     return (
         <Router>
             <switch>
@@ -41,10 +43,11 @@ const Dashboard = () => {
                 <TopBar />
             </div>
             <div className="flex">
-                <div className={`w-1/4  ${back ? 'hidden' : ''}`}>
+                <div className={`${open ? "w-24" : "w-72"} ${back ? 'hidden' : ''}`}>
                     <SideBar />
                 </div>
-                <div className="w-3/4 mt-16">
+                <div className="w-full mt-16">
+                    <CloseButton />
                     <Suspense fallback={<Spinner />}>
                         <Switch>
                             <Route exact path="/dashboard">

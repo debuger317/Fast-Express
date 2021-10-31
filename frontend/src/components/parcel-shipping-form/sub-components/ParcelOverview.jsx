@@ -10,7 +10,8 @@ const ParcelOverview = () => {
     const dispatch = useDispatch();
     const methods = useFormContext();
     const MerchantOverview = useSelector(state => state.merchant.selectedMerchant);
-    const { name, logo, pickupFrom, pickupTo } = MerchantOverview;
+    console.log(MerchantOverview);
+    const { name, logo, pickupFrom, pickupTo,description } = MerchantOverview;
 
     //handle imgae upload
     const handleImageUpload = (event) => {
@@ -39,6 +40,9 @@ const ParcelOverview = () => {
             <div class="overflow-hidden">
                 <div class="w-40 mx-10">
                     <img src={logo} alt="" srcset="" />
+                </div>
+                <div className="mx-10">
+                    <p>{description}</p>
                 </div>
                 <div class="p-4 mx-10">
                     <h1 class="text-gray-900 font-bold text-2xl mb-3">

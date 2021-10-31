@@ -12,7 +12,7 @@ const CompanyManagement = () => {
                         <img alt="profil" src="/images/person/1.jpg" class="mx-auto object-cover rounded-full h-16 w-16 "/>
                     </a>
                     <h1 class="text-gray-600">
-                        Charlie
+                        Fedx Bd
                     </h1>
                 </div>
             </div>

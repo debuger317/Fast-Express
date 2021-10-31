@@ -454,7 +454,7 @@ export const users = [
         path: "/dashboard/companylist",
         pathname: "Company list",
         icon:<VscOrganization/>,
-        size:"text-xl",
+        size:"text-2xl",
         role:["admin"]
     },
     {
@@ -462,7 +462,7 @@ export const users = [
         path: "/dashboard/account-report",
         pathname: "Report",
         icon:<VscReport/>,
-        size:"text-xl",
+        size:"text-2xl",
         role:["admin"]
     },
     {
@@ -470,7 +470,7 @@ export const users = [
         path: "/dashboard/manage-review",
         pathname: "Manage review",
         icon:<VscPreview/>,
-        size:"text-xl",
+        size:"text-2xl",
         role:["admin"]
     },
     {
@@ -480,7 +480,7 @@ export const users = [
 
         pathname: "All order list",
         icon:<VscGear/>,
-        size:"text-xl",
+        size:"text-2xl",
         role:["admin"]
     },
     {
@@ -488,7 +488,7 @@ export const users = [
         path: "/dashboard/manage-category",
         pathname: "Manage category",
         icon:<VscGear/>,
-        size:"text-xl",
+        size:"text-2xl",
         role:["admin"]
     },
     {
@@ -496,7 +496,7 @@ export const users = [
         path: "/dashboard/manage-setting",
         pathname: "Manage setting",
         icon:<VscGear/>,
-        size:"text-xl",
+        size:"text-2xl",
         role:["admin"]
     },
 
