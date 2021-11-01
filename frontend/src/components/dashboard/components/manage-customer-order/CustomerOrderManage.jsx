@@ -27,7 +27,7 @@ const CustomerOrderManage = () => {
     }, [_id])
 
     return (
-        <section className="container w-5/6 mx-auto px-4 sm:px-8 max-w-6xl">
+        <section className="container w-5/6 mx-20 px-4 sm:px-8 max-w-6xl">
             <div class="py-8">
                 <div class="flex flex-row mb-1 sm:mb-0 justify-between">
                     <h2 class="text-2xl leading-tight">

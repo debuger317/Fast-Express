@@ -3,7 +3,7 @@ import TotalViews from './settings/TotalViews';
 
 const TottalSell = () => {
     return (
-        <div class="container mx-auto grid grid-cols-2 gap-8 md:grid-cols-4 p-10 text-center">
+        <div class="container mx-auto grid grid-cols-2 gap-8 md:grid-cols-4 px-10 pb-10 text-center">
             <TotalViews />
             <div class="shadow-lg rounded-2xl p-4 bg-white dark:bg-gray-800">
                 <div class="flex items-center">

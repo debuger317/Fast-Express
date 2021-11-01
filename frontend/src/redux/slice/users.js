@@ -5,9 +5,13 @@ export const usersSlice = createSlice({
     initialState: {
         userOrderLists: [],
         parcelPhotoUrl:"",
+        payment:"",
         userlist: {}
     },
     reducers: {
+        paymentType: (state, action) => {
+            state.payment = action.payload
+        },
         userlist:(state, action)=>{
             state.userlist = action.payload
         },
