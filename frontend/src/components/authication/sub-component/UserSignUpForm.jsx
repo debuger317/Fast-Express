@@ -39,9 +39,12 @@ const UserSignUpForm = () => {
     }
 
     return (
-        <div className="mx-auto w-1/2 mt-16">
-            <div class="flex flex-col px-4 py-8 bg-white rounded shadow dark:bg-gray-800 sm:px-6 md:px-8 lg:px-10 mx-auto">
-                <div class="self-center mb-2 text-xl font-light text-gray-800 sm:text-2xl dark:text-white">
+        <div className="mx-auto mt-16">
+            <div className="relative">
+                <img className="object-cover center" src="https://i.ibb.co/jzCDFwd/undraw-city-life-gnpr.png" alt="" srcset="" />
+            </div>
+            <div class="w-1/3 h-4/6 md:absolute z-10 inset-x-0 bottom-0 top-30 flex flex-col px-4 py-8 bg-white rounded shadow dark:bg-gray-800 sm:px-6 md:px-8 lg:px-10 mx-auto">
+                <div class="self-center text-2xl font-bold text-gray-800 sm:text-2xl dark:text-white">
                     User Signup
                 </div>
                 <div class="p-6 mt-8">

@@ -125,7 +125,6 @@ const SignIn = () => {
         const user = result.user;
         const credential = FacebookAuthProvider.credentialFromResult(result);
         const accessToken = credential.accessToken;
-        console.log("user info", user)
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -142,7 +141,7 @@ const SignIn = () => {
       <div className="relative">
         <img src="https://i.ibb.co/mRyCqSv/undraw-suburbs-8b83.png" alt="" srcset="" />
       </div>
-      <div className="md:absolute inset-x-0 bottom-0 top-72 flex flex-col justify-center items-center">
+      <div className="md:absolute z-10 inset-x-0 bottom-0 top-72 flex flex-col justify-center items-center">
         <div className="flex flex-col container w-full max-w-md py-8 bg-white rounded shadow-xl dark:bg-gray-800 sm:px-6 md:px-8">
           <h2 className="mt-10 mb-6 text-2xl text-center font-bold text-gray-600 sm:text-2xl dark:text-white">
             Login To Your Account
