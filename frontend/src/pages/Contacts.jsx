@@ -10,7 +10,7 @@ const Contacts = () => {
         <Fragment>
             <TopBar />
             <Navbar />
-            <PageTitle title="Contact" pageName="Contact Option"/>
+            {/* <PageTitle title="Contact" pageName="Contact Option"/> */}
             <Contact />
             <Footer />
         </Fragment>

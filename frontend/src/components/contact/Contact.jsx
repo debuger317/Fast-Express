@@ -52,7 +52,7 @@ const Contact = () => {
                                     </div>
                                     <div class="px-4 pt-4 pb-2">
                                         <button type="button" class="m-auto block py-2 px-2  bg-red-400 hover:bg-red-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
-                                            <ImWhatsapp className='inline mx-3 text-3xl' />WhatsApp
+                                            <ImWhatsapp className='inline mx-3 text-3xl' /><a href="https://web.whatsapp.com/" target="_blank">WhatsApp</a>
                                         </button>
                                         <button type="button" class="m-auto block my-5 py-2 px-2  bg-red-400 hover:bg-red-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
                                             ONLINE CHAT SUPPORT
