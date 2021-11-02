@@ -7,9 +7,7 @@ const Blog = () => {
   return (
     <section class="text-gray-600 body-font">
       <div class="container px-5 py-24 mx-auto">
-        <div class="text-center">
-          <h1 className="text-5xl pb-5">Latest News & Blog</h1>
-        </div>
+        <h2 className="font-bold text-center text-4xl uppercase p-3 items-center mb-5">Our lastest Blog</h2>
         <div class="flex flex-wrap  sm:-m-4 -mx-4 -mb-10 -mt-4">
           {
             BlogData.map(blog => (
