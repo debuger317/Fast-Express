@@ -8,12 +8,11 @@ const CustomerList = () => {
     const [customer, setCustomer] = useState([]);
     const Path = location.pathname.split('/')[1];
     const merchant = useSelector((state => state.auth.authdetails._id))
-    console.log(merchant);
+
     const GetCustomer = async () => {
         try {
             const res = await axios.get(`https://fastexpress.herokuapp.com/api/order/merchant/${merchant}`)
             setCustomer(res.data);
-            console.log(res.data);
         }
         catch (err) {
             console.log(err);

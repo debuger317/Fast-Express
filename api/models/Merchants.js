@@ -17,6 +17,10 @@ const MerchantSchema = new mongoose.Schema({
         required: true,
         unique: true,
     },
+    merchantId:{
+        type: String,
+        required: true,
+    },
     website: {
         type: String,
         required: true,

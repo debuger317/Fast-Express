@@ -80,7 +80,7 @@ export default function PaymentCard() {
       <CardElement id="card-element" options={cardStyle} onChange={handleChange} />
       <button
         disabled={processing || disabled || succeeded}
-        id="submit"
+        id="submit" type="submit"
       >
         <span id="button-text">
           {processing ? (

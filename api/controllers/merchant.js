@@ -6,6 +6,7 @@ const addmerchant_C = async (req, res) => {
             logo: req.body.logo,
             name: req.body.companyName,
             email: req.body.email,
+            merchantId: req.body.merchantId,
             website: req.body.website,
             weight: req.body.weight,
             address: req.body.address,
@@ -54,6 +55,20 @@ const signlemerchant_c = async (req, res, next) => {
         res.status(500).json({ message: err.message })
     }
 }
+// find a single merchant by email address
+const FindAMerchantByEmail = async (req, res, next) => {
+
+    let Id = req.params.merchantId;
+
+    try {
+        const merchant = await merchants.find({ merchantId:Id });
+        res.status(200).json(merchant)
+    }
+    catch (err) {
+
+        res.status(500).json({ message: err.message })
+    }
+}
 
 //update any field from merchants
 
@@ -99,6 +114,7 @@ module.exports = {
     addmerchant_C,
     getallmerchant_C,
     signlemerchant_c,
+    FindAMerchantByEmail,
     updatemerchant_c,
     deleteAMerchantByIdAndEmail
 }

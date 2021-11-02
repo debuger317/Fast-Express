@@ -10,7 +10,7 @@ const ParcelOverview = () => {
     const dispatch = useDispatch();
     const methods = useFormContext();
     const MerchantOverview = useSelector(state => state.merchant.selectedMerchant);
-    console.log(MerchantOverview);
+
     const { name, logo, pickupFrom, pickupTo,description } = MerchantOverview;
 
     //handle imgae upload

@@ -19,7 +19,6 @@ const CustomerList = lazy(() => import('../components/dashboard/wrapper/Customer
 const DashboardHome = lazy(() => import('../components/dashboard/wrapper/Home'));
 const Home = lazy(() => import('./Home'));
 const CompanyList = lazy(() => import('../components/dashboard/components/manageCompany/CompanyList'));
-const PendingCompany = lazy(() => import('../components/dashboard/components/manageCompany/PendingCompany'));
 const Settings = lazy(() => import('../components/dashboard/userDashboard/Settings'));
 const UserList = lazy(() => import('../components/dashboard/wrapper/UserList'));
 const AllOrderList = lazy(() => import('./../components/dashboard/wrapper/AllOrderList'));
@@ -48,6 +47,7 @@ const Dashboard = () => {
                 </div>
                 <div className="w-full mt-16">
                     <CloseButton />
+                    <div className="m-16">
                     <Suspense fallback={<Spinner />}>
                         <Switch>
                             <Route exact path="/dashboard">
@@ -64,9 +64,6 @@ const Dashboard = () => {
                             </Route>
                             <Route path="/dashboard/customer-list">
                                 <CustomerList />
-                            </Route>
-                            <Route path="/dashboard/pending-company">
-                                <PendingCompany />
                             </Route>
                             <Route path="/dashboard/manage-company-info">
                                 <ManageCompany />
@@ -105,7 +102,8 @@ const Dashboard = () => {
                                 <MerchantDeliveryMan />
                             </Route>
                         </Switch>
-                    </Suspense>
+                        </Suspense>
+                    </div>
                 </div>
             </div>
         </Router>

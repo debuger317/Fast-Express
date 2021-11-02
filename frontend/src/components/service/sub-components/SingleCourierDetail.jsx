@@ -30,9 +30,9 @@ const SingleCourierDetail = () => {
     }
     return (
         <section class="text-gray-600 body-font">
-            <div class="container mx-auto flex px-5 py-24 items-center justify-center flex-col">
-                <img class="mb-10 rounded shadow" alt="hero" src={logo} />
-                <div class="w-1/2">
+            <div class="container mx-auto flex px-16 py-24 items-center justify-center flex-col w-2/3 lg:w-full">
+                <img class="mb-10 rounded shadow object-cover center w-full h-20" alt="hero" src={logo} />
+                <div class="">
                     <h1 class="title-font text-3xl mb-4 font-semibold text-gray-900 uppercase">{name}</h1>
                     <p class="mb-8 leading-relaxed">{description}</p>
                     <span>Created at : {new Date(createdAt).toDateString()}</span>

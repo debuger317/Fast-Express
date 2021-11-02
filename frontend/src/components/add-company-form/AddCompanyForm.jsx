@@ -26,7 +26,7 @@ const AddCompanyForm = () => {
         getCategories()
     }, [Path])
 
-    const { email, password } = merchantAuth;
+    const {_id, email, password } = merchantAuth;
     const [error, setError] = useState(false);
     const [pending, setPending] = useState(false);
 
@@ -37,6 +37,7 @@ const AddCompanyForm = () => {
             logo: logo,
             companyName: data.Cname,
             email: email,
+            merchantId:_id,
             website: data.website,
             weight: data.weight,
             address: data.address,
