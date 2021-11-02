@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
+import Chats from './charts/Chats';
 
 const DailyActivity = () => {
     const [value, onChange] = useState(new Date());
 
     return (
         <div class="flex items-center">
+                        <Chats/>
             <div class="w-3/5 mx-10 p-6 bg-white shadow-lg rounded-lg flex justify-between dark:bg-gray-800 md:items-center md:flex-row flex-col gap-5">
                 <div>
                     <span class="text-bold text-gray-700 dark:text-gray-400 block">
