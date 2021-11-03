@@ -81,7 +81,7 @@ const OurDevelopers = () => {
                       </tbody></table>
 
                     <div class="text-center my-3">
-                      <a class="text-xs text-red-500 italic hover:underline hover:text-red-600 font-medium" href="https://www.linkedin.com/in/abdul-hannan9229/" target="_blank" rel="noreferrer">View Profile</a>
+                      <a class="text-xs text-red-500 italic hover:underline hover:text-red-600 font-medium" href="https://www.linkedin.com/in/abdul-hannan-web/" target="_blank" rel="noreferrer">View Profile</a>
                     </div>
 
                   </div>
