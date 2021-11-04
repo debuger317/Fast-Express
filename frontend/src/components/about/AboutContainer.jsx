@@ -6,12 +6,12 @@ import { FaTwitterSquare, FaInstagramSquare, FaLinkedin, FaFacebookSquare } from
 const AboutContainer = () => {
   return (
     <div className="container mx-auto text-center">
-      <p className="font-semibold pt-3 text-red-600"><Link to="/"><span className="hover:text-gray-600 cursor-pointer">HOME</span></Link> / <span className="hover:text-gray-600 cursor-pointer">ABOUT US</span></p>
-      <h2 className="text-4xl pt-16 font-medium ">[ ABOUT OUR <span className="text-red-600">COMPANY</span> ]</h2>
       <section className="text-gray-600 body-font overflow-hidden">
-        <div className="container px-5 py-2 mx-auto">
-          <div className="lg:w-4/5 mx-auto flex flex-wrap pt-8">
-            <img alt="Company Logo" className="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center max-h-80 rounded" src={exportPicture} />
+        <div className="container px-5 pb-10 mx-auto">
+          <div className="lg:w-4/5 mx-auto flex justify-center items-center flex-wrap pt-4">
+            <div>
+              <img alt="Company Logo" className="lg:w-1/2 about-img-fix lg:h-auto h-64 object-cover pr-10 max-h-80 rounded" src={exportPicture} />
+            </div>
             <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
               <h2 className="text-sm title-font text-gray-500 tracking-widest pt-12">FAST-EXPRESS</h2>
               <h1 className="text-gray-900 text-3xl title-font font-medium mb-1">Courier Service Provider</h1>

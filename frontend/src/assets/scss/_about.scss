@@ -1,3 +1,21 @@
 .developer-fix{
-    height: 65vh;
+    height: 70vh;
+}
+.about-img-fix{
+    width: 100% !important;
+}
+.slider-section-about{
+    background-image: url(../images/banner-img.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #3333338c;
+    background-blend-mode: multiply;
+    background-attachment: fixed;
+    height: 40vh;
+}
+.feature-content{
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    padding: 80px;
 }
