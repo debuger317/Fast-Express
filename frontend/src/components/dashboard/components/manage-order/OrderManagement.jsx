@@ -3,7 +3,6 @@ import OrderManageTable from './OrderManageTable';
 
 const OrderManagement = () => {
     const [clist, setClist] = useState([]);
-    console.log(clist);
 
     useEffect(() => {
         fetch(`https://fastexpress.herokuapp.com/api/order/allorder`)

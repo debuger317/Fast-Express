@@ -4,8 +4,6 @@ import React from 'react';
 const ReviewManageTable = ({ list }) => {
     const { name, updatedAt, createdAt, photo, city, _id } = list;
 
-    // console.log(list)
-
     const deleteReview = async () => {
         try {
             await axios.delete(`https://fastexpress.herokuapp.com/api/reviews/${_id}`);

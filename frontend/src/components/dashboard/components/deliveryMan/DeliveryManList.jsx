@@ -3,7 +3,6 @@ import DeliveryManTable from './DeliveryManTable';
 
 const DeliveryManList = () => {
     const [clist, setClist] = useState([]);
-    console.log(clist);
 
     useEffect(() => {
         fetch(`https://fastexpress.herokuapp.com/api/order/allorder`)

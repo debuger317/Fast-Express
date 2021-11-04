@@ -10,7 +10,7 @@ const ManageReviews = () => {
     const location = useLocation();
     const Path = location.pathname.split('/')[1];
     const review = useSelector((state) => state.reviews.review)
-    console.log(review);
+
     const fetchReview = async () => {
         try {
             const res = await axios.get('https://fastexpress.herokuapp.com/api/reviews/allreviews');

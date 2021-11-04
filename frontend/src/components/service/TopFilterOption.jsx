@@ -14,13 +14,13 @@ const TopFilterOption = () => {
                         <option value="" disabled selected>
                             Select an option
                         </option>
-                        <option value="dog">
+                        <option value="new">
                             New
                         </option>
-                        <option value="cat">
+                        <option value="top_rated">
                             Top rated
                         </option>
-                        <option value="hamster">
+                        <option value="low_rated">
                             Low rated
                         </option>
                     </select>

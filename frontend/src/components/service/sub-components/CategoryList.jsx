@@ -36,7 +36,7 @@ const CategoryList = () => {
 
                 {
                     categories.map(item => item ?
-                        <Link to={`/service/category/${item.name.replace("&", "")}`} class="p-4 bg-gray-300 hover:bg-gray-400 duration-700 shadow-xl hover:text-white rounded-xl h-40">
+                        <Link to={`/service/category/${item.name.replace("&", "")}`} class="p-4 bg-white hover:bg-white duration-700 shadow-xl rounded-xl h-40">
                             <div class="flex flex-col items-center text-center mt-5">
                                 <span class="w-16">
                                     <img src={item.photo} alt="" srcset="" />

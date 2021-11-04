@@ -36,7 +36,7 @@ const ShippingForm = () => {
 
     useEffect(() => {
         findUser()
-    }, [])
+    }, [_id])
     const onSubmit = async (data) => {
         setError(false)
 
@@ -89,7 +89,7 @@ const ShippingForm = () => {
                 data: Neworder
             });
 
-            if (res && exit_user === null) {
+            if (exit_user === null) {
 
                     try {
                         const res = await axios({
@@ -97,7 +97,7 @@ const ShippingForm = () => {
                             url: 'https://fastexpress.herokuapp.com/api/user/adduser',
                             data: newUser
                         });
-                        console.log(res);
+                        console.log('respons',res);
                     }
                     catch (err) {
                         setError(true);
@@ -130,7 +130,7 @@ const ShippingForm = () => {
             setPending(false)
             console.log(err);
         }
-        history.push("/login")
+        history.push("/user-order/order=success!")
     }
     return (
         <Fragment>

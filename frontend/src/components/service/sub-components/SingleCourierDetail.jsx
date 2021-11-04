@@ -9,7 +9,7 @@ const SingleCourierDetail = () => {
     const { _id } = useParams();
     const dispatch = useDispatch();
     const [Item, setItem] = useState([]);
-    console.log(Item);
+ 
     const { name, logo, description, address, createdAt, costperkg, deliveryOption, phone, pickupFrom, pickupTo, serviceCategory, website, weight } = Item;
   
     const singleitem = async () => {

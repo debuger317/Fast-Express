@@ -28,6 +28,7 @@ const SignIn = () => {
   const { handleSubmit, register } = useForm();
 
   const onSubmit = async (data) => {
+    setError(false);
     const userData = {
       email: data.email,
       password: data.password,
@@ -42,7 +43,7 @@ const SignIn = () => {
       pauseOnHover: true,
       draggable: true,
       progress: undefined,
-      });
+    });
     try {
       const res = await axios({
         method: 'post',
@@ -50,7 +51,7 @@ const SignIn = () => {
         data: userData
       });
       // console.log(res);
-      
+
 
       dispatch(customAuthAction(res.data.others));
       if (res) {
@@ -106,8 +107,8 @@ const SignIn = () => {
         data: user
       });
 
-      if (res) {
-        history.push("/dashboard")
+      if (res) {  
+      history.replace(from)
       }
 
     } catch (err) {
