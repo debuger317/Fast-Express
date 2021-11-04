@@ -6,8 +6,6 @@ import "swiper/components/navigation/navigation.min.css";
 import SwiperCore, {
   Autoplay, Pagination, Navigation
 } from 'swiper/core';
-import { useLocation } from 'react-router';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 // install Swiper modules

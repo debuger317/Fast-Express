@@ -17,7 +17,7 @@ const AddReview = () => {
             description: data.description,
             photo: photo,
         }
-        console.log(reviewData);
+
         try {
             const res = await axios({
                 method: 'post',

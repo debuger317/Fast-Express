@@ -67,7 +67,6 @@ const DeliveryManList = () => {
             PickupForm: pickup,
             PickupTo: drop
         };
-        console.log(newCategory);
         setPending(true)
 
         try {

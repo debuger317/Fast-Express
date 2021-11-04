@@ -17,7 +17,6 @@ console.log(userId);
     const GetAorderForUser = async () => {
         try {
             const res = await axios.get(`https://fastexpress.herokuapp.com/api/order//user/${userId}`);
-            console.log(res.data.userOrders)
             setFilter(res.data.userOrders)
 
         } catch (error) {

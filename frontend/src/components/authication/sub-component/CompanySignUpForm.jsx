@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
-import { customAuthAction, merchantAuthAction } from '../../../redux/action/action';
+import { customAuthAction } from '../../../redux/action/action';
 import { CgSpinner } from 'react-icons/cg';
 import axios from 'axios';
 
@@ -16,17 +16,18 @@ const CompanySignUpForm = () => {
 
     const { handleSubmit, register } = useForm();
     const onSubmit = async (data) => {
-        const userData = {
+        setError(false);
+        const merchantData = {
             email: data.email,
             password: data.password,
-            role: "user",
+            role: "merchant",
         }
         setPending(true)
         try {
             const res = await axios({
                 method: 'post',
                 url: 'https://fastexpress.herokuapp.com/api/auth/register',
-                data: userData
+                data: merchantData
             });
             dispatch(customAuthAction(res.data))
 
@@ -64,8 +65,6 @@ const CompanySignUpForm = () => {
 
                             <button type="submit" class="py-2 px-4 flex justify-center items-center  bg-red-600 hover:bg-red-700 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none  rounded">
                                 {pending ? <CgSpinner class="animate-spin text-xl" /> : "Next Step"}
-
-
                             </button>
                         </div>
                         {error && <span style={{ color: 'red', marginTop: '10px' }}>Something went wrong!</span>}

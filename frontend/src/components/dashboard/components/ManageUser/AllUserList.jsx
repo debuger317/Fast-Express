@@ -11,7 +11,7 @@ const AllUserList = () => {
             .then(data => setUserList(data))
     }, [])
     return (
-        <section className="container w-5/6 mx-auto px-4 sm:px-8">
+        <section className="container  mx-auto px-4 sm:px-8">
             <div class="py-8">
                 <div class="flex flex-row mb-1 sm:mb-0 justify-between">
                     <h2 class="text-2xl leading-tight">

@@ -9,9 +9,11 @@ import {
 import Private from '../components/auth/PrivateRoute';
 import PrivateForm from '../components/auth/PrivateForm';
 import PrivateShippingForm from '../components/auth/PrivateShippingForm';
+import OrderConform from '../components/messages/OrderConform';
+import WelcomeCompany from './../components/messages/WelcomeCompany';
 
 const BlogPage = lazy(() => import('../pages/BlogPage'));
-const ShippingForm =  lazy(() => import('../pages/ShippingForm'));
+const ShippingForm = lazy(() => import('../pages/ShippingForm'));
 const Home = lazy(() => import('../pages/Home'));
 const Pricing = lazy(() => import('../pages/Pricing'));
 const Contacts = lazy(() => import('../pages/Contacts'));
@@ -60,19 +62,27 @@ const Routes = () => {
                         <BlogPage />
                     </Route>
                     <Route path="/faq">
-                        <Faq/>
+                        <Faq />
                     </Route>
                     <Route path="/about">
-                        <About/>
+                        <About />
                     </Route>
                     <Route path="/user-signup">
                         <UserSignUp />
-                    </Route> 
+                    </Route>
                     <Route path="/company-signup">
                         <CompanySignUp />
                     </Route>
                     <Route path="/login">
                         <Login />
+                    </Route>
+                    {/* Order confrom message */}
+                    {/* WelcomeCompany */}
+                    <Route path="/merchant-account/created=success!">
+                        <WelcomeCompany />
+                    </Route>
+                    <Route path="/user-order/order=success!">
+                        <OrderConform />
                     </Route>
                     <Private exact path="/dashboard">
                         <Dashboard />

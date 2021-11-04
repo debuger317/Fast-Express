@@ -26,18 +26,19 @@ const AddCompanyForm = () => {
         getCategories()
     }, [Path])
 
-    const {_id, email, password } = merchantAuth;
+    const { _id, email } = merchantAuth;
     const [error, setError] = useState(false);
     const [pending, setPending] = useState(false);
 
     const { handleSubmit, register } = useForm();
-    
+
     const onSubmit = async (data) => {
+        setError(false);
         const merchant = {
             logo: logo,
             companyName: data.Cname,
             email: email,
-            merchantId:_id,
+            merchantId: _id,
             website: data.website,
             weight: data.weight,
             address: data.address,
@@ -50,45 +51,15 @@ const AddCompanyForm = () => {
             serviceCategory: data.ctegory,
             status: "pending"
         }
-
-        const userData = {
-            email: email,
-            password: password,
-            role: "merchant",
-        }
-
         setPending(true)
-
         try {
-            const res1 = await axios({
+            const res = await axios({
                 method: 'post',
                 url: 'https://fastexpress.herokuapp.com/api/merchant/addmerchant',
                 data: merchant
             });
-            console.log(res1);
-            if (res1) {
-                try {
-                    const res2 = await axios({
-                        method: 'post',
-                        url: 'https://fastexpress.herokuapp.com/api/auth/register',
-                        data: userData
-                    });
-                    console.log(res2);
 
-                    if (res2) {
-                        history.push("/login")
-                    }
-                } catch (err) {
-                    setError(true);
-                    setPending(false);
-                }
-            }
-            else {
-                setError(true);
-                setPending(false)
-
-            }
-
+            res && history.push('/merchant-account/created=success!')
         } catch (err) {
             setPending(false)
             setError(true);
