@@ -54,7 +54,7 @@ const OurDevelopers = () => {
           }} navigation={false} className="mySwiper justify-items-center">
 
           <SwiperSlide>
-            <div class="flex items-center h-screen w-full justify-center">
+            <div class="flex items-center developer-fix w-full justify-center">
               <div class="max-w-xs">
                 <div class="bg-white shadow-xl rounded-lg py-3">
                   <div class="photo-wrapper p-2">
@@ -79,7 +79,6 @@ const OurDevelopers = () => {
                           <td class="px-2 py-2">shohas563@gmail.com</td>
                         </tr>
                       </tbody></table>
-
                     <div class="text-center my-3">
                       <a class="text-xs text-red-500 italic hover:underline hover:text-red-600 font-medium" href="https://www.linkedin.com/in/abdul-hannan-web/" target="_blank" rel="noreferrer">View Profile</a>
                     </div>
@@ -91,7 +90,7 @@ const OurDevelopers = () => {
             </div>
           </SwiperSlide>
           <SwiperSlide>
-          <div class="flex items-center h-screen w-full justify-center">
+          <div class="flex items-center developer-fix w-full justify-center">
               <div class="max-w-xs">
                 <div class="bg-white shadow-xl rounded-lg py-3">
                   <div class="photo-wrapper p-2">
@@ -127,7 +126,7 @@ const OurDevelopers = () => {
             </div>
           </SwiperSlide>
           <SwiperSlide>
-          <div class="flex items-center h-screen w-full justify-center">
+          <div class="flex items-center developer-fix w-full justify-center">
               <div class="max-w-xs">
                 <div class="bg-white shadow-xl rounded-lg py-3">
                   <div class="photo-wrapper p-2">
@@ -162,7 +161,7 @@ const OurDevelopers = () => {
             </div>
           </SwiperSlide>
           <SwiperSlide>
-          <div class="flex items-center h-screen w-full justify-center">
+          <div class="flex items-center developer-fix w-full justify-center">
               <div class="max-w-xs">
                 <div class="bg-white shadow-xl rounded-lg py-3">
                   <div class="photo-wrapper p-2">
@@ -199,7 +198,7 @@ const OurDevelopers = () => {
             </div>
           </SwiperSlide>
           <SwiperSlide>
-          <div class="flex items-center h-screen w-full justify-center">
+          <div class="flex items-center developer-fix w-full justify-center">
               <div class="max-w-xs">
                 <div class="bg-white shadow-xl rounded-lg py-3">
                   <div class="photo-wrapper p-2">

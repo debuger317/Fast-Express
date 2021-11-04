@@ -26,7 +26,7 @@ const AboutContainer = () => {
                 <h3 className="text-3xl title-font font-medium">Residential Movers</h3>
                 <div class="w-full h-4 bg-gray-400 rounded-full mt-3">
                   <div class="w-3/4 h-full text-center text-xs text-white bg-yellow-500 rounded-full">
-                    75%
+                    80%
                   </div>
                 </div>
               </div>
