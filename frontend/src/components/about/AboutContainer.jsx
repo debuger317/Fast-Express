@@ -13,10 +13,10 @@ const AboutContainer = () => {
               <img alt="Company Logo" className="lg:w-1/2 about-img-fix lg:h-auto h-64 object-cover pr-10 max-h-80 rounded" src={exportPicture} />
             </div>
             <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
-              <h2 className="text-sm title-font text-gray-500 tracking-widest pt-12">FAST-EXPRESS</h2>
-              <h1 className="text-gray-900 text-3xl title-font font-medium mb-1">Courier Service Provider</h1>
-              <p className="leading-relaxed"> Delivering fast for a great price is only half the equation; it must also be easy for you to know what’s happening with your delivery. Our responsive staff keeps you informed every step of the way. You can see what’s happening with your shipment at all times, and can speak to our great staff any time more information is needed. We want the Couryier name to be something you feel really good about</p>
-              <div className="flex justify-center text-4xl py-9 text-red-500">
+              <h1 className="text-left text-gray-900 text-3xl font-medium ">FAST-EXPRESS</h1>
+              <h2 className="text-md  text-left text-gray-500 tracking-widest pt-2 mb-4">Courier Service Provider</h2>
+              <p className="text-justify"> Delivering fast for a great price is only half the equation; it must also be easy for you to know what’s happening with your delivery. Our responsive staff keeps you informed every step of the way. You can see what’s happening with your shipment at all times, and can speak to our great staff any time more information is needed. We want the Couryier name to be something you feel really good about</p>
+              <div className="flex items-center text-4xl py-9 text-red-500">
                 <a className="hover:text-gray-400" href="https://facebook.com"><FaFacebookSquare /></a>
                 <a className="pl-2 hover:text-gray-400" href="https://linkedin.com"><FaLinkedin /></a>
                 <a className="pl-2 hover:text-gray-400" href="https://twitter.com"><FaTwitterSquare /></a>

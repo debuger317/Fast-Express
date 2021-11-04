@@ -6,8 +6,6 @@ import "swiper/components/navigation/navigation.min.css";
 import SwiperCore, {
   Autoplay, Pagination, Navigation
 } from 'swiper/core';
-import { useLocation } from 'react-router';
-import { Link } from 'react-router-dom';
 
 // install Swiper modules
 SwiperCore.use([Pagination, Navigation, Autoplay]);
@@ -54,8 +52,8 @@ const OurDevelopers = () => {
           }} navigation={false} className="mySwiper justify-items-center">
 
           <SwiperSlide>
-            <div class="flex items-center developer-fix w-full justify-center">
-              <div class="max-w-xs">
+            <div class="flex items-center developer-fix justify-center">
+              <div class="w-52">
                 <div class="bg-white shadow-xl rounded-lg py-3">
                   <div class="photo-wrapper p-2">
                   <img class="w-32 h-32 rounded-full mx-auto" src="https://i.ibb.co/f2c9vGH/Abdul-Hannan.png" alt="Abdul Hannan" />
@@ -90,8 +88,8 @@ const OurDevelopers = () => {
             </div>
           </SwiperSlide>
           <SwiperSlide>
-          <div class="flex items-center developer-fix w-full justify-center">
-              <div class="max-w-xs">
+          <div class="flex items-center developer-fix justify-center">
+              <div class="">
                 <div class="bg-white shadow-xl rounded-lg py-3">
                   <div class="photo-wrapper p-2">
                     <img class="w-32 h-32 rounded-full mx-auto" src="https://i.ibb.co/HgvymHJ/Naimur-Rahman.jpg" alt="Naimur Rahman" />
@@ -126,8 +124,8 @@ const OurDevelopers = () => {
             </div>
           </SwiperSlide>
           <SwiperSlide>
-          <div class="flex items-center developer-fix w-full justify-center">
-              <div class="max-w-xs">
+          <div class="flex items-center developer-fix justify-center">
+              <div class="">
                 <div class="bg-white shadow-xl rounded-lg py-3">
                   <div class="photo-wrapper p-2">
                     <img class="w-32 h-32 rounded-full mx-auto" src="https://i.ibb.co/fnqyG4F/Abdul-Mozid-Fahim.jpg" alt="Abdul Mozid Fahim" />
@@ -161,8 +159,8 @@ const OurDevelopers = () => {
             </div>
           </SwiperSlide>
           <SwiperSlide>
-          <div class="flex items-center developer-fix w-full justify-center">
-              <div class="max-w-xs">
+          <div class="flex items-center developer-fix justify-center">
+              <div class="">
                 <div class="bg-white shadow-xl rounded-lg py-3">
                   <div class="photo-wrapper p-2">
                     <img class="w-32 h-32 rounded-full mx-auto" src="https://i.ibb.co/dLs7tfj/Kazi-Rayhan.jpg" alt="Kazi Rayhan" />
@@ -186,7 +184,6 @@ const OurDevelopers = () => {
                           <td class="px-2 py-2">rayhanbd4400@gmail.com</td>
                         </tr>
                       </tbody></table>
-
                     <div class="text-center my-3">
                       <a class="text-xs text-red-500 italic hover:underline hover:text-red-600 font-medium"  href="https://www.linkedin.com/in/rayhanwd/" target="_blank" rel="noreferrer">View Profile</a>
                     </div>
@@ -198,8 +195,8 @@ const OurDevelopers = () => {
             </div>
           </SwiperSlide>
           <SwiperSlide>
-          <div class="flex items-center developer-fix w-full justify-center">
-              <div class="max-w-xs">
+          <div class="flex items-center developer-fix justify-center">
+              <div class="">
                 <div class="bg-white shadow-xl rounded-lg py-3">
                   <div class="photo-wrapper p-2">
                     <img class="w-32 h-32 rounded-full mx-auto" src="https://i.ibb.co/bd7jqn6/Zihadul-Islam.jpg" alt="Zihadul Islam" />
@@ -223,11 +220,9 @@ const OurDevelopers = () => {
                           <td class="px-2 py-2">zihadul10101@gmail.com</td>
                         </tr>
                       </tbody></table>
-
                     <div class="text-center my-3">
                       <a class="text-xs text-red-500 italic hover:underline hover:text-red-600 font-medium" href="https://www.linkedin.com/in/zihadul-islam-bd/" target="_blank" rel="noreferrer">View Profile</a>
                     </div>
-
                   </div>
                 </div>
               </div>

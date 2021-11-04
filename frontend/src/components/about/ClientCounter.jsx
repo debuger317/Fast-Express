@@ -1,8 +1,6 @@
 import React from 'react';
 import { FaUserPlus } from 'react-icons/fa';
 import { MdCloudDone } from 'react-icons/md';
-import Countimg from '../../assets/images/about/titleimg.jpg';
-
 
 const ClientCounter = () => {
   return (
